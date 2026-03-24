@@ -1,0 +1,113 @@
+
+    <!-- TAMANHO IDEAL -->
+    <!-- <div>
+      <h2>Escolhendo o Tamanho Ideal: Peixes ou Aquário Primeiro?</h2>
+      <p>
+        Uma das primeiras decisões que você precisa tomar ao montar um aquário é se você quer
+        escolher os peixes primeiro ou o tamanho do aquário primeiro.
+      </p>
+      <ul class="post-list">
+        <li>
+          <strong>Escolher os peixes primeiro:</strong>
+          Se você já tem em mente quais peixes quer criar (por exemplo, discos ou kinguios), o
+          tamanho do aquário deve ser compatível com o tamanho adulto desses peixes e com a
+          quantidade que deseja manter.
+        </li>
+        <li>
+          <strong>Escolher o aquário primeiro:</strong>
+          Caso você tenha um espaço ou orçamento definido, o tamanho do aquário vai limitar o tipo e
+          a quantidade de peixes que você pode ter.
+        </li>
+      </ul>
+      <div class="highlight-box">
+        <p><strong>💡 Regra geral:</strong></p>
+        <ul class="post-list">
+          <li>Para peixes de água doce → 1 litro de água para cada 1 cm de peixe.</li>
+          <li>Para peixes marinhos → 2 a 3 litros de água para cada 1 cm de peixe.</li>
+        </ul>
+      </div>
+      <p>
+        ➡️ <strong>Exemplo:</strong> Se você deseja criar cinco peixes de 10 cm cada, o ideal seria
+        um aquário de pelo menos 50 litros para peixes de água doce ou 100 litros para peixes
+        marinhos.
+      </p>
+    </div> -->
+
+    <!-- PROPORÇÃO ÁUREA -->
+    <!-- <div>
+      <h2>Proporção Áurea: Design Harmônico para o Aquário</h2>
+      <p>
+        A proporção áurea (aproximadamente 1,618) é um conceito matemático usado para criar harmonia
+        visual. Ela é muito aplicada na aquariofilia para definir um aquário visualmente
+        equilibrado.
+      </p>
+      <ul class="post-list">
+        <li>Comprimento ÷ Altura ≈ 1,618</li>
+        <li>Altura ÷ Largura ≈ 1,618 (para aquário comunitário)</li>
+        <li>Largura ÷ Altura ≈ 1,618 (para aquário plantado)</li>
+      </ul>
+      <p>
+        ➡️ <strong>Exemplo:</strong> Para um aquário com 60 cm de comprimento, a altura ideal seria
+        cerca de 37 cm (60 ÷ 1,618) e a largura aproximadamente 23 cm (37 ÷ 1,618) ou 60 cm (37 ×
+        1,618).
+      </p>
+      <p>
+        Essa proporção cria uma estética equilibrada e facilita o layout de paisagismo, tornando o
+        aquário mais agradável visualmente.
+      </p>
+    </div> -->
+
+    <!-- PROPORÇÕES POPULARES -->
+    <!-- <div>
+      <h2>Proporções Mais Escolhidas para Aquapaisagismo</h2>
+      <p>
+        No aquapaisagismo, algumas proporções são mais populares por criarem composições harmônicas
+        e facilitarem a manutenção:
+      </p>
+      <ul class="post-list">
+        <li>60 x 30 x 36 cm → Proporção clássica para aquários plantados</li>
+        <li>90 x 45 x 45 cm → Muito usada em Iwagumi</li>
+        <li>120 x 50 x 50 cm → Ideal para projetos maiores</li>
+      </ul>
+      <p>
+        A profundidade (frente para trás) é essencial para criar um layout mais tridimensional e
+        natural.
+      </p>
+    </div> -->
+
+    <!-- DIMENSÕES -->
+    <!-- <div>
+      <h2>Alteração de Dimensões: Impacto Visual e Estrutural</h2>
+      <ul class="post-list">
+        <li>
+          <strong>Aumentar o comprimento:</strong> Mais espaço para os peixes e melhor design
+          horizontal.
+        </li>
+        <li>
+          <strong>Aumentar a altura:</strong> Visual mais imponente, porém manutenção mais difícil.
+        </li>
+        <li>
+          <strong>Aumentar a profundidade:</strong> Melhora a sensação de profundidade e
+          naturalidade.
+        </li>
+      </ul>
+    </div> -->
+
+    <!-- ILUMINAÇÃO -->
+    <!-- <div>
+      <h2>A Relação da Luz com o Tamanho do Aquário</h2>
+      <p>
+        A iluminação é essencial para a saúde das plantas e dos peixes, além de valorizar o visual
+        do aquário:
+      </p>
+      <ul class="post-list">
+        <li>Aquários altos → precisam de iluminação mais potente</li>
+        <li>Aquários largos e rasos → melhor distribuição de luz</li>
+        <li>Luz branca (6500K a 8000K) → crescimento de plantas</li>
+        <li>Luz azul (10000K a 20000K) → aquários marinhos</li>
+      </ul>
+      <p>
+        Para aquapaisagismo, LEDs são a melhor opção devido à eficiência energética e controle de
+        intensidade.
+      </p>
+    </div> -->
