@@ -8,7 +8,7 @@ import { Post, SearchPostById, SearchPostBySlug } from '../../../../shared/model
   selector: 'app-aquarium-size',
   imports: [PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-size.html',
-  styleUrl: './aquarium-size.scss',
+  styleUrls: ['./aquarium-size.scss', '../articles-style.scss'],
 })
 export class AquariumSize {
   currentPost: Post | undefined;
