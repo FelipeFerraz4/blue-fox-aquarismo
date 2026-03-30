@@ -146,5 +146,67 @@
       color: #8fb2c4;
       margin-top: -0.5rem;
     }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      // margin: 1rem 0;
+    }
+
+    .image-block {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .image-block2 {
+      text-align: center;
+    }
+
+    .image-block img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-block2 img {
+      width: 100%;
+      aspect-ratio: 16 / 9; /* força mesmo formato */
+      object-fit: cover; /* corta sem distorcer */
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-caption {
+      font-size: 1rem;
+      color: #8fb2c4;
+      margin-top: 0.5rem;
+    }
+
+    .image-caption2 {
+      grid-column: span 2; /* faz a legenda ocupar toda largura */
+      text-align: center;
+      font-size: 1rem;
+      color: #8fb2c4;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .article-section {
+    padding: 2rem 1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .article-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
   }
 }
