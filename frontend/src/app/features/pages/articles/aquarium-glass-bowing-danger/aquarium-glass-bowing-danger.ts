@@ -6,23 +6,24 @@ import { SeoService } from '../../../../core/services/seo/seo-service';
 import { PostService } from '../../../../core/services/post/post';
 
 @Component({
-  selector: 'app-aquarium-size',
+  selector: 'app-aquarium-glass-bowing-danger',
+  standalone: true,
   imports: [PostHeaderType1, RelatedPosts],
-  templateUrl: './aquarium-size.html',
-  styleUrls: ['./aquarium-size.scss', '../articles-style.scss'],
+  templateUrl: './aquarium-glass-bowing-danger.html',
+  styleUrls: ['./aquarium-glass-bowing-danger.scss', '../articles-style.scss'],
 })
-export class AquariumSize implements OnInit {
+export class AquariumGlassBowingDanger implements OnInit {
   currentPost?: Post;
   recommended: Post[] = [];
   latest: Post[] = [];
 
   constructor(
-    private seo: SeoService,
+    private seoService: SeoService,
     private postService: PostService
   ) { }
 
   ngOnInit(): void {
-    this.loadPostData('aquarium-size', ['1', '3']);
+    this.loadPostData('aquarium-glass-bowing-danger', ['1', '2']);
 
     this.setupSeo();
   }
@@ -38,11 +39,12 @@ export class AquariumSize implements OnInit {
   }
 
   setupSeo() {
-    this.seo.updateMetadata({
+    this.seoService.updateMetadata({
       title: this.currentPost!.title,
       description: this.currentPost!.description,
       image: this.currentPost!.image,
       url: `https://bluefoxaquarismo.com.br/articles/${this.currentPost!.slug}`,
     });
   }
+
 }

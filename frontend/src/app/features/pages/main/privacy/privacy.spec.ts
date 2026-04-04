@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Privacy } from './privacy';
 
 describe('Privacy', () => {
-  let component: Privacy;
-  let fixture: ComponentFixture<Privacy>;
+  let spectator: Spectator<Privacy>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Privacy]
-    })
-    .compileComponents();
+  const createComponent = createComponentFactory({
+    component: Privacy,
+    imports: [
+      RouterTestingModule
+    ]
+  });
 
-    fixture = TestBed.createComponent(Privacy);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  beforeEach(() => {
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

@@ -12,4 +12,8 @@ export const articlesRoutes: Routes = [
     path: 'aquarium-size',
     loadComponent: () => import('./aquarium-size/aquarium-size').then((m) => m.AquariumSize),
   },
+  {
+    path: 'aquarium-glass-bowing-danger',
+    loadComponent: () => import('./aquarium-glass-bowing-danger/aquarium-glass-bowing-danger').then((m) => m.AquariumGlassBowingDanger),
+  },
 ];

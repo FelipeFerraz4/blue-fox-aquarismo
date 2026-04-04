@@ -9,7 +9,8 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "vitest.config.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"

@@ -28,7 +28,7 @@ export class BlogHome {
 
   slides = [
     {
-      image: 'assets/pages/home/slide-1.webp',
+      image: 'assets/images/aquariums/aquarium5.webp',
       title: 'Aprenda sobre Aquarismo',
       description: 'Guias práticos e experiências reais.',
       button: {
@@ -37,7 +37,7 @@ export class BlogHome {
       }
     },
     {
-      image: 'assets/pages/home/slide-2.webp',
+      image: 'assets/images/aquariums/maintenance-aquarium.webp',
       title: 'Monte seu Aquário com Segurança',
       description: 'Evite erros comuns e cuide melhor dos peixes.',
       button: {
@@ -46,7 +46,7 @@ export class BlogHome {
       }
     },
     {
-      image: 'assets/pages/home/slide-3.webp',
+      image: 'assets/images/aquariums/learning-aquariums.webp',
       title: 'Divirta-se com as Ferramentas Educativas sobre Aquarismo',
       description: 'Aprenda de forma interativa.',
       button: {

@@ -1,55 +1,55 @@
 <section class="related-wrapper">
   <div class="container">
     @if (recommendedPosts.length > 0) {
-      <div class="section-header">
-        <span class="accent-line"></span>
-        <h2>Recomendados para você</h2>
-      </div>
+    <div class="section-header">
+      <span class="accent-line"></span>
+      <h2>Recomendados para você</h2>
+    </div>
 
-      <div class="posts-grid">
-        @for (post of recommendedPosts; track post.id) {
-          <a [routerLink]="['/articles', post.slug]" class="post-card">
-            <div class="card-image">
-              <img [src]="post.image" [alt]="post.title" />
-              <span class="category-tag">{{ post.category }}</span>
-            </div>
-            <div class="card-body">
-              <span class="post-date">{{ post.date }}</span>
-              <h3>{{ post.title }}</h3>
-              <p>{{ post.description }}</p>
-              <span class="read-more">Ler artigo →</span>
-            </div>
-          </a>
-        }
-      </div>
+    <div class="posts-grid">
+      @for (post of recommendedPosts; track post.id) {
+      <a [routerLink]="['/articles', post.slug]" class="post-card">
+        <div class="card-image">
+          <img [src]="post.image" [alt]="post.title" loading="lazy" />
+          <span class="category-tag">{{ post.category }}</span>
+        </div>
+        <div class="card-body">
+          <span class="post-date">{{ post.date }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+          <span class="read-more">Ler artigo →</span>
+        </div>
+      </a>
+      }
+    </div>
     }
 
     @if (recommendedPosts.length > 0 && lastPosts.length > 0) {
-      <hr class="spacer" />
+    <hr class="spacer" />
     }
 
     @if (lastPosts.length > 0) {
-      <div class="section-header">
-        <span class="accent-line"></span>
-        <h2>Últimas postagens</h2>
-      </div>
+    <div class="section-header">
+      <span class="accent-line"></span>
+      <h2>Últimas postagens</h2>
+    </div>
 
-      <div class="posts-grid small">
-        @for (post of lastPosts; track post.id) {
-          <a [routerLink]="['/articles', post.slug]" class="post-card">
-            <div class="card-image">
-              <img [src]="post.image" [alt]="post.title" />
-              <span class="category-tag">{{ post.category }}</span>
-            </div>
-            <div class="card-body">
-              <span class="post-date">{{ post.date }}</span>
-              <h3>{{ post.title }}</h3>
-              <p>{{ post.description }}</p>
-              <span class="read-more">Ler artigo →</span>
-            </div>
-          </a>
-        }
-      </div>
+    <div class="posts-grid small">
+      @for (post of lastPosts; track post.id) {
+      <a [routerLink]="['/articles', post.slug]" class="post-card">
+        <div class="card-image">
+          <img [src]="post.image" [alt]="post.title" loading="lazy" />
+          <span class="category-tag">{{ post.category }}</span>
+        </div>
+        <div class="card-body">
+          <span class="post-date">{{ post.date }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+          <span class="read-more">Ler artigo →</span>
+        </div>
+      </a>
+      }
+    </div>
     }
   </div>
 </section>

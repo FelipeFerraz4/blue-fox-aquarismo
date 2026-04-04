@@ -1,23 +1,34 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Footer } from './footer';
 
 describe('Footer', () => {
-  let component: Footer;
-  let fixture: ComponentFixture<Footer>;
+  let spectator: Spectator<Footer>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Footer]
-    })
-    .compileComponents();
+  const createComponent = createComponentFactory({
+    component: Footer,
+    imports: [
+      RouterTestingModule
+    ]
+  });
 
-    fixture = TestBed.createComponent(Footer);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  beforeEach(() => {
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should display the current year in the copyright', () => {
+    const currentYear = new Date().getFullYear().toString();
+    expect(spectator.element).toHaveText(currentYear);
+  });
+
+  it('should have correct links', () => {
+    expect(spectator.query('a[href="/"]')).toBeTruthy();
+    expect(spectator.query('a[href*="about"]')).toBeTruthy();
+    expect(spectator.query('a[href*="privacy"]')).toBeTruthy();
+    expect(spectator.query('a[href*="terms"]')).toBeTruthy();
   });
 });

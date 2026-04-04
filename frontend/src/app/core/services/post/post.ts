@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import { POST_MOCK } from '../../../shared/model/mocks/post-mock';
+import { Post, PostPageData, SearchPostById, SearchPostBySlug } from '../../../shared/model/types/post';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class PostService {
+
+  getPostPageData(slug: string, recommendedIds: string[]): PostPageData | null {
+    const post = this.getPostBySlug(slug);
+    if (!post) return null;
+
+    return {
+      post,
+      recommended: this.getRecommendedPosts(recommendedIds),
+      latest: this.getLatestPosts(post),
+    };
+  }
+
+  getPostBySlug(slug: string): Post | undefined {
+    return SearchPostBySlug(POST_MOCK, slug);
+  }
+
+  getRecommendedPosts(ids: string[]): Post[] {
+    return ids
+      .map((id) => SearchPostById(POST_MOCK, id))
+      .filter((post): post is Post => !!post);
+  }
+
+  getLatestPosts(currentPost: Post): Post[] {
+    const allPostsReversed = [...POST_MOCK]
+      .filter((p) => p.id !== currentPost.id)
+      .reverse();
+
+    const categoryLatest = allPostsReversed
+      .filter((p) => p.category === currentPost.category)
+      .slice(0, 2);
+
+    const generalLatest = allPostsReversed
+      .filter((p) => !categoryLatest.includes(p))
+      .slice(0, 4);
+
+    return [...categoryLatest, ...generalLatest];
+  }
+
+}
