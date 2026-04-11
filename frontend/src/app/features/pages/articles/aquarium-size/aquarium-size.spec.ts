@@ -1,23 +1,41 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
+import { SeoService } from '../../../../core/services/seo/seo-service';
+import { PostService } from '../../../../core/services/post/post';
 import { AquariumSize } from './aquarium-size';
 
 describe('AquariumSize', () => {
-  let component: AquariumSize;
-  let fixture: ComponentFixture<AquariumSize>;
+  let spectator: Spectator<AquariumSize>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AquariumSize]
-    })
-    .compileComponents();
+  const createComponent = createComponentFactory({
+    component: AquariumSize,
+    providers: [
+      {
+        provide: SeoService,
+        useValue: { updateMetadata: jest.fn() }
+      },
+      {
+        provide: PostService,
+        useValue: {
+          getPostPageData: jest.fn().mockReturnValue({
+            post: {
+              title: 'Test',
+              description: 'Desc',
+              image: 'img.png',
+              slug: 'test'
+            },
+            recommended: [],
+            latest: []
+          })
+        }
+      }
+    ]
+  });
 
-    fixture = TestBed.createComponent(AquariumSize);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  beforeEach(() => {
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });
