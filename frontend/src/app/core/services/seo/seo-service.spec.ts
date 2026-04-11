@@ -1,19 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
 import { Title, Meta } from '@angular/platform-browser';
-import { SeoService } from './seo-service';
 import { PLATFORM_ID } from '@angular/core';
 
+import { SeoService } from './seo-service';
+
 describe('SeoService', () => {
+    let spectator: SpectatorService<SeoService>;
     let service: SeoService;
     let titleService: Title;
     let metaService: Meta;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({});
+    const createService = createServiceFactory({
+        service: SeoService,
+        providers: [
+            { provide: PLATFORM_ID, useValue: 'browser' } // 🔑 garante execução do DOM
+        ]
+    });
 
-        service = TestBed.inject(SeoService);
-        titleService = TestBed.inject(Title);
-        metaService = TestBed.inject(Meta);
+    beforeEach(() => {
+        spectator = createService();
+        service = spectator.service;
+        titleService = spectator.inject(Title);
+        metaService = spectator.inject(Meta);
     });
 
     it('should be created', () => {
@@ -30,20 +38,64 @@ describe('SeoService', () => {
 
         service.updateMetadata(data);
 
-        expect(titleService.getTitle()).toBeTruthy();
         expect(titleService.getTitle()).toBe(data.title);
-        expect(metaService.getTag("name='description'")).toBeTruthy();
-        expect(metaService.getTag("name='description'")?.content).toBe(data.description);
-        expect(metaService.getTag("property='og:title'")).toBeTruthy();
-        expect(metaService.getTag("property='og:title'")?.content).toBe(data.title);
-        expect(metaService.getTag("property='og:description'")).toBeTruthy();
-        expect(metaService.getTag("property='og:description'")?.content).toBe(data.description);
-        expect(metaService.getTag("property='og:image'")).toBeTruthy();
-        expect(metaService.getTag("property='og:image'")?.content).toBe(data.image);
-        expect(metaService.getTag("property='og:type'")).toBeTruthy();
-        expect(metaService.getTag("property='og:type'")?.content).toBe('article');
-        expect(metaService.getTag("property='og:url'")).toBeTruthy();
-        expect(metaService.getTag("property='og:url'")?.content).toBe(data.url);
-        expect(metaService.getTag("name='twitter:card'")?.content).toBe('summary_large_image');
+
+        expect(metaService.getTag("name='description'")?.content)
+            .toBe(data.description);
+
+        expect(metaService.getTag("property='og:title'")?.content)
+            .toBe(data.title);
+
+        expect(metaService.getTag("property='og:description'")?.content)
+            .toBe(data.description);
+
+        expect(metaService.getTag("property='og:image'")?.content)
+            .toBe(data.image);
+
+        expect(metaService.getTag("property='og:type'")?.content)
+            .toBe('article');
+
+        expect(metaService.getTag("property='og:url'")?.content)
+            .toBe(data.url);
+
+        expect(metaService.getTag("name='twitter:card'")?.content)
+            .toBe('summary_large_image');
+    });
+
+    it('should create canonical link if not exists', () => {
+        const url = 'https://test.com';
+
+        const existing = document.querySelector("link[rel='canonical']");
+        if (existing) existing.remove();
+
+        service.updateMetadata({
+            title: 'Test',
+            description: 'Desc',
+            url
+        });
+
+        const link = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+
+        expect(link).toBeTruthy();
+        expect(link.getAttribute('href')).toBe(url);
+    });
+
+    it('should update canonical link if exists', () => {
+        const url = 'https://updated.com';
+
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        link.setAttribute('href', 'old-url');
+        document.head.appendChild(link);
+
+        service.updateMetadata({
+            title: 'Test',
+            description: 'Desc',
+            url
+        });
+
+        const updatedLink = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+
+        expect(updatedLink.getAttribute('href')).toBe(url);
     });
 });
