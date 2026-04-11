@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
 import { Post } from '../../../../shared/model/types/post';
@@ -17,15 +19,38 @@ export class AquariumGlassBowingDanger implements OnInit {
   recommended: Post[] = [];
   latest: Post[] = [];
 
+  @ViewChild('videoPlayer') video!: ElementRef<HTMLVideoElement>;
+  private observer!: IntersectionObserver;
+
   constructor(
     private seoService: SeoService,
-    private postService: PostService
+    private postService: PostService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit(): void {
     this.loadPostData('aquarium-glass-bowing-danger', ['1', '2']);
 
     this.setupSeo();
+  }
+
+  ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const videoEl = this.video.nativeElement;
+
+    videoEl.muted = true;
+    videoEl.volume = 0;
+
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        videoEl.play().catch(() => { });
+      } else {
+        videoEl.pause();
+      }
+    });
+
+    this.observer.observe(videoEl);
   }
 
   loadPostData(slug: string, recommendedIds: string[]) {
