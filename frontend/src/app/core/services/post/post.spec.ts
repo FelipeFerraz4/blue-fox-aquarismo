@@ -42,11 +42,12 @@ describe('PostService', () => {
 
   it('should return latest posts excluding current post', () => {
     const currentPost = POST_MOCK[0];
-
-    const latest = service.getLatestPosts(currentPost);
+    const recommendedIds = ['1', '3'];
+    const latest = service.getLatestPosts(currentPost, recommendedIds);
 
     expect(latest.length).toBeGreaterThan(0);
     expect(latest.find(p => p.id === currentPost.id)).toBeFalsy();
+    expect(latest.find(p => recommendedIds.includes(p.id))).toBeFalsy();
   });
 
   it('should return full post page data', () => {

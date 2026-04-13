@@ -14,7 +14,7 @@ export class PostService {
     return {
       post,
       recommended: this.getRecommendedPosts(recommendedIds),
-      latest: this.getLatestPosts(post),
+      latest: this.getLatestPosts(post, recommendedIds),
     };
   }
 
@@ -28,18 +28,21 @@ export class PostService {
       .filter((post): post is Post => !!post);
   }
 
-  getLatestPosts(currentPost: Post): Post[] {
+  getLatestPosts(currentPost: Post, recommendedIds: string[]): Post[] {
     const allPostsReversed = [...POST_MOCK]
       .filter((p) => p.id !== currentPost.id)
+      .filter((p) => !recommendedIds.includes(p.id))
       .reverse();
 
     const categoryLatest = allPostsReversed
       .filter((p) => p.category === currentPost.category)
       .slice(0, 2);
 
+    const postCount = 6 - categoryLatest.length;
+
     const generalLatest = allPostsReversed
       .filter((p) => !categoryLatest.includes(p))
-      .slice(0, 4);
+      .slice(0, postCount);
 
     return [...categoryLatest, ...generalLatest];
   }
