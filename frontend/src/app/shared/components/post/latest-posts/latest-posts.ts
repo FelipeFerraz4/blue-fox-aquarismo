@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Post } from '../../../model/types/post';
 
@@ -9,11 +9,6 @@ import { Post } from '../../../model/types/post';
   templateUrl: './latest-posts.html',
   styleUrl: './latest-posts.scss',
 })
-export class LatestPosts implements OnInit {
+export class LatestPosts {
   @Input() latestPosts: Post[] = [];
-
-  ngOnInit() {
-    console.log("Latest (OnInit): ")
-    console.log(this.latestPosts)
-  }
 }
