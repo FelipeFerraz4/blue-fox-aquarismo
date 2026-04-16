@@ -10,11 +10,11 @@ describe('FeaturedPost', () => {
     await TestBed.configureTestingModule({
       imports: [FeaturedPost]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FeaturedPost);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
