@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { POST_MOCK } from '../../../shared/model/mocks/post-mock';
+import { CATEGORY_MOCK } from '../../../shared/model/mocks/category-mock';
 import { Post, PostPageData, SearchPostById, SearchPostBySlug } from '../../../shared/model/types/post';
+import { Category } from '../../../shared/model/types/category';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,7 @@ export class PostService {
     };
   }
 
-  getPostBySlug(slug: string): Post | undefined {
+  getPostBySlug(slug: string): Post {
     return SearchPostBySlug(POST_MOCK, slug);
   }
 
@@ -47,4 +49,11 @@ export class PostService {
     return [...categoryLatest, ...generalLatest];
   }
 
+  getAllPosts(): Post[] {
+    return POST_MOCK;
+  }
+
+  getAllCategories(): Category[] {
+    return CATEGORY_MOCK;
+  }
 }

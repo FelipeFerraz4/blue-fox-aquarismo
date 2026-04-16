@@ -1,0 +1,27 @@
+<section class="related-wrapper">
+    <div class="container">
+        @if (categoryWithPost.length > 0) {
+        <div class="section-header">
+            <span class="accent-line"></span>
+            <h2>Recomendados para você</h2>
+        </div>
+
+        <div class="posts-grid">
+            @for (categoryWithPost of categoryWithPost; track categoryWithPost.id) {
+            <a [routerLink]="['/articles', categoryWithPost.post.slug]" class="post-card">
+                <div class="card-image">
+                    <img [src]="categoryWithPost.post.image" [alt]="categoryWithPost.post.title" loading="lazy" />
+                    <span class="category-tag">{{ categoryWithPost.name }}</span>
+                </div>
+                <div class="card-body">
+                    <span class="post-date">{{ categoryWithPost.post.date }}</span>
+                    <h3>{{ categoryWithPost.post.title }}</h3>
+                    <p>{{ categoryWithPost.post.description }}</p>
+                    <span class="read-more">Ler artigo →</span>
+                </div>
+            </a>
+            }
+        </div>
+        }
+    </div>
+</section>

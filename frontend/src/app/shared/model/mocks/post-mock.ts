@@ -60,41 +60,5 @@ export const POST_MOCK: Post[] = [
     slug: 'betta-fish-7-care-tips',
     readingTime: '10 min',
     author: 'Felipe Ferraz',
-  },
-  {
-    id: '5',
-    title: 'Guia Completo: Como Escolher o Aquário Ideal para Seu Projeto',
-    description:
-      'Descubra como escolher o aquário ideal para o seu projeto, entendendo os diferentes materiais, estruturas e fatores que influenciam diretamente na estética, durabilidade e no bem-estar dos peixes.',
-    image: 'assets/images/aquariums/aquariums2.webp',
-    date: '24 de Março de 2026',
-    category: 'Peixes e Invertebrados',
-    slug: 'aquarium-selection-guide5',
-    readingTime: '8 min',
-    author: 'Felipe Ferraz',
-  },
-  {
-    id: '6',
-    title: 'Guia Completo: Como Escolher o Aquário Ideal para Seu Projeto',
-    description:
-      'Descubra como escolher o aquário ideal para o seu projeto, entendendo os diferentes materiais, estruturas e fatores que influenciam diretamente na estética, durabilidade e no bem-estar dos peixes.',
-    image: 'assets/images/aquariums/aquariums2.webp',
-    date: '24 de Março de 2026',
-    category: 'Itens do Aquarismo',
-    slug: 'aquarium-selection-guide6',
-    readingTime: '8 min',
-    author: 'Felipe Ferraz',
-  },
-  {
-    id: '7',
-    title: 'Guia Completo: Como Escolher o Aquário Ideal para Seu Projeto',
-    description:
-      'Descubra como escolher o aquário ideal para o seu projeto, entendendo os diferentes materiais, estruturas e fatores que influenciam diretamente na estética, durabilidade e no bem-estar dos peixes.',
-    image: 'assets/images/aquariums/aquariums2.webp',
-    date: '24 de Março de 2026',
-    category: 'Itens do Aquarismo',
-    slug: 'aquarium-selection-guide7',
-    readingTime: '8 min',
-    author: 'Felipe Ferraz',
-  },
+  }
 ];

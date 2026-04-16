@@ -10,12 +10,14 @@ export interface Post {
   author: string;
 }
 
-export function SearchPostById(posts: Post[], id: string): Post | undefined {
-  return posts.find((post) => post.id === id);
+export function SearchPostById(posts: Post[], id: string): Post {
+  const post = posts.find((post) => post.id === id)!;
+  return post;
 }
 
-export function SearchPostBySlug(posts: Post[], slug: string): Post | undefined {
-  return posts.find((post) => post.slug === slug);
+export function SearchPostBySlug(posts: Post[], slug: string): Post {
+  const post = posts.find((post) => post.slug === slug)!;
+  return post;
 }
 
 export interface PostPageData {

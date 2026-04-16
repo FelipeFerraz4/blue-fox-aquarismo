@@ -1,0 +1,44 @@
+<section class="featured-wrapper">
+    <div class="container">
+
+        @if (featuredPosts.length > 0) {
+        <div class="section-header">
+            <span class="accent-line"></span>
+            <h2>Em destaque</h2>
+        </div>
+
+        <div class="featured-layout">
+
+            <a class="featured-main" [routerLink]="['/articles', featuredPosts[0].slug]">
+                <img [src]="featuredPosts[0].image" [alt]="featuredPosts[0].title" loading="lazy" />
+
+                <div class="overlay">
+                    <span class="category-tag">
+                        {{ featuredPosts[0].category }}
+                    </span>
+
+                    <h3>{{ featuredPosts[0].title }}</h3>
+                    <p>{{ featuredPosts[0].description }}</p>
+
+                    <span class="read-more">Ler artigo →</span>
+                </div>
+            </a>
+
+            <div class="featured-side">
+                @for (post of featuredPosts.slice(1, 4); track post.id) {
+                <a class="featured-card" [routerLink]="['/articles', post.slug]">
+                    <img [src]="post.image" [alt]="post.title" loading="lazy" />
+
+                    <div class="card-content">
+                        <span class="category-tag">{{ post.category }}</span>
+                        <h4>{{ post.title }}</h4>
+                    </div>
+                </a>
+                }
+            </div>
+
+        </div>
+        }
+
+    </div>
+</section>

@@ -64,4 +64,9 @@ describe('PostService', () => {
 
     expect(data).toBeNull();
   });
+
+  it('should return all posts', () => {
+    const posts = service.getAllPosts();
+    expect(posts.length).toBe(POST_MOCK.length);
+  });
 });
