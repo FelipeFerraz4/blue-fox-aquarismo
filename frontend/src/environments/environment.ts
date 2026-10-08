@@ -2,8 +2,8 @@ export const environment = {
     production: false,
     keycloak: {
         url: 'http://localhost:8080/auth/',
-        realm: 'Blue_Fox_Group',
-        clientId: 'blue-fox-aquariums-local',
+        realm: 'blue-fox-global-group',
+        clientId: 'blue-fox-aquariums-web-local',
     },
     blogApi: {
         blogId: '77e2c400-28ab-4add-b219-112233445566',
