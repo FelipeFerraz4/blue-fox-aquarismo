@@ -1,5 +1,5 @@
 # ===== BUILD =====
-FROM node:20-alpine AS build
+FROM node:24-alpine AS build
 
 WORKDIR /app
 
@@ -7,14 +7,14 @@ COPY package*.json ./
 
 RUN npm install -g npm@11
 RUN npm ci
-RUN npm install -g @angular/cli@20
+RUN npm install -g @angular/cli@22
 
 COPY . .
 
 RUN ng build --configuration=production
 
 # ===== RUN SSR =====
-FROM node:20-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
