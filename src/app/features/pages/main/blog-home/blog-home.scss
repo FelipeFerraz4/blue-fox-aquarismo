@@ -1,24 +1,16 @@
-// Cores do tema
-// .about-platform {
-//     background: #0e2533;
-//     color: #b6cbd8;
-// }
-
-// .tools {
-//     background: #0e2533;
-//     color: #b6cbd8;
-// }
-
-// .community {
-//     background: #0e2533;
-//     color: #eaf6f8;
-// }
+:host {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
 
 .about-platform {
     background: linear-gradient(180deg,
             #0a1f2c,
             #0b1c26);
     color: #b6cbd8;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .tools {
@@ -26,6 +18,8 @@
             #0b1c26,
             #0e2a3a);
     color: #b6cbd8;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .community {
@@ -33,158 +27,8 @@
             #0e2a3a,
             #154257);
     color: #eaf6f8;
-}
-
-// Hero Carousel
-.hero-carousel {
-    position: relative;
-    height: clamp(320px, 60vh, 520px);
-    overflow: hidden;
-}
-
-.carousel {
-    height: 100%;
-    position: relative;
-}
-
-.hero-swiper {
-    height: clamp(320px, 60vh, 520px);
-}
-
-.hero-slide {
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-
-.slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.overlay {
-    background: rgba(11, 28, 38, 0.65);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: clamp(1.5rem, 5vw, 4rem);
-    color: #eaf6fb;
-}
-
-.overlay h1 {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-    color: #4fc3f7;
-    line-height: 1.2;
-}
-
-.overlay p {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    max-width: 520px;
-    margin: 1rem 0;
-}
-
-.hero-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    max-width: 220px;
-
-    padding: 0.75rem 1.75rem;
-    margin-top: 1.5rem;
-
-    background: linear-gradient(135deg, #4fc3f7, #0288d1);
-    color: #0b1c26;
-
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-
-    border-radius: 999px;
-    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(79, 195, 247, 0.55);
-}
-
-.hero-btn .arrow {
-    transition: transform 0.2s ease;
-}
-
-.hero-btn:hover .arrow {
-    transform: translateX(4px);
-}
-
-.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: clamp(2rem, 4vw, 3rem);
-    background: none;
-    border: none;
-    color: #ffffffcc;
-    cursor: pointer;
-    z-index: 2;
-    padding: 0.25rem;
-}
-
-.nav.prev {
-    left: 0.75rem;
-}
-
-.nav.next {
-    right: 0.75rem;
-}
-
-.indicators {
-    position: absolute;
-    bottom: 1rem;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.indicators span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ffffff66;
-    cursor: pointer;
-}
-
-.indicators span.active {
-    background: #4fc3f7;
-}
-
-@media (max-width: 768px) {
-    .overlay {
-        align-items: center;
-        text-align: center;
-    }
-
-    .overlay p {
-        max-width: 100%;
-    }
-
-    .nav {
-        display: none;
-    }
+    overflow-x: hidden;
 }
 
 // About Platform
@@ -234,7 +78,7 @@
 
 .about-features {
     display: grid;
-    grid-template-columns: repeat(1s, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 

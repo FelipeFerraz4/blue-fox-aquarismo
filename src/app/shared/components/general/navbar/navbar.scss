@@ -1,9 +1,15 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .navbar {
-  background: #102a3a; // mais claro que o footer
+  background: #102a3a;
   color: #dceaf2;
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .navbar-container {

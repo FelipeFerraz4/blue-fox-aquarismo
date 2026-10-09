@@ -1,8 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .footer {
-  background: #0b1c26; // azul bem escuro
+  background: #0b1c26;
   color: #dceaf2;
   padding: 3rem 1.5rem 1.5rem;
   font-size: 0.95rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .footer-content {

@@ -1,9 +1,17 @@
+:host {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .related-wrapper {
     background: linear-gradient(180deg,
             #154257,
             #072d3c);
     padding: 4rem 1.5rem;
     border-top: 1px solid rgba(79, 195, 247, 0.1);
+    width: 100%;
+    overflow-x: hidden;
 
     .container {
         max-width: 1100px;
@@ -36,11 +44,11 @@
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 2rem;
 
     &.small {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     }
 }
 
@@ -178,7 +186,8 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .posts-grid {
+    .posts-grid,
+    .posts-grid.small {
         grid-template-columns: 1fr;
     }
 
