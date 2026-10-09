@@ -7,7 +7,8 @@ import {
   PLATFORM_ID,
   ChangeDetectorRef,
   HostListener,
-  signal
+  signal,
+  NgZone
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -37,7 +38,8 @@ export class ImageCarousel implements OnInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) platformId: object,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private ngZone: NgZone
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -90,11 +92,16 @@ export class ImageCarousel implements OnInit, OnDestroy {
     this.stopAutoplay();
     if (!this.isBrowser || this.slides.length <= 1) return;
 
-    this.timerId = setInterval(() => {
-      if (!this.isPaused) {
-        this.next();
-      }
-    }, this.interval);
+    // Executa fora da zona do Angular para não impedir ApplicationRef.isStable() (hidratação SSR)
+    this.ngZone.runOutsideAngular(() => {
+      this.timerId = setInterval(() => {
+        if (!this.isPaused) {
+          this.ngZone.run(() => {
+            this.next();
+          });
+        }
+      }, this.interval);
+    });
   }
 
   private stopAutoplay(): void {

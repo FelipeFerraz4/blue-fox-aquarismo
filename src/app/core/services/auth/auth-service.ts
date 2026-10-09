@@ -1,4 +1,4 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import Keycloak from 'keycloak-js';
 import { environment } from '../../../../environments/environment';
@@ -11,7 +11,10 @@ export class AuthService {
   private isBrowser: boolean;
   private keycloakConfig = environment.keycloak;
 
-  constructor(@Inject(PLATFORM_ID) platformId: object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: object,
+    private ngZone: NgZone
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
 
     if (this.isBrowser) {
@@ -28,12 +31,18 @@ export class AuthService {
       return false;
     }
 
-    const authenticated = await this.kc.init({
-      onLoad: 'check-sso',
-      checkLoginIframe: false,
-    });
+    try {
+      const authenticated = await this.ngZone.runOutsideAngular(() =>
+        this.kc!.init({
+          onLoad: 'check-sso',
+          checkLoginIframe: false,
+        })
+      );
 
-    return authenticated;
+      return authenticated;
+    } catch {
+      return false;
+    }
   }
 
   login() {
