@@ -9,8 +9,22 @@ import { join } from 'node:path';
 import 'zone.js/node';
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
+const allowedHosts = process.env['ALLOWED_HOSTS']
+  ? process.env['ALLOWED_HOSTS'].split(',').map((h) => h.trim())
+  : [
+      'localhost',
+      'localhost:4000',
+      '127.0.0.1',
+      '127.0.0.1:4000',
+      'bluefoxaquarismo.space',
+      '*.bluefoxaquarismo.space',
+      '*.bluefoxglobalgroup.com',
+    ];
+
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new AngularNodeAppEngine({
+  allowedHosts,
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.
