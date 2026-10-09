@@ -33,10 +33,6 @@ export class AuthService {
       checkLoginIframe: false,
     });
 
-    console.log('Autenticado:', authenticated);
-    console.log('Access Token:', this.kc.token);
-    console.log('Token decodificado:', this.kc.tokenParsed);
-
     return authenticated;
   }
 

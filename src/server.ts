@@ -38,9 +38,16 @@ const angularApp = new AngularNodeAppEngine({
 /**
  * Serve static files from /browser
  */
+const isProd = process.env['NODE_ENV'] === 'production';
+
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
+    maxAge: isProd ? '1y' : 0,
+    setHeaders: (res) => {
+      if (!isProd) {
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+      }
+    },
     index: false,
     redirect: false,
   }),

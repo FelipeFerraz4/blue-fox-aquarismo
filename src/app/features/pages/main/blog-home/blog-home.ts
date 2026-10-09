@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   Inject,
@@ -12,6 +13,8 @@ import { SeoService } from '../../../../core/services/seo/seo-service';
 import { PostService } from '../../../../core/services/post/post';
 import { LatestPosts } from '../../../../shared/components/post/latest-posts/latest-posts';
 import { FeaturedPost } from '../../../../shared/components/post/featured-post/featured-post';
+import { ImageCarousel } from '../../../../shared/components/general/image-carousel/image-carousel';
+import { CarouselSlide } from '../../../../shared/model/types/carousel-slide';
 
 @Component({
   selector: 'app-blog-home',
@@ -20,7 +23,8 @@ import { FeaturedPost } from '../../../../shared/components/post/featured-post/f
     CommonModule,
     RouterModule,
     LatestPosts,
-    FeaturedPost
+    FeaturedPost,
+    ImageCarousel
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './blog-home.html',
@@ -37,12 +41,13 @@ export class BlogHome implements OnInit {
   constructor(
     private seo: SeoService,
     private postService: PostService,
+    private cdr: ChangeDetectorRef,
     @Inject(PLATFORM_ID) platformId: object
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  slides = [
+  slides: CarouselSlide[] = [
     {
       id: 1,
       image: 'assets/images/aquariums/aquarium5.webp',
@@ -72,36 +77,6 @@ export class BlogHome implements OnInit {
         text: 'Ver Ferramentas',
         link: '/articles/tools'
       }
-    },
-    {
-      id: 4,
-      image: 'assets/images/aquariums/aquarium5.webp',
-      title: 'Aprenda sobre Aquarismo',
-      description: 'Guias práticos e experiências reais.',
-      button: {
-        text: 'Ver Artigos',
-        link: '/articles/guides'
-      }
-    },
-    {
-      id: 5,
-      image: 'assets/images/aquariums/maintenance-aquarium.webp',
-      title: 'Monte seu Aquário com Segurança',
-      description: 'Evite erros comuns e cuide melhor dos peixes.',
-      button: {
-        text: 'Ver Artigos',
-        link: '/articles/montage'
-      }
-    },
-    {
-      id: 6,
-      image: 'assets/images/aquariums/learning-aquariums.webp',
-      title: 'Divirta-se com as Ferramentas Educativas sobre Aquarismo',
-      description: 'Aprenda de forma interativa.',
-      button: {
-        text: 'Ver Ferramentas',
-        link: '/articles/tools'
-      }
     }
   ];
 
@@ -115,7 +90,8 @@ export class BlogHome implements OnInit {
   loadFeaturedPost() {
     this.postService.getMostRelevancePost(4).subscribe({
       next: (posts: Post[]) => {
-        this.featuredPosts = posts; 
+        this.featuredPosts = posts;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error fetching relevant posts', err);
@@ -127,6 +103,7 @@ export class BlogHome implements OnInit {
     this.postService.getLatestPosts(6).subscribe({
       next: (posts: Post[]) => {
         this.latest = posts;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error fetching latest posts', err);
@@ -138,6 +115,7 @@ export class BlogHome implements OnInit {
     this.postService.getLastPost().subscribe({
       next: (post: Post) => {
         this.lastPost = post;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Error fetching last post', err);

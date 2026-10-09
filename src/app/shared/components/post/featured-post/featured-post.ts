@@ -10,5 +10,5 @@ import { Post } from '../../../model/types/post';
   styleUrl: './featured-post.scss',
 })
 export class FeaturedPost {
-  @Input() featuredPosts!: Post[];
+  @Input() featuredPosts: Post[] = [];
 }
