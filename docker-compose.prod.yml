@@ -1,6 +1,6 @@
 services:
   frontend:
     expose:
-      - "4000"
+      - "${PORT:-4000}"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=${NODE_ENV:-production}

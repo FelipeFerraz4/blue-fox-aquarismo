@@ -3,9 +3,9 @@ services:
     container_name: aquarismo-frontend
     restart: unless-stopped
     build:
-      context: ./frontend
+      context: .
     expose:
-      - "4000"
+      - "${PORT:-4000}"
     networks:
       - infra-net
       - blog-api-net
@@ -13,8 +13,10 @@ services:
 
 networks:
   infra-net:
+    name: ${DOCKER_NETWORK:-infra-net}
     external: true
   blog-api-net:
+    name: ${BLOG_API_NETWORK:-blue-fox-blog-backend_blog-api-net}
     external: true
   aquarismo-net:
     driver: bridge

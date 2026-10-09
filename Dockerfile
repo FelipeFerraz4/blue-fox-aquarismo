@@ -5,6 +5,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
+RUN npm install -g npm@11
 RUN npm ci
 RUN npm install -g @angular/cli@20
 
@@ -20,6 +21,7 @@ WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY package*.json ./
 
+RUN npm install -g npm@11
 RUN npm ci --omit=dev
 
 EXPOSE 4000
