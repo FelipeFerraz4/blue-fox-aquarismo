@@ -6,6 +6,9 @@ services:
       context: .
     expose:
       - "${PORT:-4000}"
+    environment:
+      - PORT=${PORT:-4000}
+      - NODE_ENV=${NODE_ENV:-development}
     networks:
       - infra-net
       - blog-api-net

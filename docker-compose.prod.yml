@@ -1,5 +1,9 @@
 services:
   frontend:
+    build:
+      context: .
+      args:
+        CONFIGURATION: production
     expose:
       - "${PORT:-4000}"
     environment:

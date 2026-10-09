@@ -1,5 +1,9 @@
 services:
   frontend:
+    build:
+      context: .
+      args:
+        CONFIGURATION: development
     ports:
       - "${PORT:-4000}:4000"
     environment:

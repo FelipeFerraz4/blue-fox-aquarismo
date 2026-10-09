@@ -1,5 +1,11 @@
 export const environment = {
-    production: false,
+  production: false,
+  allowedHosts: [
+    'localhost',
+    'localhost:4000',
+    '127.0.0.1',
+    '127.0.0.1:4000',
+  ],
     keycloak: {
         url: 'http://localhost:8080/auth/',
         realm: 'blue-fox-global-group',

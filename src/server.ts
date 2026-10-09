@@ -6,20 +6,17 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
-import 'zone.js/node';
+import { environment } from './environments/environment';
+
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
-const allowedHosts = process.env['ALLOWED_HOSTS']
-  ? process.env['ALLOWED_HOSTS'].split(',').map((h) => h.trim())
-  : [
-      'localhost',
-      'localhost:4000',
-      '127.0.0.1',
-      '127.0.0.1:4000',
-      'bluefoxaquarismo.space',
-      '*.bluefoxaquarismo.space',
-      '*.bluefoxglobalgroup.com',
-    ];
+const rawAllowedHosts = process.env['ALLOWED_HOSTS'] || process.env['NG_ALLOWED_HOSTS'];
+const allowedHosts = rawAllowedHosts
+  ? rawAllowedHosts
+      .split(',')
+      .map((h) => h.trim())
+      .filter(Boolean)
+  : environment.allowedHosts;
 
 const app = express();
 const angularApp = new AngularNodeAppEngine({

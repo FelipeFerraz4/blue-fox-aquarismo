@@ -9,9 +9,11 @@ RUN npm install -g npm@11
 RUN npm ci
 RUN npm install -g @angular/cli@22
 
+ARG CONFIGURATION=production
+
 COPY . .
 
-RUN ng build --configuration=production
+RUN ng build --configuration=${CONFIGURATION}
 
 # ===== RUN SSR =====
 FROM node:24-alpine

@@ -1,5 +1,11 @@
 export const environment = {
-    production: true,
+  production: true,
+  allowedHosts: [
+    'bluefoxaquarismo.space',
+    'www.bluefoxaquarismo.space',
+    '*.bluefoxaquarismo.space',
+    '*.bluefoxglobalgroup.com',
+  ],
     keycloak: {
         url: 'https://sso.bluefoxglobalgroup.com/auth/',
         realm: 'blue-fox-global-group',
