@@ -11,15 +11,8 @@ services:
       - NODE_ENV=${NODE_ENV:-development}
     networks:
       - infra-net
-      - blog-api-net
-      - aquarismo-net
 
 networks:
   infra-net:
     name: ${DOCKER_NETWORK:-infra-net}
     external: true
-  blog-api-net:
-    name: ${BLOG_API_NETWORK:-blue-fox-blog-backend_blog-api-net}
-    external: true
-  aquarismo-net:
-    driver: bridge
