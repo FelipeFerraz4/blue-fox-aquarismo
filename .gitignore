@@ -1,4 +1,4 @@
-# Angular specific
+# Compiled output & Angular specific
 /dist/
 /out-tsc/
 /tmp/
@@ -6,22 +6,18 @@
 /e2e/test-output/
 /.angular/
 .angular/
+/.angular-cli.json
+/.ng/
+*.tsbuildinfo
 
 # Node modules and dependency files
 /node_modules/
-frontend/node_modules/
-/package-lock.json
 /yarn.lock
 
 # Environment files
-/.env
-
-# Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
-
-# TypeScript cache
-*.tsbuildinfo
+.env
+.env.dev
+.env.prod
 
 # Logs
 npm-debug.log*
@@ -29,11 +25,34 @@ yarn-debug.log*
 yarn-error.log*
 *.log
 
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+.sass-cache/
+/connect.lock
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+
 # Certificados Let's Encrypt
 nginx/certbot/live/
 nginx/certbot/archive/
 nginx/certbot/renewal/
 nginx/certbot/conf/
 *.pem
-
-

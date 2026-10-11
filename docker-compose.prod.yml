@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      args:
+        CONFIGURATION: production
+    expose:
+      - "${PORT:-4000}"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}

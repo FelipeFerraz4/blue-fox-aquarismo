@@ -41,27 +41,27 @@ Acesse a plataforma online em: **[https://bluefoxaquarismo.space/](https://bluef
 
 O projeto segue uma arquitetura modular focada em escalabilidade:
 
-```text
 blue-fox-aquarismo/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml
-├── frontend/      # Aplicação Angular
-│   ├── src/app/
+├── src/
+│   ├── app/
 │   │   ├── core/          # Serviços singleton, interceptors e guardas (Auth, API, SEO)
 │   │   ├── features/      # Módulos de negócio (Blog, Páginas Institucionais, Apps)
 │   │   │   ├── apps/      # Micro-aplicações integradas (ex: Daily Habits)
 │   │   │   └── pages/     # Artigos técnicos e páginas estáticas
-├── shared/        # Componentes, modelos e tipos reutilizáveis
-├── environments/  # Configurações para diferentes ambientes.
-└── assets/        # Recursos multimídia e arquivos de tradução (i18n)
+│   │   └── shared/        # Componentes, modelos e tipos reutilizáveis
+│   ├── assets/            # Recursos multimídia e arquivos de tradução (i18n)
+│   └── environments/      # Configurações para diferentes ambientes
+├── public/                # Arquivos públicos estáticos
 ├── .dockerignore
 ├── .gitignore
-├── articles-suggestion.txt
 ├── docker-compose.yml
+├── Dockerfile
+├── package.json
 ├── LICENSE
-├── README.md
-└── sketch.txt
+└── README.md
 ```
 
 ## 📄 Licença e Uso

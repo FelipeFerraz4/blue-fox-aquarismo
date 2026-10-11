@@ -1,0 +1,276 @@
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.carousel-wrapper {
+  position: relative;
+  height: clamp(340px, 60vh, 520px);
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+  user-select: none;
+  background-color: #0b132b;
+}
+
+/* Slides */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  transition: opacity 0.75s ease-in-out, transform 0.75s ease-out, visibility 0.75s;
+  will-change: opacity, transform;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 1;
+  }
+}
+
+/* Overlay & Content */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 28, 38, 0.88) 0%,
+    rgba(11, 28, 38, 0.65) 50%,
+    rgba(11, 28, 38, 0.35) 100%
+  );
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 6vw, 5rem);
+}
+
+.slide-content {
+  max-width: 650px;
+  animation: slideFadeIn 0.6s ease-out;
+}
+
+.slide-title {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #38b6ff;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.slide-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: #dceaf2;
+  line-height: 1.6;
+  margin: 1.25rem 0 1.75rem;
+  max-width: 520px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Botão CTA Blue Fox */
+.slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #38b6ff 0%, #004aad 100%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 74, 173, 0.4), 0 2px 8px rgba(56, 182, 255, 0.3);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+
+  .btn-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 74, 173, 0.55), 0 4px 14px rgba(56, 182, 255, 0.5);
+
+    .btn-arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 74, 173, 0.4);
+  }
+}
+
+/* Setas de Navegação (Next / Prev) */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 182, 255, 0.25);
+  background: rgba(11, 28, 38, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #dceaf2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.25s ease;
+  opacity: 0.75;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    background: rgba(0, 74, 173, 0.85);
+    border-color: #38b6ff;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(56, 182, 255, 0.45);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.92);
+  }
+}
+
+.prev-btn {
+  left: 1.5rem;
+}
+
+.next-btn {
+  right: 1.5rem;
+}
+
+/* Indicadores de Slide (Dots / Pills) */
+.indicators {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(11, 28, 38, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background: rgba(56, 182, 255, 0.8);
+  }
+
+  &.active {
+    width: 26px;
+    background: linear-gradient(90deg, #38b6ff, #004aad);
+    box-shadow: 0 0 10px rgba(56, 182, 255, 0.6);
+  }
+}
+
+/* Animações e Responsividade */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: clamp(340px, 55vh, 460px);
+  }
+
+  .slide-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 28, 38, 0.45) 0%,
+      rgba(11, 28, 38, 0.88) 100%
+    );
+    justify-content: flex-end;
+    padding: 1.5rem 1.25rem 3.5rem;
+  }
+
+  .slide-title {
+    font-size: clamp(1.5rem, 5.5vw, 1.85rem);
+    line-height: 1.2;
+  }
+
+  .slide-description {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    margin: 0.75rem 0 1.25rem;
+    line-height: 1.5;
+  }
+
+  .slide-btn {
+    padding: 0.75rem 1.6rem;
+    font-size: 0.92rem;
+  }
+
+  /* Oculta as setas laterais no mobile para não sobrepor o texto */
+  .nav-btn {
+    display: none !important;
+  }
+
+  .indicators {
+    bottom: 0.85rem;
+  }
+
+  .indicator-dot {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      bottom: -10px;
+      left: -8px;
+      right: -8px;
+    }
+  }
+}

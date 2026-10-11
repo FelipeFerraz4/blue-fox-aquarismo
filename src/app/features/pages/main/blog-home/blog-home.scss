@@ -1,0 +1,340 @@
+:host {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.about-platform {
+    background: linear-gradient(180deg,
+            #0a1f2c,
+            #0b1c26);
+    color: #b6cbd8;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.tools {
+    background: linear-gradient(180deg,
+            #0b1c26,
+            #0e2a3a);
+    color: #b6cbd8;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.community {
+    background: linear-gradient(180deg,
+            #0e2a3a,
+            #154257);
+    color: #eaf6f8;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+// About Platform
+.about-platform {
+    padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #4fc3f7;
+    margin-bottom: 2rem;
+
+    line-height: 1.2;
+}
+
+.about-header .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: #9fb6c3;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.about-text strong {
+    color: #eaf6fb;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card h3 {
+    color: #4fc3f7;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .about-header {
+        margin-bottom: 2rem;
+    }
+}
+
+// Tools Section
+
+.tools {
+    padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+}
+
+.tools-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tools-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+}
+
+.tools-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: #4fc3f7;
+    margin-bottom: 0.75rem;
+}
+
+.tools-header p {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: #9fb6c3;
+    line-height: 1.6;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    border-radius: 18px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.tool-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.tool-card h3 {
+    color: #4fc3f7;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tool-link {
+    align-self: flex-start;
+    font-weight: 600;
+    color: #4fc3f7;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tool-link:hover {
+    color: #81d4fa;
+    transform: translateX(4px);
+}
+
+@media (max-width: 992px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-card {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .tool-link {
+        align-self: center;
+    }
+}
+
+/* Community */
+.community {
+    padding: 4.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.community-content {
+    max-width: 820px;
+}
+
+.community h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #4fc3f7;
+}
+
+.community p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+    color: #cfe8ec;
+    text-align: justify;
+}
+
+/* Botões */
+.community-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.community-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.75rem 1.75rem;
+    min-width: 200px;
+
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.community-btn .arrow {
+    transition: transform 0.2s ease;
+}
+
+.community-btn:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* Primary */
+.community-btn.primary {
+    background: linear-gradient(135deg, #4fc3f7, #0288d1);
+    color: #0b1c26;
+    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.35);
+}
+
+.community-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(79, 195, 247, 0.55);
+}
+
+/* Secondary */
+.community-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #eaf6fb;
+    border: 1px solid rgba(79, 195, 247, 0.35);
+}
+
+.community-btn.secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.25);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .community {
+        padding: 3.5rem 1.2rem;
+    }
+
+    .community h2 {
+        font-size: 1.7rem;
+    }
+
+    .community p {
+        font-size: 1rem;
+        text-align: left;
+        /* melhora leitura no mobile */
+    }
+
+    .community-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .community-btn {
+        width: 100%;
+    }
+}

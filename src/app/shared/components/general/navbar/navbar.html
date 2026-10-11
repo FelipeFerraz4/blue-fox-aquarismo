@@ -1,0 +1,80 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Logo / Brand -->
+    <a routerLink="/" class="navbar-brand">
+      <img src="/assets/images/brand/logo.webp" alt="Blue Fox Aquarismo" />
+      <span>Blue Fox Aquarismo</span>
+    </a>
+
+    <!-- Botão hamburguer (mobile) -->
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+    <!-- Menu -->
+    <nav class="navbar-menu" [class.open]="menuOpen">
+      <ul class="menu-list">
+        <li>
+          <a routerLink="/">Início</a>
+        </li>
+        <!-- 
+        <li>
+          <a routerLink="/guias">Guias</a>
+        </li> -->
+        <!-- 
+        <li class="has-dropdown">
+          <button class="dropdown-toggle" (click)="toggleArtigos()">
+            Artigos <span class="arrow" [class.open]="artigosOpen">▾</span>
+          </button>
+
+          <ul class="dropdown" [class.open]="artigosOpen">
+            <li><a routerLink="/artigos/agua-doce">Aquários de Água Doce</a></li>
+            <li><a routerLink="/artigos">Aquários Plantados</a></li>
+            <li><a routerLink="/artigos/marinho">Aquários Marinhos</a></li>
+          </ul>
+        </li> -->
+
+        <!-- <li class="has-dropdown">
+          <button class="dropdown-toggle" (click)="toggleFerramentas()">
+            Ferramentas <span class="arrow" [class.open]="ferramentasOpen">▾</span>
+          </button>
+
+          <ul class="dropdown" [class.open]="ferramentasOpen">
+            <li><a routerLink="/ferramentas/montar-aquario">Montar Aquário</a></li>
+            <li><a routerLink="/ferramentas/quiz-peixes">Quiz de Peixes</a></li>
+            <li><a routerLink="/ferramentas/jogos">Jogos Educativos</a></li>
+          </ul>
+        </li> -->
+
+        <li>
+          <a routerLink="/about">Sobre</a>
+        </li>
+      </ul>
+
+      <!-- Ações -->
+      <div class="navbar-actions">
+        <input type="search" placeholder="Pesquisar no blog..." class="search-input" />
+
+        <div class="navbar-actions">
+          <!-- NÃO LOGADO -->
+          @if (!auth.isLoggedIn()) {
+          <button (click)="login()" class="login-btn">
+            Login
+          </button>
+          }
+
+          <!-- LOGADO -->
+          @if (auth.isLoggedIn()) {
+          <div class="user-info">
+            <span class="username">
+              Olá, {{ auth.getUserFullName() }}
+            </span>
+
+            <button (click)="logout()" class="logout-btn">
+              Sair
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

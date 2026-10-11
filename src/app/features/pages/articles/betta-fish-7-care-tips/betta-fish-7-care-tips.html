@@ -1,0 +1,238 @@
+<app-post-header-type1 [title]="currentPost?.title ?? ''" [description]="currentPost?.description ?? ''"
+    [imageUrl]="currentPost?.imageUrl ?? ''" [author]="currentPost?.authorName ?? ''" [date]="currentPost?.publishedAt ?? ''"
+    [readingTime]="currentPost?.readingTime ?? ''" [category]="currentPost?.categoryName ?? ''" />
+
+<section class="article-section">
+    <article class="content">
+        <section class="context">
+            <p>
+                O Peixe Betta (<em>Betta splendens</em>) é, para muitos, a porta de entrada no aquarismo. Sua beleza
+                hipnotizante e cores vibrantes escondem uma triste realidade: por ser um peixe extremamente resistente,
+                ele é frequentemente submetido a condições precárias. No entanto, "sobreviver" é bem diferente de "viver
+                com saúde". Neste guia, vamos explorar 7 pilares fundamentais para que seu Betta não apenas dure, mas
+                prospere por muitos anos.
+            </p>
+        </section>
+        <section>
+            <h2>1. O Fim do Mito da "Beteira"</h2>
+
+            <section>
+                <h3>Espaço é Qualidade de Vida</h3>
+                <div class="image-block">
+                    <img src="assets/images/fish/betta_fish_natural_habitat.webp" alt="Habitat natural do Betta"
+                        loading="lazy" />
+                    <p class="image-caption">Representação do habitat natural do Betta com águas rasas de pequenos
+                        riachos do Sudeste Asiático.</p>
+                </div>
+                <p>
+                    Embora, na natureza, os Bettas habitem arrozais e áreas de águas rasas, esses ambientes são amplos e
+                    contam com renovação constante da água. Manter um Betta em recipientes muito pequenos, como copos ou
+                    "beteiras" de 1 a 2 litros, compromete diretamente sua saúde, expondo-o ao estresse e ao acúmulo de
+                    substâncias tóxicas.
+                </p>
+                <p>
+                    Um aquário de 15 a 20 litros é o ponto de partida ideal, pois oferece maior estabilidade química e
+                    espaço suficiente para o nado. Como detalhado no
+                    <a routerLink="/articles/aquarium-size" routerLinkActive="active" class="link" target="_blank"
+                        rel="noopener noreferrer">
+                        Guia de Dimensões e Proporções
+                    </a>, o formato retangular é o mais recomendado, pois facilita o acesso do peixe à superfície para
+                    respirar, sem exigir esforço excessivo.
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <h2>2. Controle de Temperatura: O Vilão Invisível</h2>
+            <p>
+                O Betta é um animal <strong>ectotérmico</strong>, o que significa que ele não produz calor corporal; sua
+                energia vital depende inteiramente do ambiente. Quando mantido em água fria (abaixo de 24°C), o "motor"
+                do peixe desacelera drasticamente: o sistema imunológico falha, a digestão torna-se perigosamente lenta
+                e o animal entra em um estado de letargia que abre portas para fungos e bactérias.
+            </p>
+
+            <div class="highlight-box inner">
+                <p>
+                    <strong>A Regra de Ouro:</strong> O segredo não é apenas água quente, mas água
+                    <strong>estável</strong>. Mantenha o aquário entre 26°C e 28°C é essencial para a saúde do Betta.
+                    Com isso, o uso de um termostato com aquecedor é indispensável, pois ele evita as quedas bruscas de
+                    temperatura durante a madrugada, momento em que a maioria dos Bettas adoece por choque térmico.
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2>3. Filtragem e o Ciclo do Nitrogênio</h2>
+            <p>
+                Muitos acreditam que Bettas não precisam de filtro por possuírem o labirinto, órgão que permite a
+                respiração do ar atmosférico. No entanto, a capacidade de respirar fora da água não protege o peixe
+                contra a toxicidade química dentro dela. É crucial entender que a função do filtro vai muito além da
+                mera oxigenação: ele atua como o sistema imunológico do aquário.
+            </p>
+
+            <p>
+                O equipamento realiza a <strong>filtragem mecânica</strong>, capturando partículas sólidas antes que
+                apodreçam, e a <strong>filtragem química</strong>, removendo impurezas e odores. Além disso, o filtro é
+                o suporte para as colônias de bactérias benéficas que realizam o <strong>ciclo do nitrogênio</strong>
+                (filtragem biológica). Sem esse processo, a amônia dos dejetos acumula-se rapidamente, queimando
+                brânquias e nadadeiras, um envenenamento silencioso que é a maior causa de morte prematura da espécie.
+            </p>
+
+            <p>
+                Contudo, a escolha exige cautela: o Betta ornamental possui nadadeiras longas que dificultam o nado. Em
+                fluxos intensos, o peixe luta constantemente contra a correnteza, gerando exaustão física e estresse
+                severo. O ideal são sistemas de <strong>baixa vazão</strong>, como filtros de espuma (<em>sponge
+                    filters</em>) ou externos (<em>hang-on</em>) com regulagem, garantindo água pura sem criar uma zona
+                de turbulência.
+            </p>
+
+            <div class="highlight-box inner">
+                <p>
+                    <strong>Dica Técnica:</strong> Se o seu Betta está sempre escondido atrás de decorações onde a água
+                    se move menos, o fluxo está forte demais. A água deve circular para evitar "pontos mortos", mas sem
+                    impedir que o peixe descanse tranquilamente na superfície.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Alimentação: Variedade é a Chave</h2>
+            <p>
+                Não dependa apenas de uma ração de bolinha de baixa qualidade. O Betta é um carnívoro por natureza. Uma
+                dieta pobre leva a problemas como a constipação e a hidropisia.
+            </p>
+            <ul class="article-list bullets">
+                <li><strong>Rações Específicas:</strong> Use rações específicas para Bettas, ricas em proteína de origem
+                    animal.</li>
+                <li><strong>Alimentos Vivos/Congelados:</strong> Ofereça artêmias ou bloodworms uma ou duas vezes por
+                    semana.</li>
+                <li><strong>Cuidado com o Excesso:</strong> O estômago de um Betta é aproximadamente do tamanho do seu
+                    olho. Alimente pouco, 2 vezes ao dia.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Alimentação: Variedade é a Chave</h2>
+            <p>
+                Não se limite a oferecer apenas rações genéricas de baixa qualidade. O Betta é um carnívoro por
+                natureza, sua dieta é baseada em pequenos insetos e larvas. Uma alimentação pobre ou baseada apenas
+                em carboidratos leva inevitavelmente a problemas digestivos graves, como a constipação intestinal e a
+                hidropisia (falência de órgãos), que são frequentemente fatais.
+            </p>
+            <ul class="article-list bullets">
+                <li>
+                    <strong>Rações Específicas:</strong> Priorize rações desenvolvidas exclusivamente para a
+                    espécie, que listam proteínas de peixe ou insetos como primeiros ingredientes. Evite produtos com
+                    excesso de farelo de milho ou soja, pois uma nutrição superior reflete diretamente na vivacidade das
+                    cores e na velocidade de regeneração das nadadeiras.
+                </li>
+                <li>
+                    <strong>Alimentos Vivos e Congelados:</strong> Oferecer artêmias, daphnias ou bloodworms uma ou duas
+                    vezes por semana é essencial para quebrar a monotonia alimentar e estimular o instinto de caça.
+                    Esses alimentos são fontes riquíssimas de fibras naturais e aminoácidos que fortalecem o sistema
+                    imunológico contra doenças oportunistas.
+                </li>
+                <li>
+                    <strong>A Regra da Saciedade:</strong> Um erro comum é a superalimentação; lembre-se que o estômago
+                    de um Betta é minúsculo, equivalente ao tamanho do próprio globo ocular do peixe. O ideal é oferecer
+                    uma quantidade que ele consuma totalmente em até dois minutos, garantindo que não restem sobras que
+                    possam apodrecer e elevar os níveis de amônia no aquário.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Decoração e Enriquecimento Ambiental</h2>
+            <div class="image-block">
+                <img src="assets/images/fish/betta-fish2.webp" alt="Plantas naturais no aquário de Betta"
+                    loading="lazy" />
+                <p class="image-caption">Aquários plantados oferecem o suporte ideal para o comportamento exploratório
+                    do Betta.</p>
+            </div>
+            <p>
+                Bettas são peixes dotados de uma inteligência notável e um comportamento exploratório latente. Manter um
+                indivíduo em um tanque vazio, sem estímulos visuais ou texturas, é um convite ao estresse crônico e ao
+                tédio, que frequentemente evoluem para a automutilação das nadadeiras. O enriquecimento ambiental serve
+                para replicar a complexidade do habitat natural, mantendo o peixe ativo e psicologicamente saudável.
+            </p>
+            <ul class="article-list">
+                <li>
+                    <strong>Plantas Naturais e o "Descanso":</strong> Espécies de folhas largas, como as do gênero
+                    <em>Anubia</em> ou <em>Microsorum</em>, são essenciais, pois servem como autênticas "camas" onde o
+                    peixe repousa próximo à superfície. Diferente das plantas de plástico rígido, que possuem bordas
+                    cortantes capazes de rasgar o tecido delicado das nadadeiras, as plantas vivas são macias, seguras e
+                    ainda auxiliam na oxigenação e filtragem biológica do sistema.
+                </li>
+                <li>
+                    <strong>Zonas de Sombra e Esconderijos:</strong> A presença de troncos naturais e cavernas de
+                    cerâmica permite que o Betta estabeleça seu território e tenha locais de refúgio para o descanso
+                    noturno. É fundamental garantir que esses elementos não possuam furos muito estreitos ou rebarbas;
+                    uma regra prática é passar uma meia-calça no objeto: se o tecido desfiar, a decoração é perigosa
+                    para as nadadeiras do seu peixe.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>6. TPA: A Renovação Vital do Ecossistema</h2>
+            <p>
+                Muitos iniciantes cometem o erro de acreditar que, se a água está cristalina, ela está limpa. No
+                entanto, a filtragem biológica converte a amônia em nitrato, um composto que, embora menos tóxico,
+                acumula-se continuamente e só pode ser removido através da <strong>TPA (Troca Parcial de Água)</strong>.
+                A TPA não serve apenas para retirar esses poluentes; ela é o método principal para repor minerais
+                essenciais e oligoelementos que o peixe e as plantas consomem para manter o metabolismo saudável.
+            </p>
+
+            <div class="highlight-box inner">
+                <p>
+                    <strong>Frequência e Segurança:</strong> O padrão recomendado é trocar entre 20% e 30% do volume
+                    total semanalmente. É indispensável o uso de um condicionador de água de qualidade para neutralizar
+                    o cloro, as cloraminas e os metais pesados da torneira. Lembre-se: o cloro não apenas fere a mucosa
+                    do Betta, mas também dizima as colônias de bactérias do seu filtro, destruindo o equilíbrio
+                    biológico que você construiu.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Psicologia e Coexistência: Sozinho ou Acompanhado?</h2>
+            <p>
+                O título de "Peixe de Briga" não é apenas um apelido; ele reflete a natureza estritamente
+                <strong>territorial</strong> da espécie. Bettas machos são solitários e veem qualquer outro peixe com
+                nadadeiras longas ou cores vibrantes como um rival direto por território. Manter dois machos juntos é um
+                erro fatal que resulta em combate até a morte. No entanto, a agressividade do Betta é, em grande parte,
+                visual: se um companheiro de tanque não "parece" um Betta, as chances de paz aumentam consideravelmente.
+            </p>
+
+            <p>
+                Para quem deseja um aquário comunitário, a regra de ouro é o <strong>espaço</strong>. Em tanques
+                pequenos (abaixo de 40 litros), o Betta deve ser mantido sozinho. Em montagens maiores, você pode
+                introduzir "companheiros invisíveis" ao radar do Betta, como as <strong>Coridoras</strong> (peixes de
+                fundo rápidos e pacíficos) ou invertebrados como o <strong>Caramujo Ampulária</strong>. Esses animais
+                ocupam zonas de nado diferentes e não possuem as cores ou o formato de corpo que disparam o gatilho de
+                ataque do Betta.
+            </p>
+
+            <div class="highlight-box inner">
+                <p>
+                    <strong>Dica de Introdução:</strong> Se for montar um aquário comunitário, adicione o Betta por
+                    último. Isso evita que ele tome o aquário inteiro como seu território particular antes da chegada
+                    dos outros moradores, facilitando a aceitação de novos vizinhos.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Conclusão</h2>
+            <p>
+                Ter um peixe Betta é assumir a responsabilidade por uma vida que depende inteiramente de você. Ao seguir
+                esses 7 passos, focando em espaço, temperatura e qualidade da água, você transforma o seu aquário em
+                um habitat de respeito. Um Betta bem cuidado pode viver de 3 a 5 anos, exibindo cores e comportamentos
+                que você nunca veria em uma beteira comum.
+            </p>
+            <p>
+                Respeite a natureza do seu peixe e ele retribuirá com toda a sua elegância e vivacidade.
+            </p>
+        </section>
+    </article>
+</section>
+
+<app-related-posts [recommendedPosts]="recommended" [lastPosts]="latest" />
