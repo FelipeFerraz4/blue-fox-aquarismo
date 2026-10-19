@@ -17,6 +17,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { routes } from './app.routes';
 import { AuthService } from './core/services/auth/auth-service';
 import { tenantInterceptor } from './core/interceptors/tenant.interceptor';
+import { ssrRetryInterceptor } from './core/interceptors/ssr-retry.interceptor';
 
 registerLocaleData(localePt);
 
@@ -33,7 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(
       withFetch(),
-      withInterceptors([tenantInterceptor])
+      withInterceptors([tenantInterceptor, ssrRetryInterceptor])
     ),
 
     provideAppInitializer(() => {
