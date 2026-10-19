@@ -4,7 +4,8 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   Inject,
   OnInit,
-  PLATFORM_ID
+  PLATFORM_ID,
+  signal
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Post } from '../../../../shared/model/types/post';
@@ -26,7 +27,7 @@ export class About implements OnInit {
 
   isBrowser: boolean;
 
-  lastPost: Post | undefined = undefined;
+  lastPost = signal<Post | undefined>(undefined);
 
   constructor(
     private seo: SeoService,
@@ -44,7 +45,7 @@ export class About implements OnInit {
   loadLastPost() {
     this.postService.getLastPost().subscribe({
       next: (post: Post) => {
-        this.lastPost = post;
+        this.lastPost.set(post);
       },
       error: (err) => {
         console.error('Error fetching last post', err);
