@@ -15,8 +15,7 @@ import { Routes } from '@angular/router';
  * no build de produção eles não existem, não são pré-renderizados e respondem 404. O cabeçalho (título e imagem)
  * vem da API: com o post ainda como rascunho, ele só aparece se o seu backend local tiver o post publicado.
  *
- * Rascunhos pendentes: aquarium-filtration-guide, aquarium-tpa-guide, tetra-fish-guide,
- * community-aquarium-guide e aquatic-plants-guide (este ainda nem existe no backend).
+ * Rascunhos pendentes: nenhum no momento.
  */
 
 const publishedRoutes: Routes = [
@@ -43,10 +42,6 @@ const publishedRoutes: Routes = [
     path: 'how-to-choose-aquarium-filter',
     loadComponent: () => import('./how-to-choose-aquarium-filter/how-to-choose-aquarium-filter').then((m) => m.HowToChooseAquariumFilter),
   },
-];
-
-/** Artigos em redação. Para publicar, mova a rota para `publishedRoutes` (e siga os passos acima). */
-const draftRoutes: Routes = [
   {
     path: 'aquarium-filtration-guide',
     loadComponent: () => import('./aquarium-filtration-guide/aquarium-filtration-guide').then((m) => m.AquariumFiltrationGuide),
@@ -68,5 +63,8 @@ const draftRoutes: Routes = [
     loadComponent: () => import('./aquatic-plants-guide/aquatic-plants-guide').then((m) => m.AquaticPlantsGuide),
   },
 ];
+
+/** Artigos em redação (sem rota em produção). Ao começar um novo rascunho, registre-o aqui. */
+const draftRoutes: Routes = [];
 
 export const articlesRoutes: Routes = [...publishedRoutes, ...(isDevMode() ? draftRoutes : [])];
