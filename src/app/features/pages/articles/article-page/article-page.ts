@@ -19,7 +19,7 @@ export class ArticlePage implements OnInit {
     this.seo.updateMetadata({
       title: "Artigos - Blue Fox Aquarismo",
       description: "Confira todos os artigos, guias e dicas práticas sobre aquarismo da Blue Fox Aquarismo.",
-      url: "https://bluefoxaquarismo.com.br/articles",
+      url: "https://bluefoxaquarismo.space/articles",
     });
   }
 }

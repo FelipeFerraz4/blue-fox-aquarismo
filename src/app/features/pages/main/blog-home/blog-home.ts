@@ -128,7 +128,7 @@ export class BlogHome implements OnInit {
       title: "Blue Fox Aquarismo",
       description: "A Blue Fox Aquarismo é uma plataforma educacional criada para compartilhar conhecimento real e acessível sobre aquários, peixes e plantas aquáticas.",
       image: this.slides[0].image,
-      url: `https://bluefoxaquarismo.com.br/`,
+      url: `https://bluefoxaquarismo.space/`,
     });
   }
 }

@@ -8,7 +8,7 @@ A **Blue Fox Aquarismo** é uma plataforma educacional técnica sobre aquarismo.
 - **Diferencial:** Abordagem científica (física de fluidos, biologia, cálculos de engenharia para aquários).
 - **Entidades principais:** Artigos (Post), Simuladores, Espécies, Parâmetros de Água.
 
-## 🏗️ Arquitetura do Frontend (Angular 20)
+## 🏗️ Arquitetura do Frontend (Angular 22)
 
 ### Estrutura de Pastas (Core-Feature-Shared)
 O projeto segue o padrão modular para escalabilidade e SSR:
@@ -20,7 +20,7 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 - `src/app/shared`: Componentes reutilizáveis, modelos (Types/Interfaces) e mocks.
 
 ### Tech Stack & Padrões
-- **Angular 20:** Priorizar o uso de **Signals** para reatividade e **Standalone Components**.
+- **Angular 22:** Priorizar o uso de **Signals** para reatividade e **Standalone Components**.
 - **SSR (Server-Side Rendering):** Essencial para indexação de artigos técnicos. Evitar acesso direto ao `window` ou `document` sem checar o `isPlatformBrowser`.
 - **I18n:** Uso de `@ngx-translate`. Todas as strings de UI devem estar em `assets/i18n/*.json`.
 - **Estilização:** SCSS modular. Seguir o design system baseado no Angular Material.
@@ -32,6 +32,8 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 2.  **Performance de Imagem:** Utilizar prioritariamente o formato `.webp` disponível em `assets/images`.
 3.  **Traduções:** Nunca "hardcodar" texto no HTML. Usar o pipe `| translate`.
 4.  **Tipagem:** Proibido o uso de `any`. Definir interfaces em `shared/model/types/`.
+5.  **Domínio:** o site é `https://bluefoxaquarismo.space`. Use sempre esse domínio nas URLs de SEO (canonical, `og:url`, sitemap).
+6.  **Publicar um artigo:** só artigos publicados têm rota em produção (cada rota é pré-renderizada no build e, sem texto, viraria uma página vazia com status 200 indexável). Hoje os 10 artigos do blog estão publicados em `publishedRoutes`. Para um **novo rascunho**: (1) crie o componente e escreva o texto no `<article class="content">`; (2) registre a rota em `draftRoutes` de `features/pages/articles/articles.routing.ts`, que só existe em `ng serve` (no build de produção responde 404 e não é pré-renderizada); (3) para publicar, mova a rota para `publishedRoutes`, adicione a URL em `public/sitemap.xml` e publique o post no backend (`PUT /api/v1/posts/:id` com `{"published": true}`, ou crie o post se ele ainda não existir). O build precisa de acesso à API de produção para pré-renderizar o cabeçalho do artigo; e na prévia local o cabeçalho só aparece se o seu backend local tiver o post publicado.
 
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:

@@ -1,6 +1,24 @@
+import { isDevMode } from '@angular/core';
 import { Routes } from '@angular/router';
 
-export const articlesRoutes: Routes = [
+/**
+ * Apenas artigos PUBLICADOS devem ter rota aqui. Cada rota é pré-renderizada no build e entra no sitemap;
+ * um artigo ainda sem texto viraria uma página vazia com status 200 (e seria indexada).
+ *
+ * Para publicar um artigo (os componentes dos rascunhos já existem em ./<slug>/):
+ *  1. escreva o texto no <article class="content"> do componente (e o SCSS, se precisar);
+ *  2. registre a rota abaixo;
+ *  3. adicione a URL em public/sitemap.xml;
+ *  4. publique o post no backend: PUT /api/v1/posts/:id com {"published": true} (papel de editor/admin).
+ *
+ * Prévia local: os rascunhos abaixo (draftRoutes) só são registrados em modo de desenvolvimento (`ng serve`);
+ * no build de produção eles não existem, não são pré-renderizados e respondem 404. O cabeçalho (título e imagem)
+ * vem da API: com o post ainda como rascunho, ele só aparece se o seu backend local tiver o post publicado.
+ *
+ * Rascunhos pendentes: nenhum no momento.
+ */
+
+const publishedRoutes: Routes = [
   {
     path: 'aquarium-selection-guide',
     loadComponent: () =>
@@ -45,3 +63,8 @@ export const articlesRoutes: Routes = [
     loadComponent: () => import('./aquatic-plants-guide/aquatic-plants-guide').then((m) => m.AquaticPlantsGuide),
   },
 ];
+
+/** Artigos em redação (sem rota em produção). Ao começar um novo rascunho, registre-o aqui. */
+const draftRoutes: Routes = [];
+
+export const articlesRoutes: Routes = [...publishedRoutes, ...(isDevMode() ? draftRoutes : [])];

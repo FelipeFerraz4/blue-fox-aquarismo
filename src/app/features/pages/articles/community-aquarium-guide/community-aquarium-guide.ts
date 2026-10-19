@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
 import { Post } from '../../../../shared/model/types/post';
@@ -8,7 +9,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-community-aquarium-guide',
   standalone: true,
-  imports: [PostHeaderType1, RelatedPosts],
+  imports: [PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './community-aquarium-guide.html',
   styleUrls: ['./community-aquarium-guide.scss', '../articles-style.scss'],
 })
@@ -84,7 +85,7 @@ export class CommunityAquariumGuide implements OnInit {
       title: post.title,
       description: post.description,
       image: post.imageUrl,
-      url: `https://bluefoxaquarismo.com.br/articles/${post.slug}`,
+      url: `https://bluefoxaquarismo.space/articles/${post.slug}`,
     });
   }
 }

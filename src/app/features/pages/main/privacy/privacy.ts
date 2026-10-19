@@ -23,7 +23,7 @@ export class Privacy implements OnInit {
     this.seo.updateMetadata({
       title: "Política de Privacidade - Blue Fox Aquarismo",
       description: "Confira a política de privacidade da Blue Fox Aquarismo e entenda como tratamos e protegemos seus dados.",
-      url: "https://bluefoxaquarismo.com.br/privacy",
+      url: "https://bluefoxaquarismo.space/privacy",
     });
   }
 }

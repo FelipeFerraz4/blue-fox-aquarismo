@@ -83,7 +83,7 @@ export class AquariumSize implements OnInit {
       title: post.title,
       description: post.description,
       image: post.imageUrl,
-      url: `https://bluefoxaquarismo.com.br/articles/${post.slug}`,
+      url: `https://bluefoxaquarismo.space/articles/${post.slug}`,
     });
   }
 }
