@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
@@ -15,9 +15,9 @@ import { PostService } from '../../../../core/services/post/post';
   styleUrls: ['./aquarium-glass-bowing-danger.scss', '../articles-style.scss'],
 })
 export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
-  currentPost?: Post;
-  recommended: Post[] = [];
-  latest: Post[] = [];
+  currentPost = signal<Post | undefined>(undefined);
+  recommended = signal<Post[]>([]);
+  latest = signal<Post[]>([]);
 
   @ViewChild('videoPlayer') video!: ElementRef<HTMLVideoElement>;
   private observer!: IntersectionObserver;
@@ -39,7 +39,7 @@ export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
   loadPost(slug: string) {
     this.postService.getPostBySlug(slug).subscribe({
       next: (post: Post) => {
-        this.currentPost = post;
+        this.currentPost.set(post);
 
         this.setupSeo(post);
         this.incrementPostViews(slug);
@@ -53,9 +53,7 @@ export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
   incrementPostViews(slug: string) {
     this.postService.incrementViews(slug).subscribe({
       next: () => {
-        if (this.currentPost) {
-          this.currentPost.views++;
-        }
+        this.currentPost.update((p) => (p ? { ...p, views: p.views + 1 } : p));
       },
       error: (err) => {
         console.error('Failed to increment views', err);
@@ -66,7 +64,7 @@ export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
   loadRecommendedPosts(slug: string) {
     this.postService.getRecommendedPosts(slug).subscribe({
       next: (recommended: Post[]) => {
-        this.recommended = recommended;
+        this.recommended.set(recommended);
       },
       error: (err) => {
         console.error('Error fetching recommended posts', err);
@@ -77,7 +75,7 @@ export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
   loadNextPost(slug: string) {
     this.postService.getNextPost(slug).subscribe({
       next: (nextPost: Post[]) => {
-        this.latest = nextPost;
+        this.latest.set(nextPost);
       },
       error: (err) => {
         console.error('Error fetching next post', err);

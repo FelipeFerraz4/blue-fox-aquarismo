@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
@@ -14,9 +14,9 @@ import { PostService } from '../../../../core/services/post/post';
   styleUrls: ['./betta-fish-7-care-tips.scss', '../articles-style.scss'],
 })
 export class BettaFish7CareTips implements OnInit {
-  currentPost?: Post;
-  recommended: Post[] = [];
-  latest: Post[] = [];
+  currentPost = signal<Post | undefined>(undefined);
+  recommended = signal<Post[]>([]);
+  latest = signal<Post[]>([]);
 
   constructor(
     private seo: SeoService,
@@ -34,7 +34,7 @@ export class BettaFish7CareTips implements OnInit {
   loadPost(slug: string) {
     this.postService.getPostBySlug(slug).subscribe({
       next: (post: Post) => {
-        this.currentPost = post;
+        this.currentPost.set(post);
 
         this.setupSeo(post);
         this.incrementPostViews(slug);
@@ -48,9 +48,7 @@ export class BettaFish7CareTips implements OnInit {
   incrementPostViews(slug: string) {
     this.postService.incrementViews(slug).subscribe({
       next: () => {
-        if (this.currentPost) {
-          this.currentPost.views++;
-        }
+        this.currentPost.update((p) => (p ? { ...p, views: p.views + 1 } : p));
       },
       error: (err) => {
         console.error('Failed to increment views', err);
@@ -61,7 +59,7 @@ export class BettaFish7CareTips implements OnInit {
   loadRecommendedPosts(slug: string) {
     this.postService.getRecommendedPosts(slug).subscribe({
       next: (recommended: Post[]) => {
-        this.recommended = recommended;
+        this.recommended.set(recommended);
       },
       error: (err) => {
         console.error('Error fetching recommended posts', err);
@@ -72,7 +70,7 @@ export class BettaFish7CareTips implements OnInit {
   loadNextPost(slug: string) {
     this.postService.getNextPost(slug).subscribe({
       next: (nextPost: Post[]) => {
-        this.latest = nextPost;
+        this.latest.set(nextPost);
       },
       error: (err) => {
         console.error('Error fetching next post', err);
