@@ -13,6 +13,10 @@ ARG CONFIGURATION=production
 
 COPY . .
 
+# A pré-renderização busca cada artigo na blog-api. Com vários workers em paralelo as requisições
+# estouram o rate limit do nginx da API (10 req/s por IP), recebem 503 e o artigo sai sem cabeçalho.
+ENV NG_BUILD_MAX_WORKERS=1
+
 RUN ng build --configuration=${CONFIGURATION}
 
 # ===== RUN SSR =====
