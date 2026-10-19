@@ -8,7 +8,7 @@ A **Blue Fox Aquarismo** é uma plataforma educacional técnica sobre aquarismo.
 - **Diferencial:** Abordagem científica (física de fluidos, biologia, cálculos de engenharia para aquários).
 - **Entidades principais:** Artigos (Post), Simuladores, Espécies, Parâmetros de Água.
 
-## 🏗️ Arquitetura do Frontend (Angular 20)
+## 🏗️ Arquitetura do Frontend (Angular 22)
 
 ### Estrutura de Pastas (Core-Feature-Shared)
 O projeto segue o padrão modular para escalabilidade e SSR:
@@ -20,7 +20,7 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 - `src/app/shared`: Componentes reutilizáveis, modelos (Types/Interfaces) e mocks.
 
 ### Tech Stack & Padrões
-- **Angular 20:** Priorizar o uso de **Signals** para reatividade e **Standalone Components**.
+- **Angular 22:** Priorizar o uso de **Signals** para reatividade e **Standalone Components**.
 - **SSR (Server-Side Rendering):** Essencial para indexação de artigos técnicos. Evitar acesso direto ao `window` ou `document` sem checar o `isPlatformBrowser`.
 - **I18n:** Uso de `@ngx-translate`. Todas as strings de UI devem estar em `assets/i18n/*.json`.
 - **Estilização:** SCSS modular. Seguir o design system baseado no Angular Material.
@@ -32,6 +32,8 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 2.  **Performance de Imagem:** Utilizar prioritariamente o formato `.webp` disponível em `assets/images`.
 3.  **Traduções:** Nunca "hardcodar" texto no HTML. Usar o pipe `| translate`.
 4.  **Tipagem:** Proibido o uso de `any`. Definir interfaces em `shared/model/types/`.
+5.  **Domínio:** o site é `https://bluefoxaquarismo.space`. Use sempre esse domínio nas URLs de SEO (canonical, `og:url`, sitemap).
+6.  **Publicar um artigo:** só artigos publicados têm rota (cada rota é pré-renderizada no build e, sem texto, viraria uma página vazia com status 200 indexável). Os rascunhos (`aquarium-filtration-guide`, `aquarium-tpa-guide`, `tetra-fish-guide`, `community-aquarium-guide`, `aquatic-plants-guide`) têm componente, mas **sem rota nem entrada no sitemap**. Para publicar: (1) escreva o texto no `<article class="content">` do componente, (2) registre a rota em `features/pages/articles/articles.routing.ts`, (3) adicione a URL em `public/sitemap.xml`, (4) publique o post no backend (`PUT /api/v1/posts/:id` com `{"published": true}`; `aquatic-plants-guide` ainda precisa ser criado lá, pois só existe no front). O build precisa de acesso à API de produção para pré-renderizar o cabeçalho do artigo.
 
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:
