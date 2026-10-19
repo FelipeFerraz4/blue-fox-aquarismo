@@ -90,6 +90,34 @@
         strong {
           color: #4fc3f7;
         }
+
+        // Variação "checklist": ícone de check no lugar do marcador
+        &.checklist {
+          list-style: none;
+          padding-left: 0;
+
+          li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.3rem 0;
+          }
+
+          li::before {
+            content: '\2713';
+            flex: 0 0 1.4rem;
+            height: 1.4rem;
+            margin-top: 0.15rem;
+            border-radius: 50%;
+            background: rgba(79, 195, 247, 0.15);
+            border: 1px solid #4fc3f7;
+            color: #4fc3f7;
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.3rem;
+            text-align: center;
+          }
+        }
       }
     }
 
@@ -138,6 +166,19 @@
 
         tr:last-child td {
           border-bottom: none;
+        }
+
+        // Tabelas de dados com várias colunas: cabeçalho alinhado ao conteúdo
+        &.aligned {
+          th,
+          td {
+            text-align: left;
+            vertical-align: middle;
+          }
+
+          th {
+            white-space: nowrap;
+          }
         }
       }
     }
@@ -193,6 +234,19 @@
       font-size: 1rem;
       color: #8fb2c4;
       margin-top: 0.5rem;
+    }
+
+    // Diagramas com texto: a imagem abre em tamanho original (útil no celular, onde o texto fica pequeno)
+    .zoom-link {
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .zoom-hint {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
     }
 
     .link {
