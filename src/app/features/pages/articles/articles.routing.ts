@@ -1,5 +1,19 @@
 import { Routes } from '@angular/router';
 
+/**
+ * Apenas artigos PUBLICADOS devem ter rota aqui. Cada rota é pré-renderizada no build e entra no sitemap;
+ * um artigo ainda sem texto viraria uma página vazia com status 200 (e seria indexada).
+ *
+ * Para publicar um artigo (os componentes dos rascunhos já existem em ./<slug>/):
+ *  1. escreva o texto no <article class="content"> do componente (e o SCSS, se precisar);
+ *  2. registre a rota abaixo;
+ *  3. adicione a URL em public/sitemap.xml;
+ *  4. publique o post no backend: PUT /api/v1/posts/:id com {"published": true} (papel de editor/admin).
+ *
+ * Rascunhos pendentes: aquarium-filtration-guide, aquarium-tpa-guide, tetra-fish-guide,
+ * community-aquarium-guide e aquatic-plants-guide (este ainda nem existe no backend).
+ */
+
 export const articlesRoutes: Routes = [
   {
     path: 'aquarium-selection-guide',
@@ -23,25 +37,5 @@ export const articlesRoutes: Routes = [
   {
     path: 'how-to-choose-aquarium-filter',
     loadComponent: () => import('./how-to-choose-aquarium-filter/how-to-choose-aquarium-filter').then((m) => m.HowToChooseAquariumFilter),
-  },
-  {
-    path: 'aquarium-filtration-guide',
-    loadComponent: () => import('./aquarium-filtration-guide/aquarium-filtration-guide').then((m) => m.AquariumFiltrationGuide),
-  },
-  {
-    path: 'aquarium-tpa-guide',
-    loadComponent: () => import('./aquarium-tpa-guide/aquarium-tpa-guide').then((m) => m.AquariumTpaGuide),
-  },
-  {
-    path: 'tetra-fish-guide',
-    loadComponent: () => import('./tetra-fish-guide/tetra-fish-guide').then((m) => m.TetraFishGuide),
-  },
-  {
-    path: 'community-aquarium-guide',
-    loadComponent: () => import('./community-aquarium-guide/community-aquarium-guide').then((m) => m.CommunityAquariumGuide),
-  },
-  {
-    path: 'aquatic-plants-guide',
-    loadComponent: () => import('./aquatic-plants-guide/aquatic-plants-guide').then((m) => m.AquaticPlantsGuide),
   },
 ];
