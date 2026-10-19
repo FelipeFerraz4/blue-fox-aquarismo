@@ -14,7 +14,7 @@
                     <span class="category-tag">{{ categoryWithPost.name }}</span>
                 </div>
                 <div class="card-body">
-                    <span class="post-date">{{ categoryWithPost.post.publishedAt }}</span>
+                    <span class="post-date">{{ categoryWithPost.post.publishedAt | date:'longDate':'UTC' }}</span>
                     <h3>{{ categoryWithPost.post.title }}</h3>
                     <p>{{ categoryWithPost.post.description }}</p>
                     <span class="read-more">Ler artigo →</span>
