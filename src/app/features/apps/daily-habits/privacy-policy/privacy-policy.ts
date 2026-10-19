@@ -23,7 +23,7 @@ export class PrivacyPolicy implements OnInit {
     this.seo.updateMetadata({
       title: "Política de Privacidade - Daily Habits - Blue Fox Aquarismo",
       description: "Política de Privacidade do aplicativo Daily Habits pela Blue Fox Aquarismo.",
-      url: "https://bluefoxaquarismo.com.br/apps/daily-habits/privacy-policy",
+      url: "https://bluefoxaquarismo.space/apps/daily-habits/privacy-policy",
     });
   }
 }

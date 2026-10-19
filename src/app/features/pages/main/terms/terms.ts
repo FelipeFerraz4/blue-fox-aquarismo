@@ -23,7 +23,7 @@ export class Terms implements OnInit {
     this.seo.updateMetadata({
       title: "Termos de Uso - Blue Fox Aquarismo",
       description: "Leia os termos de uso da plataforma Blue Fox Aquarismo.",
-      url: "https://bluefoxaquarismo.com.br/terms",
+      url: "https://bluefoxaquarismo.space/terms",
     });
   }
 }

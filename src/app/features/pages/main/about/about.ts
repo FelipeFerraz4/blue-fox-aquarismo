@@ -57,8 +57,8 @@ export class About implements OnInit {
     this.seo.updateMetadata({
       title: "Sobre Blue Fox Aquarismo",
       description: "A Blue Fox Aquarismo é uma plataforma educacional criada para compartilhar conhecimento real e acessível sobre aquários, peixes e plantas aquáticas.",
-      image: "https://bluefoxaquarismo.com.br/assets/images/brand/logo.webp",
-      url: `https://bluefoxaquarismo.com.br/about`,
+      image: "https://bluefoxaquarismo.space/assets/images/brand/logo.webp",
+      url: `https://bluefoxaquarismo.space/about`,
     });
   }
 }

@@ -23,7 +23,7 @@ export class TermsOfUse implements OnInit {
     this.seo.updateMetadata({
       title: "Termos de Uso - Daily Habits - Blue Fox Aquarismo",
       description: "Termos de Uso do aplicativo Daily Habits pela Blue Fox Aquarismo.",
-      url: "https://bluefoxaquarismo.com.br/apps/daily-habits/terms-of-use",
+      url: "https://bluefoxaquarismo.space/apps/daily-habits/terms-of-use",
     });
   }
 }
