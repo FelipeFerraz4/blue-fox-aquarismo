@@ -48,3 +48,8 @@ Ao sugerir cálculos ou simuladores, considere:
 - Build: `npm run build:prod`
 - Testes: `npm run test`
 - Lint: `npm run lint`
+
+## 🔄 CI/CD & Deploy na VPS
+- **Workflow:** `.github/workflows/quality-gate.yml`
+- **Quality Gate:** Roda em push/PR nas branches `develop` e `main` (Lint, Audit, Testes e Build de produção).
+- **Deploy Automático:** Ao aprovar e mergear o PR para `main` (push na `main`), se o Quality Gate passar com sucesso, conecta via SSH na VPS e atualiza o container de produção via Docker Compose.

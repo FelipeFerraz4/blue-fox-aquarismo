@@ -5,8 +5,8 @@
 ![SSR](https://img.shields.io/badge/SSR-Enabled-success?style=for-the-badge)
 ![Jest](https://img.shields.io/badge/Jest-Tested-944058?style=for-the-badge&logo=jest)
 
-![CI Main](https://img.shields.io/github/actions/workflow/status/FelipeFerraz4/blue-fox-aquarismo/ci.yml?branch=main&label=CI%20Main&style=for-the-badge)
-![CI Develop](https://img.shields.io/github/actions/workflow/status/FelipeFerraz4/blue-fox-aquarismo/ci.yml?branch=develop&label=CI%20Develop&style=for-the-badge)
+![Quality Gate Main](https://img.shields.io/github/actions/workflow/status/FelipeFerraz4/blue-fox-aquarismo/quality-gate.yml?branch=main&label=Quality%20Gate%20Main&style=for-the-badge)
+![Quality Gate Develop](https://img.shields.io/github/actions/workflow/status/FelipeFerraz4/blue-fox-aquarismo/quality-gate.yml?branch=develop&label=Quality%20Gate%20Develop&style=for-the-badge)
 
 
 A **Blue Fox Aquarismo** é uma plataforma educacional desenvolvida para unir aquarismo, tecnologia e conhecimento responsável. Fundada por Felipe Ferraz, o projeto visa transformar o hobby em uma prática baseada em dados, ciência e ética.
@@ -34,7 +34,7 @@ Acesse a plataforma online em: **[https://bluefoxaquarismo.space/](https://bluef
 
 ### Infraestrutura & DevOps
 - **Containerização:** Docker & Docker Compose.
-- **CI/CD:** GitHub Actions (Lint, Audit, Test e Build).
+- **CI/CD:** GitHub Actions (Quality Gate + Deploy automatizado na VPS).
 - **Servidor:** Express.js (para suporte ao Server-Side Rendering).
 
 ## 📂 Estrutura do Projeto
@@ -44,7 +44,7 @@ O projeto segue uma arquitetura modular focada em escalabilidade:
 blue-fox-aquarismo/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml
+│       ├── quality-gate.yml
 ├── src/
 │   ├── app/
 │   │   ├── core/          # Serviços singleton, interceptors e guardas (Auth, API, SEO)
