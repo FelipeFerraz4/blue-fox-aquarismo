@@ -2,9 +2,9 @@ name: Quality Gate & Deploy
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 concurrency:
@@ -75,6 +75,9 @@ jobs:
 
             echo "📂 Diretório de trabalho: $TARGET_DIR"
             cd "$TARGET_DIR"
+
+            # Garante remote HTTPS para evitar erro de SSH Host Key na VPS
+            git remote set-url origin https://github.com/FelipeFerraz4/blue-fox-aquarismo.git
 
             echo "📥 Atualizando código fonte da branch main..."
             git fetch origin main
