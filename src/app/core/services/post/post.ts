@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Post } from '../../../shared/model/types/post';
 
@@ -61,5 +61,19 @@ export class PostService {
 
   incrementViews(slug: string): Observable<void> {
     return this.http.patch<void>(`${this.postsApiUrl}/views/${slug}`, {});
+  }
+
+  /**
+   * Search posts by text query
+   * @param query Search query text
+   * @param limit Max number of results (default 5)
+   */
+  searchPosts(query: string, limit: number = 5): Observable<Post[]> {
+    const trimmed = query ? query.trim() : '';
+    if (!trimmed) {
+      return of([]);
+    }
+    const params = new HttpParams().set('q', trimmed).set('limit', limit.toString());
+    return this.http.get<Post[]>(`${this.postsApiUrl}/search`, { params });
   }
 }

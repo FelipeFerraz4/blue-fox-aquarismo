@@ -1,0 +1,126 @@
+<div class="search-page-container">
+  <!-- Header / Hero de Busca -->
+  <header class="search-hero">
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+      <a routerLink="/">Início</a>
+      <span class="separator">/</span>
+      <span class="current">Busca de Artigos</span>
+    </nav>
+
+    <h1 class="search-title">O que você gostaria de aprender hoje?</h1>
+    <p class="search-subtitle">
+      Explore nosso acervo científico sobre química da água, espécies de peixes, biologia e equipamentos.
+    </p>
+
+    <!-- Campo de Busca Principal da Página -->
+    <div class="search-bar-wrapper">
+      <div class="search-input-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          #pageSearchInput
+          type="search"
+          [value]="query()"
+          (keydown.enter)="onSearchSubmit(pageSearchInput.value)"
+          placeholder="Ex: filtro hang-on, ciclo do nitrogênio, betta..."
+          class="page-search-input"
+        />
+        <button
+          type="button"
+          (click)="onSearchSubmit(pageSearchInput.value)"
+          class="submit-search-btn"
+        >
+          Buscar
+        </button>
+      </div>
+
+      <!-- Sugestões Populares -->
+      <div class="popular-tags">
+        <span class="tags-label">Sugestões:</span>
+        @for (tag of popularTags; track tag) {
+          <button type="button" (click)="searchTag(tag)" class="tag-chip">
+            {{ tag }}
+          </button>
+        }
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção de Resultados -->
+  <main class="search-results-section">
+    @if (isLoading()) {
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Buscando artigos no acervo da Blue Fox...</p>
+      </div>
+    } @else if (hasSearched()) {
+      <!-- Barra de Status dos Resultados -->
+      <div class="results-header">
+        <h2 class="results-count">
+          @if (posts().length > 0) {
+            Encontramos <strong>{{ posts().length }}</strong> {{ posts().length === 1 ? 'artigo' : 'artigos' }} para "<strong>{{ query() }}</strong>"
+          } @else {
+            Nenhum resultado para "<strong>{{ query() }}</strong>"
+          }
+        </h2>
+      </div>
+
+      <!-- Lista/Grid de Cards -->
+      @if (posts().length > 0) {
+        <div class="articles-grid">
+          @for (post of posts(); track post.id) {
+            <article class="article-search-card">
+              <a [routerLink]="['/articles', post.slug]" class="card-link">
+                <div class="card-image-wrapper">
+                  <img
+                    [src]="post.imageUrl || 'assets/images/aquariums/aquarium5.webp'"
+                    [alt]="post.title"
+                    loading="lazy"
+                  />
+                  @if (post.categoryName) {
+                    <span class="card-badge">{{ post.categoryName }}</span>
+                  }
+                </div>
+
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="reading-time">⏱️ {{ post.readingTime || '5 min' }}</span>
+                    @if (post.publishedAt) {
+                      <span class="pub-date">• {{ post.publishedAt | date:'dd/MM/yyyy' }}</span>
+                    }
+                  </div>
+
+                  <h3 class="card-title">{{ post.title }}</h3>
+                  <p class="card-desc">{{ post.description }}</p>
+
+                  <div class="card-footer">
+                    <span class="read-more">Ler artigo completo →</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          }
+        </div>
+      } @else {
+        <!-- Estado Vazio -->
+        <div class="empty-state">
+          <div class="empty-illustration">🐠🔍</div>
+          <h3 class="empty-title">Nenhum artigo encontrado</h3>
+          <p class="empty-message">
+            Não encontramos resultados para o termo digitado. Verifique se as palavras estão corretas ou tente buscar por termos mais genéricos.
+          </p>
+          <div class="empty-actions">
+            <a routerLink="/" class="back-home-btn">Voltar para a Página Inicial</a>
+          </div>
+        </div>
+      }
+    } @else {
+      <!-- Estado Inicial antes de pesquisar -->
+      <div class="initial-state">
+        <p class="initial-hint">Digite um termo acima ou clique em uma das sugestões para iniciar sua pesquisa.</p>
+      </div>
+    }
+  </main>
+</div>

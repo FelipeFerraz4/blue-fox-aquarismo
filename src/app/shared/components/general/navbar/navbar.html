@@ -51,9 +51,74 @@
 
       <!-- Ações -->
       <div class="navbar-actions">
-        <input type="search" placeholder="Pesquisar no blog..." class="search-input" />
+        <!-- Container de Busca com Dropdown -->
+        <div class="search-box">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              [value]="searchQuery()"
+              (input)="onSearchInput($event)"
+              (keydown.enter)="onSearchSubmit()"
+              (keydown.escape)="closeSearch()"
+              (focus)="onSearchFocus()"
+              placeholder="Pesquisar no blog..."
+              class="search-input"
+            />
+            @if (isLoading()) {
+              <div class="search-spinner" aria-label="Carregando"></div>
+            }
+          </div>
 
-        <div class="navbar-actions">
+          <!-- Dropdown com Cards -->
+          @if (isSearchOpen() && searchQuery().trim().length >= 2) {
+            <div class="search-dropdown">
+              <div class="dropdown-header">
+                <span class="dropdown-title">Resultados para "<strong>{{ searchQuery() }}</strong>"</span>
+                <button type="button" class="close-search-btn" (click)="closeSearch()" aria-label="Fechar busca">✕</button>
+              </div>
+
+              @if (searchResults().length > 0) {
+                <div class="search-results-list">
+                  @for (post of searchResults(); track post.id) {
+                    <a [routerLink]="['/articles', post.slug]" (click)="closeSearch()" class="search-card-item">
+                      <div class="search-card-thumb">
+                        <img [src]="post.imageUrl || 'assets/images/aquariums/aquarium5.webp'" [alt]="post.title" loading="lazy" />
+                      </div>
+                      <div class="search-card-content">
+                        <h4 class="search-card-title">{{ post.title }}</h4>
+                        <p class="search-card-desc">{{ post.description }}</p>
+                        <div class="search-card-meta">
+                          @if (post.categoryName) {
+                            <span class="search-card-tag">{{ post.categoryName }}</span>
+                          }
+                          <span class="search-card-time">⏱️ {{ post.readingTime || '5 min' }}</span>
+                        </div>
+                      </div>
+                    </a>
+                  }
+                </div>
+
+                <div class="dropdown-footer">
+                  <button type="button" (click)="onSearchSubmit()" class="view-all-btn">
+                    Ver todos os resultados para "{{ searchQuery() }}" →
+                  </button>
+                </div>
+              } @else if (!isLoading()) {
+                <div class="search-empty">
+                  <span class="empty-icon">🔍</span>
+                  <p class="empty-text">Nenhum artigo encontrado para "{{ searchQuery() }}"</p>
+                  <span class="empty-hint">Pressione Enter para ver na página de busca</span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="auth-actions">
           <!-- NÃO LOGADO -->
           @if (!auth.isLoggedIn()) {
           <button (click)="login()" class="login-btn">

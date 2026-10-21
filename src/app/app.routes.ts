@@ -29,6 +29,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/pages/main/about/about').then((m) => m.About),
   },
   {
+    path: 'search',
+    loadComponent: () =>
+      import('./features/pages/main/search-result/search-result').then((m) => m.SearchResult),
+  },
+  {
     path: 'articles',
     loadChildren: () =>
       import('./features/pages/articles/articles.routing').then((m) => m.articlesRoutes),
