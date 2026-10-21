@@ -1,0 +1,92 @@
+name: Quality Gate & Deploy
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Instalar dependências (CI safe)
+        run: npm ci
+
+      - name: Audit de segurança (falha apenas em falhas críticas)
+        run: npm audit --audit-level=critical
+
+      - name: Rodar Lint
+        run: npm run lint
+
+      - name: Rodar testes
+        run: npm run test -- --watch=false
+
+      - name: Build do projeto (Produção)
+        env:
+          NG_BUILD_MAX_WORKERS: 1
+        run: npm run build:prod
+
+  deploy:
+    name: Deploy to VPS
+    needs: quality-gate
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Executar Deploy via SSH na VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            set -e
+            echo "🚀 [Deploy] Iniciando deploy do Blue Fox Aquarismo na VPS..."
+
+            # Diretório de destino configurável via Secret VPS_APP_PATH, com fallback automático
+            TARGET_DIR="${{ secrets.VPS_APP_PATH }}"
+            if [ -z "$TARGET_DIR" ]; then
+              if [ -d "$HOME/apps/blue-fox/blue-fox-aquarismo" ]; then
+                TARGET_DIR="$HOME/apps/blue-fox/blue-fox-aquarismo"
+              elif [ -d "$HOME/apps/blue-fox-aquarismo" ]; then
+                TARGET_DIR="$HOME/apps/blue-fox-aquarismo"
+              else
+                TARGET_DIR="/root/apps/blue-fox/blue-fox-aquarismo"
+              fi
+            fi
+
+            echo "📂 Diretório de trabalho: $TARGET_DIR"
+            cd "$TARGET_DIR"
+
+            echo "📥 Atualizando código fonte da branch main..."
+            git fetch origin main
+            git checkout main
+            git reset --hard origin/main
+
+            echo "🐳 Recriando containers com Docker Compose..."
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod down || true
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build
+
+            echo "🧹 Removendo imagens órfãs/antigas..."
+            docker image prune -f
+
+            echo "✅ [Deploy] Deploy do Blue Fox Aquarismo concluído com sucesso!"
