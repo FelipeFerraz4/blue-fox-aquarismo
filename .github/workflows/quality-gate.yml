@@ -62,16 +62,15 @@ jobs:
             set -e
             echo "🚀 [Deploy] Iniciando deploy do Blue Fox Aquarismo na VPS..."
 
-            # Diretório de destino configurável via Secret VPS_APP_PATH, com fallback automático
-            TARGET_DIR="${{ secrets.VPS_APP_PATH }}"
-            if [ -z "$TARGET_DIR" ]; then
-              if [ -d "$HOME/apps/blue-fox/blue-fox-aquarismo" ]; then
-                TARGET_DIR="$HOME/apps/blue-fox/blue-fox-aquarismo"
-              elif [ -d "$HOME/apps/blue-fox-aquarismo" ]; then
-                TARGET_DIR="$HOME/apps/blue-fox-aquarismo"
-              else
-                TARGET_DIR="/root/apps/blue-fox/blue-fox-aquarismo"
-              fi
+            # Localiza automaticamente o diretório no home do usuário deployer
+            if [ -d "$HOME/apps/blue-fox/blue-fox-aquarismo" ]; then
+              TARGET_DIR="$HOME/apps/blue-fox/blue-fox-aquarismo"
+            elif [ -d "$HOME/apps/blue-fox-aquarismo" ]; then
+              TARGET_DIR="$HOME/apps/blue-fox-aquarismo"
+            elif [ -n "${{ secrets.VPS_APP_PATH }}" ]; then
+              TARGET_DIR=$(echo "${{ secrets.VPS_APP_PATH }}" | tr -d '\r\n' | xargs)
+            else
+              TARGET_DIR="$HOME/apps/blue-fox/blue-fox-aquarismo"
             fi
 
             echo "📂 Diretório de trabalho: $TARGET_DIR"
