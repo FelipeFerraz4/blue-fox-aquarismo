@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { SearchResult } from './search-result';
 import { SeoService } from '../../../../core/services/seo/seo-service';
 import { PostService } from '../../../../core/services/post/post';
+import { Post } from '../../../../shared/model/types/post';
 
 describe('SearchResult', () => {
   let spectator: Spectator<SearchResult>;
