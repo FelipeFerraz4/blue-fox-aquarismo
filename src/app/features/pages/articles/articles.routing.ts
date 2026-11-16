@@ -67,4 +67,7 @@ const publishedRoutes: Routes = [
 /** Artigos em redação (sem rota em produção). Ao começar um novo rascunho, registre-o aqui. */
 const draftRoutes: Routes = [];
 
-export const articlesRoutes: Routes = [...publishedRoutes, ...(isDevMode() ? draftRoutes : [])];
+/** `/articles` não tem página própria: a lista de artigos é a busca. */
+const indexRoute: Routes = [{ path: '', pathMatch: 'full', redirectTo: '/search' }];
+
+export const articlesRoutes: Routes = [...indexRoute, ...publishedRoutes, ...(isDevMode() ? draftRoutes : [])];
