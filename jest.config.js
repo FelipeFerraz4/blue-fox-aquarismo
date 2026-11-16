@@ -6,6 +6,8 @@ module.exports = {
 
     rootDir: realpathSync(__dirname),
 
+    // Specs só existem em src/; restringir evita rodar os compilados de out-tsc/, dist/ e coverage/.
+    roots: ['<rootDir>/src'],
     testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
     modulePaths: ['<rootDir>'],
 
