@@ -1,11 +1,13 @@
-// Estilo padrão Blue Fox para artigos NOVOS (bluefox-design-system).
+// Estilo padrão Blue Fox dos artigos (bluefox-design-system).
 // Uso: `<section class="article-section bf-article">` + `styleUrls: ['./<slug>.scss', '../articles-style-bluefox.scss']`.
-// Os artigos antigos continuam com ../articles-style.scss (tema próprio); não misture os dois no mesmo componente.
 //
 // Fontes: Outfit (títulos) + Inter (corpo), carregadas no index.html.
 
 // Tokens (nomes do design system: design-system/tokens/bluefox-variables.css).
-// O padrão aqui é escuro; o bloco `html[data-theme="light"]` troca para o claro (ThemeService, skill bluefox-theming).
+// O padrão aqui é escuro; o bloco `:host-context(html[data-theme='light'])` troca para o claro (ThemeService).
+// O fundo acompanha o da página (--bg-page do styles.scss) para o artigo não virar uma faixa de outra cor.
+// `:host-context` é necessário porque o estilo é do componente (encapsulado): um seletor `html[...] .bf-article`
+// receberia o atributo do componente também no <html> e nunca casaria.
 .bf-article {
   --font-headers: 'Outfit', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -15,9 +17,9 @@
   --color-brand-light: #38b6ff;
   --gradient-brand: linear-gradient(135deg, #06b6d4 0%, #004aad 100%);
 
-  --bf-bg: #0b132b;
-  --bf-surface: #1c2541;
-  --bf-surface-hover: #232f54;
+  --bf-bg: var(--bg-page);
+  --bf-surface: #0f2a38;
+  --bf-surface-hover: #1a3a4a;
   --bf-text-strong: #ffffff;
   --bf-text: #cbd5e1;
   --bf-text-muted: #94a3b8;
@@ -36,9 +38,8 @@
   font-family: var(--font-body);
 }
 
-html[data-theme='light'] .bf-article {
-  --bf-bg: #ffffff;
-  --bf-surface: #f1f6fc;
+:host-context(html[data-theme='light']) .bf-article {
+  --bf-surface: #ffffff;
   --bf-surface-hover: #e4f0fc;
   --bf-text-strong: #1a1a2e;
   --bf-text: #3b4a60;
@@ -272,6 +273,56 @@ html[data-theme='light'] .bf-article {
       margin-top: 0.6rem;
     }
 
+    // Grade de 2 imagens no mesmo formato, com uma legenda única embaixo
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+
+    .image-block2 {
+      text-align: center;
+
+      img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid var(--bf-border);
+        box-shadow: var(--bf-shadow);
+      }
+    }
+
+    .image-caption2 {
+      grid-column: span 2;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--bf-text-muted);
+    }
+
+    // Lista de termos/definições em cartões (ex.: "Lâmina d'água", "Comprimento")
+    .legal-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+
+      li {
+        background: var(--bf-surface);
+        padding: 0.9rem 1.2rem;
+        border-radius: 10px;
+        margin-bottom: 0.6rem;
+        border: 1px solid var(--bf-border);
+        border-left: 3px solid var(--brand-accent);
+        font-size: 0.95rem;
+        color: var(--bf-text);
+      }
+
+      strong {
+        color: var(--bf-link);
+      }
+    }
+
     // Diagramas com texto: a imagem abre em tamanho original (útil no celular, onde o texto fica pequeno)
     .zoom-link {
       display: block;
@@ -314,6 +365,14 @@ html[data-theme='light'] .bf-article {
 
     .content h3 {
       font-size: 1.1rem;
+    }
+
+    .content .image-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .content .image-caption2 {
+      grid-column: auto;
     }
   }
 }

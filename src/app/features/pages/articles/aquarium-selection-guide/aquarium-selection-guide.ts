@@ -10,7 +10,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-selection-guide.html',
-  styleUrl: './aquarium-selection-guide.scss',
+  styleUrls: ['./aquarium-selection-guide.scss', '../articles-style-bluefox.scss'],
 })
 export class AquariumSelectionGuide implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

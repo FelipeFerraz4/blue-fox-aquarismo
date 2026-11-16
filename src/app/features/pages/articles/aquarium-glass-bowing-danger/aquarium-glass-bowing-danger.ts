@@ -12,7 +12,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-glass-bowing-danger.html',
-  styleUrls: ['./aquarium-glass-bowing-danger.scss', '../articles-style.scss'],
+  styleUrls: ['./aquarium-glass-bowing-danger.scss', '../articles-style-bluefox.scss'],
 })
 export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
   currentPost = signal<Post | undefined>(undefined);

@@ -11,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './betta-fish-7-care-tips.html',
-  styleUrls: ['./betta-fish-7-care-tips.scss', '../articles-style.scss'],
+  styleUrls: ['./betta-fish-7-care-tips.scss', '../articles-style-bluefox.scss'],
 })
 export class BettaFish7CareTips implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

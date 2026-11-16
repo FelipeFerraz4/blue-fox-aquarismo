@@ -11,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './tetra-fish-guide.html',
-  styleUrls: ['./tetra-fish-guide.scss', '../articles-style.scss'],
+  styleUrls: ['./tetra-fish-guide.scss', '../articles-style-bluefox.scss'],
 })
 export class TetraFishGuide implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

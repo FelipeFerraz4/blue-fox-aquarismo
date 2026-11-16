@@ -1,3 +1,13 @@
+// Cartões de escolha "Caminho A/B". Cores pelos tokens --bf-* do ../articles-style-bluefox.scss.
+// Laranja de alerta da consequência: tom próprio por tema (contraste AA).
+.card-selector-container {
+  --consequence: #f0a35e;
+}
+
+:host-context(html[data-theme='light']) .card-selector-container {
+  --consequence: #a04f00;
+}
+
 /* Container dos Cards */
 .card-selector-container {
   /* Removido o gradiente daqui para não conflitar com o da .article-section */
@@ -17,8 +27,8 @@
   flex: 1;
   min-width: 280px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.03); /* Mantendo o padrão das suas LIs */
-  border: 1px solid rgba(79, 195, 247, 0.15); /* Bordas suaves em Cyan */
+  background: var(--bf-surface);
+  border: 1px solid var(--bf-border);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,25 +39,25 @@
 /* Badge (Caminho A/B) */
 .card-badge {
   display: inline-block;
-  background: rgba(79, 195, 247, 0.1);
-  color: #4fc3f7; /* Cyan do seu H2 */
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--bf-link);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  border: 1px solid rgba(79, 195, 247, 0.2);
+  border: 1px solid var(--bf-border-strong);
 }
 
 .custom-card h3 {
   margin-top: 0 !important;
-  color: #dceaf2 !important; /* Cor clara do seu texto principal */
+  color: var(--bf-text-strong) !important;
   border: none !important; /* Remove a borda lateral do h3 global */
   padding-left: 0 !important;
 }
 
 .custom-card p {
-  color: #b6cbd8;
+  color: var(--bf-text);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -56,13 +66,13 @@
 .consequence-box {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: rgba(230, 126, 34, 0.05); /* Fundo levemente alaranjado */
-  border-left: 3px solid #e67e22; /* Destaque em laranja para atenção */
+  background: rgba(230, 126, 34, 0.08);
+  border-left: 3px solid #e67e22;
   border-radius: 4px;
 }
 
 .consequence-box strong {
-  color: #e67e22 !important;
+  color: var(--consequence) !important;
   display: block;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -71,7 +81,7 @@
 }
 
 .consequence-box p {
-  color: #dceaf2;
+  color: var(--bf-text);
   margin-bottom: 0;
   font-size: 0.9rem;
 }
@@ -81,17 +91,17 @@
 /* Efeito ao selecionar Qualquer um dos caminhos */
 #path-a:checked + .custom-card,
 #path-b:checked + .custom-card {
-  border-color: #4fc3f7; /* Brilho Cyan */
-  background-color: rgba(79, 195, 247, 0.08);
-  box-shadow: 0 0 20px rgba(79, 195, 247, 0.15);
+  border-color: var(--brand-accent);
+  background-color: var(--bf-surface-hover);
+  box-shadow: var(--bf-glow);
   transform: translateY(-5px); /* Salta para cima em vez de scale */
 }
 
 /* Muda a cor da badge quando selecionado */
 #path-a:checked + .custom-card .card-badge,
 #path-b:checked + .custom-card .card-badge {
-  background: #4fc3f7;
-  color: #0b1c26; /* Texto escuro no fundo claro */
+  background: var(--brand-accent);
+  color: #0b132b;
 }
 
 /* Responsividade */
