@@ -38,6 +38,8 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 7.  **Change detection (Angular 22 = `OnPush` por padrão):** estado que muda depois de uma resposta HTTP ou de outro callback assíncrono deve ser um **signal** (`signal()` + `.set()`), e o template o lê com `()`. Atribuir um campo comum dentro de `subscribe` não redesenha o componente: no SSR o HTML sai vazio e no navegador só aparece depois de outro evento.
 8.  **Pré-renderização e rate limit:** o build faz várias requisições à blog-api, que tem rate limit no nginx (10 req/s por IP). O Dockerfile usa `NG_BUILD_MAX_WORKERS=1` para não estourar o limite; sem isso, alguns artigos saem sem cabeçalho. Para buildar localmente com o mesmo comportamento: `NG_BUILD_MAX_WORKERS=1 npm run build:prod`.
 
+9.  **Estilo dos artigos:** artigos **novos** usam o padrão Blue Fox (`articles/articles-style-bluefox.scss` + classe `bf-article`; skill `bluefox-new-article`). Os 10 artigos antigos seguem em `articles-style.scss` enquanto o padrão novo está em teste: não altere esse arquivo nem migre os antigos sem pedido.
+
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:
 - **Cálculo de Vidro:** Considere o "Belly Effect" (deflexão) e fatores de segurança para pressão hidrostática.
