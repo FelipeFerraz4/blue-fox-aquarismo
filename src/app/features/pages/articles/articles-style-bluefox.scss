@@ -2,12 +2,10 @@
 // Uso: `<section class="article-section bf-article">` + `styleUrls: ['./<slug>.scss', '../articles-style-bluefox.scss']`.
 // Os artigos antigos continuam com ../articles-style.scss (tema próprio); não misture os dois no mesmo componente.
 //
-// Fontes: Outfit (títulos) + Inter (corpo). Importadas aqui para valer só nos artigos que usam este estilo.
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+// Fontes: Outfit (títulos) + Inter (corpo), carregadas no index.html.
 
 // Tokens (nomes do design system: design-system/tokens/bluefox-variables.css).
-// O site hoje é navy; por isso o padrão aqui é escuro. O bloco `html[data-theme="light"]` já deixa o artigo
-// pronto para quando o tema claro/escuro (skill bluefox-theming) for ligado no Aquarismo.
+// O padrão aqui é escuro; o bloco `html[data-theme="light"]` troca para o claro (ThemeService, skill bluefox-theming).
 .bf-article {
   --font-headers: 'Outfit', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
