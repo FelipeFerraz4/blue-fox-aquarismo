@@ -40,6 +40,8 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 
 9.  **Estilo dos artigos:** artigos **novos** usam o padrão Blue Fox (`articles/articles-style-bluefox.scss` + classe `bf-article`; skill `bluefox-new-article`). Os 10 artigos antigos seguem em `articles-style.scss` enquanto o padrão novo está em teste: não altere esse arquivo nem migre os antigos sem pedido.
 
+10. **Tema claro/escuro:** `<html data-theme="light|dark">`, resolvido pelo script inline do `index.html` (sem piscar) e pelo `ThemeService` (`core/services/theme/`, preferência em `localStorage` `bf-theme`; ausente = seguir o sistema). Fundo, texto e borda **só com os tokens** do `styles.scss` (`--bg-page`, `--surface*`, `--text*`, `--accent`, `--link`, `--border`, `rgba(var(--tint-rgb|--accent-rgb|--surface-rgb), a)`, `--sea-*`). Ficam fixos de propósito: fundos de destaque (`#4fc3f7`, gradientes da marca), o texto sobre eles e tudo que fica sobre imagem (capa dos artigos, carrossel, destaque da home). Os artigos antigos (`articles-style.scss`) seguem escuros nos dois temas.
+
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:
 - **Cálculo de Vidro:** Considere o "Belly Effect" (deflexão) e fatores de segurança para pressão hidrostática.
