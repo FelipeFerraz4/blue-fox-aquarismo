@@ -6,27 +6,27 @@
 
 .about-platform {
     background: linear-gradient(180deg,
-            #0a1f2c,
-            #0b1c26);
-    color: #b6cbd8;
+            var(--bg-page),
+            var(--surface));
+    color: var(--text-2);
     width: 100%;
     overflow-x: hidden;
 }
 
 .tools {
     background: linear-gradient(180deg,
-            #0b1c26,
-            #0e2a3a);
-    color: #b6cbd8;
+            var(--surface),
+            var(--sea-1));
+    color: var(--text-2);
     width: 100%;
     overflow-x: hidden;
 }
 
 .community {
     background: linear-gradient(180deg,
-            #0e2a3a,
-            #154257);
-    color: #eaf6f8;
+            var(--sea-1),
+            var(--sea-4));
+    color: var(--text-strong);
     width: 100%;
     overflow-x: hidden;
 }
@@ -48,7 +48,7 @@
 
 .about-header h2 {
     font-size: clamp(1.8rem, 4vw, 2.6rem);
-    color: #4fc3f7;
+    color: var(--accent);
     margin-bottom: 2rem;
 
     line-height: 1.2;
@@ -56,7 +56,7 @@
 
 .about-header .subtitle {
     font-size: clamp(1rem, 2.5vw, 1.15rem);
-    color: #9fb6c3;
+    color: var(--text-muted);
 }
 
 .about-content {
@@ -73,7 +73,7 @@
 }
 
 .about-text strong {
-    color: #eaf6fb;
+    color: var(--text-strong);
 }
 
 .about-features {
@@ -83,15 +83,15 @@
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(79, 195, 247, 0.15);
+    background: rgba(var(--tint-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.15);
     border-radius: 16px;
     padding: 1.5rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature-card h3 {
-    color: #4fc3f7;
+    color: var(--accent);
     margin-bottom: 0.75rem;
     font-size: 1.1rem;
 }
@@ -145,13 +145,13 @@
 
 .tools-header h2 {
     font-size: clamp(1.8rem, 4vw, 2.4rem);
-    color: #4fc3f7;
+    color: var(--accent);
     margin-bottom: 0.75rem;
 }
 
 .tools-header p {
     font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    color: #9fb6c3;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -162,8 +162,8 @@
 }
 
 .tool-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(79, 195, 247, 0.15);
+    background: rgba(var(--tint-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.15);
     border-radius: 18px;
     padding: 2rem 1.75rem;
     display: flex;
@@ -183,7 +183,7 @@
 }
 
 .tool-card h3 {
-    color: #4fc3f7;
+    color: var(--accent);
     margin-bottom: 0.75rem;
     font-size: 1.2rem;
 }
@@ -198,13 +198,13 @@
 .tool-link {
     align-self: flex-start;
     font-weight: 600;
-    color: #4fc3f7;
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .tool-link:hover {
-    color: #81d4fa;
+    color: var(--accent-hover);
     transform: translateX(4px);
 }
 
@@ -243,14 +243,14 @@
     font-size: 2.1rem;
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #4fc3f7;
+    color: var(--accent);
 }
 
 .community p {
     font-size: 1.05rem;
     line-height: 1.75;
     margin-bottom: 1.2rem;
-    color: #cfe8ec;
+    color: var(--text-2);
     text-align: justify;
 }
 
@@ -291,7 +291,7 @@
 /* Primary */
 .community-btn.primary {
     background: linear-gradient(135deg, #4fc3f7, #0288d1);
-    color: #0b1c26;
+    color: var(--text-on-accent);
     box-shadow: 0 8px 20px rgba(79, 195, 247, 0.35);
 }
 
@@ -302,14 +302,14 @@
 
 /* Secondary */
 .community-btn.secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: #eaf6fb;
-    border: 1px solid rgba(79, 195, 247, 0.35);
+    background: rgba(var(--tint-rgb), 0.08);
+    color: var(--text-strong);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
 }
 
 .community-btn.secondary:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(var(--tint-rgb), 0.12);
     box-shadow: 0 8px 20px rgba(79, 195, 247, 0.25);
 }
 

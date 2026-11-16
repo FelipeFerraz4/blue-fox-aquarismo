@@ -1,7 +1,7 @@
 .related-wrapper {
-  background: #0b1c26; // Cor base do seu blog
+  background: var(--surface); // Cor base do seu blog
   padding: 4rem 1.5rem;
-  border-top: 1px solid rgba(79, 195, 247, 0.1);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.1);
 
   .container {
     max-width: 1100px;
@@ -23,7 +23,7 @@
   }
 
   h2 {
-    color: #fff;
+    color: var(--text-strong);
     font-size: 1.5rem;
     margin: 0;
     text-transform: uppercase;
@@ -44,8 +44,8 @@
 
 /* Estilo do Card Principal */
 .post-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tint-rgb), 0.03);
+  border: 1px solid rgba(var(--tint-rgb), 0.05);
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
@@ -55,8 +55,8 @@
 
   &:hover {
     transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(79, 195, 247, 0.4);
+    background: rgba(var(--tint-rgb), 0.06);
+    border-color: rgba(var(--accent-rgb), 0.4);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
     .card-image img {
@@ -64,7 +64,7 @@
     }
 
     .read-more {
-      color: #81d4fa;
+      color: var(--accent-hover);
       padding-left: 5px;
     }
   }
@@ -86,7 +86,7 @@
       top: 1rem;
       right: 1rem;
       background: #4fc3f7;
-      color: #0b1c26;
+      color: var(--text-on-accent);
       padding: 0.2rem 0.7rem;
       font-size: 0.75rem;
       font-weight: bold;
@@ -101,20 +101,20 @@
     flex-grow: 1;
 
     .post-date {
-      color: #9fb9c8;
+      color: var(--text-muted);
       font-size: 0.8rem;
       margin-bottom: 0.5rem;
     }
 
     h3 {
-      color: #fff;
+      color: var(--text-strong);
       font-size: 1.2rem;
       margin: 0.5rem 0;
       line-height: 1.4;
     }
 
     p {
-      color: #b6cbd8;
+      color: var(--text-2);
       font-size: 0.9rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -126,7 +126,7 @@
 
     .read-more {
       margin-top: auto;
-      color: #4fc3f7;
+      color: var(--accent);
       font-weight: 600;
       font-size: 0.85rem;
       transition: all 0.2s ease;
@@ -149,7 +149,7 @@
       justify-content: center;
 
       h4 {
-        color: #fff;
+        color: var(--text-strong);
         font-size: 1rem;
         margin: 0.2rem 0;
         white-space: nowrap;
@@ -158,7 +158,7 @@
       }
 
       .category-link {
-        color: #4fc3f7;
+        color: var(--accent);
         font-size: 0.7rem;
         text-transform: uppercase;
         font-weight: bold;
@@ -170,7 +170,7 @@
 .spacer {
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(79, 195, 247, 0.2), transparent);
+  background: linear-gradient(to right, transparent, rgba(var(--accent-rgb), 0.2), transparent);
   margin: 4rem 0;
 }
 

@@ -1,7 +1,7 @@
 .legal-page {
     min-height: calc(100vh - 120px);
-    background: radial-gradient(circle at top, #0f2a38, #0b1c26);
-    color: #dceaf2;
+    background: radial-gradient(circle at top, var(--surface-2), var(--surface));
+    color: var(--text);
     display: flex;
     justify-content: center;
     padding: 3rem 1.5rem;
@@ -14,12 +14,12 @@
 
 h1 {
     font-size: 2.2rem;
-    color: #4fc3f7;
+    color: var(--accent);
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #9fb9c8;
+    color: var(--text-muted);
     margin: 1rem 0rem;
     font-size: 0.95rem;
 }
@@ -28,13 +28,13 @@ h1 {
     h2 {
         margin: 2.5rem 0 1rem;
         font-size: 1.3rem;
-        color: #4fc3f7;
-        border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+        color: var(--accent);
+        border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
         padding-bottom: 0.5rem;
     }
 
     p {
-        color: #b6cbd8;
+        color: var(--text-2);
         line-height: 1.8;
         margin-bottom: 1.2rem;
         font-size: 1rem;
@@ -47,19 +47,19 @@ h1 {
     margin-bottom: 2rem;
 
     li {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(var(--tint-rgb), 0.03);
         padding: 1rem;
         border-radius: 6px;
         margin-bottom: 0.75rem;
-        color: #b6cbd8;
-        border-left: 3px solid #4fc3f7;
+        color: var(--text-2);
+        border-left: 3px solid var(--accent);
         line-height: 1.6;
     }
 }
 
 .highlight-box {
-    background: rgba(79, 195, 247, 0.08);
-    border: 1px dashed #4fc3f7;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px dashed var(--accent);
     padding: 1.5rem;
     margin: 2rem 0;
     border-radius: 8px;
@@ -67,22 +67,22 @@ h1 {
     p {
         margin: 0;
         font-style: italic;
-        color: #dceaf2;
+        color: var(--text);
     }
 }
 
 .disclaimer-card {
-    background: #1a3a4a;
-    border: 1px solid #1f3b4a;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
     padding: 1.2rem;
     border-radius: 8px;
     margin: 1.5rem 0;
     font-size: 0.95rem;
-    color: #ffd54f;
+    color: var(--warning-text);
 
     strong {
         display: block;
-        color: #fff;
+        color: var(--text-strong);
         margin-bottom: 0.2rem;
     }
 }
@@ -90,7 +90,7 @@ h1 {
 .updated {
     margin-top: 3rem;
     font-size: 0.85rem;
-    color: #8fb2c4;
+    color: var(--text-muted);
     text-align: right;
 }
 
@@ -110,7 +110,7 @@ h1 {
 
     &.primary {
         background: #4fc3f7;
-        color: #0b1c26;
+        color: var(--text-on-accent);
 
         &:hover {
             background: #81d4fa;
@@ -118,11 +118,11 @@ h1 {
     }
 
     &.secondary {
-        border: 1px solid #4fc3f7;
-        color: #4fc3f7;
+        border: 1px solid var(--accent);
+        color: var(--accent);
 
         &:hover {
-            background: rgba(79, 195, 247, 0.1);
+            background: rgba(var(--accent-rgb), 0.1);
         }
     }
 }

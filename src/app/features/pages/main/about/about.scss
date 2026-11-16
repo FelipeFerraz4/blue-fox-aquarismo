@@ -3,27 +3,27 @@
 ===================================================== */
 
 .about-hero {
-  background: linear-gradient(180deg, #0a1f2c 0%, #0b1c26 100%);
+  background: linear-gradient(180deg, var(--bg-page) 0%, var(--surface) 100%);
 }
 
 .history {
-  background: linear-gradient(180deg, #0b1c26 0%, #0e2a3a 100%);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--sea-1) 100%);
 }
 
 .object {
-  background: linear-gradient(180deg, #0e2a3a 0%, #123647 100%);
+  background: linear-gradient(180deg, var(--sea-1) 0%, var(--sea-2) 100%);
 }
 
 .content {
-  background: linear-gradient(180deg, #123647 0%, #154257 100%);
+  background: linear-gradient(180deg, var(--sea-2) 0%, var(--sea-4) 100%);
 }
 
 .transparent {
-  background: linear-gradient(180deg, #154257 0%, #133c4f 100%);
+  background: linear-gradient(180deg, var(--sea-4) 0%, var(--sea-3) 100%);
 }
 
 .about-community {
-  background: linear-gradient(180deg, #133c4f 0%, #0a1f2c 100%);
+  background: linear-gradient(180deg, var(--sea-3) 0%, var(--bg-page) 100%);
 }
 
 .container {
@@ -35,13 +35,13 @@
 .about-hero {
   padding: clamp(4rem, 8vw, 6rem) 1.5rem 2rem 1.5rem;
   text-align: center;
-  color: #eaf6fb;
+  color: var(--text-strong);
 }
 
 .about-hero h1 {
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   line-height: 1.2;
-  color: #4fc3f7;
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
@@ -49,7 +49,7 @@
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   max-width: 680px;
   margin: 1.5rem auto 0 auto;
-  color: #cfe8ec;
+  color: var(--text-2);
   line-height: 1.7;
 }
 
@@ -60,7 +60,7 @@
 .about-section,
 .about-community {
   padding: clamp(3rem, 6vw, 5rem) 0;
-  color: #cfe8ec;
+  color: var(--text-2);
 }
 
 .section-header {
@@ -71,13 +71,13 @@
 .section-header h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.3;
-  color: #4fc3f7;
+  color: var(--accent);
 }
 
 .section-header p {
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   margin-top: 1rem;
-  color: #81d4fa;
+  color: var(--accent-hover);
 }
 
 /* =====================================================
@@ -98,14 +98,14 @@
 .why-exists {
   margin-top: 3rem;
   padding: 2rem;
-  border-left: 4px solid #4fc3f7;
-  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid var(--accent);
+  background: rgba(var(--tint-rgb), 0.04);
   border-radius: 16px;
   backdrop-filter: blur(6px);
 }
 
 .why-exists h3 {
-  color: #4fc3f7;
+  color: var(--accent);
   margin-bottom: 1rem;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
@@ -113,7 +113,7 @@
 .why-exists .highlight {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   font-weight: 600;
-  color: #eaf6fb;
+  color: var(--text-strong);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -130,10 +130,10 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tint-rgb), 0.05);
   padding: 1.8rem;
   border-radius: 18px;
-  border: 1px solid rgba(79, 195, 247, 0.2);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
   transition: 0.25s ease;
   backdrop-filter: blur(6px);
 }
@@ -146,7 +146,7 @@
 .info-card h3 {
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   line-height: 1.35;
-  color: #4fc3f7;
+  color: var(--accent);
   margin-bottom: 0.8rem;
   word-break: break-word;
 }
@@ -167,7 +167,7 @@
 
 .content-list h4 {
   font-size: clamp(1rem, 1.5vw, 1.1rem);
-  color: #4fc3f7;
+  color: var(--accent);
   margin-bottom: 0.4rem;
 }
 
@@ -183,14 +183,14 @@
 }
 
 .links a {
-  color: #4fc3f7;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s ease;
 }
 
 .links a:hover {
-  color: #81d4fa;
+  color: var(--accent-hover);
 }
 
 /* =====================================================
@@ -204,7 +204,7 @@
 
 .about-community h2 {
   font-size: clamp(1.6rem, 3vw, 2rem);
-  color: #4fc3f7;
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 
@@ -221,7 +221,7 @@
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
-  color: #0b1c26;
+  color: var(--text-on-accent);
   display: inline-block;
   transition: 0.25s ease;
 }
