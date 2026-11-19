@@ -1,8 +1,12 @@
+<!-- Com <base href="/">, um href="#conteudo" levaria para a home; o clique só move o foco. -->
+<a class="skip-link" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
+
 <app-navbar></app-navbar>
 
-<main class="container">
+<main class="container" id="conteudo" tabindex="-1">
   <router-outlet></router-outlet>
 </main>
 
 <app-footer></app-footer>
 <app-cookie-banner></app-cookie-banner>
+<app-a11y-toolbar></app-a11y-toolbar>

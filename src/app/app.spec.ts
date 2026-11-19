@@ -39,4 +39,13 @@ describe('App', () => {
   it('should create the app', () => {
     expect(spectator.component).toBeTruthy();
   });
+
+  it('skip link focuses main without navigating', () => {
+    const link = spectator.query<HTMLAnchorElement>('.skip-link')!;
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true });
+    Element.prototype.scrollIntoView = jest.fn();
+    link.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    expect(document.activeElement?.id).toBe('conteudo');
+  });
 });

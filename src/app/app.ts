@@ -1,22 +1,34 @@
 import { Component, signal, Inject, PLATFORM_ID, inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Footer } from './shared/components/general/footer/footer';
 import { Navbar } from './shared/components/general/navbar/navbar';
 import { CookieBanner } from './shared/components/general/cookie-banner/cookie-banner';
 import { filter } from 'rxjs/operators';
 import { ThemeService } from './core/services/theme/theme-service';
+import { AccessibilityService } from './core/services/accessibility/accessibility-service';
+import { A11yToolbar } from './shared/components/general/a11y-toolbar/a11y-toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Navbar, CookieBanner],
+  imports: [RouterOutlet, Footer, Navbar, CookieBanner, A11yToolbar],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('aquarismo-app');
-  // Injetado aqui para o tema valer desde o início (aplica data-theme e ouve o sistema).
+  // Injetados aqui para valer desde o início (data-theme, data-contrast e escala da fonte).
   protected readonly theme = inject(ThemeService);
+  protected readonly a11y = inject(AccessibilityService);
+  private readonly document = inject(DOCUMENT);
+
+  /** "Pular para o conteúdo": foca o <main> sem navegar. */
+  skipToContent(event: Event): void {
+    event.preventDefault();
+    const main = this.document.getElementById('conteudo');
+    main?.focus();
+    main?.scrollIntoView();
+  }
 
   constructor(
     private router: Router,
