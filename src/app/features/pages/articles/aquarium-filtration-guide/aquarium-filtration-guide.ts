@@ -11,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './aquarium-filtration-guide.html',
-  styleUrls: ['./aquarium-filtration-guide.scss', '../articles-style-bluefox.scss'],
+  styleUrl: './aquarium-filtration-guide.scss',
 })
 export class AquariumFiltrationGuide implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

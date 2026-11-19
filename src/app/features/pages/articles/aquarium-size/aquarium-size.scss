@@ -101,7 +101,7 @@
 #path-a:checked + .custom-card .card-badge,
 #path-b:checked + .custom-card .card-badge {
   background: var(--brand-accent);
-  color: #0b132b;
+  color: var(--bf-on-accent);
 }
 
 /* Responsividade */

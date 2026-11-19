@@ -9,7 +9,7 @@ import { PostService } from '../../../../core/services/post/post';
   selector: 'app-aquarium-size',
   imports: [PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-size.html',
-  styleUrls: ['./aquarium-size.scss', '../articles-style-bluefox.scss'],
+  styleUrl: './aquarium-size.scss',
 })
 export class AquariumSize implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

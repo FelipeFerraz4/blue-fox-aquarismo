@@ -11,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
   standalone: true,
   imports: [PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './aquatic-plants-guide.html',
-  styleUrls: ['./aquatic-plants-guide.scss', '../articles-style-bluefox.scss'],
+  styleUrl: './aquatic-plants-guide.scss',
 })
 export class AquaticPlantsGuide implements OnInit {
   currentPost = signal<Post | undefined>(undefined);

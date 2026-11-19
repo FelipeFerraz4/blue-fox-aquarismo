@@ -1,13 +1,13 @@
 // Estilo padrão Blue Fox dos artigos (bluefox-design-system).
-// Uso: `<section class="article-section bf-article">` + `styleUrls: ['./<slug>.scss', '../articles-style-bluefox.scss']`.
+// Carregado como estilo GLOBAL (angular.json → "styles"), escopado por `.bf-article`: uma cópia só para todos os
+// artigos e fora do budget por componente. Uso: `<section class="article-section bf-article">`; o componente do
+// artigo só referencia o próprio `./<slug>.scss` (vazio, salvo blocos específicos dele).
 //
 // Fontes: Outfit (títulos) + Inter (corpo), carregadas no index.html.
 
 // Tokens (nomes do design system: design-system/tokens/bluefox-variables.css).
-// O padrão aqui é escuro; o bloco `:host-context(html[data-theme='light'])` troca para o claro (ThemeService).
-// O fundo acompanha o da página (--bg-page do styles.scss) para o artigo não virar uma faixa de outra cor.
-// `:host-context` é necessário porque o estilo é do componente (encapsulado): um seletor `html[...] .bf-article`
-// receberia o atributo do componente também no <html> e nunca casaria.
+// O padrão aqui é escuro; `html[data-theme='light']` troca para o claro e `html[data-contrast='high']` para o
+// alto contraste. O fundo acompanha o da página (--bg-page do styles.scss).
 .bf-article {
   --font-headers: 'Outfit', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -29,6 +29,7 @@
   --bf-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   --bf-glow: 0 0 20px rgba(6, 182, 212, 0.25);
   --bf-table-head-text: #ffffff;
+  --bf-on-accent: #0b132b; // texto sobre fundo --brand-accent
 
   background: var(--bf-bg);
   color: var(--bf-text);
@@ -38,7 +39,7 @@
   font-family: var(--font-body);
 }
 
-:host-context(html[data-theme='light']) .bf-article {
+html[data-theme='light'] .bf-article {
   --bf-surface: #ffffff;
   --bf-surface-hover: #e4f0fc;
   --bf-text-strong: #1a1a2e;
@@ -49,6 +50,39 @@
   --bf-border-strong: rgba(0, 74, 173, 0.3);
   --bf-shadow: 0 8px 24px rgba(0, 74, 173, 0.08);
   --bf-glow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+// Alto contraste (barra de acessibilidade): mesmas regras do styles.scss (preto/branco; amarelo no escuro).
+html[data-contrast='high'] .bf-article {
+  --brand-accent: #00308f;
+  --gradient-brand: linear-gradient(#00308f, #00308f);
+  --bf-surface: #ffffff;
+  --bf-surface-hover: #f0f0f0;
+  --bf-text-strong: #000000;
+  --bf-text: #000000;
+  --bf-text-muted: #1f1f1f;
+  --bf-link: #00308f;
+  --bf-border: #333333;
+  --bf-border-strong: #000000;
+  --bf-shadow: none;
+  --bf-glow: none;
+  --bf-table-head-text: #ffffff;
+  --bf-on-accent: #ffffff;
+}
+
+html[data-contrast='high'][data-theme='dark'] .bf-article {
+  --brand-accent: #ffd400;
+  --gradient-brand: linear-gradient(#ffd400, #ffd400);
+  --bf-surface: #000000;
+  --bf-surface-hover: #141414;
+  --bf-text-strong: #ffffff;
+  --bf-text: #ffffff;
+  --bf-text-muted: #e5e5e5;
+  --bf-link: #ffd400;
+  --bf-border: #cccccc;
+  --bf-border-strong: #ffffff;
+  --bf-table-head-text: #000000;
+  --bf-on-accent: #000000;
 }
 
 .bf-article {
@@ -338,8 +372,7 @@
     .zoom-hint {
       display: block;
       margin-top: 0.15rem;
-      font-size: 0.85rem;
-      opacity: 0.75;
+      font-size: 0.85rem; // sem opacity: o texto já é --bf-text-muted e precisa manter contraste AA
     }
 
     .link {
