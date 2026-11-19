@@ -45,6 +45,10 @@ export class ImageCarousel implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Quem pede menos movimento no sistema não recebe troca automática de slides.
+    if (this.isBrowser && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      this.autoplay = false;
+    }
     if (this.isBrowser && this.autoplay) {
       this.startAutoplay();
     }

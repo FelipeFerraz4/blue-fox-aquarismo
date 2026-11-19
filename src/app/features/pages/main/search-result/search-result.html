@@ -49,7 +49,7 @@
   </header>
 
   <!-- Seção de Resultados -->
-  <main class="search-results-section">
+  <section class="search-results-section" aria-label="Resultados da busca">
     @if (isLoading()) {
       <div class="loading-state">
         <div class="loading-spinner"></div>
@@ -122,5 +122,5 @@
         <p class="initial-hint">Digite um termo acima ou clique em uma das sugestões para iniciar sua pesquisa.</p>
       </div>
     }
-  </main>
+  </section>
 </div>

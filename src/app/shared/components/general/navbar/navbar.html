@@ -2,15 +2,16 @@
   <div class="navbar-container">
     <!-- Logo / Brand -->
     <a routerLink="/" class="navbar-brand">
-      <img src="/assets/images/brand/logo.webp" alt="Blue Fox Aquarismo" />
+      <img src="/assets/images/brand/logo.webp" alt="" />
       <span>Blue Fox Aquarismo</span>
     </a>
 
     <!-- Botão hamburguer (mobile) -->
-    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+    <button type="button" class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen"
+      aria-controls="navbar-menu" aria-label="Abrir menu">☰</button>
 
     <!-- Menu -->
-    <nav class="navbar-menu" [class.open]="menuOpen">
+    <nav class="navbar-menu" id="navbar-menu" aria-label="Principal" [class.open]="menuOpen">
       <ul class="menu-list">
         <li>
           <a routerLink="/">Início</a>

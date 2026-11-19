@@ -2,6 +2,8 @@
   class="carousel-wrapper"
   (mouseenter)="pause()"
   (mouseleave)="resume()"
+  (focusin)="pause()"
+  (focusout)="resume()"
   (touchstart)="onTouchStart($event)"
   (touchend)="onTouchEnd($event)"
   tabindex="0"
@@ -16,11 +18,17 @@
         class="carousel-slide"
         [class.active]="i === currentIndex()"
         [attr.aria-hidden]="i !== currentIndex()"
+        [attr.inert]="i !== currentIndex() ? '' : null"
         [style.backgroundImage]="'url(' + slide.image + ')'">
 
         <div class="slide-overlay">
           <div class="slide-content">
-            <h1 class="slide-title">{{ slide.title }}</h1>
+            <!-- Um só h1 na página: o do primeiro slide -->
+            @if (i === 0) {
+              <h1 class="slide-title">{{ slide.title }}</h1>
+            } @else {
+              <h2 class="slide-title">{{ slide.title }}</h2>
+            }
             <p class="slide-description">{{ slide.description }}</p>
 
             @if (slide.button) {
@@ -59,7 +67,7 @@
     </button>
 
     <!-- Indicadores (Dots / Pills) -->
-    <div class="indicators" role="tablist" aria-label="Slides">
+    <div class="indicators" role="group" aria-label="Escolher slide">
       @for (slide of slides; track slide.id; let i = $index) {
         <button
           type="button"
@@ -67,8 +75,7 @@
           [class.active]="i === currentIndex()"
           (click)="goTo(i)"
           [attr.aria-label]="'Ir para slide ' + (i + 1)"
-          [attr.aria-selected]="i === currentIndex()"
-          role="tab">
+          [attr.aria-current]="i === currentIndex() ? 'true' : null">
         </button>
       }
     </div>

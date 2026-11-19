@@ -12,14 +12,17 @@
     gap: 16px;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
+    /* Abaixo da barra de acessibilidade (9000), que fica no canto inferior direito. */
+    z-index: 8000;
+    /* Espaço à direita para o botão flutuante de acessibilidade (48px + margens). */
+    padding-right: 84px;
     box-sizing: border-box;
 }
 
 /* Texto */
 .cookie-text {
     max-width: 900px;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.5;
 }
 
