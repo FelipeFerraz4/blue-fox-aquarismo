@@ -53,7 +53,10 @@ export interface Species extends CatalogItem {
   phMax: number;
   ghMin: number | null;
   ghMax: number | null;
+  /** Temperamento da fêmea quando difere por sexo. */
   temperament: Temperament;
+  /** Temperamento do macho quando difere (ex.: Betta AGGRESSIVE); null = igual a `temperament`. */
+  maleTemperament: Temperament | null;
   finNipper: boolean;
   longFinned: boolean;
   territorial: boolean;

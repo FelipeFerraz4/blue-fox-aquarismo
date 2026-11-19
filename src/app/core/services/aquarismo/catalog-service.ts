@@ -49,8 +49,9 @@ export class CatalogService {
   }
 
   /**
-   * Compatibilidade entre as espécies (slugs). Repita um slug para indicar mais de um indivíduo
-   * da mesma espécie (ex.: dois machos de Betta).
+   * Compatibilidade entre as espécies. Cada entrada é um slug, opcionalmente com o sexo
+   * (`betta-splendens:female`); sem sexo, a API assume macho. Repita uma entrada para indicar
+   * mais de um indivíduo (ex.: duas fêmeas de Betta).
    */
   checkCompatibility(slugs: string[], lang?: string): Observable<CompatibilityReport> {
     return this.http.get<CompatibilityReport>(`${this.baseUrl}/compatibility`, {
