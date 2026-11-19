@@ -17,7 +17,8 @@ export const environment = {
         request: {
             post: 'api/v1/posts',
             category: 'api/v1/categories',
-            author: 'api/v1/authors'
+            author: 'api/v1/authors',
+            aquarismo: 'api/v1/aquarismo',
         }
     }
 };

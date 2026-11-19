@@ -18,6 +18,7 @@ export const environment = {
             post: 'api/v1/posts',
             category: 'api/v1/categories',
             author: 'api/v1/authors',
+            aquarismo: 'api/v1/aquarismo',
         } 
     },
 };
