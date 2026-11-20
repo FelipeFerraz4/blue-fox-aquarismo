@@ -1,9 +1,9 @@
 <section class="post-header" [style.background-image]="'url(' + imageUrl + ')'">
   <div class="overlay">
     <div class="header-content">
-      <span class="category-tag">{{ category }}</span>
-      <h1>{{ title }}</h1>
-      <p class="description">{{ description }}</p>
+      <span class="category-tag" [attr.lang]="contentLang">{{ category }}</span>
+      <h1 [attr.lang]="contentLang">{{ title }}</h1>
+      <p class="description" [attr.lang]="contentLang">{{ description }}</p>
 
       <div class="post-meta">
         <div class="author-info">

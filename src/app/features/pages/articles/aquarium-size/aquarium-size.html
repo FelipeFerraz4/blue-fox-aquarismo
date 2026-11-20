@@ -1,6 +1,7 @@
 <app-post-header-type1 [title]="currentPost()?.title ?? ''" [description]="currentPost()?.description ?? ''"
     [imageUrl]="currentPost()?.imageUrl ?? ''" [author]="currentPost()?.authorName ?? ''" [date]="currentPost()?.publishedAt ?? ''"
-    [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
+    [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''"
+    [contentLang]="currentPost()?.locale" />
 
 <section class="article-section bf-article">
   <article class="content" [attr.lang]="language.current()">

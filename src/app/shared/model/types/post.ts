@@ -19,6 +19,9 @@ export interface Post {
   categoryId: string;   
   categoryName: string;  
 
+  /** Idioma em que título, descrição e categoria vieram (a API cai para pt-BR sem tradução). */
+  locale?: string;
+
   createdAt?: string;
   updatedAt?: string;
 }

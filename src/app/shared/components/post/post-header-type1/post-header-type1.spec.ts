@@ -21,4 +21,13 @@ describe('PostHeaderType1', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('marks the title in the language the API returned (untranslated posts stay pt-BR)', () => {
+    fixture.componentRef.setInput('title', 'Peixe Betta');
+    fixture.componentRef.setInput('contentLang', 'pt-BR');
+    fixture.detectChanges();
+    const h1: HTMLElement = fixture.nativeElement.querySelector('h1');
+    expect(h1.textContent).toContain('Peixe Betta');
+    expect(h1.getAttribute('lang')).toBe('pt-BR');
+  });
 });

@@ -17,4 +17,6 @@ export class PostHeaderType1 {
   @Input() date = '';
   @Input() readingTime = '5 min';
   @Input() category = 'Guia de Montagem';
+  /** Idioma do título/descrição/categoria (`post.locale`): pode diferir da página se faltar tradução. */
+  @Input() contentLang?: string;
 }
