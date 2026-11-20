@@ -3,9 +3,9 @@
     <div class="cookie-text">
         <p>
             {{ 'COOKIES.TEXT' | translate }}
-            <a routerLink="/privacy-policy">{{ 'COOKIES.PRIVACY' | translate }}</a>
+            <a [routerLink]="'/privacy-policy' | localize">{{ 'COOKIES.PRIVACY' | translate }}</a>
             {{ 'COOKIES.AND' | translate }}
-            <a routerLink="/terms-of-use">{{ 'COOKIES.TERMS' | translate }}</a>.
+            <a [routerLink]="'/terms-of-use' | localize">{{ 'COOKIES.TERMS' | translate }}</a>.
         </p>
     </div>
 

@@ -1,3 +1,5 @@
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
+import { LanguageService } from '../../../../core/i18n/language-service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Component, DestroyRef, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
@@ -10,12 +12,13 @@ import { Post } from '../../../model/types/post';
 /** Campo de busca da navbar com dropdown de resultados (a partir de 2 caracteres). */
 @Component({
   selector: 'app-navbar-search',
-  imports: [TranslatePipe, RouterLink],
+  imports: [LocalizePipe, TranslatePipe, RouterLink],
   templateUrl: './navbar-search.html',
   styleUrl: './navbar-search.scss',
 })
 export class NavbarSearch {
   private router = inject(Router);
+  private language = inject(LanguageService);
   private postService = inject(PostService);
   private elementRef = inject(ElementRef);
   private destroyRef = inject(DestroyRef);
@@ -91,7 +94,7 @@ export class NavbarSearch {
     const query = this.searchQuery().trim();
     if (query) {
       this.closeSearch();
-      this.router.navigate(['/search'], { queryParams: { q: query } });
+      this.router.navigate([this.language.localize('/search')], { queryParams: { q: query } });
     }
   }
 

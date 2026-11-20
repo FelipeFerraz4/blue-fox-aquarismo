@@ -25,11 +25,11 @@
       <div class="column">
         <h3>{{ 'FOOTER.GENERAL' | translate }}</h3>
         <ul>
-          <li><a routerLink="/" routerLinkActive="active">{{ 'FOOTER.HOME' | translate }}</a></li>
-          <!-- <li><a routerLink="/artigos" routerLinkActive="active">Artigos</a></li>
-          <li><a routerLink="/guias" routerLinkActive="active">Guias</a></li> -->
-          <li><a routerLink="/about" routerLinkActive="active">{{ 'FOOTER.ABOUT' | translate }}</a></li>
-          <li><a routerLink="/contact" routerLinkActive="active">{{ 'FOOTER.CONTACT' | translate }}</a></li>
+          <li><a [routerLink]="'/' | localize" routerLinkActive="active">{{ 'FOOTER.HOME' | translate }}</a></li>
+          <!-- <li><a [routerLink]="'/artigos' | localize" routerLinkActive="active">Artigos</a></li>
+          <li><a [routerLink]="'/guias' | localize" routerLinkActive="active">Guias</a></li> -->
+          <li><a [routerLink]="'/about' | localize" routerLinkActive="active">{{ 'FOOTER.ABOUT' | translate }}</a></li>
+          <li><a [routerLink]="'/contact' | localize" routerLinkActive="active">{{ 'FOOTER.CONTACT' | translate }}</a></li>
         </ul>
       </div>
 
@@ -37,21 +37,21 @@
         <h3>Ferramentas</h3>
         <ul>
           <li>
-            <a routerLink="/ferramentas/montar-aquario" routerLinkActive="active">Montar Aquário</a>
+            <a [routerLink]="'/ferramentas/montar-aquario' | localize" routerLinkActive="active">Montar Aquário</a>
           </li>
           <li>
-            <a routerLink="/ferramentas/quiz-peixes" routerLinkActive="active">Quiz de Peixes</a>
+            <a [routerLink]="'/ferramentas/quiz-peixes' | localize" routerLinkActive="active">Quiz de Peixes</a>
           </li>
-          <li><a routerLink="/ferramentas/jogos" routerLinkActive="active">Jogos Educativos</a></li>
+          <li><a [routerLink]="'/ferramentas/jogos' | localize" routerLinkActive="active">Jogos Educativos</a></li>
         </ul>
       </div> -->
 
       <div class="column">
         <h3>{{ 'FOOTER.LEGAL' | translate }}</h3>
         <ul>
-          <li><a routerLink="/terms-of-use" routerLinkActive="active">{{ 'FOOTER.TERMS' | translate }}</a></li>
+          <li><a [routerLink]="'/terms-of-use' | localize" routerLinkActive="active">{{ 'FOOTER.TERMS' | translate }}</a></li>
           <li>
-            <a routerLink="/privacy-policy" routerLinkActive="active">{{ 'FOOTER.PRIVACY' | translate }}</a>
+            <a [routerLink]="'/privacy-policy' | localize" routerLinkActive="active">{{ 'FOOTER.PRIVACY' | translate }}</a>
           </li>
         </ul>
       </div>

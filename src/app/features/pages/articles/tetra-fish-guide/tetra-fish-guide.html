@@ -83,7 +83,7 @@
             </ul>
             <p>
                 Para entender melhor como as dimensões influenciam a vida dos peixes e a manutenção, vale ler o
-                <a routerLink="/articles/aquarium-size" class="link" target="_blank" rel="noopener noreferrer">
+                <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank" rel="noopener noreferrer">
                     guia de dimensões e proporções</a>.
             </p>
         </section>
@@ -187,7 +187,7 @@
                         </tr>
                         <tr>
                             <td><strong>Nitrato</strong></td>
-                            <td>De preferência abaixo de 20 mg/L (mantido com <a routerLink="/articles/aquarium-tpa-guide" class="link" target="_blank" rel="noopener noreferrer">TPAs</a> semanais)</td>
+                            <td>De preferência abaixo de 20 mg/L (mantido com <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPAs</a> semanais)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -206,14 +206,14 @@
             <h2>Montando o ambiente ideal</h2>
             <ul class="article-list bullets">
                 <li><strong>Plantas e esconderijos:</strong> aquários plantados, com troncos e raízes, deixam os tetras
-                    mais seguros e coloridos. Veja o <a routerLink="/articles/aquatic-plants-guide" class="link" target="_blank" rel="noopener noreferrer">guia de plantas aquáticas</a>.</li>
+                    mais seguros e coloridos. Veja o <a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia de plantas aquáticas</a>.</li>
                 <li><strong>Iluminação suave:</strong> luz moderada e plantas flutuantes que sombreiam parte da
                     superfície imitam os rios onde eles vivem.</li>
                 <li><strong>Folhas secas de amendoeira (catappa):</strong> liberam taninos, que deixam a água levemente
                     âmbar e ácida, como a dos rios de origem, e ainda têm ação protetora.</li>
                 <li><strong>Substrato escuro:</strong> realça as cores, em especial as do Neon e do Cardinal.</li>
                 <li><strong>Fluxo moderado:</strong> eles gostam de nadar, mas não de correntezas fortes. Veja o
-                    <a routerLink="/articles/how-to-choose-aquarium-filter" class="link" target="_blank"
+                    <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
                         rel="noopener noreferrer">guia de escolha do filtro</a> para dimensionar a vazão.
                 </li>
             </ul>

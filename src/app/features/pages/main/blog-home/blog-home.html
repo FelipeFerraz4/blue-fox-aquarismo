@@ -73,10 +73,10 @@
         <p>{{ 'HOME.COMMUNITY_P3' | translate }}</p>
 
         <div class="community-actions">
-            <a routerLink="/about" class="community-btn primary">
+            <a [routerLink]="'/about' | localize" class="community-btn primary">
                 {{ 'HOME.KNOW_PROJECT' | translate }} <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a routerLink="/search" class="community-btn secondary">
+            <a [routerLink]="'/search' | localize" class="community-btn secondary">
                 {{ 'HOME.SEE_ARTICLES' | translate }} <span class="arrow" aria-hidden="true">→</span>
             </a>
         </div>

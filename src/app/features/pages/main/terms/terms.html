@@ -85,8 +85,8 @@
         </div>
 
         <div class="actions">
-            <a routerLink="/" routerLinkActive="active" class="btn primary">Voltar para o início</a>
-            <a routerLink="/privacy-policy" routerLinkActive="active" class="btn secondary">Política de Privacidade</a>
+            <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
+            <a [routerLink]="'/privacy-policy' | localize" routerLinkActive="active" class="btn secondary">Política de Privacidade</a>
         </div>
     </div>
 </section>

@@ -8,7 +8,7 @@
 
         <div class="posts-grid small">
             @for (post of latestPosts; track post.id) {
-            <a [routerLink]="['/articles', post.slug]" class="post-card">
+            <a [routerLink]="('/articles/' + post.slug) | localize" class="post-card">
                 <div class="card-image">
                     <img [src]="post.imageUrl" [alt]="post.title" loading="lazy" />
                     <span class="category-tag">{{ post.categoryName }}</span>

@@ -19,6 +19,7 @@ import { AuthService } from './core/services/auth/auth-service';
 import { tenantInterceptor } from './core/interceptors/tenant.interceptor';
 import { ssrRetryInterceptor } from './core/interceptors/ssr-retry.interceptor';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { langInterceptor } from './core/interceptors/lang.interceptor';
 import { provideTranslateLoader, provideTranslateService } from '@ngx-translate/core';
 import { BundledTranslateLoader } from './core/i18n/translate-loader';
 import { DEFAULT_LOCALE } from './core/i18n/locales';
@@ -38,7 +39,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(
       withFetch(),
-      withInterceptors([tenantInterceptor, authInterceptor, ssrRetryInterceptor])
+      withInterceptors([tenantInterceptor, langInterceptor, authInterceptor, ssrRetryInterceptor])
     ),
 
     // i18n: pt-BR no bundle (SSR/pré-render prontos), outros idiomas sob demanda; ver core/i18n.

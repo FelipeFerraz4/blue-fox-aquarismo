@@ -82,7 +82,7 @@
             <h2>Relatos de erro e contato</h2>
             <p>
                 Quando você usa o botão <strong>Relatar erro</strong> ou a página
-                <a routerLink="/contact">Contato e correções</a>, guardamos o que você escreveu (o erro, a correção
+                <a [routerLink]="'/contact' | localize">Contato e correções</a>, guardamos o que você escreveu (o erro, a correção
                 sugerida e a fonte), a página de onde o aviso foi enviado e, se você informar, o seu e-mail.
             </p>
             <ul class="legal-list">
@@ -107,8 +107,8 @@
         </div>
 
         <div class="actions">
-            <a routerLink="/" routerLinkActive="active" class="btn primary">Voltar para o início</a>
-            <a routerLink="/terms-of-use" routerLinkActive="active" class="btn secondary">Termos de Uso</a>
+            <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
+            <a [routerLink]="'/terms-of-use' | localize" routerLinkActive="active" class="btn secondary">Termos de Uso</a>
         </div>
     </div>
 </section>

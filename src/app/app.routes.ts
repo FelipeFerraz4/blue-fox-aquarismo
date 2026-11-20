@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [
+/**
+ * Páginas do site, declaradas uma vez. Português na raiz (/about) e inglês sob /en (/en/about):
+ * cada idioma tem URL própria, pré-renderizada no idioma certo (SEO e desempenho). O idioma vem
+ * da URL (LanguageService); links internos passam pelo pipe `localize`.
+ */
+const pageRoutes: Routes = [
   {
     path: '',
     children: [
@@ -46,6 +51,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/pages/articles/articles.routing').then((m) => m.articlesRoutes),
   },
+];
+
+export const routes: Routes = [
+  ...pageRoutes,
+  { path: 'en', children: pageRoutes },
   {
     path: '**',
     loadComponent: () =>

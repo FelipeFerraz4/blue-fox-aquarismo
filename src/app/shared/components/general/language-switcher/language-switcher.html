@@ -1,14 +1,15 @@
-<div class="lang-switch" role="group" [attr.aria-label]="'LANGUAGE.LABEL' | translate">
+<nav class="lang-switch" [attr.aria-label]="'LANGUAGE.LABEL' | translate">
   @for (l of locales; track l.code) {
-    <button
-      type="button"
-      [attr.aria-pressed]="language.current() === l.code"
+    <a
+      [routerLink]="hrefFor(l.code)"
+      [attr.hreflang]="l.code"
       [attr.lang]="l.code"
       [attr.title]="l.label"
-      (click)="select(l.code)"
+      [attr.aria-current]="language.current() === l.code ? 'true' : null"
+      (click)="remember(l.code)"
     >
       <!-- Nome acessível "PT, Português": contém o texto visível (WCAG 2.5.3) -->
       {{ l.short }}<span class="sr-only">, {{ l.label }}</span>
-    </button>
+    </a>
   }
-</div>
+</nav>

@@ -1,16 +1,19 @@
+import { TranslateService } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
 import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../../core/services/seo/seo-service';
 
 @Component({
   selector: 'app-privacy',
   standalone: true,
-  imports: [ContentLanguageNotice, RouterLink],
+  imports: [LocalizePipe, ContentLanguageNotice, RouterLink],
   templateUrl: './privacy.html',
   styleUrl: './privacy.scss',
 })
 export class Privacy implements OnInit {
+  private readonly translate = inject(TranslateService);
   currentYear = 0;
 
   constructor(private seo: SeoService) {}
@@ -22,9 +25,9 @@ export class Privacy implements OnInit {
 
   setupSeo() {
     this.seo.updateMetadata({
-      title: "Política de Privacidade - Blue Fox Aquarismo",
-      description: "Confira a política de privacidade da Blue Fox Aquarismo e entenda como tratamos e protegemos seus dados.",
-      url: "https://bluefoxaquarismo.space/privacy",
+      title: this.translate.instant('META.PRIVACY_TITLE'),
+      description: this.translate.instant('META.PRIVACY_DESCRIPTION'),
+      url: "https://bluefoxaquarismo.space/privacy-policy",
     });
   }
 }

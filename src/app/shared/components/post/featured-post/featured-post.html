@@ -9,7 +9,7 @@
 
         <div class="featured-layout">
 
-            <a class="featured-main" [routerLink]="['/articles', featuredPosts[0].slug]">
+            <a class="featured-main" [routerLink]="('/articles/' + featuredPosts[0].slug) | localize">
                 <img [src]="featuredPosts[0].imageUrl" [alt]="featuredPosts[0].title" loading="eager" />
 
                 <div class="overlay">
@@ -26,7 +26,7 @@
 
             <div class="featured-side">
                 @for (post of featuredPosts.slice(1, 4); track post.id) {
-                <a class="featured-card" [routerLink]="['/articles', post.slug]">
+                <a class="featured-card" [routerLink]="('/articles/' + post.slug) | localize">
                     <img [src]="post.imageUrl" [alt]="post.title" loading="lazy" />
 
                     <div class="card-content">

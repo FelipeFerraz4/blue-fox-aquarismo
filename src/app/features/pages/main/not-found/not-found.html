@@ -6,8 +6,8 @@
         <p>{{ 'NOT_FOUND.TEXT' | translate }}</p>
 
         <div class="actions">
-            <a routerLink="/" routerLinkActive="active" class="btn primary">{{ 'COMMON.BACK_HOME' | translate }}</a>
-            <a routerLink="/articles" routerLinkActive="active" class="btn secondary">{{ 'COMMON.SEE_ARTICLES' | translate }}</a>
+            <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">{{ 'COMMON.BACK_HOME' | translate }}</a>
+            <a [routerLink]="'/articles' | localize" routerLinkActive="active" class="btn secondary">{{ 'COMMON.SEE_ARTICLES' | translate }}</a>
         </div>
     </div>
 </section>

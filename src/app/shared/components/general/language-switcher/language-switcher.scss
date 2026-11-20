@@ -5,13 +5,17 @@
   overflow: hidden;
   background: var(--surface);
 
-  button {
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 2.5rem;
     min-height: 2rem;
     padding: 0.25rem 0.6rem;
     border: none;
     background: transparent;
     color: var(--text);
+    text-decoration: none;
     font: inherit;
     font-size: 0.8rem;
     font-weight: 700;
@@ -21,7 +25,7 @@
       background: var(--surface-3);
     }
 
-    &[aria-pressed='true'] {
+    &[aria-current='true'] {
       background: #004aad;
       color: #fff;
     }

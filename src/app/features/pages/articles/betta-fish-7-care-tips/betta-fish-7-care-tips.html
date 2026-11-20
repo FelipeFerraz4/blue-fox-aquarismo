@@ -34,7 +34,7 @@
                 <p>
                     Um aquário de 15 a 20 litros é o ponto de partida ideal, pois oferece maior estabilidade química e
                     espaço suficiente para o nado. Como detalhado no
-                    <a routerLink="/articles/aquarium-size" routerLinkActive="active" class="link" target="_blank"
+                    <a [routerLink]="'/articles/aquarium-size' | localize" routerLinkActive="active" class="link" target="_blank"
                         rel="noopener noreferrer">
                         Guia de Dimensões e Proporções
                     </a>, o formato retangular é o mais recomendado, pois facilita o acesso do peixe à superfície para
@@ -177,7 +177,7 @@
             <p>
                 Muitos iniciantes cometem o erro de acreditar que, se a água está cristalina, ela está limpa. No
                 entanto, a filtragem biológica converte a amônia em nitrato, um composto que, embora menos tóxico,
-                acumula-se continuamente e só pode ser removido através da <strong><a routerLink="/articles/aquarium-tpa-guide" class="link" target="_blank" rel="noopener noreferrer">TPA (Troca Parcial de Água)</a></strong>.
+                acumula-se continuamente e só pode ser removido através da <strong><a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPA (Troca Parcial de Água)</a></strong>.
                 A TPA não serve apenas para retirar esses poluentes; ela é o método principal para repor minerais
                 essenciais e oligoelementos que o peixe e as plantas consomem para manter o metabolismo saudável.
             </p>
@@ -204,7 +204,7 @@
             </p>
 
             <p>
-                Para quem deseja um <a routerLink="/articles/community-aquarium-guide" class="link" target="_blank" rel="noopener noreferrer">aquário comunitário</a>, a regra de ouro é o <strong>espaço</strong>. Em tanques
+                Para quem deseja um <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">aquário comunitário</a>, a regra de ouro é o <strong>espaço</strong>. Em tanques
                 pequenos (abaixo de 40 litros), o Betta deve ser mantido sozinho. Em montagens maiores, você pode
                 introduzir "companheiros invisíveis" ao radar do Betta, como as <strong>Coridoras</strong> (peixes de
                 fundo rápidos e pacíficos) ou invertebrados como o <strong>Caramujo Ampulária</strong>. Esses animais

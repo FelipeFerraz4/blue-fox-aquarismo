@@ -76,8 +76,8 @@
       <p>{{ 'ABOUT.TRANSPARENCY_P1' | translate }}</p>
       <p>{{ 'ABOUT.TRANSPARENCY_P2' | translate }}</p>
       <div class="links">
-        <a routerLink="/terms-of-use">{{ 'ABOUT.TERMS' | translate }}</a>
-        <a routerLink="/privacy-policy">{{ 'ABOUT.PRIVACY' | translate }}</a>
+        <a [routerLink]="'/terms-of-use' | localize">{{ 'ABOUT.TERMS' | translate }}</a>
+        <a [routerLink]="'/privacy-policy' | localize">{{ 'ABOUT.PRIVACY' | translate }}</a>
       </div>
       <p>{{ 'ABOUT.TRANSPARENCY_P3' | translate }}</p>
     </div>
@@ -90,6 +90,6 @@
     <h2>{{ 'ABOUT.COMMUNITY_TITLE' | translate }}</h2>
     <p>{{ 'ABOUT.COMMUNITY_P1' | translate }}</p>
     <p>{{ 'ABOUT.COMMUNITY_P2' | translate }}</p>
-    <a routerLink="/search" class="cta-btn">{{ 'ABOUT.EXPLORE' | translate }}</a>
+    <a [routerLink]="'/search' | localize" class="cta-btn">{{ 'ABOUT.EXPLORE' | translate }}</a>
   </div>
 </section>

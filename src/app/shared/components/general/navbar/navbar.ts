@@ -1,3 +1,4 @@
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -8,7 +9,7 @@ import { LanguageSwitcher } from '../language-switcher/language-switcher';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [TranslatePipe, RouterModule, NavbarSearch, LanguageSwitcher],
+  imports: [LocalizePipe, TranslatePipe, RouterModule, NavbarSearch, LanguageSwitcher],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

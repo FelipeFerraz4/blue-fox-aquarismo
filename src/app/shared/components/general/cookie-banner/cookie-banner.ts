@@ -1,3 +1,4 @@
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -7,7 +8,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-cookie-banner',
   standalone: true,
-  imports: [TranslatePipe, CommonModule, RouterLink],
+  imports: [LocalizePipe, TranslatePipe, CommonModule, RouterLink],
   templateUrl: './cookie-banner.html',
   styleUrl: './cookie-banner.scss',
 })

@@ -1,3 +1,6 @@
+import { TranslateService } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
+import { LanguageService } from '../../../../core/i18n/language-service';
 import { LocalDatePipe } from '../../../../core/i18n/local-date.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -20,14 +23,16 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-search-result',
   standalone: true,
-  imports: [LocalDatePipe, TranslatePipe, CommonModule, RouterModule],
+  imports: [LocalizePipe, LocalDatePipe, TranslatePipe, CommonModule, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './search-result.html',
   styleUrl: './search-result.scss',
 })
 export class SearchResult implements OnInit {
+  private readonly translate = inject(TranslateService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private language = inject(LanguageService);
   private postService = inject(PostService);
   private seo = inject(SeoService);
   private destroyRef = inject(DestroyRef);
@@ -57,8 +62,8 @@ export class SearchResult implements OnInit {
           this.posts.set([]);
           this.hasSearched.set(false);
           this.seo.updateMetadata({
-            title: 'Pesquisar Artigos | Blue Fox Aquarismo',
-            description: 'Busque artigos, guias e conteúdos sobre aquarismo.',
+            title: this.translate.instant('META.SEARCH_TITLE'),
+            description: this.translate.instant('META.SEARCH_DESCRIPTION'),
             url: 'https://bluefoxaquarismo.space/search',
           });
         }
@@ -70,8 +75,8 @@ export class SearchResult implements OnInit {
     this.hasSearched.set(true);
 
     this.seo.updateMetadata({
-      title: `Busca por "${term}" | Blue Fox Aquarismo`,
-      description: `Resultados da pesquisa por "${term}" no acervo do Blue Fox Aquarismo.`,
+      title: this.translate.instant('META.SEARCH_TERM_TITLE', { term }),
+      description: this.translate.instant('META.SEARCH_TERM_DESCRIPTION', { term }),
       url: `https://bluefoxaquarismo.space/search?q=${encodeURIComponent(term)}`,
     });
 
@@ -90,11 +95,11 @@ export class SearchResult implements OnInit {
   onSearchSubmit(inputVal: string) {
     const trimmed = inputVal.trim();
     if (trimmed) {
-      this.router.navigate(['/search'], { queryParams: { q: trimmed } });
+      this.router.navigate([this.language.localize('/search')], { queryParams: { q: trimmed } });
     }
   }
 
   searchTag(tag: string) {
-    this.router.navigate(['/search'], { queryParams: { q: tag } });
+    this.router.navigate([this.language.localize('/search')], { queryParams: { q: tag } });
   }
 }

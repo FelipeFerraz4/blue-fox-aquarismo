@@ -31,7 +31,7 @@
       @if (searchResults().length > 0) {
         <div class="search-results-list">
           @for (post of searchResults(); track post.id) {
-            <a [routerLink]="['/articles', post.slug]" (click)="closeSearch()" class="search-card-item">
+            <a [routerLink]="('/articles/' + post.slug) | localize" (click)="closeSearch()" class="search-card-item">
               <div class="search-card-thumb">
                 <img [src]="post.imageUrl || 'assets/images/aquariums/aquarium5.webp'" [alt]="post.title" loading="lazy" />
               </div>

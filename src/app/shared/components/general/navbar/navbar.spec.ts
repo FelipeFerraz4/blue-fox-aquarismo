@@ -102,8 +102,8 @@ describe('Navbar', () => {
     spectator.component.ferramentasOpen = true;
     spectator.detectChanges();
 
-    expect(spectator.query('a[routerLink="/"]')).toBeTruthy();
-    expect(spectator.query('a[routerLink="/about"]')).toBeTruthy();
+    expect(spectator.query('a[href="/"]')).toBeTruthy();
+    expect(spectator.query('a[href="/about"]')).toBeTruthy();
   });
 
   it('should toggle menu when button is clicked', () => {

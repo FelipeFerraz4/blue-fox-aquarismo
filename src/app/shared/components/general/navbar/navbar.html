@@ -1,7 +1,7 @@
 <header class="navbar">
   <div class="navbar-container">
     <!-- Logo / Brand -->
-    <a routerLink="/" class="navbar-brand">
+    <a [routerLink]="'/' | localize" class="navbar-brand">
       <img src="/assets/images/brand/logo.webp" alt="" />
       <span>Blue Fox Aquarismo</span>
     </a>
@@ -14,11 +14,11 @@
     <nav class="navbar-menu" id="navbar-menu" [attr.aria-label]="'NAV.MAIN' | translate" [class.open]="menuOpen">
       <ul class="menu-list">
         <li>
-          <a routerLink="/">{{ 'NAV.HOME' | translate }}</a>
+          <a [routerLink]="'/' | localize">{{ 'NAV.HOME' | translate }}</a>
         </li>
         <!-- 
         <li>
-          <a routerLink="/guias">Guias</a>
+          <a [routerLink]="'/guias' | localize">Guias</a>
         </li> -->
         <!-- 
         <li class="has-dropdown">
@@ -27,9 +27,9 @@
           </button>
 
           <ul class="dropdown" [class.open]="artigosOpen">
-            <li><a routerLink="/artigos/agua-doce">Aquários de Água Doce</a></li>
-            <li><a routerLink="/artigos">Aquários Plantados</a></li>
-            <li><a routerLink="/artigos/marinho">Aquários Marinhos</a></li>
+            <li><a [routerLink]="'/artigos/agua-doce' | localize">Aquários de Água Doce</a></li>
+            <li><a [routerLink]="'/artigos' | localize">Aquários Plantados</a></li>
+            <li><a [routerLink]="'/artigos/marinho' | localize">Aquários Marinhos</a></li>
           </ul>
         </li> -->
 
@@ -39,14 +39,14 @@
           </button>
 
           <ul class="dropdown" [class.open]="ferramentasOpen">
-            <li><a routerLink="/ferramentas/montar-aquario">Montar Aquário</a></li>
-            <li><a routerLink="/ferramentas/quiz-peixes">Quiz de Peixes</a></li>
-            <li><a routerLink="/ferramentas/jogos">Jogos Educativos</a></li>
+            <li><a [routerLink]="'/ferramentas/montar-aquario' | localize">Montar Aquário</a></li>
+            <li><a [routerLink]="'/ferramentas/quiz-peixes' | localize">Quiz de Peixes</a></li>
+            <li><a [routerLink]="'/ferramentas/jogos' | localize">Jogos Educativos</a></li>
           </ul>
         </li> -->
 
         <li>
-          <a routerLink="/about">{{ 'NAV.ABOUT' | translate }}</a>
+          <a [routerLink]="'/about' | localize">{{ 'NAV.ABOUT' | translate }}</a>
         </li>
       </ul>
 

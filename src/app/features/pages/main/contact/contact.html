@@ -15,7 +15,7 @@
 
     <p class="privacy-note">
       {{ 'CONTACT.PRIVACY_NOTE' | translate }}
-      <a routerLink="/privacy-policy">{{ 'CONTACT.PRIVACY_LINK' | translate }}</a>.
+      <a [routerLink]="'/privacy-policy' | localize">{{ 'CONTACT.PRIVACY_LINK' | translate }}</a>.
     </p>
   </div>
 </section>

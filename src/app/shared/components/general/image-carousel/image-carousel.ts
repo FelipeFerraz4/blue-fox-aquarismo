@@ -1,3 +1,4 @@
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
 import {
   Component,
@@ -18,7 +19,7 @@ import { CarouselSlide } from '../../../model/types/carousel-slide';
 @Component({
   selector: 'app-image-carousel',
   standalone: true,
-  imports: [TranslatePipe, CommonModule, RouterModule],
+  imports: [LocalizePipe, TranslatePipe, CommonModule, RouterModule],
   templateUrl: './image-carousel.html',
   styleUrl: './image-carousel.scss',
 })

@@ -32,7 +32,7 @@
             <p class="slide-description">{{ slide.description | translate }}</p>
 
             @if (slide.button) {
-              <a class="slide-btn" [routerLink]="slide.button.link">
+              <a class="slide-btn" [routerLink]="slide.button.link | localize">
                 {{ slide.button.text | translate }}
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </a>

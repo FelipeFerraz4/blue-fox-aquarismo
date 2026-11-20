@@ -1,3 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -8,17 +10,18 @@ import { ReportError } from '../../../../shared/components/general/report-error/
 /** Contato e correções: formulário de relato (privado) e o e-mail como alternativa. */
 @Component({
   selector: 'app-contact',
-  imports: [TranslatePipe, ReportError, RouterLink],
+  imports: [LocalizePipe, TranslatePipe, ReportError, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
 export class Contact implements OnInit {
+  private readonly translate = inject(TranslateService);
   private readonly seo = inject(SeoService);
 
   ngOnInit(): void {
     this.seo.updateMetadata({
-      title: 'Contato e correções | Blue Fox Aquarismo',
-      description: 'Encontrou uma informação errada? Envie uma correção pelo formulário ou por e-mail para a Blue Fox Aquarismo.',
+      title: this.translate.instant('META.CONTACT_TITLE'),
+      description: this.translate.instant('META.CONTACT_DESCRIPTION'),
       url: 'https://bluefoxaquarismo.space/contact',
       type: 'website',
     });
