@@ -29,6 +29,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/pages/main/about/about').then((m) => m.About),
   },
   {
+    path: 'contact',
+    loadComponent: () => import('./features/pages/main/contact/contact').then((m) => m.Contact),
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./features/admin/admin.routes').then((m) => m.adminRoutes),
+  },
+  {
     path: 'search',
     loadComponent: () =>
       import('./features/pages/main/search-result/search-result').then((m) => m.SearchResult),

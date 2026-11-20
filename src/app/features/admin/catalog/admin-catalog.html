@@ -1,0 +1,114 @@
+<h1>Catálogo</h1>
+<p class="muted">O site só mostra o que está <strong>Publicado</strong>. Rascunhos e revisados aparecem só aqui.</p>
+
+<p class="status-line" role="status" aria-live="polite">
+  @if (status(); as s) {
+    <span [class.ok-text]="s.ok" [class.error-text]="!s.ok">{{ s.text }}</span>
+  }
+</p>
+
+<section aria-labelledby="h-species">
+  <h2 id="h-species">Espécies</h2>
+  @if (!species()) {
+    <p class="muted">Carregando…</p>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Nome científico</th>
+            <th scope="col">Situação</th>
+            <th scope="col">Última revisão</th>
+            <th scope="col"><span class="sr-only">Ações</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (s of species(); track s.id) {
+            <tr>
+              <td>{{ s.commonName }}</td>
+              <td><em>{{ s.scientificName }}</em></td>
+              <td><span [class]="'badge ' + badgeClass(s.publication)">{{ publicationLabel[s.publication] }}</span></td>
+              <td>{{ s.lastReviewedAt ? (s.lastReviewedAt | date: 'dd/MM/yyyy') : '—' }}</td>
+              <td>
+                <a class="btn" [routerLink]="['/admin/catalog/species', s.slug]" [attr.aria-label]="'Editar ' + s.commonName">Editar</a>
+              </td>
+            </tr>
+          } @empty {
+            <tr><td colspan="5" class="muted">Nenhuma espécie cadastrada.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<section aria-labelledby="h-biomes">
+  <h2 id="h-biomes">Biomas</h2>
+  @if (!biomes()) {
+    <p class="muted">Carregando…</p>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Bioma</th>
+            <th scope="col">Espécies</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (b of biomes(); track b.id) {
+            <tr>
+              <td>{{ b.name }}</td>
+              <td>{{ b.species.length }}</td>
+              <td>
+                <label class="sr-only" [for]="'bio-' + b.id">Situação de {{ b.name }}</label>
+                <select [id]="'bio-' + b.id" [value]="b.publication" (change)="setBiome(b, $event)">
+                  @for (p of publications; track p) {
+                    <option [value]="p" [selected]="p === b.publication">{{ publicationLabel[p] }}</option>
+                  }
+                </select>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<section aria-labelledby="h-equipment">
+  <h2 id="h-equipment">Equipamentos</h2>
+  @if (!equipment()) {
+    <p class="muted">Carregando…</p>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Equipamento</th>
+            <th scope="col">Regra de dimensionamento</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (e of equipment(); track e.id) {
+            <tr>
+              <td>{{ e.name }}</td>
+              <td>{{ e.sizingNote || '—' }}</td>
+              <td>
+                <label class="sr-only" [for]="'eq-' + e.id">Situação de {{ e.name }}</label>
+                <select [id]="'eq-' + e.id" [value]="e.publication" (change)="setEquipment(e, $event)">
+                  @for (p of publications; track p) {
+                    <option [value]="p" [selected]="p === e.publication">{{ publicationLabel[p] }}</option>
+                  }
+                </select>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

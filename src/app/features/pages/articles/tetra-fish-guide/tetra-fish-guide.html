@@ -326,6 +326,9 @@
     </article>
 </section>
 
+<app-report-error targetType="POST" [targetTitle]="currentPost()?.title ?? ''" />
+
+
 
 
 <app-related-posts [recommendedPosts]="recommended()" [lastPosts]="latest()" />

@@ -1,3 +1,4 @@
+import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
@@ -9,7 +10,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-how-to-choose-aquarium-filter',
   standalone: true,
-  imports: [PostHeaderType1, RelatedPosts, RouterLink],
+  imports: [ReportError, PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './how-to-choose-aquarium-filter.html',
   styleUrl: './how-to-choose-aquarium-filter.scss',
 })

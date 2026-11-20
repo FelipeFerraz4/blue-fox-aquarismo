@@ -1,0 +1,54 @@
+.contact-page {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 4rem;
+  background: var(--bg-page);
+  color: var(--text);
+}
+
+.content {
+  width: 100%;
+  max-width: 46rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  color: var(--accent);
+}
+
+h2 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.35rem;
+  color: var(--text-strong);
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.steps {
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+.privacy-note {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+
+  a {
+    color: var(--link);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 2rem 1rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}

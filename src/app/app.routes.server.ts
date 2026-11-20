@@ -12,6 +12,10 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'search', renderMode: RenderMode.Prerender },
   { path: 'terms-of-use', renderMode: RenderMode.Prerender },
   { path: 'privacy-policy', renderMode: RenderMode.Prerender },
+  { path: 'contact', renderMode: RenderMode.Prerender },
+  // Painel: só no navegador (exige login), fora do prerender e do sitemap.
+  { path: 'admin', renderMode: RenderMode.Client },
+  { path: 'admin/**', renderMode: RenderMode.Client },
   { path: 'app/**', renderMode: RenderMode.Prerender },
   { path: 'articles', renderMode: RenderMode.Prerender },
   { path: 'articles/**', renderMode: RenderMode.Prerender },

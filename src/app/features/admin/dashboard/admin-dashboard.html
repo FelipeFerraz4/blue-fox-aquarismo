@@ -1,0 +1,183 @@
+<h1>Painel</h1>
+
+@if (error()) {
+  <p class="error-text" role="alert">Não foi possível carregar os números. Confira a conexão com a API.</p>
+} @else if (!stats()) {
+  <p class="muted" role="status">Carregando…</p>
+} @else {
+  @let s = stats()!;
+  <p class="muted">Atualizado em {{ s.generatedAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+
+  <ul class="kpis">
+    <li class="card">
+      <span class="kpi-value">{{ s.posts.published }}</span>
+      <span class="kpi-label">artigos publicados</span>
+      <span class="muted">{{ s.posts.drafts }} rascunho(s)</span>
+    </li>
+    <li class="card">
+      <span class="kpi-value">{{ s.species.byPublication.PUBLISHED }}</span>
+      <span class="kpi-label">espécies publicadas</span>
+      <span class="muted">{{ s.species.byPublication.REVIEWED }} revisada(s), {{ s.species.byPublication.DRAFT }} rascunho(s)</span>
+    </li>
+    <li class="card" [class.attention]="s.reports.pending > 0">
+      <span class="kpi-value">{{ s.reports.pending }}</span>
+      <span class="kpi-label">relatos pendentes</span>
+      <a routerLink="/admin/reports">Ver relatos</a>
+    </li>
+    <li class="card">
+      <span class="kpi-value">{{ s.species.needsReview.length }}</span>
+      <span class="kpi-label">fichas sem revisão</span>
+      <span class="muted">há mais de {{ s.species.staleReviewMonths }} meses</span>
+    </li>
+  </ul>
+
+  <div class="grid">
+    <section aria-labelledby="h-cat">
+      <h2 id="h-cat">Artigos por categoria</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Categoria</th>
+              <th scope="col">Publicados</th>
+              <th scope="col">Rascunhos</th>
+              <th scope="col"><span class="sr-only">Proporção</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (c of s.posts.byCategory; track c.categoryId) {
+              <tr>
+                <td>{{ c.category }}</td>
+                <td>{{ c.published }}</td>
+                <td>{{ c.drafts }}</td>
+                <td class="bar-cell" aria-hidden="true">
+                  <span class="bar" [style.width.%]="bar(c.published + c.drafts, totals(s.posts.byCategory))"></span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-read">
+      <h2 id="h-read">Mais lidos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Artigo</th>
+              <th scope="col">Visualizações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (p of s.posts.mostRead; track p.id) {
+              <tr>
+                <td><a [routerLink]="['/articles', p.slug]">{{ p.title }}</a></td>
+                <td>{{ p.views }}</td>
+              </tr>
+            } @empty {
+              <tr><td colspan="2" class="muted">Sem dados.</td></tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-family">
+      <h2 id="h-family">Espécies por família</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Família</th>
+              <th scope="col">Espécies</th>
+              <th scope="col"><span class="sr-only">Proporção</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (f of s.species.byFamily; track f.slug) {
+              <tr>
+                <td>{{ f.name }}</td>
+                <td>{{ f.count }}</td>
+                <td class="bar-cell" aria-hidden="true">
+                  <span class="bar" [style.width.%]="bar(f.count, counts(s.species.byFamily))"></span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-biome">
+      <h2 id="h-biome">Espécies por bioma</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Bioma</th>
+              <th scope="col">Espécies</th>
+              <th scope="col"><span class="sr-only">Proporção</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (b of s.species.byBiome; track b.slug) {
+              <tr>
+                <td>{{ b.name }}</td>
+                <td>{{ b.count }}</td>
+                <td class="bar-cell" aria-hidden="true">
+                  <span class="bar" [style.width.%]="bar(b.count, counts(s.species.byBiome))"></span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section aria-labelledby="h-reports">
+    <h2 id="h-reports">Últimos relatos</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Sobre</th>
+            <th scope="col">Mensagem</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (r of s.reports.latest; track r.id) {
+            <tr>
+              <td>{{ r.createdAt | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ targetLabel[r.targetType] }}: {{ r.targetTitle || r.targetSlug }}</td>
+              <td class="msg">{{ r.message }}</td>
+              <td><span class="badge">{{ statusLabel[r.status] }}</span></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="4" class="muted">Nenhum relato ainda.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  @if (s.species.needsReview.length) {
+    <section aria-labelledby="h-stale">
+      <h2 id="h-stale">Fichas para revisar</h2>
+      <ul class="stale">
+        @for (sp of s.species.needsReview; track sp.id) {
+          <li>
+            <a [routerLink]="['/admin/catalog/species', sp.slug]">{{ sp.name }}</a>
+            <span class="muted">
+              — {{ sp.lastReviewedAt ? 'revisada em ' + (sp.lastReviewedAt | date: 'dd/MM/yyyy') : 'nunca revisada' }}
+            </span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+}

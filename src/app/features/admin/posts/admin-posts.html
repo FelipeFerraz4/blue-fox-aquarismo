@@ -1,0 +1,54 @@
+<h1>Posts</h1>
+<p class="muted">
+  Publicar aqui libera o post na API. Para um artigo novo aparecer no site, a rota dele também precisa estar em
+  <code>publishedRoutes</code> (exige deploy).
+</p>
+
+<p class="status-line" role="status" aria-live="polite">
+  @if (status(); as s) {
+    <span [class.ok-text]="s.ok" [class.error-text]="!s.ok">{{ s.text }}</span>
+  }
+</p>
+
+@if (loadError()) {
+  <p class="error-text" role="alert">Não foi possível carregar os posts.</p>
+} @else if (!posts()) {
+  <p class="muted" role="status">Carregando…</p>
+} @else {
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Situação</th>
+          <th scope="col">Visualizações</th>
+          <th scope="col"><span class="sr-only">Ações</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (p of posts(); track p.id) {
+          <tr>
+            <td><a [routerLink]="['/articles', p.slug]">{{ p.title }}</a></td>
+            <td>{{ p.categoryName }}</td>
+            <td>
+              <span class="badge" [class.badge-ok]="p.published">{{ p.published ? 'Publicado' : 'Rascunho' }}</span>
+              @if (p.publishedAt) {
+                <span class="muted small">{{ p.publishedAt | date: 'dd/MM/yyyy' }}</span>
+              }
+            </td>
+            <td>{{ p.views }}</td>
+            <td>
+              <button type="button" class="btn" [disabled]="busy() === p.id" (click)="toggle(p)"
+                [attr.aria-label]="(p.published ? 'Despublicar ' : 'Publicar ') + p.title">
+                {{ p.published ? 'Despublicar' : 'Publicar' }}
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="5" class="muted">Nenhum post.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

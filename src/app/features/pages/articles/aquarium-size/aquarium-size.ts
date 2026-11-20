@@ -1,3 +1,4 @@
+import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, OnInit, signal } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
@@ -7,7 +8,7 @@ import { PostService } from '../../../../core/services/post/post';
 
 @Component({
   selector: 'app-aquarium-size',
-  imports: [PostHeaderType1, RelatedPosts],
+  imports: [ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-size.html',
   styleUrl: './aquarium-size.scss',
 })

@@ -1,0 +1,106 @@
+<ng-template #formTpl>
+  @if (state() === 'sent') {
+    <div class="report-done" role="status">
+      <p class="report-done-title">Obrigado! Recebemos o seu aviso.</p>
+      <p>Vamos conferir a informação. Se você deixou um e-mail, respondemos por lá.</p>
+    </div>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field">
+        <label [for]="uid + '-message'">O que está errado? <span class="req">(obrigatório)</span></label>
+        <textarea
+          [id]="uid + '-message'"
+          formControlName="message"
+          rows="4"
+          required
+          [attr.aria-invalid]="showError('message')"
+          [attr.aria-describedby]="uid + '-message-hint ' + (showError('message') ? uid + '-message-error' : '')"
+        ></textarea>
+        <p class="hint" [id]="uid + '-message-hint'">Descreva o trecho ou o dado incorreto (mínimo de 10 caracteres).</p>
+        @if (showError('message')) {
+          <p class="error" [id]="uid + '-message-error'">Conte o que está errado em pelo menos 10 caracteres.</p>
+        }
+      </div>
+
+      <div class="field">
+        <label [for]="uid + '-suggestion'">Qual seria a correção? <span class="opt">(opcional)</span></label>
+        <textarea [id]="uid + '-suggestion'" formControlName="suggestion" rows="3"></textarea>
+      </div>
+
+      <div class="field">
+        <label [for]="uid + '-source'">Fonte <span class="opt">(opcional)</span></label>
+        <input [id]="uid + '-source'" type="text" formControlName="source" [attr.aria-describedby]="uid + '-source-hint'" />
+        <p class="hint" [id]="uid + '-source-hint'">Um link ou referência que confirme a correção.</p>
+      </div>
+
+      <div class="field">
+        <label [for]="uid + '-email'">Seu e-mail <span class="opt">(opcional)</span></label>
+        <input
+          [id]="uid + '-email'"
+          type="email"
+          autocomplete="email"
+          formControlName="email"
+          [attr.aria-invalid]="showError('email')"
+          [attr.aria-describedby]="uid + '-email-hint ' + (showError('email') ? uid + '-email-error' : '')"
+        />
+        <p class="hint" [id]="uid + '-email-hint'">Só para responder a você. Não publicamos nem compartilhamos.</p>
+        @if (showError('email')) {
+          <p class="error" [id]="uid + '-email-error'">Confira o e-mail digitado.</p>
+        }
+      </div>
+
+      <!-- Campo-isca contra robôs: escondido de pessoas e de leitores de tela -->
+      <div class="hp" aria-hidden="true">
+        <label [for]="uid + '-website'">Não preencha este campo</label>
+        <input [id]="uid + '-website'" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary" [disabled]="state() === 'sending'">
+          {{ state() === 'sending' ? 'Enviando…' : 'Enviar aviso' }}
+        </button>
+      </div>
+
+      <p class="status" role="status" aria-live="polite">
+        @if (state() === 'error') {
+          <span class="error">Não foi possível enviar agora. Tente de novo ou use o e-mail abaixo.</span>
+        } @else if (state() === 'limited') {
+          <span class="error">Muitos avisos em pouco tempo. Tente de novo em alguns minutos ou use o e-mail abaixo.</span>
+        }
+      </p>
+    </form>
+  }
+
+  <div class="report-email">
+    <p>Prefere e-mail? Escreva para <strong>{{ contactEmail }}</strong></p>
+    <div class="email-actions">
+      <button type="button" class="btn-secondary" (click)="copyEmail()">{{ copied() ? 'Copiado!' : 'Copiar e-mail' }}</button>
+      <a class="btn-secondary" [href]="mailto">Abrir no programa de e-mail</a>
+    </div>
+    <span class="sr-only" aria-live="polite">{{ copied() ? 'E-mail copiado' : '' }}</span>
+  </div>
+</ng-template>
+
+@if (mode() === 'inline') {
+  <div class="report-inline">
+    <ng-container [ngTemplateOutlet]="formTpl" />
+  </div>
+} @else {
+  <aside class="report-cta" [attr.aria-labelledby]="uid + '-cta'">
+    <p [id]="uid + '-cta'">Encontrou um erro neste conteúdo? Avise a gente.</p>
+    <button type="button" class="btn-secondary" (click)="open()" [attr.aria-controls]="uid + '-dialog'">Relatar erro</button>
+  </aside>
+
+  <dialog #dialog class="report-dialog" [id]="uid + '-dialog'" [attr.aria-labelledby]="uid + '-title'">
+    <div class="dialog-box">
+      <div class="dialog-head">
+        <h2 [id]="uid + '-title'">Relatar um erro</h2>
+        <button type="button" class="close" (click)="close()" aria-label="Fechar">✕</button>
+      </div>
+      @if (targetTitle()) {
+        <p class="dialog-target">Sobre: <strong>{{ targetTitle() }}</strong></p>
+      }
+      <ng-container [ngTemplateOutlet]="formTpl" />
+    </div>
+  </dialog>
+}

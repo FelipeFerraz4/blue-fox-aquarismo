@@ -1,0 +1,95 @@
+<h1>Relatos</h1>
+<p class="muted">Avisos de erro enviados pelos leitores. São privados: só editores e admins veem.</p>
+
+<div class="toolbar">
+  <label for="report-filter">Situação</label>
+  <select id="report-filter" [ngModel]="filter()" (ngModelChange)="setFilter($event)">
+    <option value="">Todas</option>
+    @for (s of statuses; track s) {
+      <option [value]="s">{{ statusLabel[s] }}</option>
+    }
+  </select>
+  <button type="button" class="btn" (click)="load()">Atualizar</button>
+</div>
+
+@if (loadError()) {
+  <p class="error-text" role="alert">Não foi possível carregar os relatos.</p>
+} @else if (!reports()) {
+  <p class="muted" role="status">Carregando…</p>
+} @else {
+  <p class="muted" role="status">{{ reports()!.length }} relato(s).</p>
+  <ul class="reports">
+    @for (r of reports(); track r.id) {
+      <li class="card">
+        <div class="report-head">
+          <span class="badge">{{ statusLabel[r.status] }}</span>
+          <span class="muted">{{ r.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+
+        <h2 class="report-title">
+          {{ targetLabel[r.targetType] }}:
+          @if (targetLink(r); as link) {
+            <a [routerLink]="link">{{ r.targetTitle || r.targetSlug }}</a>
+          } @else {
+            {{ r.targetTitle || r.targetSlug }}
+          }
+        </h2>
+
+        <dl>
+          <dt>O que está errado</dt>
+          <dd>{{ r.message }}</dd>
+          @if (r.suggestion) {
+            <dt>Correção sugerida</dt>
+            <dd>{{ r.suggestion }}</dd>
+          }
+          @if (r.source) {
+            <dt>Fonte</dt>
+            <dd class="break">{{ r.source }}</dd>
+          }
+          @if (r.email) {
+            <dt>E-mail do leitor</dt>
+            <dd><a [href]="'mailto:' + r.email">{{ r.email }}</a></dd>
+          }
+          @if (r.pageUrl) {
+            <dt>Página</dt>
+            <dd class="break"><a [href]="r.pageUrl" target="_blank" rel="noopener noreferrer">{{ r.pageUrl }}</a></dd>
+          }
+        </dl>
+
+        <div class="edit">
+          <div class="field">
+            <label [for]="'st-' + r.id">Situação</label>
+            <select [id]="'st-' + r.id" [ngModel]="draft(r.id).status" (ngModelChange)="updateDraft(r.id, { status: $event })">
+              @for (s of statuses; track s) {
+                <option [value]="s">{{ statusLabel[s] }}</option>
+              }
+            </select>
+          </div>
+          <div class="field grow">
+            <label [for]="'note-' + r.id">Nota interna</label>
+            <textarea
+              [id]="'note-' + r.id"
+              rows="2"
+              [ngModel]="draft(r.id).internalNote"
+              (ngModelChange)="updateDraft(r.id, { internalNote: $event })"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" (click)="save(r)">Salvar</button>
+          @if (canDelete) {
+            <button type="button" class="btn danger" (click)="remove(r)">Excluir de vez</button>
+          }
+        </div>
+        <p class="status-line" role="status" aria-live="polite">
+          @if (message()?.id === r.id) {
+            <span [class.ok-text]="message()!.ok" [class.error-text]="!message()!.ok">{{ message()!.text }}</span>
+          }
+        </p>
+      </li>
+    } @empty {
+      <li class="muted">Nenhum relato nesta situação.</li>
+    }
+  </ul>
+}

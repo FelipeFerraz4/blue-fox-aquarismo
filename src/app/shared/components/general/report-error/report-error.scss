@@ -1,0 +1,209 @@
+// Tokens do tema (styles.scss); medidas em rem (acompanham o A-/A+).
+:host {
+  display: block;
+}
+
+.report-cta {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  color: var(--text);
+
+  p {
+    margin: 0;
+  }
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.625rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #004aad;
+  color: #fff;
+  border: none;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: progress;
+  }
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--link);
+  border: 1px solid var(--border);
+
+  &:hover {
+    background: var(--surface-3);
+  }
+}
+
+.report-dialog {
+  // O reset global (* { margin: 0 }) tira o margin:auto que centraliza o <dialog> modal.
+  margin: auto;
+  width: min(40rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--text);
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+
+.dialog-box {
+  padding: 1.5rem;
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: var(--text-strong);
+  }
+}
+
+.close {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.dialog-target {
+  margin: 0.5rem 0 1rem;
+  color: var(--text-muted);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+
+  label {
+    font-weight: 600;
+    color: var(--text-strong);
+  }
+
+  input,
+  textarea {
+    font: inherit;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--text-muted); // contraste ≥ 3:1 da borda do campo (WCAG 1.4.11)
+    border-radius: 0.5rem;
+    background: var(--surface-2);
+    color: var(--text-strong);
+    resize: vertical;
+  }
+
+  [aria-invalid='true'] {
+    border-color: var(--danger-text);
+  }
+}
+
+.req,
+.opt {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.error {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--danger-text);
+}
+
+// Campo-isca: fora da tela (não usar display:none, que alguns robôs detectam).
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.status {
+  min-height: 1.25rem;
+  margin: 0.75rem 0 0;
+}
+
+.report-done {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+
+  p {
+    margin: 0.25rem 0;
+  }
+}
+
+.report-done-title {
+  font-weight: 700;
+  color: var(--success-text);
+}
+
+.report-email {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+
+  p {
+    margin: 0 0 0.75rem;
+  }
+}
+
+.email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

@@ -1,3 +1,4 @@
+import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, OnInit, signal } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
@@ -8,7 +9,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-aquarium-selection-guide',
   standalone: true,
-  imports: [PostHeaderType1, RelatedPosts],
+  imports: [ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-selection-guide.html',
   styleUrl: './aquarium-selection-guide.scss',
 })

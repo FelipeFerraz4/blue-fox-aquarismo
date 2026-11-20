@@ -11,6 +11,8 @@ export const environment = {
         realm: 'blue-fox-global-group',
         clientId: 'blue-fox-aquariums-web',
     },
+    /** E-mail para correções e contato (troca futura para contato@bluefoxglobalgroup.com é só aqui). */
+    contactEmail: 'bluefoxglobalgroup@gmail.com',
     blogApi: {
         blogId: '77e2c400-28ab-4add-b219-112233445566',
         urlBase: 'https://blog-api.bluefoxglobalgroup.com/',

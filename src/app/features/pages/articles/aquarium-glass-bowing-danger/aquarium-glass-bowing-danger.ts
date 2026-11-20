@@ -1,3 +1,4 @@
+import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, ElementRef, OnInit, ViewChild, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-aquarium-glass-bowing-danger',
   standalone: true,
-  imports: [PostHeaderType1, RelatedPosts],
+  imports: [ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-glass-bowing-danger.html',
   styleUrl: './aquarium-glass-bowing-danger.scss',
 })
