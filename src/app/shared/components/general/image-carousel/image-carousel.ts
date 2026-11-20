@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import {
   Component,
   Input,
@@ -17,7 +18,7 @@ import { CarouselSlide } from '../../../model/types/carousel-slide';
 @Component({
   selector: 'app-image-carousel',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [TranslatePipe, CommonModule, RouterModule],
   templateUrl: './image-carousel.html',
   styleUrl: './image-carousel.scss',
 })

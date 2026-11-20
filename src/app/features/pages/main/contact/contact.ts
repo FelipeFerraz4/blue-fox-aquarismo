@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -7,7 +8,7 @@ import { ReportError } from '../../../../shared/components/general/report-error/
 /** Contato e correções: formulário de relato (privado) e o e-mail como alternativa. */
 @Component({
   selector: 'app-contact',
-  imports: [ReportError, RouterLink],
+  imports: [TranslatePipe, ReportError, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

@@ -1,3 +1,5 @@
+import { LocalDatePipe } from '../../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   Component,
@@ -18,7 +20,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-search-result',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [LocalDatePipe, TranslatePipe, CommonModule, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './search-result.html',
   styleUrl: './search-result.scss',

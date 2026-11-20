@@ -3,7 +3,7 @@
         @if (categoryWithPost.length > 0) {
         <div class="section-header">
             <span class="accent-line"></span>
-            <h2>Recomendados para você</h2>
+            <h2>{{ 'POSTS.RECOMMENDED' | translate }}</h2>
         </div>
 
         <div class="posts-grid">
@@ -14,10 +14,10 @@
                     <span class="category-tag">{{ categoryWithPost.name }}</span>
                 </div>
                 <div class="card-body">
-                    <span class="post-date">{{ categoryWithPost.post.publishedAt | date:'longDate':'UTC' }}</span>
+                    <span class="post-date">{{ categoryWithPost.post.publishedAt | localDate }}</span>
                     <h3>{{ categoryWithPost.post.title }}</h3>
                     <p>{{ categoryWithPost.post.description }}</p>
-                    <span class="read-more">Ler artigo →</span>
+                    <span class="read-more">{{ 'COMMON.READ_ARTICLE' | translate }} →</span>
                 </div>
             </a>
             }

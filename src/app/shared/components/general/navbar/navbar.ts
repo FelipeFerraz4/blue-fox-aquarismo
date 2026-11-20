@@ -1,12 +1,14 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth-service';
 import { NavbarSearch } from '../navbar-search/navbar-search';
+import { LanguageSwitcher } from '../language-switcher/language-switcher';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, NavbarSearch],
+  imports: [TranslatePipe, RouterModule, NavbarSearch, LanguageSwitcher],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

@@ -1,12 +1,13 @@
+import { LocalDatePipe } from '../../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component, Input } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Post } from '../../../model/types/post';
 
 @Component({
   selector: 'app-latest-posts',
   standalone: true,
-  imports: [RouterLink, DatePipe],
+  imports: [LocalDatePipe, TranslatePipe, RouterLink],
   templateUrl: './latest-posts.html',
   styleUrl: './latest-posts.scss',
 })

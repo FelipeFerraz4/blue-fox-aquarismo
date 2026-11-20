@@ -4,7 +4,7 @@
         @if (featuredPosts.length > 0) {
         <div class="section-header">
             <span class="accent-line"></span>
-            <h2>Em destaque</h2>
+            <h2>{{ 'POSTS.FEATURED' | translate }}</h2>
         </div>
 
         <div class="featured-layout">
@@ -20,7 +20,7 @@
                     <h3>{{ featuredPosts[0].title }}</h3>
                     <p>{{ featuredPosts[0].description }}</p>
 
-                    <span class="read-more">Ler artigo →</span>
+                    <span class="read-more">{{ 'COMMON.READ_ARTICLE' | translate }} →</span>
                 </div>
             </a>
 

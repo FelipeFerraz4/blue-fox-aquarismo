@@ -3,15 +3,12 @@
     <!-- Logo + descrição -->
     <div class="footer-brand">
       <div>
-        <img src="/assets/images/brand/logo.webp" alt="Logo do site" class="logo" loading="lazy" />
+        <img src="/assets/images/brand/logo.webp" [alt]="'FOOTER.LOGO_ALT' | translate" class="logo" loading="lazy" />
       </div>
 
       <div>
         <h2>Blue Fox Aquarismo</h2>
-        <p>
-          Blog dedicado ao aquarismo, cuidados com peixes, montagem de aquários e experiências
-          reais.
-        </p>
+        <p>{{ 'FOOTER.DESCRIPTION' | translate }}</p>
         <!-- Redes sociais / contacto -->
         <!-- <div class="footer-social">
           <ul>
@@ -26,13 +23,13 @@
     <!-- Menu do footer -->
     <nav class="footer-nav">
       <div class="column">
-        <h3>Geral</h3>
+        <h3>{{ 'FOOTER.GENERAL' | translate }}</h3>
         <ul>
-          <li><a routerLink="/" routerLinkActive="active">Início</a></li>
+          <li><a routerLink="/" routerLinkActive="active">{{ 'FOOTER.HOME' | translate }}</a></li>
           <!-- <li><a routerLink="/artigos" routerLinkActive="active">Artigos</a></li>
           <li><a routerLink="/guias" routerLinkActive="active">Guias</a></li> -->
-          <li><a routerLink="/about" routerLinkActive="active">Sobre</a></li>
-          <li><a routerLink="/contact" routerLinkActive="active">Contato e correções</a></li>
+          <li><a routerLink="/about" routerLinkActive="active">{{ 'FOOTER.ABOUT' | translate }}</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active">{{ 'FOOTER.CONTACT' | translate }}</a></li>
         </ul>
       </div>
 
@@ -50,11 +47,11 @@
       </div> -->
 
       <div class="column">
-        <h3>Legal</h3>
+        <h3>{{ 'FOOTER.LEGAL' | translate }}</h3>
         <ul>
-          <li><a routerLink="/terms-of-use" routerLinkActive="active">Termos de Serviço</a></li>
+          <li><a routerLink="/terms-of-use" routerLinkActive="active">{{ 'FOOTER.TERMS' | translate }}</a></li>
           <li>
-            <a routerLink="/privacy-policy" routerLinkActive="active">Política de Privacidade</a>
+            <a routerLink="/privacy-policy" routerLinkActive="active">{{ 'FOOTER.PRIVACY' | translate }}</a>
           </li>
         </ul>
       </div>

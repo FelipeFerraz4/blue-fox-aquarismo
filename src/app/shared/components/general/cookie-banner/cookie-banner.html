@@ -1,19 +1,16 @@
 @if (showBanner) {
-<div class="cookie-banner" role="region" aria-label="Aviso de cookies">
+<div class="cookie-banner" role="region" [attr.aria-label]="'COOKIES.REGION' | translate">
     <div class="cookie-text">
         <p>
-            Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência,
-            analisar o tráfego e personalizar conteúdos.
-            Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso de cookies,
-            conforme descrito em nossa
-            <a routerLink="/privacy-policy">Política de Privacidade</a>
-            e nos
-            <a routerLink="/terms-of-use">Termos de Uso</a>.
+            {{ 'COOKIES.TEXT' | translate }}
+            <a routerLink="/privacy-policy">{{ 'COOKIES.PRIVACY' | translate }}</a>
+            {{ 'COOKIES.AND' | translate }}
+            <a routerLink="/terms-of-use">{{ 'COOKIES.TERMS' | translate }}</a>.
         </p>
     </div>
 
     <div class="cookie-actions">
-        <button (click)="acceptCookies()">Aceitar</button>
+        <button type="button" (click)="acceptCookies()">{{ 'COOKIES.ACCEPT' | translate }}</button>
     </div>
 </div>
 }

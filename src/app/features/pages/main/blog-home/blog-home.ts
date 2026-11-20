@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectorRef,
@@ -19,7 +20,7 @@ import { CarouselSlide } from '../../../../shared/model/types/carousel-slide';
 @Component({
   selector: 'app-blog-home',
   standalone: true,
-  imports: [
+  imports: [TranslatePipe, 
     CommonModule,
     RouterModule,
     LatestPosts,
@@ -36,7 +37,6 @@ export class BlogHome implements OnInit {
 
   latest: Post[] = [];
   featuredPosts: Post[] = [];
-  lastPost: Post | undefined = undefined;
 
   constructor(
     private seo: SeoService,
@@ -47,44 +47,39 @@ export class BlogHome implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
+  /**
+   * Textos são chaves de tradução (HOME.SLIDE*). Os links antigos (/articles/guides, /montage, /tools)
+   * davam 404: os artigos ficam na busca, e as ferramentas ainda não existem (fase 9), então o 3º slide
+   * apresenta o projeto.
+   */
   slides: CarouselSlide[] = [
     {
       id: 1,
       image: 'assets/images/aquariums/aquarium5.webp',
-      title: 'Aprenda sobre Aquarismo',
-      description: 'Guias práticos e experiências reais.',
-      button: {
-        text: 'Ver Artigos',
-        link: '/articles/guides'
-      }
+      title: 'HOME.SLIDE1_TITLE',
+      description: 'HOME.SLIDE1_TEXT',
+      button: { text: 'HOME.SLIDE_SEE_ARTICLES', link: '/search' },
     },
     {
       id: 2,
       image: 'assets/images/aquariums/maintenance-aquarium.webp',
-      title: 'Monte seu Aquário com Segurança',
-      description: 'Evite erros comuns e cuide melhor dos peixes.',
-      button: {
-        text: 'Ver Artigos',
-        link: '/articles/montage'
-      }
+      title: 'HOME.SLIDE2_TITLE',
+      description: 'HOME.SLIDE2_TEXT',
+      button: { text: 'HOME.SLIDE_SEE_ARTICLES', link: '/search' },
     },
     {
       id: 3,
       image: 'assets/images/aquariums/learning-aquariums.webp',
-      title: 'Divirta-se com as Ferramentas Educativas sobre Aquarismo',
-      description: 'Aprenda de forma interativa.',
-      button: {
-        text: 'Ver Ferramentas',
-        link: '/articles/tools'
-      }
-    }
+      title: 'HOME.SLIDE3_TITLE',
+      description: 'HOME.SLIDE3_TEXT',
+      button: { text: 'HOME.SLIDE_KNOW_PROJECT', link: '/about' },
+    },
   ];
 
   ngOnInit(): void {
     this.setupSeo();
     this.loadFeaturedPost();
     this.loadLatestPosts();
-    this.loadLastPost();
   }
 
   loadFeaturedPost() {
@@ -107,18 +102,6 @@ export class BlogHome implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching latest posts', err);
-      }
-    });
-  }
-
-  loadLastPost() {
-    this.postService.getLastPost().subscribe({
-      next: (post: Post) => {
-        this.lastPost = post;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        console.error('Error fetching last post', err);
       }
     });
   }

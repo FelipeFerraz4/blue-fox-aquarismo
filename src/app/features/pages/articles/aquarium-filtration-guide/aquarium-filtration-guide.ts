@@ -1,3 +1,4 @@
+import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
 import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -10,7 +11,7 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-aquarium-filtration-guide',
   standalone: true,
-  imports: [ReportError, PostHeaderType1, RelatedPosts, RouterLink],
+  imports: [ContentLanguageNotice, ReportError, PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './aquarium-filtration-guide.html',
   styleUrl: './aquarium-filtration-guide.scss',
 })

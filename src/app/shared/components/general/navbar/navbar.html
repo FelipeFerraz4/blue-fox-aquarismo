@@ -8,13 +8,13 @@
 
     <!-- Botão hamburguer (mobile) -->
     <button type="button" class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen"
-      aria-controls="navbar-menu" aria-label="Abrir menu">☰</button>
+      aria-controls="navbar-menu" [attr.aria-label]="'NAV.OPEN_MENU' | translate">☰</button>
 
     <!-- Menu -->
-    <nav class="navbar-menu" id="navbar-menu" aria-label="Principal" [class.open]="menuOpen">
+    <nav class="navbar-menu" id="navbar-menu" [attr.aria-label]="'NAV.MAIN' | translate" [class.open]="menuOpen">
       <ul class="menu-list">
         <li>
-          <a routerLink="/">Início</a>
+          <a routerLink="/">{{ 'NAV.HOME' | translate }}</a>
         </li>
         <!-- 
         <li>
@@ -46,7 +46,7 @@
         </li> -->
 
         <li>
-          <a routerLink="/about">Sobre</a>
+          <a routerLink="/about">{{ 'NAV.ABOUT' | translate }}</a>
         </li>
       </ul>
 
@@ -54,11 +54,13 @@
       <div class="navbar-actions">
         <app-navbar-search />
 
+        <app-language-switcher />
+
         <div class="auth-actions">
           <!-- NÃO LOGADO -->
           @if (!auth.isLoggedIn()) {
-          <button (click)="login()" class="login-btn">
-            Login
+          <button type="button" (click)="login()" class="login-btn">
+            {{ 'NAV.LOGIN' | translate }}
           </button>
           }
 
@@ -66,11 +68,11 @@
           @if (auth.isLoggedIn()) {
           <div class="user-info">
             <span class="username">
-              Olá, {{ auth.getUserFullName() }}
+              {{ 'NAV.HELLO' | translate: { name: auth.getUserFullName() } }}
             </span>
 
-            <button (click)="logout()" class="logout-btn">
-              Sair
+            <button type="button" (click)="logout()" class="logout-btn">
+              {{ 'NAV.LOGOUT' | translate }}
             </button>
           </div>
           }

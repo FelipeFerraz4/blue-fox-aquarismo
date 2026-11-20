@@ -3,7 +3,7 @@
     @if (recommendedPosts.length > 0) {
     <div class="section-header">
       <span class="accent-line"></span>
-      <h2>Recomendados para você</h2>
+      <h2>{{ 'POSTS.RECOMMENDED' | translate }}</h2>
     </div>
 
     <div class="posts-grid">
@@ -14,10 +14,10 @@
           <span class="category-tag">{{ post.categoryName }}</span>
         </div>
         <div class="card-body">
-          <span class="post-date">{{ post.publishedAt | date:'longDate':'UTC' }}</span>
+          <span class="post-date">{{ post.publishedAt | localDate }}</span>
           <h3>{{ post.title }}</h3>
           <p>{{ post.description }}</p>
-          <span class="read-more">Ler artigo →</span>
+          <span class="read-more">{{ 'COMMON.READ_ARTICLE' | translate }} →</span>
         </div>
       </a>
       }
@@ -31,7 +31,7 @@
     @if (lastPosts.length > 0) {
     <div class="section-header">
       <span class="accent-line"></span>
-      <h2>Últimas postagens</h2>
+      <h2>{{ 'POSTS.LATEST' | translate }}</h2>
     </div>
 
     <div class="posts-grid small">
@@ -42,10 +42,10 @@
           <span class="category-tag">{{ post.categoryName }}</span>
         </div>
         <div class="card-body">
-          <span class="post-date">{{ post.publishedAt | date:'longDate':'UTC' }}</span>
+          <span class="post-date">{{ post.publishedAt | localDate }}</span>
           <h3>{{ post.title }}</h3>
           <p>{{ post.description }}</p>
-          <span class="read-more">Ler artigo →</span>
+          <span class="read-more">{{ 'COMMON.READ_ARTICLE' | translate }} →</span>
         </div>
       </a>
       }

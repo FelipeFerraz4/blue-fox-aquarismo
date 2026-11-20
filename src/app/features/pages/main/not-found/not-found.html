@@ -1,16 +1,13 @@
 <section class="not-found">
     <div class="content">
         <h1>404</h1>
-        <h2>Ops! Este aquário está vazio</h2>
+        <h2>{{ 'NOT_FOUND.TITLE' | translate }}</h2>
 
-        <p>
-            Parece que você tentou acessar uma página que não existe ou foi movida.
-            Até os peixes se perderam por aqui 🐟
-        </p>
+        <p>{{ 'NOT_FOUND.TEXT' | translate }}</p>
 
         <div class="actions">
-            <a routerLink="/" routerLinkActive="active" class="btn primary">Voltar para o início</a>
-            <a routerLink="/articles" routerLinkActive="active" class="btn secondary">Ver artigos</a>
+            <a routerLink="/" routerLinkActive="active" class="btn primary">{{ 'COMMON.BACK_HOME' | translate }}</a>
+            <a routerLink="/articles" routerLinkActive="active" class="btn secondary">{{ 'COMMON.SEE_ARTICLES' | translate }}</a>
         </div>
     </div>
 </section>

@@ -1,3 +1,4 @@
+import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
 import { ReportError } from '../../../../shared/components/general/report-error/report-error';
 import { Component, OnInit, signal } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
@@ -8,7 +9,7 @@ import { PostService } from '../../../../core/services/post/post';
 
 @Component({
   selector: 'app-aquarium-size',
-  imports: [ReportError, PostHeaderType1, RelatedPosts],
+  imports: [ContentLanguageNotice, ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-size.html',
   styleUrl: './aquarium-size.scss',
 })

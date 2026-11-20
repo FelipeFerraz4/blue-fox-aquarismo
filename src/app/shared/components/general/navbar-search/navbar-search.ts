@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component, DestroyRef, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -9,7 +10,7 @@ import { Post } from '../../../model/types/post';
 /** Campo de busca da navbar com dropdown de resultados (a partir de 2 caracteres). */
 @Component({
   selector: 'app-navbar-search',
-  imports: [RouterLink],
+  imports: [TranslatePipe, RouterLink],
   templateUrl: './navbar-search.html',
   styleUrl: './navbar-search.scss',
 })

@@ -7,18 +7,18 @@
 
       <div class="post-meta">
         <div class="author-info">
-          <span class="label">Autor:</span>
+          <span class="label">{{ 'POSTS.AUTHOR' | translate }}</span>
           <span class="value">{{ author }}</span>
         </div>
         <div class="separator"></div>
         <div class="date-info">
-          <span class="label">Publicado em:</span>
-          <span class="value">{{ date | date:'longDate':'UTC' }}</span>
+          <span class="label">{{ 'POSTS.PUBLISHED_AT' | translate }}</span>
+          <span class="value">{{ date | localDate }}</span>
         </div>
         <div class="separator"></div>
         <div class="reading-info">
-          <span class="icon">⏱</span>
-          <span class="value">{{ readingTime }} de leitura</span>
+          <span class="icon" aria-hidden="true">⏱</span>
+          <span class="value">{{ 'POSTS.READING_TIME' | translate: { time: readingTime } }}</span>
         </div>
       </div>
     </div>

@@ -1,10 +1,11 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterModule],
+  imports: [TranslatePipe, RouterModule],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })

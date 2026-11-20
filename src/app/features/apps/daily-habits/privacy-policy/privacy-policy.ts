@@ -1,3 +1,4 @@
+import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../../core/services/seo/seo-service';
@@ -5,7 +6,7 @@ import { SeoService } from '../../../../core/services/seo/seo-service';
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [RouterLink],
+  imports: [ContentLanguageNotice, RouterLink],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.scss',
 })

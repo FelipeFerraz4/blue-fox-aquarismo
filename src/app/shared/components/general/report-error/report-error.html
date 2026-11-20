@@ -1,13 +1,13 @@
 <ng-template #formTpl>
   @if (state() === 'sent') {
     <div class="report-done" role="status">
-      <p class="report-done-title">Obrigado! Recebemos o seu aviso.</p>
-      <p>Vamos conferir a informação. Se você deixou um e-mail, respondemos por lá.</p>
+      <p class="report-done-title">{{ 'REPORT.THANKS_TITLE' | translate }}</p>
+      <p>{{ 'REPORT.THANKS_TEXT' | translate }}</p>
     </div>
   } @else {
     <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <div class="field">
-        <label [for]="uid + '-message'">O que está errado? <span class="req">(obrigatório)</span></label>
+        <label [for]="uid + '-message'">{{ 'REPORT.MESSAGE' | translate }} <span class="req">{{ 'REPORT.REQUIRED' | translate }}</span></label>
         <textarea
           [id]="uid + '-message'"
           formControlName="message"
@@ -16,25 +16,25 @@
           [attr.aria-invalid]="showError('message')"
           [attr.aria-describedby]="uid + '-message-hint ' + (showError('message') ? uid + '-message-error' : '')"
         ></textarea>
-        <p class="hint" [id]="uid + '-message-hint'">Descreva o trecho ou o dado incorreto (mínimo de 10 caracteres).</p>
+        <p class="hint" [id]="uid + '-message-hint'">{{ 'REPORT.MESSAGE_HINT' | translate }}</p>
         @if (showError('message')) {
-          <p class="error" [id]="uid + '-message-error'">Conte o que está errado em pelo menos 10 caracteres.</p>
+          <p class="error" [id]="uid + '-message-error'">{{ 'REPORT.MESSAGE_ERROR' | translate }}</p>
         }
       </div>
 
       <div class="field">
-        <label [for]="uid + '-suggestion'">Qual seria a correção? <span class="opt">(opcional)</span></label>
+        <label [for]="uid + '-suggestion'">{{ 'REPORT.SUGGESTION' | translate }} <span class="opt">{{ 'REPORT.OPTIONAL' | translate }}</span></label>
         <textarea [id]="uid + '-suggestion'" formControlName="suggestion" rows="3"></textarea>
       </div>
 
       <div class="field">
-        <label [for]="uid + '-source'">Fonte <span class="opt">(opcional)</span></label>
+        <label [for]="uid + '-source'">{{ 'REPORT.SOURCE' | translate }} <span class="opt">{{ 'REPORT.OPTIONAL' | translate }}</span></label>
         <input [id]="uid + '-source'" type="text" formControlName="source" [attr.aria-describedby]="uid + '-source-hint'" />
-        <p class="hint" [id]="uid + '-source-hint'">Um link ou referência que confirme a correção.</p>
+        <p class="hint" [id]="uid + '-source-hint'">{{ 'REPORT.SOURCE_HINT' | translate }}</p>
       </div>
 
       <div class="field">
-        <label [for]="uid + '-email'">Seu e-mail <span class="opt">(opcional)</span></label>
+        <label [for]="uid + '-email'">{{ 'REPORT.EMAIL' | translate }} <span class="opt">{{ 'REPORT.OPTIONAL' | translate }}</span></label>
         <input
           [id]="uid + '-email'"
           type="email"
@@ -43,41 +43,41 @@
           [attr.aria-invalid]="showError('email')"
           [attr.aria-describedby]="uid + '-email-hint ' + (showError('email') ? uid + '-email-error' : '')"
         />
-        <p class="hint" [id]="uid + '-email-hint'">Só para responder a você. Não publicamos nem compartilhamos.</p>
+        <p class="hint" [id]="uid + '-email-hint'">{{ 'REPORT.EMAIL_HINT' | translate }}</p>
         @if (showError('email')) {
-          <p class="error" [id]="uid + '-email-error'">Confira o e-mail digitado.</p>
+          <p class="error" [id]="uid + '-email-error'">{{ 'REPORT.EMAIL_ERROR' | translate }}</p>
         }
       </div>
 
       <!-- Campo-isca contra robôs: escondido de pessoas e de leitores de tela -->
       <div class="hp" aria-hidden="true">
-        <label [for]="uid + '-website'">Não preencha este campo</label>
+        <label [for]="uid + '-website'">{{ 'REPORT.HONEYPOT' | translate }}</label>
         <input [id]="uid + '-website'" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
       </div>
 
       <div class="actions">
         <button type="submit" class="btn-primary" [disabled]="state() === 'sending'">
-          {{ state() === 'sending' ? 'Enviando…' : 'Enviar aviso' }}
+          {{ (state() === 'sending' ? 'REPORT.SENDING' : 'REPORT.SEND') | translate }}
         </button>
       </div>
 
       <p class="status" role="status" aria-live="polite">
         @if (state() === 'error') {
-          <span class="error">Não foi possível enviar agora. Tente de novo ou use o e-mail abaixo.</span>
+          <span class="error">{{ 'REPORT.ERROR' | translate }}</span>
         } @else if (state() === 'limited') {
-          <span class="error">Muitos avisos em pouco tempo. Tente de novo em alguns minutos ou use o e-mail abaixo.</span>
+          <span class="error">{{ 'REPORT.LIMITED' | translate }}</span>
         }
       </p>
     </form>
   }
 
   <div class="report-email">
-    <p>Prefere e-mail? Escreva para <strong>{{ contactEmail }}</strong></p>
+    <p>{{ 'REPORT.PREFER_EMAIL' | translate }} <strong>{{ contactEmail }}</strong></p>
     <div class="email-actions">
-      <button type="button" class="btn-secondary" (click)="copyEmail()">{{ copied() ? 'Copiado!' : 'Copiar e-mail' }}</button>
-      <a class="btn-secondary" [href]="mailto">Abrir no programa de e-mail</a>
+      <button type="button" class="btn-secondary" (click)="copyEmail()">{{ (copied() ? 'REPORT.COPIED' : 'REPORT.COPY_EMAIL') | translate }}</button>
+      <a class="btn-secondary" [href]="mailto">{{ 'REPORT.OPEN_MAIL' | translate }}</a>
     </div>
-    <span class="sr-only" aria-live="polite">{{ copied() ? 'E-mail copiado' : '' }}</span>
+    <span class="sr-only" aria-live="polite">{{ copied() ? ('REPORT.COPIED_SR' | translate) : '' }}</span>
   </div>
 </ng-template>
 
@@ -87,18 +87,18 @@
   </div>
 } @else {
   <aside class="report-cta" [attr.aria-labelledby]="uid + '-cta'">
-    <p [id]="uid + '-cta'">Encontrou um erro neste conteúdo? Avise a gente.</p>
-    <button type="button" class="btn-secondary" (click)="open()" [attr.aria-controls]="uid + '-dialog'">Relatar erro</button>
+    <p [id]="uid + '-cta'">{{ 'REPORT.CTA' | translate }}</p>
+    <button type="button" class="btn-secondary" (click)="open()" [attr.aria-controls]="uid + '-dialog'">{{ 'REPORT.OPEN' | translate }}</button>
   </aside>
 
   <dialog #dialog class="report-dialog" [id]="uid + '-dialog'" [attr.aria-labelledby]="uid + '-title'">
     <div class="dialog-box">
       <div class="dialog-head">
-        <h2 [id]="uid + '-title'">Relatar um erro</h2>
-        <button type="button" class="close" (click)="close()" aria-label="Fechar">✕</button>
+        <h2 [id]="uid + '-title'">{{ 'REPORT.DIALOG_TITLE' | translate }}</h2>
+        <button type="button" class="close" (click)="close()" [attr.aria-label]="'REPORT.CLOSE' | translate">✕</button>
       </div>
       @if (targetTitle()) {
-        <p class="dialog-target">Sobre: <strong>{{ targetTitle() }}</strong></p>
+        <p class="dialog-target">{{ 'REPORT.ABOUT' | translate }} <strong>{{ targetTitle() }}</strong></p>
       }
       <ng-container [ngTemplateOutlet]="formTpl" />
     </div>

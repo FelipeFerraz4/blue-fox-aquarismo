@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, HostListener, PLATFORM_ID, inject, signal } from '@angular/core';
 
@@ -11,6 +12,7 @@ import { ThemeService } from '../../../../core/services/theme/theme-service';
  */
 @Component({
   selector: 'app-a11y-toolbar',
+  imports: [TranslatePipe],
   templateUrl: './a11y-toolbar.html',
   styleUrl: './a11y-toolbar.scss',
 })

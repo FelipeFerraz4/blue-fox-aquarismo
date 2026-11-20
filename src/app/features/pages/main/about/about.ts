@@ -1,65 +1,26 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Inject,
-  OnInit,
-  PLATFORM_ID,
-  signal
-} from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { Post } from '../../../../shared/model/types/post';
+import { Component, OnInit, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { SeoService } from '../../../../core/services/seo/seo-service';
-import { PostService } from '../../../../core/services/post/post';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
 export class About implements OnInit {
-
-  isBrowser: boolean;
-
-  lastPost = signal<Post | undefined>(undefined);
-
-  constructor(
-    private seo: SeoService,
-    private postService: PostService,
-    @Inject(PLATFORM_ID) platformId: object
-  ) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+  private readonly seo = inject(SeoService);
 
   ngOnInit(): void {
-    this.loadLastPost();
-    this.setupSeo();
-  }
-
-  loadLastPost() {
-    this.postService.getLastPost().subscribe({
-      next: (post: Post) => {
-        this.lastPost.set(post);
-      },
-      error: (err) => {
-        console.error('Error fetching last post', err);
-      }
-    });
-  }
-
-
-  setupSeo() {
+    // SEO no idioma indexado (pt-BR): o pré-render sai em português.
     this.seo.updateMetadata({
-      title: "Sobre Blue Fox Aquarismo",
-      description: "A Blue Fox Aquarismo é uma plataforma educacional criada para compartilhar conhecimento real e acessível sobre aquários, peixes e plantas aquáticas.",
-      image: "https://bluefoxaquarismo.space/assets/images/brand/logo.webp",
-      url: `https://bluefoxaquarismo.space/about`,
+      title: 'Sobre Blue Fox Aquarismo',
+      description:
+        'A Blue Fox Aquarismo é uma plataforma educacional criada para compartilhar conhecimento real e acessível sobre aquários, peixes e plantas aquáticas.',
+      image: 'https://bluefoxaquarismo.space/assets/images/brand/logo.webp',
+      url: 'https://bluefoxaquarismo.space/about',
     });
   }
 }

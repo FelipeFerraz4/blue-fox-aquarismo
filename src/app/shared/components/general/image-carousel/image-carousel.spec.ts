@@ -1,3 +1,4 @@
+import { provideTestTranslations } from '../../../../core/i18n/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { ImageCarousel } from './image-carousel';
@@ -27,7 +28,7 @@ describe('ImageCarousel', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ImageCarousel],
-      providers: [provideRouter([])]
+      providers: [provideTestTranslations(), provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ImageCarousel);

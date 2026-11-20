@@ -1,10 +1,11 @@
+import { LocalDatePipe } from '../../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Component, Input } from '@angular/core';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-header-type1',
   standalone: true,
-  imports: [DatePipe],
+  imports: [LocalDatePipe, TranslatePipe],
   templateUrl: './post-header-type1.html',
   styleUrl: './post-header-type1.scss',
 })

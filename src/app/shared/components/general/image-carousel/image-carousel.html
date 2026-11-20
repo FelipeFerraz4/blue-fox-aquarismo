@@ -9,7 +9,7 @@
   tabindex="0"
   role="region"
   aria-roledescription="carousel"
-  aria-label="Carrossel de Destaques">
+  [attr.aria-label]="'CAROUSEL.LABEL' | translate">
 
   <!-- Slides -->
   <div class="slides-container">
@@ -25,15 +25,15 @@
           <div class="slide-content">
             <!-- Um só h1 na página: o do primeiro slide -->
             @if (i === 0) {
-              <h1 class="slide-title">{{ slide.title }}</h1>
+              <h1 class="slide-title">{{ slide.title | translate }}</h1>
             } @else {
-              <h2 class="slide-title">{{ slide.title }}</h2>
+              <h2 class="slide-title">{{ slide.title | translate }}</h2>
             }
-            <p class="slide-description">{{ slide.description }}</p>
+            <p class="slide-description">{{ slide.description | translate }}</p>
 
             @if (slide.button) {
               <a class="slide-btn" [routerLink]="slide.button.link">
-                {{ slide.button.text }}
+                {{ slide.button.text | translate }}
                 <span class="btn-arrow" aria-hidden="true">→</span>
               </a>
             }
@@ -50,7 +50,7 @@
       type="button"
       class="nav-btn prev-btn"
       (click)="prev()"
-      aria-label="Slide anterior">
+      [attr.aria-label]="'CAROUSEL.PREV' | translate">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
@@ -60,21 +60,21 @@
       type="button"
       class="nav-btn next-btn"
       (click)="next()"
-      aria-label="Próximo slide">
+      [attr.aria-label]="'CAROUSEL.NEXT' | translate">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </button>
 
     <!-- Indicadores (Dots / Pills) -->
-    <div class="indicators" role="group" aria-label="Escolher slide">
+    <div class="indicators" role="group" [attr.aria-label]="'CAROUSEL.CHOOSE' | translate">
       @for (slide of slides; track slide.id; let i = $index) {
         <button
           type="button"
           class="indicator-dot"
           [class.active]="i === currentIndex()"
           (click)="goTo(i)"
-          [attr.aria-label]="'Ir para slide ' + (i + 1)"
+          [attr.aria-label]="'CAROUSEL.GO_TO' | translate: { n: i + 1 }"
           [attr.aria-current]="i === currentIndex() ? 'true' : null">
         </button>
       }

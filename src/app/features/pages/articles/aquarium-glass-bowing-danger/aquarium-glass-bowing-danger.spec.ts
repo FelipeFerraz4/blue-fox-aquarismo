@@ -1,3 +1,4 @@
+import { provideTestTranslations } from '../../../../core/i18n/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { PLATFORM_ID } from '@angular/core';
@@ -39,7 +40,7 @@ describe('AquariumGlassBowingDanger', () => {
 
     await TestBed.configureTestingModule({
       imports: [AquariumGlassBowingDanger],
-      providers: [
+      providers: [provideTestTranslations(), 
         provideRouter([]),
         { provide: SeoService, useValue: mockSeoService },
         { provide: PostService, useValue: mockPostService },

@@ -1,3 +1,4 @@
+import { TranslatePipe } from '@ngx-translate/core';
 import { DOCUMENT, NgTemplateOutlet, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, PLATFORM_ID, computed, inject, input, signal, viewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -20,7 +21,7 @@ let nextId = 0;
  */
 @Component({
   selector: 'app-report-error',
-  imports: [ReactiveFormsModule, NgTemplateOutlet],
+  imports: [TranslatePipe, ReactiveFormsModule, NgTemplateOutlet],
   templateUrl: './report-error.html',
   styleUrl: './report-error.scss',
 })
