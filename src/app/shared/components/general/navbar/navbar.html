@@ -67,9 +67,9 @@
           <!-- LOGADO -->
           @if (auth.isLoggedIn()) {
           <div class="user-info">
-            <span class="username">
-              {{ 'NAV.HELLO' | translate: { name: auth.getUserFullName() } }}
-            </span>
+            <a class="username" [routerLink]="'/account' | localize" routerLinkActive="active" ariaCurrentWhenActive="page">
+              {{ 'NAV.HELLO' | translate: { name: auth.getUserFullName() || auth.getUsername() } }}<span class="sr-only"> — {{ 'NAV.ACCOUNT' | translate }}</span>
+            </a>
 
             <button type="button" (click)="logout()" class="logout-btn">
               {{ 'NAV.LOGOUT' | translate }}

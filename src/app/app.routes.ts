@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { roleGuard } from './core/guards/role.guard';
+
 /**
  * Páginas do site, declaradas uma vez. Português na raiz (/about) e inglês sob /en (/en/about):
  * cada idioma tem URL própria, pré-renderizada no idioma certo (SEO e desempenho). O idioma vem
@@ -40,6 +42,11 @@ const pageRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./features/admin/admin.routes').then((m) => m.adminRoutes),
+  },
+  {
+    path: 'account',
+    canActivate: [roleGuard],
+    loadComponent: () => import('./features/pages/main/account/account').then((m) => m.Account),
   },
   {
     path: 'search',

@@ -5,8 +5,9 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth-service';
 
 /**
- * Libera a rota para quem tem um dos papéis em `route.data.roles` (constantes de `KeycloakRole`).
- * Sem login, abre o login do Keycloak; logado sem papel, volta para a home.
+ * Libera a rota para quem tem um dos papéis em `route.data.roles` (constantes de `KeycloakRole`);
+ * sem `data.roles`, basta estar logado (ex.: /account). Sem login, abre o login do Keycloak;
+ * logado sem papel, volta para a home.
  * No servidor nega sempre: as rotas protegidas são `RenderMode.Client` (app.routes.server.ts).
  */
 export const roleGuard: CanActivateFn = (route) => {
@@ -17,5 +18,5 @@ export const roleGuard: CanActivateFn = (route) => {
     auth.login();
     return false;
   }
-  return auth.hasAnyRole(roles) ? true : inject(Router).createUrlTree(['/']);
+  return !roles.length || auth.hasAnyRole(roles) ? true : inject(Router).createUrlTree(['/']);
 };

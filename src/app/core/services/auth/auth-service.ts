@@ -105,6 +105,15 @@ export class AuthService {
     return claims?.['preferred_username'] as string;
   }
 
+  getEmail(): string | undefined {
+    return this.kc?.tokenParsed?.['email'] as string | undefined;
+  }
+
+  /** Abre a conta no Keycloak (nome, e-mail, senha e sessões ficam no SSO). */
+  manageAccount(): void {
+    void this.kc?.accountManagement();
+  }
+
   getFirstName(): string | undefined {
     const claims = this.kc?.tokenParsed;
     return claims?.['given_name'] as string;

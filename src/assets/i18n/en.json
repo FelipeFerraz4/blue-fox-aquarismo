@@ -33,7 +33,8 @@
     "OPEN_MENU": "Open menu",
     "LOGIN": "Log in",
     "LOGOUT": "Log out",
-    "HELLO": "Hi, {{name}}"
+    "HELLO": "Hi, {{name}}",
+    "ACCOUNT": "My account"
   },
   "SEARCH": {
     "LABEL": "Search the blog",
@@ -240,7 +241,8 @@
     "DH_TERMS_DESCRIPTION": "Terms of Use of the Daily Habits app by Blue Fox Aquarismo.",
     "DH_PRIVACY_TITLE": "Privacy Policy - Daily Habits - Blue Fox Aquarismo",
     "DH_PRIVACY_DESCRIPTION": "Privacy Policy of the Daily Habits app by Blue Fox Aquarismo.",
-    "ACCOUNT_TITLE": "My account | Blue Fox Aquarismo"
+    "ACCOUNT_TITLE": "My account | Blue Fox Aquarismo",
+    "ACCOUNT_DESCRIPTION": "Your profile and the language and theme preferences for Blue Fox Aquarismo."
   },
   "ADMIN": {
     "NAV_LABEL": "Admin panel",
@@ -442,6 +444,25 @@
       "DONE_PUBLISHED": "“{{title}}” published.",
       "DONE_UNPUBLISHED": "“{{title}}” unpublished.",
       "UPDATE_ERROR": "Could not update “{{title}}”."
+    }
+  },
+  "ACCOUNT": {
+    "TITLE": "My account",
+    "PROFILE": "Profile",
+    "NAME": "Name",
+    "USERNAME": "Username",
+    "EMAIL": "E-mail",
+    "SSO_HINT": "Name, e-mail and password live in your Blue Fox account (single sign-on), used across all the group's sites.",
+    "MANAGE": "Manage account",
+    "ADMIN": "Admin panel",
+    "PREFERENCES": "Preferences",
+    "PREFERENCES_HINT": "They apply to this browser and take effect right away.",
+    "LANGUAGE": "Site language",
+    "THEME": "Theme",
+    "THEMES": {
+      "system": "Same as the system",
+      "light": "Light",
+      "dark": "Dark"
     }
   }
 }

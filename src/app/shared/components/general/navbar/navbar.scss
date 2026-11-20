@@ -165,6 +165,14 @@
 .username {
   font-size: 0.9rem;
   color: var(--text-strong);
+  text-decoration: none;
+  border-radius: 4px;
+
+  &:hover,
+  &.active {
+    color: var(--accent);
+    text-decoration: underline;
+  }
 }
 
 .logout-btn {
@@ -271,4 +279,13 @@
   .has-dropdown:hover>.dropdown {
     display: block;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

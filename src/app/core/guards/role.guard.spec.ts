@@ -15,14 +15,14 @@ describe('roleGuard', () => {
   const route = { data: { roles: [KeycloakRole.AQUARIUM_EDITOR] } } as unknown as ActivatedRouteSnapshot;
   const state = {} as RouterStateSnapshot;
 
-  const run = (platform: string) => {
+  const run = (platform: string, r: ActivatedRouteSnapshot = route) => {
     TestBed.configureTestingModule({
       providers: [
         { provide: PLATFORM_ID, useValue: platform },
         { provide: AuthService, useValue: auth },
       ],
     });
-    return TestBed.runInInjectionContext(() => roleGuard(route, state));
+    return TestBed.runInInjectionContext(() => roleGuard(r, state));
   };
 
   beforeEach(() => {
@@ -53,5 +53,17 @@ describe('roleGuard', () => {
     auth.hasAnyRole.mockReturnValue(true);
     expect(run('browser')).toBe(true);
     expect(auth.hasAnyRole).toHaveBeenCalledWith([KeycloakRole.AQUARIUM_EDITOR]);
+  });
+
+  it('only requires a session when the route has no roles (e.g. /account)', () => {
+    const open = { data: {} } as unknown as ActivatedRouteSnapshot;
+    auth.isLoggedIn.mockReturnValue(true);
+    auth.hasAnyRole.mockReturnValue(false);
+    expect(run('browser', open)).toBe(true);
+
+    TestBed.resetTestingModule();
+    auth.isLoggedIn.mockReturnValue(false);
+    expect(run('browser', open)).toBe(false);
+    expect(auth.login).toHaveBeenCalled();
   });
 });

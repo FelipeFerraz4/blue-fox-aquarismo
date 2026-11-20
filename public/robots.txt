@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /en/admin
+Disallow: /account
+Disallow: /en/account
 
 Sitemap: https://bluefoxaquarismo.space/sitemap.xml

@@ -1,0 +1,70 @@
+<section class="account-page">
+  <div class="content">
+    <h1>{{ 'ACCOUNT.TITLE' | translate }}</h1>
+
+    <section class="card" aria-labelledby="h-profile">
+      <h2 id="h-profile">{{ 'ACCOUNT.PROFILE' | translate }}</h2>
+      <dl class="profile">
+        <dt>{{ 'ACCOUNT.NAME' | translate }}</dt>
+        <dd>{{ name() || '—' }}</dd>
+        @if (username) {
+          <dt>{{ 'ACCOUNT.USERNAME' | translate }}</dt>
+          <dd>{{ username }}</dd>
+        }
+        @if (email) {
+          <dt>{{ 'ACCOUNT.EMAIL' | translate }}</dt>
+          <dd class="break">{{ email }}</dd>
+        }
+      </dl>
+      <p class="muted">{{ 'ACCOUNT.SSO_HINT' | translate }}</p>
+      <div class="actions">
+        <button type="button" class="btn" (click)="auth.manageAccount()">{{ 'ACCOUNT.MANAGE' | translate }}</button>
+        @if (canManageContent) {
+          <a class="btn" [routerLink]="'/admin' | localize">{{ 'ACCOUNT.ADMIN' | translate }}</a>
+        }
+        <button type="button" class="btn" (click)="auth.logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="h-prefs">
+      <h2 id="h-prefs">{{ 'ACCOUNT.PREFERENCES' | translate }}</h2>
+      <p class="muted">{{ 'ACCOUNT.PREFERENCES_HINT' | translate }}</p>
+
+      <fieldset>
+        <legend>{{ 'ACCOUNT.LANGUAGE' | translate }}</legend>
+        <div class="options">
+          @for (l of locales; track l.code) {
+            <label class="option">
+              <input
+                type="radio"
+                name="language"
+                [value]="l.code"
+                [checked]="language.current() === l.code"
+                (change)="setLanguage(l.code)"
+              />
+              <span [attr.lang]="l.code">{{ l.label }}</span>
+            </label>
+          }
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>{{ 'ACCOUNT.THEME' | translate }}</legend>
+        <div class="options">
+          @for (t of themes; track t) {
+            <label class="option">
+              <input
+                type="radio"
+                name="theme"
+                [value]="t"
+                [checked]="theme.preference() === t"
+                (change)="setTheme(t)"
+              />
+              <span>{{ 'ACCOUNT.THEMES.' + t | translate }}</span>
+            </label>
+          }
+        </div>
+      </fieldset>
+    </section>
+  </div>
+</section>
