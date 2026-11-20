@@ -1,97 +1,183 @@
 <section class="legal-page">
-  <div class="content" lang="pt-BR">
-        <app-content-language-notice />
-    <h1>Termos de Uso</h1>
-    <p class="subtitle">Daily Habit · Regras de uso e responsabilidades</p>
+  <div class="content" [attr.lang]="language.current()">
+    @if (language.current() === 'en') {
+        <h1>Terms of Use</h1>
+        <p class="subtitle">Daily Habit · Rules of use and responsibilities</p>
 
-    <div class="disclaimer-card">
-      <strong>Aviso Importante:</strong>
-      O Daily Habit é uma ferramenta de produtividade e organização pessoal. Os conteúdos e
-      funcionalidades aqui presentes não substituem orientação médica, psicológica ou nutricional
-      profissional. Use as informações como um guia para seu autodesenvolvimento.
-    </div>
+        <div class="disclaimer-card">
+          <strong>Important Notice:</strong>
+          Daily Habit is a personal productivity and organisation tool. Its content and features do not replace professional
+          medical, psychological or nutritional advice. Use the information as a guide for your self-development.
+        </div>
 
-    <div class="legal-text">
-      <h2>1. Aceitação dos Termos</h2>
-      <p>
-        Ao acessar e utilizar o aplicativo <strong>Daily Habit</strong>, você concorda em cumprir
-        estes termos de serviço, todas as leis e regulamentos aplicáveis e concorda que é
-        responsável pelo cumprimento de todas as leis locais. Se você não concordar com algum desses
-        termos, está proibido de usar ou acessar este app.
-      </p>
+        <div class="legal-text">
+          <h2>1. Acceptance of the Terms</h2>
+          <p>
+            By accessing and using the <strong>Daily Habit</strong> app, you agree to comply with these terms of service and
+            all applicable laws and regulations, and you agree that you are responsible for complying with all local laws. If
+            you do not agree with any of these terms, you are prohibited from using or accessing this app.
+          </p>
 
-      <h2>2. Licença de Uso</h2>
-      <p>
-        É concedida permissão para baixar e utilizar uma cópia do Daily Habit para uso pessoal,
-        transitório e não comercial. Esta é a concessão de uma licença, não uma transferência de
-        título.
-      </p>
+          <h2>2. Licence of Use</h2>
+          <p>
+            Permission is granted to download and use one copy of Daily Habit for personal, transitory, non-commercial use.
+            This is the grant of a licence, not a transfer of title.
+          </p>
 
-      <div class="highlight-box">
-        <p>
-          <strong>Foco na Evolução:</strong> O Daily Habit foi criado para incentivar a
-          consistência. Sinta-se à vontade para compartilhar seus prints de progresso e conquistas
-          em suas redes sociais! Adoramos ver sua evolução, desde que o software em si não seja
-          modificado ou revendido.
-        </p>
-      </div>
+          <div class="highlight-box">
+            <p>
+              <strong>Focus on Progress:</strong> Daily Habit was created to encourage consistency. Feel free to share
+              screenshots of your progress and achievements on social media! We love to see you grow, as long as the software
+              itself is not modified or resold.
+            </p>
+          </div>
 
-      <p>Sob esta licença, você <strong>não</strong> pode:</p>
-      <ul class="legal-list">
-        <li>Modificar, copiar ou tentar fazer engenharia reversa do código do aplicativo;</li>
-        <li>
-          Usar o aplicativo para qualquer finalidade comercial ou para exibição pública sem
-          autorização;
-        </li>
-        <li>
-          Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;
-        </li>
-        <li>
-          Transferir seus dados de acesso para outra pessoa ou 'espelhar' o app em outros
-          servidores.
-        </li>
-      </ul>
+          <p>Under this licence, you may <strong>not</strong>:</p>
+          <ul class="legal-list">
+            <li>Modify, copy or attempt to reverse engineer the app's code;</li>
+            <li>
+              Use the app for any commercial purpose or for public display without authorisation;
+            </li>
+            <li>
+              Remove any copyright or other proprietary notations from the materials;
+            </li>
+            <li>
+              Transfer your access details to another person or "mirror" the app on other servers.
+            </li>
+          </ul>
 
-      <h2>3. Isenção de Responsabilidade</h2>
-      <p>
-        O Daily Habit é fornecido 'como está'. Não oferecemos garantias, expressas ou implícitas,
-        incluindo, sem limitação, garantias de comercialização ou adequação a um fim específico. Não
-        garantimos que o uso do app levará a resultados específicos de saúde ou produtividade.
-      </p>
+          <h2>3. Disclaimer</h2>
+          <p>
+            Daily Habit is provided "as is". We make no warranties, expressed or implied, including, without limitation,
+            warranties of merchantability or fitness for a particular purpose. We do not guarantee that using the app will lead
+            to specific health or productivity results.
+          </p>
 
-      <h2>4. Limitações e Dados</h2>
-      <p>
-        Em nenhum caso o Daily Habit ou seus desenvolvedores serão responsáveis por quaisquer danos
-        (incluindo, sem limitação, danos por perda de dados ou lucros) decorrentes do uso ou da
-        incapacidade de usar o software, mesmo que notificados da possibilidade de tais danos.
-      </p>
-      <p>
-        Embora busquemos a perfeição técnica, o aplicativo pode conter erros tipográficos ou bugs.
-        Podemos realizar alterações nas funcionalidades a qualquer momento para melhorar sua
-        experiência.
-      </p>
+          <h2>4. Limitations and Data</h2>
+          <p>
+            In no event shall Daily Habit or its developers be liable for any damages (including, without limitation, damages
+            for loss of data or profit) arising out of the use or inability to use the software, even if notified of the
+            possibility of such damages.
+          </p>
+          <p>
+            Although we strive for technical perfection, the app may contain typographical errors or bugs. We may change
+            features at any time to improve your experience.
+          </p>
 
-      <h2>5. Links e Integrações</h2>
-      <p>
-        O Daily Habit pode conter links para serviços externos (como backup em nuvem). Não nos
-        responsabilizamos pelo conteúdo ou práticas de privacidade desses serviços de terceiros.
-      </p>
+          <h2>5. Links and Integrations</h2>
+          <p>
+            Daily Habit may contain links to external services (such as cloud backup). We are not responsible for the content
+            or privacy practices of these third-party services.
+          </p>
 
-      <h2>6. Modificações e Lei Aplicável</h2>
-      <p>
-        Podemos revisar estes termos de serviço a qualquer momento, sem aviso prévio. Ao usar este
-        app, você concorda em ficar vinculado à versão atual desses termos.
-      </p>
+          <h2>6. Modifications and Governing Law</h2>
+          <p>
+            We may revise these terms of service at any time without notice. By using this app, you agree to be bound by the
+            current version of these terms.
+          </p>
 
-      <p class="updated">
-        Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>.
-      </p>
-    </div>
+          <p class="updated">
+            This policy is effective as of <strong>February 2, 2026</strong>. In case of divergence, the Portuguese version
+            prevails.
+          </p>
+        </div>
 
-    <div class="actions">
-      <a [routerLink]="'/app/daily-habits/privacy-policy' | localize" class="btn secondary"
-        >Política de Privacidade</a
-      >
-    </div>
+        <div class="actions">
+          <a [routerLink]="'/app/daily-habits/privacy-policy' | localize" class="btn secondary">Privacy Policy</a>
+        </div>
+    } @else {
+        <h1>Termos de Uso</h1>
+        <p class="subtitle">Daily Habit · Regras de uso e responsabilidades</p>
+
+        <div class="disclaimer-card">
+          <strong>Aviso Importante:</strong>
+          O Daily Habit é uma ferramenta de produtividade e organização pessoal. Os conteúdos e
+          funcionalidades aqui presentes não substituem orientação médica, psicológica ou nutricional
+          profissional. Use as informações como um guia para seu autodesenvolvimento.
+        </div>
+
+        <div class="legal-text">
+          <h2>1. Aceitação dos Termos</h2>
+          <p>
+            Ao acessar e utilizar o aplicativo <strong>Daily Habit</strong>, você concorda em cumprir
+            estes termos de serviço, todas as leis e regulamentos aplicáveis e concorda que é
+            responsável pelo cumprimento de todas as leis locais. Se você não concordar com algum desses
+            termos, está proibido de usar ou acessar este app.
+          </p>
+
+          <h2>2. Licença de Uso</h2>
+          <p>
+            É concedida permissão para baixar e utilizar uma cópia do Daily Habit para uso pessoal,
+            transitório e não comercial. Esta é a concessão de uma licença, não uma transferência de
+            título.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong>Foco na Evolução:</strong> O Daily Habit foi criado para incentivar a
+              consistência. Sinta-se à vontade para compartilhar seus prints de progresso e conquistas
+              em suas redes sociais! Adoramos ver sua evolução, desde que o software em si não seja
+              modificado ou revendido.
+            </p>
+          </div>
+
+          <p>Sob esta licença, você <strong>não</strong> pode:</p>
+          <ul class="legal-list">
+            <li>Modificar, copiar ou tentar fazer engenharia reversa do código do aplicativo;</li>
+            <li>
+              Usar o aplicativo para qualquer finalidade comercial ou para exibição pública sem
+              autorização;
+            </li>
+            <li>
+              Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;
+            </li>
+            <li>
+              Transferir seus dados de acesso para outra pessoa ou 'espelhar' o app em outros
+              servidores.
+            </li>
+          </ul>
+
+          <h2>3. Isenção de Responsabilidade</h2>
+          <p>
+            O Daily Habit é fornecido 'como está'. Não oferecemos garantias, expressas ou implícitas,
+            incluindo, sem limitação, garantias de comercialização ou adequação a um fim específico. Não
+            garantimos que o uso do app levará a resultados específicos de saúde ou produtividade.
+          </p>
+
+          <h2>4. Limitações e Dados</h2>
+          <p>
+            Em nenhum caso o Daily Habit ou seus desenvolvedores serão responsáveis por quaisquer danos
+            (incluindo, sem limitação, danos por perda de dados ou lucros) decorrentes do uso ou da
+            incapacidade de usar o software, mesmo que notificados da possibilidade de tais danos.
+          </p>
+          <p>
+            Embora busquemos a perfeição técnica, o aplicativo pode conter erros tipográficos ou bugs.
+            Podemos realizar alterações nas funcionalidades a qualquer momento para melhorar sua
+            experiência.
+          </p>
+
+          <h2>5. Links e Integrações</h2>
+          <p>
+            O Daily Habit pode conter links para serviços externos (como backup em nuvem). Não nos
+            responsabilizamos pelo conteúdo ou práticas de privacidade desses serviços de terceiros.
+          </p>
+
+          <h2>6. Modificações e Lei Aplicável</h2>
+          <p>
+            Podemos revisar estes termos de serviço a qualquer momento, sem aviso prévio. Ao usar este
+            app, você concorda em ficar vinculado à versão atual desses termos.
+          </p>
+
+          <p class="updated">
+            Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a [routerLink]="'/app/daily-habits/privacy-policy' | localize" class="btn secondary"
+            >Política de Privacidade</a
+          >
+        </div>
+    }
   </div>
 </section>

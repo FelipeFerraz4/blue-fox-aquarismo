@@ -1,107 +1,206 @@
 <section class="legal-page">
-  <div class="content" lang="pt-BR">
-        <app-content-language-notice />
-    <h1>Política de Privacidade</h1>
-    <p class="subtitle">Daily Habit · Simplicidade, consistência e crescimento pessoal</p>
+  <div class="content" [attr.lang]="language.current()">
+    @if (language.current() === 'en') {
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Daily Habit · Simplicity, consistency and personal growth</p>
 
-    <div class="disclaimer-card">
-      <strong>Aviso Importante:</strong>
-      O Daily Habit é um aplicativo de produtividade pessoal e não substitui aconselhamento
-      profissional em saúde, fitness ou bem-estar mental.
-    </div>
+        <div class="disclaimer-card">
+          <strong>Important Notice:</strong>
+          Daily Habit is a personal productivity app and does not replace professional advice on health, fitness or mental
+          well-being.
+        </div>
 
-    <div class="legal-text">
-      <p>
-        Sua privacidade é importante para nós. Esta Política de Privacidade explica como o
-        <strong>Daily Habit</strong> coleta, usa e protege suas informações ao utilizar o
-        aplicativo.
-      </p>
+        <div class="legal-text">
+          <p>
+            Your privacy is important to us. This Privacy Policy explains how <strong>Daily Habit</strong> collects, uses and
+            protects your information when you use the app.
+          </p>
 
-      <h2>Coleta de Dados</h2>
-      <p>
-        O Daily Habit foi projetado para coletar apenas os dados necessários para fornecer suas
-        funcionalidades principais. Isso pode incluir:
-      </p>
+          <h2>Data Collection</h2>
+          <p>
+            Daily Habit is designed to collect only the data needed to provide its main features. This may include:
+          </p>
 
-      <ul class="legal-list">
-        <li>Hábitos criados pelo usuário</li>
-        <li>Registros de progresso diário (hábitos concluídos, metas e acompanhamento)</li>
-        <li>Estatísticas e dados de uso para visualização (como mapas de calor e gráficos)</li>
-      </ul>
+          <ul class="legal-list">
+            <li>Habits created by the user</li>
+            <li>Daily progress records (completed habits, goals and tracking)</li>
+            <li>Statistics and usage data for visualisation (such as heat maps and charts)</li>
+          </ul>
 
-      <p>
-        Nós <strong>não coletamos dados pessoais sensíveis</strong>, como senhas externas,
-        informações financeiras ou documentos de identificação pessoal.
-      </p>
+          <p>
+            We <strong>do not collect sensitive personal data</strong>, such as external passwords, financial information or
+            personal identification documents.
+          </p>
 
-      <h2>Como os Dados são Usados</h2>
-      <p>Os dados coletados são usados exclusivamente para:</p>
+          <h2>How the Data Is Used</h2>
+          <p>The data collected is used exclusively to:</p>
 
-      <ul class="legal-list">
-        <li>Acompanhar seus hábitos e metas</li>
-        <li>Gerar estatísticas e insights visuais (gráficos e mapas de calor)</li>
-        <li>Melhorar sua experiência dentro do aplicativo</li>
-      </ul>
+          <ul class="legal-list">
+            <li>Track your habits and goals</li>
+            <li>Generate statistics and visual insights (charts and heat maps)</li>
+            <li>Improve your experience within the app</li>
+          </ul>
 
-      <h2>Armazenamento de Dados</h2>
-      <p>
-        Seus dados podem ser armazenados localmente no seu dispositivo ou de forma segura em
-        serviços de nuvem (como Firebase ou iCloud), dependendo da versão e configuração do
-        aplicativo.
-      </p>
+          <h2>Data Storage</h2>
+          <p>
+            Your data may be stored locally on your device or securely in cloud services (such as Firebase or iCloud),
+            depending on the version and configuration of the app.
+          </p>
 
-      <p>
-        Tomamos medidas razoáveis para proteger seus dados contra acesso não autorizado, perda ou
-        uso indevido.
-      </p>
+          <p>
+            We take reasonable measures to protect your data against unauthorised access, loss or misuse.
+          </p>
 
-      <h2>Compartilhamento de Dados</h2>
-      <p>
-        O Daily Habit <strong>não vende, aluga ou compartilha seus dados pessoais</strong> com
-        terceiros para fins de marketing, exceto quando exigido por lei.
-      </p>
+          <h2>Data Sharing</h2>
+          <p>
+            Daily Habit <strong>does not sell, rent or share your personal data</strong> with third parties for marketing
+            purposes, except when required by law.
+          </p>
 
-      <h2>Serviços de Terceiros</h2>
-      <p>
-        O aplicativo pode usar serviços de terceiros (como Google Analytics para Firebase) que podem
-        coletar dados de uso anônimos para nos ajudar a entender como o app é utilizado e melhorar
-        sua estabilidade.
-      </p>
+          <h2>Third-Party Services</h2>
+          <p>
+            The app may use third-party services (such as Google Analytics for Firebase) that may collect anonymous usage data
+            to help us understand how the app is used and improve its stability.
+          </p>
 
-      <h2>Controle do Usuário</h2>
-      <p>Você tem total controle sobre seus dados. Você pode:</p>
+          <h2>User Control</h2>
+          <p>You have full control over your data. You can:</p>
 
-      <ul class="legal-list">
-        <li>Criar, editar ou excluir seus hábitos a qualquer momento</li>
-        <li>Solicitar a exclusão de sua conta (se aplicável) e de todos os dados associados</li>
-      </ul>
+          <ul class="legal-list">
+            <li>Create, edit or delete your habits at any time</li>
+            <li>Request the deletion of your account (if applicable) and all associated data</li>
+          </ul>
 
-      <div class="highlight-box">
-        <p>
-          O Daily Habit foi feito para ser simples e respeitoso com sua privacidade. Seus dados
-          existem para ajudar você a melhorar seus hábitos — nada mais.
-        </p>
-      </div>
+          <div class="highlight-box">
+            <p>
+              Daily Habit was made to be simple and respectful of your privacy. Your data exists to help you improve your
+              habits, nothing more.
+            </p>
+          </div>
 
-      <h2>Contato</h2>
-      <p>
-        Se você tiver alguma dúvida sobre esta política, entre em contato conosco através do e-mail:
-        <strong>blue.fox.group.contact@gmail.com</strong>.
-      </p>
+          <h2>Contact</h2>
+          <p>
+            If you have any questions about this policy, contact us by e-mail:
+            <strong>blue.fox.group.contact&#64;gmail.com</strong>.
+          </p>
 
-      <h2>Atualizações desta Política</h2>
-      <p>
-        Esta Política de Privacidade pode ser atualizada ao longo do tempo. Recomendamos a revisão
-        periódica desta página.
-      </p>
+          <h2>Updates to This Policy</h2>
+          <p>
+            This Privacy Policy may be updated over time. We recommend reviewing this page periodically.
+          </p>
 
-      <p class="updated">
-        Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>.
-      </p>
-    </div>
+          <p class="updated">
+            This policy is effective as of <strong>February 2, 2026</strong>. In case of divergence, the Portuguese version
+            prevails.
+          </p>
+        </div>
 
-    <div class="actions">
-      <a [routerLink]="'/app/daily-habits/terms-of-use' | localize" class="btn secondary">Termos de Uso</a>
-    </div>
+        <div class="actions">
+          <a [routerLink]="'/app/daily-habits/terms-of-use' | localize" class="btn secondary">Terms of Use</a>
+        </div>
+    } @else {
+        <h1>Política de Privacidade</h1>
+        <p class="subtitle">Daily Habit · Simplicidade, consistência e crescimento pessoal</p>
+
+        <div class="disclaimer-card">
+          <strong>Aviso Importante:</strong>
+          O Daily Habit é um aplicativo de produtividade pessoal e não substitui aconselhamento
+          profissional em saúde, fitness ou bem-estar mental.
+        </div>
+
+        <div class="legal-text">
+          <p>
+            Sua privacidade é importante para nós. Esta Política de Privacidade explica como o
+            <strong>Daily Habit</strong> coleta, usa e protege suas informações ao utilizar o
+            aplicativo.
+          </p>
+
+          <h2>Coleta de Dados</h2>
+          <p>
+            O Daily Habit foi projetado para coletar apenas os dados necessários para fornecer suas
+            funcionalidades principais. Isso pode incluir:
+          </p>
+
+          <ul class="legal-list">
+            <li>Hábitos criados pelo usuário</li>
+            <li>Registros de progresso diário (hábitos concluídos, metas e acompanhamento)</li>
+            <li>Estatísticas e dados de uso para visualização (como mapas de calor e gráficos)</li>
+          </ul>
+
+          <p>
+            Nós <strong>não coletamos dados pessoais sensíveis</strong>, como senhas externas,
+            informações financeiras ou documentos de identificação pessoal.
+          </p>
+
+          <h2>Como os Dados são Usados</h2>
+          <p>Os dados coletados são usados exclusivamente para:</p>
+
+          <ul class="legal-list">
+            <li>Acompanhar seus hábitos e metas</li>
+            <li>Gerar estatísticas e insights visuais (gráficos e mapas de calor)</li>
+            <li>Melhorar sua experiência dentro do aplicativo</li>
+          </ul>
+
+          <h2>Armazenamento de Dados</h2>
+          <p>
+            Seus dados podem ser armazenados localmente no seu dispositivo ou de forma segura em
+            serviços de nuvem (como Firebase ou iCloud), dependendo da versão e configuração do
+            aplicativo.
+          </p>
+
+          <p>
+            Tomamos medidas razoáveis para proteger seus dados contra acesso não autorizado, perda ou
+            uso indevido.
+          </p>
+
+          <h2>Compartilhamento de Dados</h2>
+          <p>
+            O Daily Habit <strong>não vende, aluga ou compartilha seus dados pessoais</strong> com
+            terceiros para fins de marketing, exceto quando exigido por lei.
+          </p>
+
+          <h2>Serviços de Terceiros</h2>
+          <p>
+            O aplicativo pode usar serviços de terceiros (como Google Analytics para Firebase) que podem
+            coletar dados de uso anônimos para nos ajudar a entender como o app é utilizado e melhorar
+            sua estabilidade.
+          </p>
+
+          <h2>Controle do Usuário</h2>
+          <p>Você tem total controle sobre seus dados. Você pode:</p>
+
+          <ul class="legal-list">
+            <li>Criar, editar ou excluir seus hábitos a qualquer momento</li>
+            <li>Solicitar a exclusão de sua conta (se aplicável) e de todos os dados associados</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              O Daily Habit foi feito para ser simples e respeitoso com sua privacidade. Seus dados
+              existem para ajudar você a melhorar seus hábitos — nada mais.
+            </p>
+          </div>
+
+          <h2>Contato</h2>
+          <p>
+            Se você tiver alguma dúvida sobre esta política, entre em contato conosco através do e-mail:
+            <strong>blue.fox.group.contact@gmail.com</strong>.
+          </p>
+
+          <h2>Atualizações desta Política</h2>
+          <p>
+            Esta Política de Privacidade pode ser atualizada ao longo do tempo. Recomendamos a revisão
+            periódica desta página.
+          </p>
+
+          <p class="updated">
+            Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a [routerLink]="'/app/daily-habits/terms-of-use' | localize" class="btn secondary">Termos de Uso</a>
+        </div>
+    }
   </div>
 </section>

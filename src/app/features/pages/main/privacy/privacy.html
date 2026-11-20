@@ -1,114 +1,225 @@
 <section class="legal-page">
-    <div class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <h1>Política de Privacidade</h1>
-        <p class="subtitle">Blue Fox Aquarismo · Educação, prática e responsabilidade no aquarismo</p>
+    <div class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Blue Fox Aquarismo · Education, practice and responsibility in fishkeeping</p>
 
-        <div class="disclaimer-card">
-            <strong>Aviso Importante:</strong>
-            Os conteúdos do Blue Fox Aquarismo possuem caráter educacional e informativo, não substituindo
-            orientação profissional especializada.
-        </div>
+            <div class="disclaimer-card">
+                <strong>Important Notice:</strong>
+                The content of Blue Fox Aquarismo is educational and informative and does not replace specialised professional
+                advice.
+            </div>
 
-        <div class="legal-text">
-            <p>
-                A sua privacidade é importante para nós. É política do <strong>Blue Fox Aquarismo</strong> respeitar a
-                sua privacidade em relação a qualquer informação sua que possamos coletar no site Blue Fox Aquarismo, e
-                outros sites que possuímos e operamos.
-            </p>
-
-            <p>
-                Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.
-                Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que
-                estamos coletando e como será usado.
-            </p>
-
-            <p>
-                Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando
-                armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos,
-                bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
-            </p>
-
-            <p>
-                Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando
-                exigido por lei.
-            </p>
-
-            <h2>Links Externos e Terceiros</h2>
-            <p>
-                O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não
-                temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas
-                respectivas políticas de privacidade.
-            </p>
-
-            <p>
-                Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não
-                possamos fornecer alguns dos serviços desejados.
-            </p>
-
-            <h2>Google AdSense e Cookies</h2>
-            <p>
-                O serviço Google AdSense que usamos para veicular publicidade usa um cookie DoubleClick para veicular
-                anúncios mais relevantes em toda a Web e limitar o número de vezes que um determinado anúncio é exibido
-                para você.
-            </p>
-            <p>
-                Utilizamos anúncios para compensar os custos de funcionamento deste site e fornecer financiamento para
-                futuros desenvolvimentos. Os cookies de publicidade comportamental rastreiam anonimamente seus
-                interesses para apresentar coisas semelhantes que possam ser do seu interesse.
-            </p>
-
-            <h2>Compromisso do Usuário</h2>
-            <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o Blue Fox Aquarismo
-                oferece, o que inclui, mas não se limita a:</p>
-
-            <ul class="legal-list">
-                <li><strong>A)</strong> Não se envolver em atividades que sejam ilegais ou contrárias à boa fé e à ordem
-                    pública;</li>
-                <li><strong>B)</strong> Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, jogos de
-                    azar, pornografia ilegal ou apologia ao terrorismo;</li>
-                <li><strong>C)</strong> Não causar danos aos sistemas físicos (hardware) e lógicos (software) do Blue
-                    Fox Aquarismo ou de terceiros.</li>
-            </ul>
-
-            <div class="highlight-box">
+            <div class="legal-text">
                 <p>
-                    É permitido citar, compartilhar, reproduzir trechos e divulgar os conteúdos do Blue Fox Aquarismo em
-                    vídeos, aulas e redes sociais, desde que seja feita a <strong>devida atribuição à fonte
-                        original</strong> e que o conteúdo não seja comercializado como material próprio de terceiros.
+                    Your privacy is important to us. It is <strong>Blue Fox Aquarismo</strong>'s policy to respect your privacy
+                    regarding any information we may collect from you on the Blue Fox Aquarismo website and other sites we own and
+                    operate.
+                </p>
+
+                <p>
+                    We only ask for personal information when we truly need it to provide a service to you. We collect it by fair
+                    and lawful means, with your knowledge and consent. We also let you know why we are collecting it and how it
+                    will be used.
+                </p>
+
+                <p>
+                    We only retain collected information for as long as necessary to provide the requested service. What data we
+                    store, we protect within commercially acceptable means to prevent loss and theft, as well as unauthorised
+                    access, disclosure, copying, use or modification.
+                </p>
+
+                <p>
+                    We do not share any personally identifying information publicly or with third parties, except when required
+                    to by law.
+                </p>
+
+                <h2>External Links and Third Parties</h2>
+                <p>
+                    Our website may link to external sites that are not operated by us. Please be aware that we have no control
+                    over the content and practices of these sites and cannot accept responsibility for their respective privacy
+                    policies.
+                </p>
+
+                <p>
+                    You are free to refuse our request for personal information, with the understanding that we may be unable to
+                    provide you with some of the services you want.
+                </p>
+
+                <h2>Google AdSense and Cookies</h2>
+                <p>
+                    The Google AdSense service we use to serve advertising uses a DoubleClick cookie to serve more relevant ads
+                    across the web and limit the number of times a given ad is shown to you.
+                </p>
+                <p>
+                    We use ads to offset the costs of running this site and to fund further development. Behavioural advertising
+                    cookies anonymously track your interests to present similar things that may be of interest to you.
+                </p>
+
+                <h2>User Commitment</h2>
+                <p>The user undertakes to make appropriate use of the content and information that Blue Fox Aquarismo offers,
+                    which includes, but is not limited to:</p>
+
+                <ul class="legal-list">
+                    <li><strong>A)</strong> Not engaging in activities that are illegal or contrary to good faith and public
+                        order;</li>
+                    <li><strong>B)</strong> Not spreading propaganda or content of a racist or xenophobic nature, gambling,
+                        illegal pornography or support for terrorism;</li>
+                    <li><strong>C)</strong> Not causing damage to the physical (hardware) and logical (software) systems of Blue
+                        Fox Aquarismo or of third parties.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        You may quote, share, reproduce excerpts from and publicise the content of Blue Fox Aquarismo in videos,
+                        classes and social media, as long as you give <strong>proper attribution to the original
+                            source</strong> and the content is not sold as someone else's own material.
+                    </p>
+                </div>
+
+                <h2>Error Reports and Contact</h2>
+                <p>
+                    When you use the <strong>Report an error</strong> button or the
+                    <a [routerLink]="'/contact' | localize">Contact and corrections</a> page, we store what you wrote (the error,
+                    the suggested correction and the source), the page the report was sent from and, if you provide it, your
+                    e-mail address.
+                </p>
+                <ul class="legal-list">
+                    <li><strong>What for:</strong> to review and correct the content and, if you left an e-mail address, to reply
+                        to your report. The e-mail address is optional and is not used for any other purpose.</li>
+                    <li><strong>Who sees it:</strong> only the Blue Fox Aquarismo editorial team. Reports are not published or
+                        shared with third parties.</li>
+                    <li><strong>Your rights:</strong> you can ask to see, correct or delete the data of a report you sent by
+                        writing to the e-mail address shown on the contact page.</li>
+                </ul>
+
+                <h2>More Information</h2>
+                <p>
+                    We hope this has clarified things for you and, as mentioned above, if there is something you are not sure
+                    whether you need, it is usually safer to leave cookies enabled in case it interacts with one of the features
+                    you use on our site.
+                </p>
+
+                <p class="updated">
+                    This policy is effective as of <strong>February 2, 2026</strong>, with the error reports section added on
+                    November 20, 2026. In case of divergence, the Portuguese version prevails.
                 </p>
             </div>
 
-            <h2>Relatos de erro e contato</h2>
-            <p>
-                Quando você usa o botão <strong>Relatar erro</strong> ou a página
-                <a [routerLink]="'/contact' | localize">Contato e correções</a>, guardamos o que você escreveu (o erro, a correção
-                sugerida e a fonte), a página de onde o aviso foi enviado e, se você informar, o seu e-mail.
-            </p>
-            <ul class="legal-list">
-                <li><strong>Para quê:</strong> revisar e corrigir o conteúdo e, se você deixou um e-mail, responder ao
-                    seu aviso. O e-mail é opcional e não é usado para nenhuma outra finalidade.</li>
-                <li><strong>Quem vê:</strong> só a equipe editorial do Blue Fox Aquarismo. Os relatos não são publicados
-                    nem compartilhados com terceiros.</li>
-                <li><strong>Seus direitos:</strong> você pode pedir para ver, corrigir ou apagar os dados de um relato
-                    que enviou, escrevendo para o e-mail indicado na página de contato.</li>
-            </ul>
+            <div class="actions">
+                <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Back to the home page</a>
+                <a [routerLink]="'/terms-of-use' | localize" routerLinkActive="active" class="btn secondary">Terms of Use</a>
+            </div>
+        } @else {
+            <h1>Política de Privacidade</h1>
+            <p class="subtitle">Blue Fox Aquarismo · Educação, prática e responsabilidade no aquarismo</p>
 
-            <h2>Mais informações</h2>
-            <p>
-                Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem
-                certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos
-                recursos que você usa em nosso site.
-            </p>
+            <div class="disclaimer-card">
+                <strong>Aviso Importante:</strong>
+                Os conteúdos do Blue Fox Aquarismo possuem caráter educacional e informativo, não substituindo
+                orientação profissional especializada.
+            </div>
 
-            <p class="updated">
-                Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>, com a seção de relatos de erro incluída em 20 de novembro de 2026.
-            </p>
-        </div>
+            <div class="legal-text">
+                <p>
+                    A sua privacidade é importante para nós. É política do <strong>Blue Fox Aquarismo</strong> respeitar a
+                    sua privacidade em relação a qualquer informação sua que possamos coletar no site Blue Fox Aquarismo, e
+                    outros sites que possuímos e operamos.
+                </p>
 
-        <div class="actions">
-            <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
-            <a [routerLink]="'/terms-of-use' | localize" routerLinkActive="active" class="btn secondary">Termos de Uso</a>
-        </div>
+                <p>
+                    Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.
+                    Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que
+                    estamos coletando e como será usado.
+                </p>
+
+                <p>
+                    Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando
+                    armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos,
+                    bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
+                </p>
+
+                <p>
+                    Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando
+                    exigido por lei.
+                </p>
+
+                <h2>Links Externos e Terceiros</h2>
+                <p>
+                    O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não
+                    temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas
+                    respectivas políticas de privacidade.
+                </p>
+
+                <p>
+                    Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não
+                    possamos fornecer alguns dos serviços desejados.
+                </p>
+
+                <h2>Google AdSense e Cookies</h2>
+                <p>
+                    O serviço Google AdSense que usamos para veicular publicidade usa um cookie DoubleClick para veicular
+                    anúncios mais relevantes em toda a Web e limitar o número de vezes que um determinado anúncio é exibido
+                    para você.
+                </p>
+                <p>
+                    Utilizamos anúncios para compensar os custos de funcionamento deste site e fornecer financiamento para
+                    futuros desenvolvimentos. Os cookies de publicidade comportamental rastreiam anonimamente seus
+                    interesses para apresentar coisas semelhantes que possam ser do seu interesse.
+                </p>
+
+                <h2>Compromisso do Usuário</h2>
+                <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o Blue Fox Aquarismo
+                    oferece, o que inclui, mas não se limita a:</p>
+
+                <ul class="legal-list">
+                    <li><strong>A)</strong> Não se envolver em atividades que sejam ilegais ou contrárias à boa fé e à ordem
+                        pública;</li>
+                    <li><strong>B)</strong> Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, jogos de
+                        azar, pornografia ilegal ou apologia ao terrorismo;</li>
+                    <li><strong>C)</strong> Não causar danos aos sistemas físicos (hardware) e lógicos (software) do Blue
+                        Fox Aquarismo ou de terceiros.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        É permitido citar, compartilhar, reproduzir trechos e divulgar os conteúdos do Blue Fox Aquarismo em
+                        vídeos, aulas e redes sociais, desde que seja feita a <strong>devida atribuição à fonte
+                            original</strong> e que o conteúdo não seja comercializado como material próprio de terceiros.
+                    </p>
+                </div>
+
+                <h2>Relatos de erro e contato</h2>
+                <p>
+                    Quando você usa o botão <strong>Relatar erro</strong> ou a página
+                    <a [routerLink]="'/contact' | localize">Contato e correções</a>, guardamos o que você escreveu (o erro, a correção
+                    sugerida e a fonte), a página de onde o aviso foi enviado e, se você informar, o seu e-mail.
+                </p>
+                <ul class="legal-list">
+                    <li><strong>Para quê:</strong> revisar e corrigir o conteúdo e, se você deixou um e-mail, responder ao
+                        seu aviso. O e-mail é opcional e não é usado para nenhuma outra finalidade.</li>
+                    <li><strong>Quem vê:</strong> só a equipe editorial do Blue Fox Aquarismo. Os relatos não são publicados
+                        nem compartilhados com terceiros.</li>
+                    <li><strong>Seus direitos:</strong> você pode pedir para ver, corrigir ou apagar os dados de um relato
+                        que enviou, escrevendo para o e-mail indicado na página de contato.</li>
+                </ul>
+
+                <h2>Mais informações</h2>
+                <p>
+                    Esperamos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem
+                    certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos
+                    recursos que você usa em nosso site.
+                </p>
+
+                <p class="updated">
+                    Esta política é efetiva a partir de <strong>2 de fevereiro de 2026</strong>, com a seção de relatos de erro incluída em 20 de novembro de 2026.
+                </p>
+            </div>
+
+            <div class="actions">
+                <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
+                <a [routerLink]="'/terms-of-use' | localize" routerLinkActive="active" class="btn secondary">Termos de Uso</a>
+            </div>
+        }
     </div>
 </section>

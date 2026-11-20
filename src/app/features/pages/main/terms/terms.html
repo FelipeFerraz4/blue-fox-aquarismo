@@ -1,92 +1,179 @@
 <section class="legal-page">
-    <div class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <h1>Termos de Serviço</h1>
-        <p class="subtitle">Blue Fox Aquarismo · Regras de uso e licença de conteúdo</p>
+    <div class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Blue Fox Aquarismo · Rules of use and content licence</p>
 
-        <div class="disclaimer-card">
-            <strong>Aviso Importante:</strong>
-            Os conteúdos do Blue Fox Aquarismo possuem caráter educacional e informativo, não substituindo
-            orientação profissional especializada (como veterinários ou biólogos especializados em aquarismo).
-        </div>
+            <div class="disclaimer-card">
+                <strong>Important Notice:</strong>
+                The content of Blue Fox Aquarismo is educational and informative and does not replace specialised professional
+                advice (such as from veterinarians or biologists specialising in fishkeeping).
+            </div>
 
-        <div class="legal-text">
-            <h2>1. Aceitação dos Termos</h2>
-            <p>
-                Ao acessar ao site <strong>Blue Fox Aquarismo</strong>, você concorda em cumprir estes termos de
-                serviço, todas as leis e regulamentos aplicáveis e concorda que é responsável pelo cumprimento de todas
-                as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou
-                acessar este site.
-            </p>
-
-            <h2>2. Licença de Uso e Propriedade Intelectual</h2>
-            <p>
-                É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no
-                site Blue Fox Aquarismo, apenas para visualização transitória pessoal e não comercial.
-            </p>
-
-            <div class="highlight-box">
+            <div class="legal-text">
+                <h2>1. Acceptance of the Terms</h2>
                 <p>
-                    <strong>Liberdade de Compartilhamento:</strong> É permitido citar, compartilhar, reproduzir trechos
-                    e divulgar os conteúdos do Blue Fox Aquarismo em vídeos, aulas e redes sociais, desde que seja feita
-                    a <strong>devida atribuição à fonte original</strong> e que o conteúdo não seja comercializado como
-                    material próprio de terceiros.
+                    By accessing the <strong>Blue Fox Aquarismo</strong> website, you agree to comply with these terms of service
+                    and all applicable laws and regulations, and you agree that you are responsible for complying with all
+                    applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing
+                    this site.
+                </p>
+
+                <h2>2. Licence of Use and Intellectual Property</h2>
+                <p>
+                    Permission is granted to temporarily download one copy of the materials (information or software) on the Blue
+                    Fox Aquarismo website for personal, non-commercial transitory viewing only.
+                </p>
+
+                <div class="highlight-box">
+                    <p>
+                        <strong>Freedom to Share:</strong> You may quote, share, reproduce excerpts from and publicise the content
+                        of Blue Fox Aquarismo in videos, classes and social media, as long as you give <strong>proper attribution
+                        to the original source</strong> and the content is not sold as someone else's own material.
+                    </p>
+                </div>
+
+                <p>Under this licence, you may <strong>not</strong>:</p>
+                <ul class="legal-list">
+                    <li>Modify or copy the materials outside the quotation conditions mentioned above;</li>
+                    <li>Use the materials for any commercial purpose without authorisation;</li>
+                    <li>Attempt to decompile or reverse engineer any software contained on the site;</li>
+                    <li>Remove any copyright or other proprietary notations from the materials;</li>
+                    <li>Transfer the materials to another person or "mirror" the materials on any other server.
+                    </li>
+                </ul>
+
+                <h2>3. Disclaimer</h2>
+                <p>
+                    The materials on the Blue Fox Aquarismo website are provided "as is". The site makes no warranties, expressed
+                    or implied, and hereby disclaims and negates all other warranties, including, without limitation, implied
+                    warranties of merchantability or fitness for a particular purpose.
+                </p>
+
+                <h2>4. Limitations and Accuracy</h2>
+                <p>
+                    In no event shall Blue Fox Aquarismo or its suppliers be liable for any damages arising out of the use or
+                    inability to use the materials, even if notified of the possibility of such damages.
+                </p>
+                <p>
+                    The materials may include technical, typographical or photographic errors. Blue Fox Aquarismo does not warrant
+                    that any of the materials are accurate, complete or current, and may make changes without notice.
+                </p>
+
+                <h2>5. External Links</h2>
+                <p>
+                    Blue Fox Aquarismo has not reviewed all of the sites linked to its domain and is not responsible for the
+                    contents of any linked site. Use of any linked site is at the user's own risk.
+                </p>
+
+                <h2>6. Modifications and Governing Law</h2>
+                <p>
+                    We may revise these terms of service at any time without notice. By using this site, you agree to be bound by
+                    the current version of these terms.
+                </p>
+                <p>
+                    These terms and conditions are governed by and construed in accordance with the applicable laws, and you
+                    irrevocably submit to the exclusive jurisdiction of the local courts.
+                </p>
+
+                <p class="updated">
+                    Last updated: <strong>February 2, {{ currentYear }}</strong>. In case of divergence, the Portuguese version
+                    prevails.
                 </p>
             </div>
 
-            <p>Sob esta licença, você <strong>não</strong> pode:</p>
-            <ul class="legal-list">
-                <li>Modificar ou copiar os materiais fora das condições de citação mencionadas acima;</li>
-                <li>Usar os materiais para qualquer finalidade comercial sem autorização;</li>
-                <li>Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site;</li>
-                <li>Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;</li>
-                <li>Transferir os materiais para outra pessoa ou 'espelhar' os materiais em qualquer outro servidor.
-                </li>
-            </ul>
+            <div class="actions">
+                <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Back to the home page</a>
+                <a [routerLink]="'/privacy-policy' | localize" routerLinkActive="active" class="btn secondary">Privacy Policy</a>
+            </div>
+        } @else {
+            <h1>Termos de Serviço</h1>
+            <p class="subtitle">Blue Fox Aquarismo · Regras de uso e licença de conteúdo</p>
 
-            <h2>3. Isenção de Responsabilidade</h2>
-            <p>
-                Os materiais no site da Blue Fox Aquarismo são fornecidos 'como estão'. O site não oferece garantias,
-                expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem
-                limitação, garantias implícitas de comercialização ou adequação a um fim específico.
-            </p>
+            <div class="disclaimer-card">
+                <strong>Aviso Importante:</strong>
+                Os conteúdos do Blue Fox Aquarismo possuem caráter educacional e informativo, não substituindo
+                orientação profissional especializada (como veterinários ou biólogos especializados em aquarismo).
+            </div>
 
-            <h2>4. Limitações e Precisão</h2>
-            <p>
-                Em nenhum caso o Blue Fox Aquarismo ou seus fornecedores serão responsáveis por quaisquer danos
-                decorrentes do uso ou da incapacidade de usar os materiais, mesmo que notificados da possibilidade de
-                tais danos.
-            </p>
-            <p>
-                Os materiais podem incluir erros técnicos, tipográficos ou fotográficos. O Blue Fox Aquarismo não
-                garante que qualquer material seja preciso, completo ou atual, podendo realizar alterações sem aviso
-                prévio.
-            </p>
+            <div class="legal-text">
+                <h2>1. Aceitação dos Termos</h2>
+                <p>
+                    Ao acessar ao site <strong>Blue Fox Aquarismo</strong>, você concorda em cumprir estes termos de
+                    serviço, todas as leis e regulamentos aplicáveis e concorda que é responsável pelo cumprimento de todas
+                    as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou
+                    acessar este site.
+                </p>
 
-            <h2>5. Links Externos</h2>
-            <p>
-                O Blue Fox Aquarismo não analisou todos os sites vinculados ao seu domínio e não é responsável pelo
-                conteúdo de nenhum site vinculado. O uso de qualquer site vinculado é por conta e risco do usuário.
-            </p>
+                <h2>2. Licença de Uso e Propriedade Intelectual</h2>
+                <p>
+                    É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no
+                    site Blue Fox Aquarismo, apenas para visualização transitória pessoal e não comercial.
+                </p>
 
-            <h2>6. Modificações e Lei Aplicável</h2>
-            <p>
-                Podemos revisar estes termos de serviço a qualquer momento, sem aviso prévio. Ao usar este site, você
-                concorda em ficar vinculado à versão atual desses termos.
-            </p>
-            <p>
-                Estes termos e condições são regidos e interpretados de acordo com as leis vigentes e você se submete
-                irrevogavelmente à jurisdição exclusiva dos tribunais locais.
-            </p>
+                <div class="highlight-box">
+                    <p>
+                        <strong>Liberdade de Compartilhamento:</strong> É permitido citar, compartilhar, reproduzir trechos
+                        e divulgar os conteúdos do Blue Fox Aquarismo em vídeos, aulas e redes sociais, desde que seja feita
+                        a <strong>devida atribuição à fonte original</strong> e que o conteúdo não seja comercializado como
+                        material próprio de terceiros.
+                    </p>
+                </div>
 
-            <p class="updated">
-                Última atualização: <strong>02 de fevereiro de {{ currentYear }}</strong>.
-            </p>
-        </div>
+                <p>Sob esta licença, você <strong>não</strong> pode:</p>
+                <ul class="legal-list">
+                    <li>Modificar ou copiar os materiais fora das condições de citação mencionadas acima;</li>
+                    <li>Usar os materiais para qualquer finalidade comercial sem autorização;</li>
+                    <li>Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site;</li>
+                    <li>Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;</li>
+                    <li>Transferir os materiais para outra pessoa ou 'espelhar' os materiais em qualquer outro servidor.
+                    </li>
+                </ul>
 
-        <div class="actions">
-            <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
-            <a [routerLink]="'/privacy-policy' | localize" routerLinkActive="active" class="btn secondary">Política de Privacidade</a>
-        </div>
+                <h2>3. Isenção de Responsabilidade</h2>
+                <p>
+                    Os materiais no site da Blue Fox Aquarismo são fornecidos 'como estão'. O site não oferece garantias,
+                    expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem
+                    limitação, garantias implícitas de comercialização ou adequação a um fim específico.
+                </p>
+
+                <h2>4. Limitações e Precisão</h2>
+                <p>
+                    Em nenhum caso o Blue Fox Aquarismo ou seus fornecedores serão responsáveis por quaisquer danos
+                    decorrentes do uso ou da incapacidade de usar os materiais, mesmo que notificados da possibilidade de
+                    tais danos.
+                </p>
+                <p>
+                    Os materiais podem incluir erros técnicos, tipográficos ou fotográficos. O Blue Fox Aquarismo não
+                    garante que qualquer material seja preciso, completo ou atual, podendo realizar alterações sem aviso
+                    prévio.
+                </p>
+
+                <h2>5. Links Externos</h2>
+                <p>
+                    O Blue Fox Aquarismo não analisou todos os sites vinculados ao seu domínio e não é responsável pelo
+                    conteúdo de nenhum site vinculado. O uso de qualquer site vinculado é por conta e risco do usuário.
+                </p>
+
+                <h2>6. Modificações e Lei Aplicável</h2>
+                <p>
+                    Podemos revisar estes termos de serviço a qualquer momento, sem aviso prévio. Ao usar este site, você
+                    concorda em ficar vinculado à versão atual desses termos.
+                </p>
+                <p>
+                    Estes termos e condições são regidos e interpretados de acordo com as leis vigentes e você se submete
+                    irrevogavelmente à jurisdição exclusiva dos tribunais locais.
+                </p>
+
+                <p class="updated">
+                    Última atualização: <strong>02 de fevereiro de {{ currentYear }}</strong>.
+                </p>
+            </div>
+
+            <div class="actions">
+                <a [routerLink]="'/' | localize" routerLinkActive="active" class="btn primary">Voltar para o início</a>
+                <a [routerLink]="'/privacy-policy' | localize" routerLinkActive="active" class="btn secondary">Política de Privacidade</a>
+            </div>
+        }
     </div>
 </section>
