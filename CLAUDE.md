@@ -46,6 +46,10 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 
 12. **Acessibilidade (WCAG AA):** barra flutuante `A11yToolbar` + `AccessibilityService` (skill `bluefox-accessibility`): `bf-font-scale` (A-/A+ escala o `font-size` do `<html>`, então **use `rem`**, não px), `bf-contrast` (`<html data-contrast="high">`, tokens redefinidos no `styles.scss`) e tema. Código novo: contraste ≥ 4,5:1 nos 4 modos (claro, escuro e alto contraste de cada), rótulo em todo campo e botão de ícone, sem `outline: none` sem substituto, alvos ≥ 24px, títulos sem pular nível e um só `h1` por página, animações respeitando `prefers-reduced-motion`. Confira com axe e Lighthouse (meta: 100).
 
+13. **Painel `/admin` e autenticação:** papéis só pelas constantes de `core/auth/roles.constants.ts` (`KeycloakRole`, `CONTENT_MANAGER_ROLES`) e `roleGuard` com `data.roles`. O token do Keycloak **só** vai nas requisições marcadas com `withAuth()` (`core/interceptors/auth.interceptor.ts`); páginas públicas continuam anônimas mesmo com editor logado (sem rascunhos no site nem divergência com o HTML pré-renderizado). Rotas que exigem login são `RenderMode.Client` em `app.routes.server.ts`, ficam fora do sitemap, levam `noindex` e estão no `Disallow` do `robots.txt`. As chamadas do painel ficam em `core/services/admin/admin-api-service.ts`.
+
+14. **Relatos de erro:** `<app-report-error>` (`shared/components/general/report-error/`) no fim de cada artigo e na página `/contact` (`mode="inline"`). Envia para `POST /api/v1/reports` (privado; só editores leem no painel). Sem `targetSlug`, usa o último trecho da URL. O e-mail de contato fica só em `environment.contactEmail`. Páginas novas com conteúdo factual (ficha de espécie, bioma, equipamento) devem incluir o componente com o `targetType` certo.
+
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:
 - **Cálculo de Vidro:** Considere o "Belly Effect" (deflexão) e fatores de segurança para pressão hidrostática.
