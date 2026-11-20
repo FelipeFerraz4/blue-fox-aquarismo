@@ -3,394 +3,767 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-    <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <section class="context">
-            <p>
-                Se o aquário é um ecossistema fechado, o filtro é o seu coração. No entanto, entrar em uma loja de
-                aquarismo e se deparar com dezenas de modelos pode ser paralisante para o iniciante. Escolher o filtro
-                errado não é apenas um desperdício de dinheiro; é colocar a saúde dos seus peixes em risco.
-            </p>
-            <p>
-                Neste post, vamos desmistificar os principais tipos de filtragem, entender por que a "carcaça" importa
-                menos que o conteúdo e aprender a regra de ouro para nunca mais errar na vazão do seu sistema.
-            </p>
-        </section>
-
-        <section>
-            <h2>Os Tipos de Filtro: Qual se adapta ao seu projeto?</h2>
-
-            <section>
-                <h3>1. Hang-on (Filtro de Cascata)</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/hang-on-filter3.webp"
-                        alt="Representação visual do filtro de cascata Hang-on" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro de cascata Hang-on.</p>
-                </div>
-
+    <article class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <section class="context">
                 <p>
-                    O termo Hang-on vem do inglês e significa literalmente <strong>"pendurar"</strong>. Como o nome
-                    sugere, esses são os filtros que ficam acoplados diretamente no vidro do aquário (geralmente na
-                    parte traseira ou lateral), deixando o corpo do equipamento para o lado de fora.
+                    If the aquarium is a closed ecosystem, the filter is its heart. However, walking into an aquarium shop and
+                    facing dozens of models can be paralysing for a beginner. Choosing the wrong filter is not just a waste of
+                    money; it puts your fish's health at risk.
                 </p>
                 <p>
-                    Ele funciona sugando a água por um tubo, passando-a pelos componentes internos e devolvendo-a ao
-                    tanque através de uma queda d'água, criando o famoso efeito de "cascata" que auxilia na oxigenação.
+                    In this post we will demystify the main types of filter, understand why the "casing" matters less than what
+                    goes inside it, and learn the golden rule so you never get your system's flow rate wrong again.
                 </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Instalação instantânea, manutenção extremamente simples e não ocupa o
-                        precioso espaço interno dos peixes e plantas.</li>
-                    <li><strong>Desvantagem:</strong> Espaço limitado para mídias biológicas (cerâmicas) em comparação a
-                        modelos externos maiores, e a impossibilidade de ser usado em aquários com tampas totalmente
-                        fechadas.</li>
-                    <li><strong>Ideal para:</strong> Aquários de pequeno e médio porte (até 100 litros), Betteiras
-                        adequadas e montagens que buscam um visual mais limpo.</li>
-                </ul>
             </section>
 
             <section>
-                <h3>2. Canister</h3>
+                <h2>Types of Filter: Which One Suits Your Project?</h2>
 
-                <div class="image-block">
-                    <img src="assets/images/equipment/canister-filter2.webp"
-                        alt="Representação visual do filtro canister" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro canister.</p>
-                </div>
+                <section>
+                    <h3>1. Hang-on (Hang-on-Back Filter)</h3>
 
-                <p>
-                    Considerado por muitos o "padrão ouro" do aquarismo, o Canister é um sistema de filtragem fechado e
-                    pressurizado. Diferente dos filtros que ficam pendurados, ele geralmente é posicionado abaixo do
-                    aquário, dentro do móvel, e se conecta ao tanque por meio de mangueiras.
-                </p>
-                <p>
-                    Por ser um <strong>sistema selado</strong>, a bomba força a passagem da água por diversas gavetas de
-                    mídias com muita pressão, o que garante uma filtragem extremamente eficiente e silenciosa.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Possui um volume massivo para mídias biológicas e garante uma
-                        estética impecável, já que apenas dois tubos discretos (entrada e saída) ficam visíveis dentro
-                        do aquário.</li>
-                    <li><strong>Desvantagem:</strong> Possui o custo de aquisição mais elevado e a manutenção é mais
-                        trabalhosa, exigindo que o filtro seja desconectado e aberto para a limpeza das esponjas e
-                        mídias.</li>
-                    <li><strong>Ideal para:</strong> Aquários grandes (acima de 100 litros), aquascaping profissional,
-                        aquários plantados densos e peixes que exigem alta qualidade de água, como Discus e Kinguios.
-                    </li>
-                </ul>
-            </section>
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-filter3.webp"
+                            alt="Visual representation of a hang-on-back filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of a hang-on-back filter.</p>
+                    </div>
 
-            <section>
-                <h3>3. Hang-on Canister (O Híbrido Moderno)</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/hang-on-canister-filter1.webp"
-                        alt="Representação visual do filtro hang-on canister" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro hang-on canister.</p>
-                </div>
-
-                <p>
-                    Uma evolução que se tornou febre entre aquaristas de tanques médios. Como o nome indica, ele é um
-                    "híbrido": possui o sistema de fixação de um <strong>Hang-on</strong> (pendurado no vidro), mas o
-                    corpo e o funcionamento interno de um <strong>Canister</strong> (vertical e pressurizado).
-                </p>
-                <p>
-                    Diferente do modelo de cascata comum, que é raso, o Hang-on Canister possui um "balde" vertical
-                    externo que permite que a água atravesse várias camadas de mídias de baixo para cima, aproveitando
-                    cada centímetro de espaço.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Oferece um volume de mídias muito superior ao Hang-on convencional e
-                        possui gavetas ou compartimentos modulares que organizam perfeitamente a filtragem mecânica,
-                        química e
-                        biológica.</li>
-                    <li><strong>Desvantagem:</strong> Por ser mais pesado quando cheio de água e cerâmicas, exige vidros
-                        com boa espessura e travas; além disso, a manutenção é um pouco mais lenta que a do filtro de
-                        cascata simples.</li>
-                    <li><strong>Ideal para:</strong> Quem busca a performance de filtragem de um Canister em aquários de
-                        60 a 120 litros, mas não tem espaço ou móvel adequado para instalar um equipamento no chão.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>4. Sump</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/sump-filter1.webp" alt="Representação visual do filtro sump"
-                        loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro sump.</p>
-                </div>
-
-                <p>
-                    O Sump não é apenas um filtro, mas sim um aquário auxiliar conectado ao tanque
-                    principal por meio de encanamentos. Geralmente <strong>escondido dentro do móvel</strong>, ele
-                    funciona
-                    através de um
-                    ciclo de gravidade e recalque: a água desce do aquário principal por um transbordo, passa por
-                    diversas divisórias no Sump e é devolvida ao topo por uma bomba de retorno.
-                </p>
-                <p>
-                    Por ser um reservatório aberto e espaçoso, ele permite que você personalize cada etapa da filtragem
-                    com volumes massivos de cerâmicas, além de ser o local perfeito para realizar a manutenção sem
-                    estressar os peixes no tanque principal.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Aumenta drasticamente o volume total de água (gerando maior
-                        estabilidade química) e permite "esconder" termostatos, sensores e skimmers, mantendo o display
-                        do aquário totalmente limpo.</li>
-                    <li><strong>Desvantagem:</strong> Instalação complexa que exige furos no vidro ou sistemas de
-                        <em>overflow</em>, risco de transbordamento em caso de erro no projeto e pode ser mais
-                        barulhento devido à queda d'água.
-                    </li>
-                    <li><strong>Ideal para:</strong> Aquários marinhos, aquários de água doce de grande porte (acima de
-                        250L) ou projetos de alta tecnologia que exigem muitos equipamentos extras.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>5. Hang-on Sump (Organização Modular)</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/hang-on-sump-filter1.webp"
-                        alt="Representação visual do filtro hang-on sump" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro hang-on sump.</p>
-                </div>
-
-                <p>
-                    O Hang-on Sump é a solução ideal para quem quer a lógica de organização de um Sump,
-                    mas sem a complexidade de furar o vidro. Imagine uma "mochila" de acrílico ou vidro dividida em
-                    seções: <strong>água passa por cada compartimento de forma individual</strong>, permitindo uma
-                    separação muito mais eficiente das filtragens mecânicas, químicas e biológicas.
-                </p>
-                <p>
-                    Os modelos mais populares são focados em maximizar o espaço para cerâmicas e carvão ativado
-                    de forma ultra-organizada, existem versões maiores que permitem até "esconder" o termostato ou criar
-                    um pequeno refúgio para plantas, retirando toda a engenharia de dentro do aquário
-                    principal.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Oferece uma compartimentação superior a filtro simples, facilitando a
-                        limpeza de cada etapa da filtragem sem misturar as mídias.</li>
-                    <li><strong>Desvantagem:</strong> Por ser um sistema aberto, a evaporação é mais perceptível, e é
-                        preciso atenção ao peso exercido no vidro traseiro, especialmente nos modelos maiores.</li>
-                    <li><strong>Ideal para:</strong> Aquaristas que são "viciados" em organização e querem um sistema de
-                        filtragem limpo, modular e com grande volume para cerâmicas.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>6. Filtro Interno</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/internal-aquarium-filter1.webp"
-                        alt="Representação visual do filtro interno" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro interno.</p>
-                </div>
-
-                <p>
-                    Como o próprio nome indica, este é o filtro que fica totalmente submerso no aquário. Geralmente
-                    fixado por ventosas, ele aspira a água pela base e a expele pelo topo. Embora seja uma opção muito
-                    comum em kits de entrada, ele deve ser usado com cautela.
-                </p>
-                <p>
-                    O grande ponto de atenção aqui é que, ao contrário dos filtros externos, toda a sujeira capturada
-                    permanece <strong>dentro do volume de água do aquário</strong> até que você remova o aparelho para
-                    limpeza. Além disso, o espaço para mídias biológicas costuma ser sacrificado em favor de uma bomba
-                    mais potente.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Baixo custo de aquisição, instalação extremamente simples e excelente
-                        capacidade de gerar movimentação de água e oxigenação.</li>
-                    <li><strong>Desvantagem:</strong> Ocupa espaço precioso no layout, causa poluição visual e possui um
-                        reservatório de mídias muito reduzido, exigindo limpezas mais frequentes.</li>
-                    <li><strong>Ideal para:</strong> Aquários hospital ou de quarentena, tanques de reserva e como
-                        filtragem auxiliar para melhorar a circulação em aquários grandes.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Extra: Filtro de Esponja (Sponge Filter)</h3>
-
-                <div class="image-block">
-                    <img src="assets/images/equipment/sponge-filter1.webp"
-                        alt="Representação visual do filtro de esponja" loading="lazy" />
-                    <p class="image-caption">Representação visual do filtro de esponja.</p>
-                </div>
-
-                <p>
-                    Diferente dos outros modelos desta lista, o Filtro de Esponja não possui um motor interno. Ele
-                    funciona como um acessório que precisa ser conectado a um <strong>compressor de ar externo</strong>.
-                    O ar sobe pelo tubo central, criando um vácuo que força a água a passar pelos poros da esponja.
-                </p>
-                <p>
-                    Embora pareça simples, a esponja atua em duas frentes: realiza a <strong>filtragem mecânica</strong>
-                    ao segurar partículas finas e uma <strong>filtragem biológica excepcional</strong>, já que a
-                    estrutura porosa da espuma é o lar perfeito para colônias de bactérias benéficas.
-                </p>
-                <ul class="article-list bullets">
-                    <li><strong>Vantagem:</strong> Fluxo de água extremamente suave e segurança total; ele é o único que
-                        garante que filhotes ou camarões não sejam sugados pelo sistema.</li>
-                    <li><strong>Desvantagem:</strong> Filtragem mecânica limitada (não aguenta sujeiras pesadas) e
-                        poluição visual, já que o equipamento e as bolhas ocupam espaço dentro do tanque.</li>
-                    <li><strong>Ideal para:</strong> Aquários de reprodução, alevinos (filhotes), criação de camarões e
-                        baterias de quarentena.</li>
-                </ul>
-            </section>
-
-        </section>
-
-        <section>
-            <h2>Dicas de Mestre: O que ninguém te conta na loja</h2>
-
-            <section>
-                <h3>A Regra dos 5x a 10x (Cálculo de Vazão)</h3>
-                <p>
-                    Muita gente compra o filtro olhando apenas o "tamanho do aquário" na caixa. Esqueça isso. O que
-                    importa é a <strong>vazão real em litros por hora (L/h)</strong>.
-                </p>
-                <div class="highlight-box inner">
                     <p>
-                        Para um aquário saudável, seu filtro deve circular, no mínimo, <strong>5 vezes o volume total do
-                            aquário por hora</strong>. Exemplo: Se você tem 100 litros, precisa de um filtro de 500 L/h.
-                        Para aquários muito povoados ou peixes grandes, mire em 10 vezes (1000 L/h).
+                        As the name suggests, these filters <strong>hang</strong> directly on the aquarium glass (usually at the
+                        back or side), with the body of the equipment outside the tank.
                     </p>
-                </div>
-            </section>
-
-            <section>
-                <h3>O Mito do "Filtro que Limpa a Água"</h3>
-                <p>
-                    Cuidado com o marketing! O filtro não é um portal mágico que faz a sujeira desaparecer. Ele apenas a
-                    retira da sua visão (filtragem mecânica) e processa compostos invisíveis (filtragem biológica e
-                    química).
-                </p>
-                <p>
-                    <strong>Nenhum filtro substitui a <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPA (Troca Parcial de Água)</a>.</strong> O nitrato, produto final do
-                    ciclo, continua acumulado na água e só sai com a TPA.
-                </p>
-            </section>
-
-            <section>
-                <h3>Os Componentes Interno: O Coração do Sistema</h3>
-                <p>
-                    Uma das maiores "sacadas" que separa um iniciante de um aquarista experiente é entender que
-                    <strong>o filtro é apenas a carcaça; quem limpa a água são os componentes internos.</strong> Imagine
-                    o filtro como o motor de um carro: ele provê a força (vazão), mas quem garante a segurança da viagem
-                    (qualidade da água) são as mídias, carvão ativado e perlon, em suas respectivas funções.
-                </p>
-
-                <div class="highlight-box inner">
                     <p>
-                        <strong>Mídias vs Equipamento:</strong> É muito melhor ter um filtro simples (como um Hang-on)
-                        lotado de cerâmicas de alta porosidade, do que um Canister caríssimo preenchido apenas com
-                        esponjas comuns.
+                        It works by drawing water up a tube, passing it through the internal components and returning it to the
+                        tank as a small waterfall, creating the famous "cascade" effect that helps oxygenate the water.
                     </p>
-                </div>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> Instant installation, extremely simple maintenance and it does not take
+                            up precious space inside the tank for fish and plants.</li>
+                        <li><strong>Disadvantage:</strong> Limited space for biological media (ceramics) compared with larger
+                            external models, and it cannot be used on aquariums with fully closed lids.</li>
+                        <li><strong>Ideal for:</strong> Small and medium aquariums (up to 100 litres), properly sized Betta tanks
+                            and setups that aim for a cleaner look.</li>
+                    </ul>
+                </section>
 
+                <section>
+                    <h3>2. Canister</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/canister-filter2.webp"
+                            alt="Visual representation of a canister filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of a canister filter.</p>
+                    </div>
+
+                    <p>
+                        Considered by many the "gold standard" of fishkeeping, the canister is a closed, pressurised filtration
+                        system. Unlike hanging filters, it usually sits below the aquarium, inside the cabinet, and connects to
+                        the tank with hoses.
+                    </p>
+                    <p>
+                        Because it is a <strong>sealed system</strong>, the pump forces water through several trays of media
+                        under high pressure, giving extremely efficient and quiet filtration.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> A massive volume for biological media and a flawless look, since only two
+                            discreet pipes (intake and outlet) are visible inside the aquarium.</li>
+                        <li><strong>Disadvantage:</strong> The highest purchase cost, and maintenance is more work: the filter has
+                            to be disconnected and opened to clean the sponges and media.</li>
+                        <li><strong>Ideal for:</strong> Large aquariums (over 100 litres), professional aquascaping, densely
+                            planted tanks and fish that demand high water quality, such as Discus and Goldfish.
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Hang-on Canister (The Modern Hybrid)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-canister-filter1.webp"
+                            alt="Visual representation of a hang-on canister filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of a hang-on canister filter.</p>
+                    </div>
+
+                    <p>
+                        An evolution that has become a craze among keepers of medium-sized tanks. As the name says, it is a
+                        "hybrid": it mounts like a <strong>hang-on</strong> (hung on the glass) but has the body and internal
+                        workings of a <strong>canister</strong> (vertical and pressurised).
+                    </p>
+                    <p>
+                        Unlike the standard, shallow cascade model, the hang-on canister has an external vertical "bucket" that
+                        lets water pass through several layers of media from bottom to top, making use of every centimetre of
+                        space.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> Much more media volume than a conventional hang-on, with modular trays or
+                            compartments that neatly organise mechanical, chemical and biological filtration.</li>
+                        <li><strong>Disadvantage:</strong> Because it is heavier when full of water and ceramics, it needs glass
+                            of good thickness and bracing; maintenance is also a little slower than with a simple cascade filter.
+                        </li>
+                        <li><strong>Ideal for:</strong> Anyone who wants canister-level filtration in 60 to 120 litre aquariums
+                            but has no space or suitable cabinet to install equipment on the floor.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>4. Sump</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/sump-filter1.webp" alt="Visual representation of a sump filter"
+                            loading="lazy" />
+                        <p class="image-caption">Visual representation of a sump filter.</p>
+                    </div>
+
+                    <p>
+                        A sump is not just a filter but an auxiliary tank connected to the main aquarium by plumbing. Usually
+                        <strong>hidden inside the cabinet</strong>, it works on a gravity-and-return cycle: water drains from the
+                        main aquarium through an overflow, passes through several chambers in the sump and is pumped back to the
+                        top by a return pump.
+                    </p>
+                    <p>
+                        Because it is an open, roomy reservoir, it lets you customise every stage of filtration with massive
+                        volumes of ceramics, and it is the perfect place to do maintenance without stressing the fish in the main
+                        tank.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> It dramatically increases the total water volume (giving greater chemical
+                            stability) and lets you "hide" heaters, sensors and skimmers, keeping the display tank completely
+                            clean.</li>
+                        <li><strong>Disadvantage:</strong> Complex installation that requires drilling the glass or using
+                            <em>overflow</em> boxes, a risk of flooding if the design is wrong, and it can be noisier because of
+                            the falling water.
+                        </li>
+                        <li><strong>Ideal for:</strong> Marine aquariums, large freshwater aquariums (over 250 L) or high-tech
+                            projects that need a lot of extra equipment.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>5. Hang-on Sump (Modular Organisation)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-sump-filter1.webp"
+                            alt="Visual representation of a hang-on sump filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of a hang-on sump filter.</p>
+                    </div>
+
+                    <p>
+                        The hang-on sump is the ideal solution for those who want the organisation of a sump without the
+                        complexity of drilling the glass. Picture an acrylic or glass "backpack" divided into sections:
+                        <strong>the water passes through each compartment individually</strong>, allowing a much more efficient
+                        separation of mechanical, chemical and biological filtration.
+                    </p>
+                    <p>
+                        The most popular models focus on maximising space for ceramics and activated carbon in an ultra-organised
+                        way, and larger versions even let you "hide" the heater or create a small refugium for plants, moving all
+                        the engineering out of the main aquarium.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> Better compartmentalisation than a simple filter, making it easier to
+                            clean each stage without mixing the media.</li>
+                        <li><strong>Disadvantage:</strong> Because it is an open system, evaporation is more noticeable, and you
+                            need to watch the weight on the back glass, especially with larger models.</li>
+                        <li><strong>Ideal for:</strong> Fishkeepers who are "addicted" to organisation and want a clean, modular
+                            filtration system with a large volume for ceramics.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>6. Internal Filter</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/internal-aquarium-filter1.webp"
+                            alt="Visual representation of an internal filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of an internal filter.</p>
+                    </div>
+
+                    <p>
+                        As the name says, this filter sits fully submerged in the aquarium. Usually attached with suction cups, it
+                        draws water in at the bottom and pushes it out at the top. Although it is very common in starter kits, it
+                        should be used with caution.
+                    </p>
+                    <p>
+                        The main point of attention is that, unlike external filters, all the dirt it captures stays
+                        <strong>inside the aquarium's water volume</strong> until you remove the unit for cleaning. In addition,
+                        space for biological media is often sacrificed in favour of a more powerful pump.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> Low purchase cost, extremely simple installation and an excellent ability
+                            to create water movement and oxygenation.</li>
+                        <li><strong>Disadvantage:</strong> It takes up precious space in the layout, is visually intrusive and has
+                            a very small media chamber, requiring more frequent cleaning.</li>
+                        <li><strong>Ideal for:</strong> Hospital or quarantine tanks, spare tanks and as auxiliary filtration to
+                            improve circulation in large aquariums.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Extra: Sponge Filter</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/sponge-filter1.webp"
+                            alt="Visual representation of a sponge filter" loading="lazy" />
+                        <p class="image-caption">Visual representation of a sponge filter.</p>
+                    </div>
+
+                    <p>
+                        Unlike the other models on this list, the sponge filter has no motor of its own. It is an accessory that
+                        must be connected to an <strong>external air pump</strong>. Air rises through the central tube, creating
+                        suction that forces water through the pores of the sponge.
+                    </p>
+                    <p>
+                        Although it looks simple, the sponge works on two fronts: it provides <strong>mechanical
+                        filtration</strong> by holding fine particles and <strong>exceptional biological filtration</strong>,
+                        since the porous structure of the foam is the perfect home for colonies of beneficial bacteria.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Advantage:</strong> Extremely gentle water flow and total safety; it is the only one that
+                            guarantees fry or shrimp will not be sucked into the system.</li>
+                        <li><strong>Disadvantage:</strong> Limited mechanical filtration (it cannot cope with heavy dirt) and it is
+                            visually intrusive, as the equipment and bubbles take up space inside the tank.</li>
+                        <li><strong>Ideal for:</strong> Breeding tanks, fry, shrimp keeping and quarantine setups.</li>
+                    </ul>
+                </section>
+
+            </section>
+
+            <section>
+                <h2>Expert Tips: What Nobody Tells You at the Shop</h2>
+
+                <section>
+                    <h3>The 5x to 10x Rule (Flow Rate Calculation)</h3>
+                    <p>
+                        Many people buy a filter looking only at the "aquarium size" on the box. Forget that. What matters is the
+                        <strong>actual flow rate in litres per hour (L/h)</strong>.
+                    </p>
+                    <div class="highlight-box inner">
+                        <p>
+                            For a healthy aquarium, your filter should circulate at least <strong>5 times the total aquarium
+                                volume per hour</strong>. Example: if you have 100 litres, you need a 500 L/h filter. For heavily
+                            stocked aquariums or large fish, aim for 10 times (1,000 L/h).
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>The Myth of the "Filter That Cleans the Water"</h3>
+                    <p>
+                        Beware of marketing! A filter is not a magic portal that makes dirt disappear. It only removes it from
+                        sight (mechanical filtration) and processes invisible compounds (biological and chemical filtration).
+                    </p>
+                    <p>
+                        <strong>No filter replaces <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">partial water changes</a>.</strong> Nitrate, the end
+                        product of the cycle, keeps accumulating in the water and only leaves with water changes.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>The Internal Components: The Heart of the System</h3>
+                    <p>
+                        One of the biggest insights that separates a beginner from an experienced keeper is understanding that
+                        <strong>the filter is only the casing; what cleans the water is the components inside it.</strong>
+                        Think of the filter as a car engine: it provides the power (flow), but what guarantees a safe journey
+                        (water quality) are the media, activated carbon and filter floss, each doing its job.
+                    </p>
+
+                    <div class="highlight-box inner">
+                        <p>
+                            <strong>Media vs Equipment:</strong> It is much better to have a simple filter (such as a hang-on)
+                            packed with high-porosity ceramics than a very expensive canister filled only with ordinary sponges.
+                        </p>
+                    </div>
+
+                    <p>
+                        Do not skimp on the <strong>internal components</strong>. Mechanical filtration (floss) removes visible
+                        dirt and chemical filtration (activated carbon) removes odours and some unwanted substances, but it is in
+                        the biological media that the bacteria live that stop your fish from dying of ammonia poisoning. Invest
+                        in what goes inside the filter as much as (or more than) in the filter itself.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Air Pump vs Filter</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/aquarium-air-pump1.webp" alt="Visual representation of an air pump"
+                            loading="lazy" />
+                        <p class="image-caption">Visual representation of an air pump.</p>
+                    </div>
+
+                    <p>
+                        A common question: "Do I need an air pump?". Most of the time, if your filter moves the water surface, gas
+                        exchange is already taking place. The air pump is not a filter; it only helps with oxygenation. Use one if
+                        you notice fish gasping at the surface or if your filter is an internal/submerged type that does not
+                        agitate the surface.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Comparison Summary: Which Is Best for You?</h2>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Strength</th>
+                                <th scope="col">Weakness</th>
+                                <th scope="col">Ideal Scenario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hang-on</strong></td>
+                                <td>Practicality and looks</td>
+                                <td>Limited space for media</td>
+                                <td>Aquariums up to 100 L / Beginners</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hang-on Canister</strong></td>
+                                <td>Balance between cost, practicality
+                                    and media space</td>
+                                <td>Weight on the back glass</td>
+                                <td>Aquariums from 60 L to 120 L</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Canister</strong></td>
+                                <td>High performance and silence</td>
+                                <td>Price and complex maintenance</td>
+                                <td>Planted and medium/large aquariums</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sump</strong></td>
+                                <td>Huge volume and stability</td>
+                                <td>Complex installation</td>
+                                <td>Large projects and marine tanks (over 250 L)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hang-on Sump</strong></td>
+                                <td>Modular media organisation</td>
+                                <td>High evaporation rate</td>
+                                <td>Organisation and hiding equipment</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internal</strong></td>
+                                <td>Low cost and oxygenation</td>
+                                <td>Takes up space, visually intrusive, dirt stays in the water</td>
+                                <td>Hospital or auxiliary tank</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sponge Filter</strong></td>
+                                <td>Total safety for fry</td>
+                                <td>Limited mechanical filtration</td>
+                                <td>Breeding and shrimp</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
                 <p>
-                    Não economize nos <strong>componentes internos</strong>. Enquanto a filtragem mecânica
-                    (perlon) retira a sujeira visível e a química (carvão ativado) remove odores e algumas substâncias
-                    indesejadas, mas é na mídia biológica que moram as bactérias que impedem seus peixes de morrerem por
-                    envenenamento por amônia. Invista no que vai dentro do filtro tanto quanto (ou mais) do que no
-                    filtro
-                    em si.
+                    There is no "best filter", only the right filter for your stage and for the inhabitants of your aquarium.
+                    Once you understand that water quality depends more on what you put inside the filter than on its brand,
+                    you are already a step ahead of most hobbyists.
+                </p>
+                <p>
+                    Invest in good media, respect the flow rule and, above all, never give up your weekly water changes!
+                </p>
+                <p>
+                    Want to understand each stage in depth? See the <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">filtration guide</a>, covering
+                    mechanical, biological, chemical and UV filtration.
+                </p>
+            </section>
+        } @else {
+            <section class="context">
+                <p>
+                    Se o aquário é um ecossistema fechado, o filtro é o seu coração. No entanto, entrar em uma loja de
+                    aquarismo e se deparar com dezenas de modelos pode ser paralisante para o iniciante. Escolher o filtro
+                    errado não é apenas um desperdício de dinheiro; é colocar a saúde dos seus peixes em risco.
+                </p>
+                <p>
+                    Neste post, vamos desmistificar os principais tipos de filtragem, entender por que a "carcaça" importa
+                    menos que o conteúdo e aprender a regra de ouro para nunca mais errar na vazão do seu sistema.
                 </p>
             </section>
 
             <section>
-                <h3>Oxigenador vs Filtro</h3>
+                <h2>Os Tipos de Filtro: Qual se adapta ao seu projeto?</h2>
 
-                <div class="image-block">
-                    <img src="assets/images/equipment/aquarium-air-pump1.webp" alt="Representação visual do oxigenador"
-                        loading="lazy" />
-                    <p class="image-caption">Representação visual do oxigenador.</p>
+                <section>
+                    <h3>1. Hang-on (Filtro de Cascata)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-filter3.webp"
+                            alt="Representação visual do filtro de cascata Hang-on" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro de cascata Hang-on.</p>
+                    </div>
+
+                    <p>
+                        O termo Hang-on vem do inglês e significa literalmente <strong>"pendurar"</strong>. Como o nome
+                        sugere, esses são os filtros que ficam acoplados diretamente no vidro do aquário (geralmente na
+                        parte traseira ou lateral), deixando o corpo do equipamento para o lado de fora.
+                    </p>
+                    <p>
+                        Ele funciona sugando a água por um tubo, passando-a pelos componentes internos e devolvendo-a ao
+                        tanque através de uma queda d'água, criando o famoso efeito de "cascata" que auxilia na oxigenação.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Instalação instantânea, manutenção extremamente simples e não ocupa o
+                            precioso espaço interno dos peixes e plantas.</li>
+                        <li><strong>Desvantagem:</strong> Espaço limitado para mídias biológicas (cerâmicas) em comparação a
+                            modelos externos maiores, e a impossibilidade de ser usado em aquários com tampas totalmente
+                            fechadas.</li>
+                        <li><strong>Ideal para:</strong> Aquários de pequeno e médio porte (até 100 litros), Betteiras
+                            adequadas e montagens que buscam um visual mais limpo.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>2. Canister</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/canister-filter2.webp"
+                            alt="Representação visual do filtro canister" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro canister.</p>
+                    </div>
+
+                    <p>
+                        Considerado por muitos o "padrão ouro" do aquarismo, o Canister é um sistema de filtragem fechado e
+                        pressurizado. Diferente dos filtros que ficam pendurados, ele geralmente é posicionado abaixo do
+                        aquário, dentro do móvel, e se conecta ao tanque por meio de mangueiras.
+                    </p>
+                    <p>
+                        Por ser um <strong>sistema selado</strong>, a bomba força a passagem da água por diversas gavetas de
+                        mídias com muita pressão, o que garante uma filtragem extremamente eficiente e silenciosa.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Possui um volume massivo para mídias biológicas e garante uma
+                            estética impecável, já que apenas dois tubos discretos (entrada e saída) ficam visíveis dentro
+                            do aquário.</li>
+                        <li><strong>Desvantagem:</strong> Possui o custo de aquisição mais elevado e a manutenção é mais
+                            trabalhosa, exigindo que o filtro seja desconectado e aberto para a limpeza das esponjas e
+                            mídias.</li>
+                        <li><strong>Ideal para:</strong> Aquários grandes (acima de 100 litros), aquascaping profissional,
+                            aquários plantados densos e peixes que exigem alta qualidade de água, como Discus e Kinguios.
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Hang-on Canister (O Híbrido Moderno)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-canister-filter1.webp"
+                            alt="Representação visual do filtro hang-on canister" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro hang-on canister.</p>
+                    </div>
+
+                    <p>
+                        Uma evolução que se tornou febre entre aquaristas de tanques médios. Como o nome indica, ele é um
+                        "híbrido": possui o sistema de fixação de um <strong>Hang-on</strong> (pendurado no vidro), mas o
+                        corpo e o funcionamento interno de um <strong>Canister</strong> (vertical e pressurizado).
+                    </p>
+                    <p>
+                        Diferente do modelo de cascata comum, que é raso, o Hang-on Canister possui um "balde" vertical
+                        externo que permite que a água atravesse várias camadas de mídias de baixo para cima, aproveitando
+                        cada centímetro de espaço.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Oferece um volume de mídias muito superior ao Hang-on convencional e
+                            possui gavetas ou compartimentos modulares que organizam perfeitamente a filtragem mecânica,
+                            química e
+                            biológica.</li>
+                        <li><strong>Desvantagem:</strong> Por ser mais pesado quando cheio de água e cerâmicas, exige vidros
+                            com boa espessura e travas; além disso, a manutenção é um pouco mais lenta que a do filtro de
+                            cascata simples.</li>
+                        <li><strong>Ideal para:</strong> Quem busca a performance de filtragem de um Canister em aquários de
+                            60 a 120 litros, mas não tem espaço ou móvel adequado para instalar um equipamento no chão.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>4. Sump</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/sump-filter1.webp" alt="Representação visual do filtro sump"
+                            loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro sump.</p>
+                    </div>
+
+                    <p>
+                        O Sump não é apenas um filtro, mas sim um aquário auxiliar conectado ao tanque
+                        principal por meio de encanamentos. Geralmente <strong>escondido dentro do móvel</strong>, ele
+                        funciona
+                        através de um
+                        ciclo de gravidade e recalque: a água desce do aquário principal por um transbordo, passa por
+                        diversas divisórias no Sump e é devolvida ao topo por uma bomba de retorno.
+                    </p>
+                    <p>
+                        Por ser um reservatório aberto e espaçoso, ele permite que você personalize cada etapa da filtragem
+                        com volumes massivos de cerâmicas, além de ser o local perfeito para realizar a manutenção sem
+                        estressar os peixes no tanque principal.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Aumenta drasticamente o volume total de água (gerando maior
+                            estabilidade química) e permite "esconder" termostatos, sensores e skimmers, mantendo o display
+                            do aquário totalmente limpo.</li>
+                        <li><strong>Desvantagem:</strong> Instalação complexa que exige furos no vidro ou sistemas de
+                            <em>overflow</em>, risco de transbordamento em caso de erro no projeto e pode ser mais
+                            barulhento devido à queda d'água.
+                        </li>
+                        <li><strong>Ideal para:</strong> Aquários marinhos, aquários de água doce de grande porte (acima de
+                            250L) ou projetos de alta tecnologia que exigem muitos equipamentos extras.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>5. Hang-on Sump (Organização Modular)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/hang-on-sump-filter1.webp"
+                            alt="Representação visual do filtro hang-on sump" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro hang-on sump.</p>
+                    </div>
+
+                    <p>
+                        O Hang-on Sump é a solução ideal para quem quer a lógica de organização de um Sump,
+                        mas sem a complexidade de furar o vidro. Imagine uma "mochila" de acrílico ou vidro dividida em
+                        seções: <strong>água passa por cada compartimento de forma individual</strong>, permitindo uma
+                        separação muito mais eficiente das filtragens mecânicas, químicas e biológicas.
+                    </p>
+                    <p>
+                        Os modelos mais populares são focados em maximizar o espaço para cerâmicas e carvão ativado
+                        de forma ultra-organizada, existem versões maiores que permitem até "esconder" o termostato ou criar
+                        um pequeno refúgio para plantas, retirando toda a engenharia de dentro do aquário
+                        principal.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Oferece uma compartimentação superior a filtro simples, facilitando a
+                            limpeza de cada etapa da filtragem sem misturar as mídias.</li>
+                        <li><strong>Desvantagem:</strong> Por ser um sistema aberto, a evaporação é mais perceptível, e é
+                            preciso atenção ao peso exercido no vidro traseiro, especialmente nos modelos maiores.</li>
+                        <li><strong>Ideal para:</strong> Aquaristas que são "viciados" em organização e querem um sistema de
+                            filtragem limpo, modular e com grande volume para cerâmicas.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>6. Filtro Interno</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/internal-aquarium-filter1.webp"
+                            alt="Representação visual do filtro interno" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro interno.</p>
+                    </div>
+
+                    <p>
+                        Como o próprio nome indica, este é o filtro que fica totalmente submerso no aquário. Geralmente
+                        fixado por ventosas, ele aspira a água pela base e a expele pelo topo. Embora seja uma opção muito
+                        comum em kits de entrada, ele deve ser usado com cautela.
+                    </p>
+                    <p>
+                        O grande ponto de atenção aqui é que, ao contrário dos filtros externos, toda a sujeira capturada
+                        permanece <strong>dentro do volume de água do aquário</strong> até que você remova o aparelho para
+                        limpeza. Além disso, o espaço para mídias biológicas costuma ser sacrificado em favor de uma bomba
+                        mais potente.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Baixo custo de aquisição, instalação extremamente simples e excelente
+                            capacidade de gerar movimentação de água e oxigenação.</li>
+                        <li><strong>Desvantagem:</strong> Ocupa espaço precioso no layout, causa poluição visual e possui um
+                            reservatório de mídias muito reduzido, exigindo limpezas mais frequentes.</li>
+                        <li><strong>Ideal para:</strong> Aquários hospital ou de quarentena, tanques de reserva e como
+                            filtragem auxiliar para melhorar a circulação em aquários grandes.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Extra: Filtro de Esponja (Sponge Filter)</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/sponge-filter1.webp"
+                            alt="Representação visual do filtro de esponja" loading="lazy" />
+                        <p class="image-caption">Representação visual do filtro de esponja.</p>
+                    </div>
+
+                    <p>
+                        Diferente dos outros modelos desta lista, o Filtro de Esponja não possui um motor interno. Ele
+                        funciona como um acessório que precisa ser conectado a um <strong>compressor de ar externo</strong>.
+                        O ar sobe pelo tubo central, criando um vácuo que força a água a passar pelos poros da esponja.
+                    </p>
+                    <p>
+                        Embora pareça simples, a esponja atua em duas frentes: realiza a <strong>filtragem mecânica</strong>
+                        ao segurar partículas finas e uma <strong>filtragem biológica excepcional</strong>, já que a
+                        estrutura porosa da espuma é o lar perfeito para colônias de bactérias benéficas.
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Vantagem:</strong> Fluxo de água extremamente suave e segurança total; ele é o único que
+                            garante que filhotes ou camarões não sejam sugados pelo sistema.</li>
+                        <li><strong>Desvantagem:</strong> Filtragem mecânica limitada (não aguenta sujeiras pesadas) e
+                            poluição visual, já que o equipamento e as bolhas ocupam espaço dentro do tanque.</li>
+                        <li><strong>Ideal para:</strong> Aquários de reprodução, alevinos (filhotes), criação de camarões e
+                            baterias de quarentena.</li>
+                    </ul>
+                </section>
+
+            </section>
+
+            <section>
+                <h2>Dicas de Mestre: O que ninguém te conta na loja</h2>
+
+                <section>
+                    <h3>A Regra dos 5x a 10x (Cálculo de Vazão)</h3>
+                    <p>
+                        Muita gente compra o filtro olhando apenas o "tamanho do aquário" na caixa. Esqueça isso. O que
+                        importa é a <strong>vazão real em litros por hora (L/h)</strong>.
+                    </p>
+                    <div class="highlight-box inner">
+                        <p>
+                            Para um aquário saudável, seu filtro deve circular, no mínimo, <strong>5 vezes o volume total do
+                                aquário por hora</strong>. Exemplo: Se você tem 100 litros, precisa de um filtro de 500 L/h.
+                            Para aquários muito povoados ou peixes grandes, mire em 10 vezes (1000 L/h).
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>O Mito do "Filtro que Limpa a Água"</h3>
+                    <p>
+                        Cuidado com o marketing! O filtro não é um portal mágico que faz a sujeira desaparecer. Ele apenas a
+                        retira da sua visão (filtragem mecânica) e processa compostos invisíveis (filtragem biológica e
+                        química).
+                    </p>
+                    <p>
+                        <strong>Nenhum filtro substitui a <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPA (Troca Parcial de Água)</a>.</strong> O nitrato, produto final do
+                        ciclo, continua acumulado na água e só sai com a TPA.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Os Componentes Interno: O Coração do Sistema</h3>
+                    <p>
+                        Uma das maiores "sacadas" que separa um iniciante de um aquarista experiente é entender que
+                        <strong>o filtro é apenas a carcaça; quem limpa a água são os componentes internos.</strong> Imagine
+                        o filtro como o motor de um carro: ele provê a força (vazão), mas quem garante a segurança da viagem
+                        (qualidade da água) são as mídias, carvão ativado e perlon, em suas respectivas funções.
+                    </p>
+
+                    <div class="highlight-box inner">
+                        <p>
+                            <strong>Mídias vs Equipamento:</strong> É muito melhor ter um filtro simples (como um Hang-on)
+                            lotado de cerâmicas de alta porosidade, do que um Canister caríssimo preenchido apenas com
+                            esponjas comuns.
+                        </p>
+                    </div>
+
+                    <p>
+                        Não economize nos <strong>componentes internos</strong>. Enquanto a filtragem mecânica
+                        (perlon) retira a sujeira visível e a química (carvão ativado) remove odores e algumas substâncias
+                        indesejadas, mas é na mídia biológica que moram as bactérias que impedem seus peixes de morrerem por
+                        envenenamento por amônia. Invista no que vai dentro do filtro tanto quanto (ou mais) do que no
+                        filtro
+                        em si.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Oxigenador vs Filtro</h3>
+
+                    <div class="image-block">
+                        <img src="assets/images/equipment/aquarium-air-pump1.webp" alt="Representação visual do oxigenador"
+                            loading="lazy" />
+                        <p class="image-caption">Representação visual do oxigenador.</p>
+                    </div>
+
+                    <p>
+                        Uma dúvida comum: "Preciso de bombinha de ar?". Na maioria das vezes, se o seu filtro movimenta a
+                        superfície da água, a troca gasosa já está ocorrendo. O oxigenador (compressor de ar) não é um
+                        filtro; ele apenas ajuda na oxigenação. Use-o se perceber os peixes ofegantes na superfície ou se o
+                        seu filtro for do tipo interno/submerso que não agita a lâmina d'água.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Resumo Comparativo: Qual o melhor para você?</h2>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Ponto Forte</th>
+                                <th scope="col">Ponto Fraco</th>
+                                <th scope="col">Cenário Ideal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hang-on</strong></td>
+                                <td>Praticidade e Estética</td>
+                                <td>Espaço limitado para mídias</td>
+                                <td>Aquários até 100L / Iniciantes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hang-on Canister</strong></td>
+                                <td>Equilíbrio entre custo, praticidade
+                                    e espaço p/ mídias</td>
+                                <td>Peso sobre o vidro traseiro</td>
+                                <td>Aquários de 60L a 120L</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Canister</strong></td>
+                                <td>Alta Performance e Silêncio</td>
+                                <td>Preço e Manutenção complexa</td>
+                                <td>Plantados e Aquários Médios/Grandes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sump</strong></td>
+                                <td>Volume Absurdo e Estabilidade</td>
+                                <td>Complexidade na instalação</td>
+                                <td>Grandes Projetos e Marinhos (>250L)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hang-on Sump</strong></td>
+                                <td>Organização Modular das Mídias</td>
+                                <td>Alta taxa de evaporação</td>
+                                <td>Organização e esconder equipamentos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interno</strong></td>
+                                <td>Baixo custo e Oxigenação</td>
+                                <td>Ocupa espaço, Poluição visual e sujeira ainda na água</td>
+                                <td>Aquário Hospital ou Auxiliar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Filtro de Esponja</strong></td>
+                                <td>Segurança total para filhotes</td>
+                                <td>Filtragem mecânica limitada</td>
+                                <td>Reprodução e Camarões</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </section>
 
+            <section>
+                <h2>Conclusão</h2>
                 <p>
-                    Uma dúvida comum: "Preciso de bombinha de ar?". Na maioria das vezes, se o seu filtro movimenta a
-                    superfície da água, a troca gasosa já está ocorrendo. O oxigenador (compressor de ar) não é um
-                    filtro; ele apenas ajuda na oxigenação. Use-o se perceber os peixes ofegantes na superfície ou se o
-                    seu filtro for do tipo interno/submerso que não agita a lâmina d'água.
+                    Não existe "o melhor filtro", existe o filtro certo para o seu momento e para os habitantes do seu
+                    aquário. Ao entender que a qualidade da água depende mais do que você coloca dentro do filtro do que da
+                    marca dele, você já está um passo à frente da maioria dos hobbistas.
+                </p>
+                <p>
+                    Invista em boas mídias, respeite a regra de vazão e, acima de tudo, nunca abandone suas TPAs semanais!
+                </p>
+                <p>
+                    Quer entender a fundo cada etapa? Veja o <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia de filtragem</a>, com os
+                    tipos mecânico, biológico, químico e UV.
                 </p>
             </section>
-        </section>
-
-        <section>
-            <h2>Resumo Comparativo: Qual o melhor para você?</h2>
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Ponto Forte</th>
-                            <th scope="col">Ponto Fraco</th>
-                            <th scope="col">Cenário Ideal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Hang-on</strong></td>
-                            <td>Praticidade e Estética</td>
-                            <td>Espaço limitado para mídias</td>
-                            <td>Aquários até 100L / Iniciantes</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hang-on Canister</strong></td>
-                            <td>Equilíbrio entre custo, praticidade
-                                e espaço p/ mídias</td>
-                            <td>Peso sobre o vidro traseiro</td>
-                            <td>Aquários de 60L a 120L</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Canister</strong></td>
-                            <td>Alta Performance e Silêncio</td>
-                            <td>Preço e Manutenção complexa</td>
-                            <td>Plantados e Aquários Médios/Grandes</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sump</strong></td>
-                            <td>Volume Absurdo e Estabilidade</td>
-                            <td>Complexidade na instalação</td>
-                            <td>Grandes Projetos e Marinhos (>250L)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hang-on Sump</strong></td>
-                            <td>Organização Modular das Mídias</td>
-                            <td>Alta taxa de evaporação</td>
-                            <td>Organização e esconder equipamentos</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Interno</strong></td>
-                            <td>Baixo custo e Oxigenação</td>
-                            <td>Ocupa espaço, Poluição visual e sujeira ainda na água</td>
-                            <td>Aquário Hospital ou Auxiliar</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Filtro de Esponja</strong></td>
-                            <td>Segurança total para filhotes</td>
-                            <td>Filtragem mecânica limitada</td>
-                            <td>Reprodução e Camarões</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section>
-            <h2>Conclusão</h2>
-            <p>
-                Não existe "o melhor filtro", existe o filtro certo para o seu momento e para os habitantes do seu
-                aquário. Ao entender que a qualidade da água depende mais do que você coloca dentro do filtro do que da
-                marca dele, você já está um passo à frente da maioria dos hobbistas.
-            </p>
-            <p>
-                Invista em boas mídias, respeite a regra de vazão e, acima de tudo, nunca abandone suas TPAs semanais!
-            </p>
-            <p>
-                Quer entender a fundo cada etapa? Veja o <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia de filtragem</a>, com os
-                tipos mecânico, biológico, químico e UV.
-            </p>
-        </section>
+        }
     </article>
 </section>
 

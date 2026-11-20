@@ -1,6 +1,6 @@
-import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
+import { LanguageService } from '../../../../core/i18n/language-service';
 import { ReportError } from '../../../../shared/components/general/report-error/report-error';
-import { Component, ElementRef, OnInit, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, signal, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
@@ -12,11 +12,12 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-aquarium-glass-bowing-danger',
   standalone: true,
-  imports: [ContentLanguageNotice, ReportError, PostHeaderType1, RelatedPosts],
+  imports: [ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-glass-bowing-danger.html',
   styleUrl: './aquarium-glass-bowing-danger.scss',
 })
 export class AquariumGlassBowingDanger implements OnInit, AfterViewInit {
+  protected readonly language = inject(LanguageService);
   currentPost = signal<Post | undefined>(undefined);
   recommended = signal<Post[]>([]);
   latest = signal<Post[]>([]);

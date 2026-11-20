@@ -3,397 +3,757 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-  <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-    <section class="context">
-      <p>
-        Escolher o tamanho do aquário é, provavelmente, a decisão mais importante de um aquarista.
-        Muitas vezes, somos levados apenas pela estética ou pelo espaço disponível na sala, mas as
-        dimensões e proporções do tanque ditam desde a saúde dos peixes até a facilidade de manter
-        as plantas vivas; por isso, esse passo deve ser feito com atenção e planejamento. Neste
-        guia, vamos entender como planejar o formato ideal para que seu projeto seja um sucesso a
-        longo prazo.
-      </p>
-    </section>
-
-    <section>
-      <h2>O Formato Ideal de um Aquário</h2>
-
-      <section>
-        <h3>Por que Fugir do Aquários Redondo?</h3>
-
-        <div class="image-block">
-          <img src="assets/images/aquariums/fishbowl-aquarium.webp" alt="Aquário de globo" loading="lazy" />
-          <p class="image-caption">Exemplo de aquário de globo.</p>
-        </div>
-
-        <p>
-          Embora o clássico "aquário de bola" (globo) seja icônico em filmes e decorações, na
-          prática do aquarismo responsável ele é fortemente desencorajado e os motivos vão muito
-          além da estética:
-        </p>
-        <ul class="article-list">
-          <li>
-            <strong>Distorção Visual e Desorientação:</strong> O vidro curvo funciona como uma lente
-            de aumento, criando uma percepção distorcida do ambiente externo. Isso impede que o
-            peixe enxergue corretamente o que acontece fora do tanque, gerando estresse e
-            desorientação constante.
-          </li>
-          <li>
-            <strong>Estresse Acústico:</strong> As ondas sonoras e vibrações do ambiente batem nas
-            paredes curvas e "ecoam" de volta para o centro. Esse fenômeno atinge frequentemente a a
-            linha lateral do peixe, seu principal órgão sensorial, de forma amplificada, causando um
-            estado de alerta crônico.
-          </li>
-          <li>
-            <strong>Limitação de nado e saúde física:</strong> Diferente do nado horizontal natural
-            dos peixes em rios, lagos e mares, que o formato tipo “pista” (retangular) permite, o
-            aquário em formato de globo força o animal a nadar em círculos constantes. A longo
-            prazo, isso pode causar deformações na coluna e atrofia muscular.
-          </li>
-          <li>
-            <strong>Dificuldade Técnica:</strong> O formato circular torna a instalação de
-            equipamentos essenciais, como filtros, termostatos e luminárias, uma tarefa quase
-            impossível, comprometendo a manutenção da qualidade da água.
-          </li>
-        </ul>
-
-        <p>
-          Em resumo, embora os aquários redondos possam parecer charmosos, eles são prejudiciais ao
-          bem-estar dos peixes e dificultam a manutenção de um ambiente saudável. Por isso, optar
-          por formatos retangulares é fundamental para garantir a qualidade de vida dos seus animais
-          e o sucesso do seu projeto aquático.
-        </p>
-      </section>
-
-      <section>
-        <h3>As Vantagens do Formato Retangular</h3>
-        <div class="image-block">
-          <img src="assets/images/aquariums/aquarium4.webp" alt="Aquário retangular" loading="lazy" />
-          <p class="image-caption">
-            Exemplo de aquário retangular com espaço para nado e um a percepção de profundidade.
+  <article class="content" [attr.lang]="language.current()">
+    @if (language.current() === 'en') {
+        <section class="context">
+          <p>
+            Choosing the size of the aquarium is probably the most important decision a fishkeeper makes. We are often
+            guided only by looks or by the space available in the living room, but the dimensions and proportions of the
+            tank determine everything from the health of the fish to how easy it is to keep plants alive; that is why this
+            step deserves attention and planning. In this guide we will see how to plan the ideal shape so that your
+            project succeeds in the long run.
           </p>
-        </div>
-        <p>
-          Se o formato redondo é o vilão, o retangular é o herói do aquarismo. Ele é o padrão
-          recomendado por equilibrar a biologia dos peixes com a física da água e a praticidade para
-          o aquarista:
-        </p>
+        </section>
 
-        <div class="table-container">
-          <ul class="article-list">
-            <li>
-              <strong>1. Maior Área de Superfície (Troca Gasosa):</strong>
-              A oxigenação da água ocorre principalmente na interface entre a água e o ar. Um
-              aquário retangular oferece uma superfície ampla, permitindo que o oxigênio
-              (O<sub>2</sub>) entre e o gás carbônico (CO<sub>2</sub>) saia com muito mais
-              eficiência. Apesar de que formatos retangulares altos e estreitos têm pouca superfície
-              para muita água, o que pode sufocar os habitantes.
-            </li>
-            <li>
-              <strong>2. Espaço de Nado Horizontal:</strong>
-              A maioria dos peixes nada de um lado para o outro (horizontalmente) e não de cima para
-              baixo. Com isso, o formato retangular oferece uma "pista de nado" essencial para:
-              <ul class="article-list bullets">
-                <li><strong>Exercício:</strong> Evita a atrofia muscular e o estresse.</li>
+        <section>
+          <h2>The Ideal Aquarium Shape</h2>
+
+          <section>
+            <h3>Why Avoid Round Aquariums?</h3>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/fishbowl-aquarium.webp" alt="Fishbowl aquarium" loading="lazy" />
+              <p class="image-caption">Example of a fishbowl aquarium.</p>
+            </div>
+
+            <p>
+              Although the classic "fishbowl" is iconic in films and decoration, responsible fishkeeping strongly
+              discourages it, and the reasons go far beyond looks:
+            </p>
+            <ul class="article-list">
+              <li>
+                <strong>Visual Distortion and Disorientation:</strong> Curved glass works like a magnifying lens,
+                creating a distorted perception of the outside world. This stops the fish from seeing properly what
+                happens outside the tank, causing constant stress and disorientation.
+              </li>
+              <li>
+                <strong>Acoustic Stress:</strong> Sound waves and vibrations from the room hit the curved walls and
+                "echo" back towards the centre. This often reaches the fish's lateral line, its main sensory organ, in
+                an amplified way, causing a state of chronic alert.
+              </li>
+              <li>
+                <strong>Limited Swimming and Physical Health:</strong> Unlike the natural horizontal swimming of fish in
+                rivers, lakes and seas, which a rectangular "racetrack" shape allows, a bowl forces the animal to swim
+                in constant circles. In the long term, this can cause spinal deformities and muscle wasting.
+              </li>
+              <li>
+                <strong>Technical Difficulty:</strong> The circular shape makes installing essential equipment, such as
+                filters, heaters and lights, almost impossible, compromising water quality.
+              </li>
+            </ul>
+
+            <p>
+              In short, although round aquariums may look charming, they harm the well-being of the fish and make it hard
+              to keep a healthy environment. That is why choosing a rectangular shape is fundamental to ensure your
+              animals' quality of life and the success of your aquatic project.
+            </p>
+          </section>
+
+          <section>
+            <h3>The Advantages of the Rectangular Shape</h3>
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium4.webp" alt="Rectangular aquarium" loading="lazy" />
+              <p class="image-caption">
+                Example of a rectangular aquarium with swimming space and a sense of depth.
+              </p>
+            </div>
+            <p>
+              If the round shape is the villain, the rectangular one is the hero of fishkeeping. It is the recommended
+              standard because it balances fish biology with the physics of water and practicality for the keeper:
+            </p>
+
+            <div class="table-container">
+              <ul class="article-list">
                 <li>
-                  <strong>Dissipação de agressividade:</strong> Peixes perseguidos conseguem fugir e
-                  se esconder em extremidades opostas.
+                  <strong>1. Larger Surface Area (Gas Exchange):</strong>
+                  Water is oxygenated mainly at the interface between water and air. A rectangular aquarium offers a wide
+                  surface, letting oxygen (O<sub>2</sub>) in and carbon dioxide (CO<sub>2</sub>) out much more efficiently.
+                  Note, however, that tall, narrow rectangular tanks have little surface for a lot of water, which can
+                  suffocate the inhabitants.
+                </li>
+                <li>
+                  <strong>2. Horizontal Swimming Space:</strong>
+                  Most fish swim from side to side (horizontally), not up and down. The rectangular shape therefore offers
+                  a "swimming lane" that is essential for:
+                  <ul class="article-list bullets">
+                    <li><strong>Exercise:</strong> It prevents muscle wasting and stress.</li>
+                    <li>
+                      <strong>Diffusing aggression:</strong> Chased fish can escape and hide at opposite ends.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>3. Easier Equipment Fitting:</strong>
+                  Maintenance accessories are designed for flat surfaces. Filters fit better on the edges, heaters stay
+                  attached with suction cups and LED lights, usually straight, spread light evenly along the whole
+                  aquarium and are easy to mount on the sides. Another important point is that magnetic glass cleaners do
+                  not work properly on curved glass and can damage it.
+                </li>
+                <li>
+                  <strong>4. Sense of Depth and Aesthetics:</strong>
+                  In aquascaping, flat glass is essential to create layers (foreground, midground and background). Unlike
+                  curved glass, straight glass does not distort the size or colour of the fish, giving a faithful view of
+                  the ecosystem you have built.
                 </li>
               </ul>
-            </li>
-            <li>
-              <strong>3. Facilidade para Equipamentos:</strong>
-              Os acessórios de manutenção são projetados para superfícies planas. Filtros encaixam
-              melhor nas bordas, termostatos fixam com ventosas sem soltar e luminárias LED,
-              geralmente retas, distribuem a luz de forma uniforme ao longo de todo o aquário, além
-              de serem facilmente fixadas nas laterais. Outro ponto importante é que limpadores
-              magnéticos não funcionam corretamente em vidros curvos e podem causar danos ao vidro.
-            </li>
-            <li>
-              <strong>4. Percepção de Profundidade e Estética:</strong>
-              No aquapaisagismo, o vidro plano é fundamental para criar camadas (frente, meio e
-              fundo). Diferente do vidro curvo, o reto não distorce o tamanho ou a cor dos peixes,
-              oferecendo uma visão fiel do ecossistema que você montou.
-            </li>
-          </ul>
-        </div>
-      </section>
-    </section>
-
-    <section class="decision-section">
-      <h2>Por onde começar? As Duas Estratégias</h2>
-      <p>
-        No aquarismo, existem dois pontos de partida lógicos. Escolher o caminho certo evita gastos
-        desnecessários e o sofrimento dos animais. Selecione qual caminho irá seguir:
-      </p>
-
-      <div class="card-selector-container">
-        <input type="radio" name="path-selector" id="path-a" checked />
-        <label for="path-a" class="custom-card">
-          <div class="card-badge">Caminho A</div>
-          <h3>Escolher Peixes Primeiro</h3>
-          <div class="card-details">
-            <p>
-              Ideal para quem deseja espécies específicas como <strong>Acará Bandeira</strong> ou
-              <strong>Discus</strong>, esse caminho prioriza a biologia dos peixes, garantindo que o
-              aquário seja dimensionado de acordo com suas necessidades e com o espaço adequado para
-              o nado na fase adulta.
-            </p>
-            <div class="consequence-box">
-              <strong>A Consequência:</strong>
-              <p>
-                O aquário deve ser planejado de acordo com as necessidades da espécie escolhida.
-                Peixes que atingem grandes dimensões exigem locais amplos, o que pode ser um desafio
-                em espaços limitados. Além disso, espécies mais ativas precisam de área suficiente
-                para nadar e se exercitar, enquanto outras preferem ambientes com esconderijos ou um
-                layout mais estruturado, algo difícil de reproduzir em aquários pequenos.
-              </p>
             </div>
-          </div>
-        </label>
+          </section>
+        </section>
 
-        <input type="radio" name="path-selector" id="path-b" />
-        <label for="path-b" class="custom-card">
-          <div class="card-badge">Caminho B</div>
-          <h3>Escolher Aquário Primeiro</h3>
-          <div class="card-details">
-            <p>
-              Ideal para espaços limitados ou móveis já existentes na decoração, esse caminho
-              <strong>prioriza a integração do aquário com o ambiente</strong>, orientando a escolha
-              da fauna de acordo com as dimensões disponíveis.
-            </p>
-            <div class="consequence-box">
-              <strong>A Consequência:</strong>
-              <p>
-                Nesse caminho, você fica mais limitado nas escolhas. A fauna deve ser cuidadosamente
-                selecionada para se adequar às dimensões do aquário, evitando superpopulação e
-                problemas na qualidade da água. Espécies maiores ou mais ativas geralmente não são
-                viáveis, o que exige optar por peixes menores e compatíveis, além de planejar bem a
-                quantidade de indivíduos e o uso de plantas e esconderijos para manter o ambiente
-                equilibrado e saudável.
-              </p>
-            </div>
-          </div>
-        </label>
-      </div>
-    </section>
-
-    <section>
-      <h2>Dimensões: O que cada medida impacta?</h2>
-      <div class="image-block">
-        <img src="assets/images/aquariums/aquarium-dimension-diagram.webp" alt="Diagrama de Dimensões do Aquário"
-          loading="lazy" />
-        <p class="image-caption">Diagrama de Dimensões do Aquário.</p>
-      </div>
-      <p>
-        Projetar as dimensões de um aquário vai muito além da estética ou do espaço sobre o móvel.
-        Cada eixo, comprimento, largura e altura, dita quais espécies poderão habitar esse
-        ecossistema e qual será o nível de complexidade da sua manutenção. Na prática, cada
-        centímetro alterado no projeto redefine a dinâmica biológica e visual do conjunto.
-      </p>
-
-      <section>
-        <h3>Comprimento: O Horizonte de Nado e Território</h3>
-        <p>
-          O comprimento do aquário representa a dimensão da liberdade. Para peixes que nadam em
-          cardumes ou espécies mais ativas, o espaço horizontal, o chamado “horizonte de nado”, é
-          essencial para o bem-estar.
-        </p>
-
-        <p>
-          <strong>Nado Livre:</strong> Espécies como o Paulistinha (<em>Danio rerio</em>) e diversos
-          tetras são nadadores horizontais. Em aquários curtos, eles não conseguem desenvolver seu
-          padrão natural de nado, sendo obrigados a “frear” constantemente, o que pode gerar
-          estresse.
-        </p>
-
-        <p>
-          <strong>Dissipação de Agressividade:</strong> Em aquários com espécies territoriais, como
-          ciclídeos, um maior comprimento permite a criação de barreiras visuais e áreas distintas.
-          Isso reduz conflitos, pois um peixe perseguido tem espaço suficiente para se afastar,
-          fazendo com que o agressor interrompa a perseguição.
-        </p>
-      </section>
-      <section>
-        <h3>Largura (Profundidade): A Perspectiva e o Layout</h3>
-        <p>
-          No aquarismo, a largura, também chamada de profundidade (a distância entre a frente e o
-          fundo), é um dos fatores mais importantes para a estética e a funcionalidade do aquário. É
-          ela que define o potencial de composição do layout e a sensação de espaço.
-        </p>
-
-        <p>
-          <strong>Sensação de Profundidade:</strong> Um aquário estreito tende a parecer uma “tela
-          plana”, quase bidimensional. Já com uma boa profundidade, é possível criar camadas com
-          pedras, troncos e plantas, gerando perspectiva e a ilusão de um ambiente muito maior e
-          mais natural.
-        </p>
-
-        <p>
-          <strong>Circulação de Água:</strong> Aquários muito estreitos favorecem a formação de
-          “pontos mortos”, áreas com pouca ou nenhuma circulação, geralmente atrás de decorações.
-          Esses locais acumulam detritos e podem causar picos de amônia, prejudicando a saúde dos
-          peixes.
-        </p>
-
-        <p>
-          <strong>Esconder o "Setup":</strong> Uma maior largura também permite posicionar elementos
-          do layout, como plantas altas e rochas, de forma estratégica para ocultar equipamentos
-          como filtros e aquecedores, criando um visual mais limpo, natural e harmonioso.
-        </p>
-      </section>
-
-      <section>
-        <h3>Altura: O Desafio da Luz e da Pressão</h3>
-        <p>
-          A altura é, do ponto de vista técnico, uma das dimensões mais exigentes e custosas de
-          gerenciar em um aquário. Ela impacta diretamente a iluminação, a manutenção e até o
-          equilíbrio do sistema.
-        </p>
-
-        <p>
-          <strong>Penetração de Luz:</strong> A água funciona como um filtro natural para a luz. Em
-          aquários mais altos, a intensidade luminosa diminui significativamente até atingir o
-          fundo. Por exemplo, em um aquário de 60 cm de altura, a luz disponível no substrato é
-          muito menor do que em um de 30 cm. Isso exige luminárias de alta performance,
-          especialmente para manter plantas baixas (carpetes) saudáveis.
-        </p>
-
-        <p>
-          <strong>Manutenção Física:</strong> A altura também afeta diretamente a praticidade no dia
-          a dia. Aquários acima de 60 cm tornam tarefas simples, como plantar, podar ou limpar o
-          substrato — muito mais difíceis, muitas vezes exigindo que você mergulhe o braço quase por
-          completo ou utilize ferramentas específicas.
-        </p>
-
-        <p>
-          <strong>Trocas Gasosas vs. Volume:</strong> Um aquário alto e estreito pode ter grande
-          volume de água, mas uma área de superfície relativamente pequena. Isso reduz a eficiência
-          das trocas gasosas com o ambiente, podendo levar a baixos níveis de oxigênio se a
-          filtragem e a circulação não forem adequadamente dimensionadas.
-        </p>
-      </section>
-
-      <section class="table-container">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col">Dimensão</th>
-              <th scope="col">Prioridade para...</th>
-              <th scope="col">Desafio Principal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Comprimento</td>
-              <td>Peixes ativos e cardumes</td>
-              <td>Espaço físico no ambiente</td>
-            </tr>
-            <tr>
-              <td>Largura</td>
-              <td>Estética e Aquascaping</td>
-              <td>Peso sobre o móvel</td>
-            </tr>
-            <tr>
-              <td>Altura</td>
-              <td>Peixes de corpo alto (Ex: Disco, Bandeira)</td>
-              <td>Potência da iluminação e poda</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <p class="table-note">
-        Cada dimensão impacta diretamente tanto o bem-estar dos peixes quanto a estética e a
-        manutenção do aquário.
-      </p>
-
-      <div class="highlight-box inner">
-        <p>
-          <strong>A Regra da Luz:</strong> A luz perde intensidade exponencialmente ao atravessar a
-          coluna d'água. Em aquários com mais de 60cm de altura, lâmpadas comuns não conseguem
-          atingir as plantas carpete no fundo, exigindo LEDs de alta performance (PAR elevado).
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Proporções e a Razão Áurea</h2>
-
-      <section>
-        <h3>Como Utilizar a Razão Áurea</h3>
-
-        <div class="image-block">
-          <img src="assets/images/aquariums/aquarium-and-golden-ratio.webp" alt="Aquário com a Proporção Áurea"
-            loading="lazy" />
-          <p class="image-caption">Exemplo de Aquário com a Proporção Áurea.</p>
-        </div>
-
-        <p>
-          No aquarismo, especialmente no <strong>Aquapaisagismo</strong>, utilizamos a
-          <strong>Proporção Áurea</strong> para criar aquários visualmente harmônicos. Um aquário
-          com proporções baseadas em 1 : 1.618 evita a sensação de "caixa quadrada" e cria aquários
-          que pareçam naturais e visualmente equilibrados. Essa configuração não só é esteticamente
-          agradável, mas também facilita a distribuição da luz e a circulação da água, promovendo um
-          ambiente saudável para os peixes e plantas.
-        </p>
-        <ul class="article-list bullets">
-          <li><strong>Equilíbrio da Fachada:</strong> Comprimento ÷ Altura ≈ $1,618$.</li>
-          <li>
-            <strong>Profundidade Real:</strong> No aquapaisagismo moderno, a largura (profundidade)
-            costuma ser igual ou muito próxima à altura para permitir a criação de camadas.
-          </li>
-        </ul>
-        <div>
+        <section class="decision-section">
+          <h2>Where to Start? The Two Strategies</h2>
           <p>
-            <strong>Exemplo harmonizado:</strong> Para um aquário de <strong>60 cm</strong> de
-            comprimento, a altura ideal seguindo a razão áurea seria aproximadamente( 60 ÷ 1,618 ≈
-            <strong>37 cm</strong>), e a largura sugerida entre <strong>35 a 40 cm</strong> para
-            garantir espaço suficiente para pedras, plantas e peixes, evitando um layout apertado e
-            permitindo uma circulação de água eficiente.
+            In fishkeeping there are two logical starting points. Choosing the right path avoids unnecessary spending and
+            suffering for the animals. Select which path you will follow:
           </p>
-        </div>
-      </section>
 
-      <section>
-        <h3>Proporções Populares por Estilo</h3>
-        <ul class="article-list">
-          <li>
-            <strong>Iniciantes:</strong> Normalmente seguem o “padrão de loja” (ex: 60×30×40 cm),
-            mas é altamente recomendado começar com aquários em torno de <strong>100 litros</strong>
-            ou mais. Esse volume maior oferece maior estabilidade nos parâmetros da água, tornando o
-            sistema mais tolerante a erros comuns no início da jornada.
-          </li>
-          <li>
-            <strong>Aquapaisagismo (Nature Aquarium):</strong> Tendem a ser mais largos (profundos)
-            e relativamente baixos (ex: 60×45×45 cm ou 90×45×45 cm). Essas proporções favorecem a
-            criação de camadas, melhoram a perspectiva e permitem o desenvolvimento saudável das
-            plantas.
-          </li>
-          <li>
-            <strong>Aquários Jumbo:</strong> Projetados para peixes de grande porte, priorizam
-            comprimento e, principalmente, largura (ex: 200x60x60cm ou 200x80x70cm). Esse espaço
-            extra é essencial para que os peixes possam se movimentar livremente e realizar curvas
-            sem risco de deformações ou estresse físico.
-          </li>
-        </ul>
-      </section>
-    </section>
+          <div class="card-selector-container">
+            <input type="radio" name="path-selector" id="path-a" checked />
+            <label for="path-a" class="custom-card">
+              <div class="card-badge">Path A</div>
+              <h3>Choose the Fish First</h3>
+              <div class="card-details">
+                <p>
+                  Ideal for those who want specific species such as <strong>Angelfish</strong> or
+                  <strong>Discus</strong>, this path prioritises the biology of the fish, making sure the aquarium is
+                  sized according to their needs and with enough swimming space for the adult stage.
+                </p>
+                <div class="consequence-box">
+                  <strong>The Consequence:</strong>
+                  <p>
+                    The aquarium must be planned around the needs of the chosen species. Fish that grow large need ample
+                    room, which can be a challenge in limited spaces. In addition, more active species need enough area
+                    to swim and exercise, while others prefer environments with hiding places or a more structured
+                    layout, something hard to reproduce in small aquariums.
+                  </p>
+                </div>
+              </div>
+            </label>
 
-    <section>
-      <h2>Conclusão</h2>
-      <p>
-        Definir o tamanho do seu aquário é o alicerce do seu sucesso. Se você quer plantas
-        rasteiras, evite aquários muito altos. Se quer peixes grandes, invista na largura.
-        Lembre-se: é muito mais fácil cuidar de um aquário de 100 litros do que de um de 20 litros,
-        pois quanto maior for o volume, mais estáveis são os parâmetros da água.
-      </p>
-      <p>
-        Planeje a compra, respeite a natureza dos peixes e use a proporção a seu favor para
-        transformar seu aquário em uma verdadeira obra de arte viva.
-      </p>
-    </section>
+            <input type="radio" name="path-selector" id="path-b" />
+            <label for="path-b" class="custom-card">
+              <div class="card-badge">Path B</div>
+              <h3>Choose the Aquarium First</h3>
+              <div class="card-details">
+                <p>
+                  Ideal for limited spaces or furniture you already have, this path <strong>prioritises integrating the
+                  aquarium with the room</strong>, guiding the choice of livestock according to the dimensions available.
+                </p>
+                <div class="consequence-box">
+                  <strong>The Consequence:</strong>
+                  <p>
+                    On this path your choices are more limited. Livestock must be carefully selected to suit the size of
+                    the aquarium, avoiding overstocking and water quality problems. Larger or more active species are
+                    usually not viable, so you need to choose smaller, compatible fish, plan the number of individuals
+                    well and use plants and hiding places to keep the environment balanced and healthy.
+                  </p>
+                </div>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Dimensions: What Does Each Measurement Affect?</h2>
+          <div class="image-block">
+            <img src="assets/images/aquariums/aquarium-dimension-diagram.webp" alt="Aquarium dimensions diagram"
+              loading="lazy" />
+            <p class="image-caption">Aquarium dimensions diagram.</p>
+          </div>
+          <p>
+            Designing the dimensions of an aquarium goes far beyond looks or the space on the cabinet. Each axis, length,
+            width and height, determines which species can live in the ecosystem and how complex its maintenance will
+            be. In practice, every centimetre changed in the design redefines the biological and visual dynamics of the
+            whole.
+          </p>
+
+          <section>
+            <h3>Length: The Swimming Horizon and Territory</h3>
+            <p>
+              The length of the aquarium is the dimension of freedom. For shoaling fish or more active species,
+              horizontal space, the so-called "swimming horizon", is essential for their well-being.
+            </p>
+
+            <p>
+              <strong>Free Swimming:</strong> Species such as the Zebra danio (<em>Danio rerio</em>) and many tetras
+              are horizontal swimmers. In short aquariums they cannot develop their natural swimming pattern and are
+              forced to "brake" constantly, which can cause stress.
+            </p>
+
+            <p>
+              <strong>Diffusing Aggression:</strong> In aquariums with territorial species, such as cichlids, greater
+              length allows visual barriers and separate areas. This reduces conflict, because a chased fish has enough
+              room to get away, making the aggressor give up the chase.
+            </p>
+          </section>
+          <section>
+            <h3>Width (Depth): Perspective and Layout</h3>
+            <p>
+              In fishkeeping, width, also called depth (the distance between front and back), is one of the most
+              important factors for the look and function of the aquarium. It defines the layout's composition potential
+              and the sense of space.
+            </p>
+
+            <p>
+              <strong>Sense of Depth:</strong> A narrow aquarium tends to look like a "flat screen", almost
+              two-dimensional. With good depth, you can create layers with rocks, driftwood and plants, producing
+              perspective and the illusion of a much larger, more natural environment.
+            </p>
+
+            <p>
+              <strong>Water Circulation:</strong> Very narrow aquariums encourage "dead spots", areas with little or no
+              circulation, usually behind decorations. These spots accumulate debris and can cause ammonia spikes, harming
+              the fish.
+            </p>
+
+            <p>
+              <strong>Hiding the "Setup":</strong> Greater width also lets you position layout elements, such as tall
+              plants and rocks, strategically to hide equipment like filters and heaters, creating a cleaner, more
+              natural and harmonious look.
+            </p>
+          </section>
+
+          <section>
+            <h3>Height: The Challenge of Light and Pressure</h3>
+            <p>
+              Technically, height is one of the most demanding and costly dimensions to manage in an aquarium. It directly
+              affects lighting, maintenance and even the balance of the system.
+            </p>
+
+            <p>
+              <strong>Light Penetration:</strong> Water acts as a natural filter for light. In taller aquariums, light
+              intensity drops significantly by the time it reaches the bottom. For example, in a 60 cm tall aquarium, the
+              light available at the substrate is much lower than in a 30 cm one. This requires high-performance lights,
+              especially to keep low plants (carpets) healthy.
+            </p>
+
+            <p>
+              <strong>Physical Maintenance:</strong> Height also directly affects day-to-day practicality. Aquariums over
+              60 cm make simple tasks such as planting, trimming or cleaning the substrate much harder, often requiring
+              you to plunge your arm in almost completely or use special tools.
+            </p>
+
+            <p>
+              <strong>Gas Exchange vs. Volume:</strong> A tall, narrow aquarium can hold a large volume of water but have a
+              relatively small surface area. This reduces the efficiency of gas exchange with the air and can lead to low
+              oxygen levels if filtration and circulation are not properly sized.
+            </p>
+          </section>
+
+          <section class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Dimension</th>
+                  <th scope="col">Priority for...</th>
+                  <th scope="col">Main challenge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Length</td>
+                  <td>Active fish and shoals</td>
+                  <td>Physical space in the room</td>
+                </tr>
+                <tr>
+                  <td>Width</td>
+                  <td>Aesthetics and aquascaping</td>
+                  <td>Weight on the cabinet</td>
+                </tr>
+                <tr>
+                  <td>Height</td>
+                  <td>Tall-bodied fish (e.g. Discus, Angelfish)</td>
+                  <td>Lighting power and trimming</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <p class="table-note">
+            Each dimension directly affects the well-being of the fish as well as the look and maintenance of the
+            aquarium.
+          </p>
+
+          <div class="highlight-box inner">
+            <p>
+              <strong>The Light Rule:</strong> Light loses intensity exponentially as it passes through the water column.
+              In aquariums taller than 60 cm, ordinary lamps cannot reach carpet plants at the bottom, requiring
+              high-performance LEDs (high PAR).
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Proportions and the Golden Ratio</h2>
+
+          <section>
+            <h3>How to Use the Golden Ratio</h3>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium-and-golden-ratio.webp" alt="Aquarium with golden ratio proportions"
+                loading="lazy" />
+              <p class="image-caption">Example of an aquarium with golden ratio proportions.</p>
+            </div>
+
+            <p>
+              In fishkeeping, especially in <strong>aquascaping</strong>, the <strong>golden ratio</strong> is used to
+              create visually harmonious aquariums. An aquarium with proportions based on 1 : 1.618 avoids the "square box"
+              feeling and looks natural and visually balanced. This configuration is not only pleasing to the eye, it also
+              helps distribute light and circulate water, promoting a healthy environment for fish and plants.
+            </p>
+            <ul class="article-list bullets">
+              <li><strong>Front Balance:</strong> Length ÷ Height ≈ 1.618.</li>
+              <li>
+                <strong>Real Depth:</strong> In modern aquascaping, the width (depth) is usually equal or very close to
+                the height to allow layers to be created.
+              </li>
+            </ul>
+            <div>
+              <p>
+                <strong>Harmonised example:</strong> For an aquarium <strong>60 cm</strong> long, the ideal height
+                following the golden ratio would be about 60 ÷ 1.618 ≈ <strong>37 cm</strong>, with a suggested width of
+                <strong>35 to 40 cm</strong> to give enough space for rocks, plants and fish, avoiding a cramped layout and
+                allowing efficient water circulation.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Popular Proportions by Style</h3>
+            <ul class="article-list">
+              <li>
+                <strong>Beginners:</strong> They usually follow the "shop standard" (e.g. 60 × 30 × 40 cm), but it is
+                highly recommended to start with aquariums of around <strong>100 litres</strong> or more. The larger volume
+                gives more stable water parameters, making the system more forgiving of common mistakes at the start of the
+                journey.
+              </li>
+              <li>
+                <strong>Aquascaping (Nature Aquarium):</strong> These tend to be wider (deeper) and relatively low (e.g.
+                60 × 45 × 45 cm or 90 × 45 × 45 cm). These proportions favour layering, improve perspective and allow healthy
+                plant growth.
+              </li>
+              <li>
+                <strong>Jumbo Aquariums:</strong> Designed for large fish, they prioritise length and, above all, width
+                (e.g. 200 × 60 × 60 cm or 200 × 80 × 70 cm). This extra space is essential so the fish can move freely and
+                turn without risk of deformities or physical stress.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Conclusion</h2>
+          <p>
+            Defining the size of your aquarium is the foundation of your success. If you want carpeting plants, avoid
+            very tall aquariums. If you want large fish, invest in width. Remember: a 100 litre aquarium is much easier to
+            care for than a 20 litre one, because the larger the volume, the more stable the water parameters.
+          </p>
+          <p>
+            Plan your purchase, respect the nature of the fish and use proportions in your favour to turn your aquarium
+            into a true living work of art.
+          </p>
+        </section>
+    } @else {
+        <section class="context">
+          <p>
+            Escolher o tamanho do aquário é, provavelmente, a decisão mais importante de um aquarista.
+            Muitas vezes, somos levados apenas pela estética ou pelo espaço disponível na sala, mas as
+            dimensões e proporções do tanque ditam desde a saúde dos peixes até a facilidade de manter
+            as plantas vivas; por isso, esse passo deve ser feito com atenção e planejamento. Neste
+            guia, vamos entender como planejar o formato ideal para que seu projeto seja um sucesso a
+            longo prazo.
+          </p>
+        </section>
+
+        <section>
+          <h2>O Formato Ideal de um Aquário</h2>
+
+          <section>
+            <h3>Por que Fugir do Aquários Redondo?</h3>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/fishbowl-aquarium.webp" alt="Aquário de globo" loading="lazy" />
+              <p class="image-caption">Exemplo de aquário de globo.</p>
+            </div>
+
+            <p>
+              Embora o clássico "aquário de bola" (globo) seja icônico em filmes e decorações, na
+              prática do aquarismo responsável ele é fortemente desencorajado e os motivos vão muito
+              além da estética:
+            </p>
+            <ul class="article-list">
+              <li>
+                <strong>Distorção Visual e Desorientação:</strong> O vidro curvo funciona como uma lente
+                de aumento, criando uma percepção distorcida do ambiente externo. Isso impede que o
+                peixe enxergue corretamente o que acontece fora do tanque, gerando estresse e
+                desorientação constante.
+              </li>
+              <li>
+                <strong>Estresse Acústico:</strong> As ondas sonoras e vibrações do ambiente batem nas
+                paredes curvas e "ecoam" de volta para o centro. Esse fenômeno atinge frequentemente a a
+                linha lateral do peixe, seu principal órgão sensorial, de forma amplificada, causando um
+                estado de alerta crônico.
+              </li>
+              <li>
+                <strong>Limitação de nado e saúde física:</strong> Diferente do nado horizontal natural
+                dos peixes em rios, lagos e mares, que o formato tipo “pista” (retangular) permite, o
+                aquário em formato de globo força o animal a nadar em círculos constantes. A longo
+                prazo, isso pode causar deformações na coluna e atrofia muscular.
+              </li>
+              <li>
+                <strong>Dificuldade Técnica:</strong> O formato circular torna a instalação de
+                equipamentos essenciais, como filtros, termostatos e luminárias, uma tarefa quase
+                impossível, comprometendo a manutenção da qualidade da água.
+              </li>
+            </ul>
+
+            <p>
+              Em resumo, embora os aquários redondos possam parecer charmosos, eles são prejudiciais ao
+              bem-estar dos peixes e dificultam a manutenção de um ambiente saudável. Por isso, optar
+              por formatos retangulares é fundamental para garantir a qualidade de vida dos seus animais
+              e o sucesso do seu projeto aquático.
+            </p>
+          </section>
+
+          <section>
+            <h3>As Vantagens do Formato Retangular</h3>
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium4.webp" alt="Aquário retangular" loading="lazy" />
+              <p class="image-caption">
+                Exemplo de aquário retangular com espaço para nado e um a percepção de profundidade.
+              </p>
+            </div>
+            <p>
+              Se o formato redondo é o vilão, o retangular é o herói do aquarismo. Ele é o padrão
+              recomendado por equilibrar a biologia dos peixes com a física da água e a praticidade para
+              o aquarista:
+            </p>
+
+            <div class="table-container">
+              <ul class="article-list">
+                <li>
+                  <strong>1. Maior Área de Superfície (Troca Gasosa):</strong>
+                  A oxigenação da água ocorre principalmente na interface entre a água e o ar. Um
+                  aquário retangular oferece uma superfície ampla, permitindo que o oxigênio
+                  (O<sub>2</sub>) entre e o gás carbônico (CO<sub>2</sub>) saia com muito mais
+                  eficiência. Apesar de que formatos retangulares altos e estreitos têm pouca superfície
+                  para muita água, o que pode sufocar os habitantes.
+                </li>
+                <li>
+                  <strong>2. Espaço de Nado Horizontal:</strong>
+                  A maioria dos peixes nada de um lado para o outro (horizontalmente) e não de cima para
+                  baixo. Com isso, o formato retangular oferece uma "pista de nado" essencial para:
+                  <ul class="article-list bullets">
+                    <li><strong>Exercício:</strong> Evita a atrofia muscular e o estresse.</li>
+                    <li>
+                      <strong>Dissipação de agressividade:</strong> Peixes perseguidos conseguem fugir e
+                      se esconder em extremidades opostas.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>3. Facilidade para Equipamentos:</strong>
+                  Os acessórios de manutenção são projetados para superfícies planas. Filtros encaixam
+                  melhor nas bordas, termostatos fixam com ventosas sem soltar e luminárias LED,
+                  geralmente retas, distribuem a luz de forma uniforme ao longo de todo o aquário, além
+                  de serem facilmente fixadas nas laterais. Outro ponto importante é que limpadores
+                  magnéticos não funcionam corretamente em vidros curvos e podem causar danos ao vidro.
+                </li>
+                <li>
+                  <strong>4. Percepção de Profundidade e Estética:</strong>
+                  No aquapaisagismo, o vidro plano é fundamental para criar camadas (frente, meio e
+                  fundo). Diferente do vidro curvo, o reto não distorce o tamanho ou a cor dos peixes,
+                  oferecendo uma visão fiel do ecossistema que você montou.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <section class="decision-section">
+          <h2>Por onde começar? As Duas Estratégias</h2>
+          <p>
+            No aquarismo, existem dois pontos de partida lógicos. Escolher o caminho certo evita gastos
+            desnecessários e o sofrimento dos animais. Selecione qual caminho irá seguir:
+          </p>
+
+          <div class="card-selector-container">
+            <input type="radio" name="path-selector" id="path-a" checked />
+            <label for="path-a" class="custom-card">
+              <div class="card-badge">Caminho A</div>
+              <h3>Escolher Peixes Primeiro</h3>
+              <div class="card-details">
+                <p>
+                  Ideal para quem deseja espécies específicas como <strong>Acará Bandeira</strong> ou
+                  <strong>Discus</strong>, esse caminho prioriza a biologia dos peixes, garantindo que o
+                  aquário seja dimensionado de acordo com suas necessidades e com o espaço adequado para
+                  o nado na fase adulta.
+                </p>
+                <div class="consequence-box">
+                  <strong>A Consequência:</strong>
+                  <p>
+                    O aquário deve ser planejado de acordo com as necessidades da espécie escolhida.
+                    Peixes que atingem grandes dimensões exigem locais amplos, o que pode ser um desafio
+                    em espaços limitados. Além disso, espécies mais ativas precisam de área suficiente
+                    para nadar e se exercitar, enquanto outras preferem ambientes com esconderijos ou um
+                    layout mais estruturado, algo difícil de reproduzir em aquários pequenos.
+                  </p>
+                </div>
+              </div>
+            </label>
+
+            <input type="radio" name="path-selector" id="path-b" />
+            <label for="path-b" class="custom-card">
+              <div class="card-badge">Caminho B</div>
+              <h3>Escolher Aquário Primeiro</h3>
+              <div class="card-details">
+                <p>
+                  Ideal para espaços limitados ou móveis já existentes na decoração, esse caminho
+                  <strong>prioriza a integração do aquário com o ambiente</strong>, orientando a escolha
+                  da fauna de acordo com as dimensões disponíveis.
+                </p>
+                <div class="consequence-box">
+                  <strong>A Consequência:</strong>
+                  <p>
+                    Nesse caminho, você fica mais limitado nas escolhas. A fauna deve ser cuidadosamente
+                    selecionada para se adequar às dimensões do aquário, evitando superpopulação e
+                    problemas na qualidade da água. Espécies maiores ou mais ativas geralmente não são
+                    viáveis, o que exige optar por peixes menores e compatíveis, além de planejar bem a
+                    quantidade de indivíduos e o uso de plantas e esconderijos para manter o ambiente
+                    equilibrado e saudável.
+                  </p>
+                </div>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Dimensões: O que cada medida impacta?</h2>
+          <div class="image-block">
+            <img src="assets/images/aquariums/aquarium-dimension-diagram.webp" alt="Diagrama de Dimensões do Aquário"
+              loading="lazy" />
+            <p class="image-caption">Diagrama de Dimensões do Aquário.</p>
+          </div>
+          <p>
+            Projetar as dimensões de um aquário vai muito além da estética ou do espaço sobre o móvel.
+            Cada eixo, comprimento, largura e altura, dita quais espécies poderão habitar esse
+            ecossistema e qual será o nível de complexidade da sua manutenção. Na prática, cada
+            centímetro alterado no projeto redefine a dinâmica biológica e visual do conjunto.
+          </p>
+
+          <section>
+            <h3>Comprimento: O Horizonte de Nado e Território</h3>
+            <p>
+              O comprimento do aquário representa a dimensão da liberdade. Para peixes que nadam em
+              cardumes ou espécies mais ativas, o espaço horizontal, o chamado “horizonte de nado”, é
+              essencial para o bem-estar.
+            </p>
+
+            <p>
+              <strong>Nado Livre:</strong> Espécies como o Paulistinha (<em>Danio rerio</em>) e diversos
+              tetras são nadadores horizontais. Em aquários curtos, eles não conseguem desenvolver seu
+              padrão natural de nado, sendo obrigados a “frear” constantemente, o que pode gerar
+              estresse.
+            </p>
+
+            <p>
+              <strong>Dissipação de Agressividade:</strong> Em aquários com espécies territoriais, como
+              ciclídeos, um maior comprimento permite a criação de barreiras visuais e áreas distintas.
+              Isso reduz conflitos, pois um peixe perseguido tem espaço suficiente para se afastar,
+              fazendo com que o agressor interrompa a perseguição.
+            </p>
+          </section>
+          <section>
+            <h3>Largura (Profundidade): A Perspectiva e o Layout</h3>
+            <p>
+              No aquarismo, a largura, também chamada de profundidade (a distância entre a frente e o
+              fundo), é um dos fatores mais importantes para a estética e a funcionalidade do aquário. É
+              ela que define o potencial de composição do layout e a sensação de espaço.
+            </p>
+
+            <p>
+              <strong>Sensação de Profundidade:</strong> Um aquário estreito tende a parecer uma “tela
+              plana”, quase bidimensional. Já com uma boa profundidade, é possível criar camadas com
+              pedras, troncos e plantas, gerando perspectiva e a ilusão de um ambiente muito maior e
+              mais natural.
+            </p>
+
+            <p>
+              <strong>Circulação de Água:</strong> Aquários muito estreitos favorecem a formação de
+              “pontos mortos”, áreas com pouca ou nenhuma circulação, geralmente atrás de decorações.
+              Esses locais acumulam detritos e podem causar picos de amônia, prejudicando a saúde dos
+              peixes.
+            </p>
+
+            <p>
+              <strong>Esconder o "Setup":</strong> Uma maior largura também permite posicionar elementos
+              do layout, como plantas altas e rochas, de forma estratégica para ocultar equipamentos
+              como filtros e aquecedores, criando um visual mais limpo, natural e harmonioso.
+            </p>
+          </section>
+
+          <section>
+            <h3>Altura: O Desafio da Luz e da Pressão</h3>
+            <p>
+              A altura é, do ponto de vista técnico, uma das dimensões mais exigentes e custosas de
+              gerenciar em um aquário. Ela impacta diretamente a iluminação, a manutenção e até o
+              equilíbrio do sistema.
+            </p>
+
+            <p>
+              <strong>Penetração de Luz:</strong> A água funciona como um filtro natural para a luz. Em
+              aquários mais altos, a intensidade luminosa diminui significativamente até atingir o
+              fundo. Por exemplo, em um aquário de 60 cm de altura, a luz disponível no substrato é
+              muito menor do que em um de 30 cm. Isso exige luminárias de alta performance,
+              especialmente para manter plantas baixas (carpetes) saudáveis.
+            </p>
+
+            <p>
+              <strong>Manutenção Física:</strong> A altura também afeta diretamente a praticidade no dia
+              a dia. Aquários acima de 60 cm tornam tarefas simples, como plantar, podar ou limpar o
+              substrato — muito mais difíceis, muitas vezes exigindo que você mergulhe o braço quase por
+              completo ou utilize ferramentas específicas.
+            </p>
+
+            <p>
+              <strong>Trocas Gasosas vs. Volume:</strong> Um aquário alto e estreito pode ter grande
+              volume de água, mas uma área de superfície relativamente pequena. Isso reduz a eficiência
+              das trocas gasosas com o ambiente, podendo levar a baixos níveis de oxigênio se a
+              filtragem e a circulação não forem adequadamente dimensionadas.
+            </p>
+          </section>
+
+          <section class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Dimensão</th>
+                  <th scope="col">Prioridade para...</th>
+                  <th scope="col">Desafio Principal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Comprimento</td>
+                  <td>Peixes ativos e cardumes</td>
+                  <td>Espaço físico no ambiente</td>
+                </tr>
+                <tr>
+                  <td>Largura</td>
+                  <td>Estética e Aquascaping</td>
+                  <td>Peso sobre o móvel</td>
+                </tr>
+                <tr>
+                  <td>Altura</td>
+                  <td>Peixes de corpo alto (Ex: Disco, Bandeira)</td>
+                  <td>Potência da iluminação e poda</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <p class="table-note">
+            Cada dimensão impacta diretamente tanto o bem-estar dos peixes quanto a estética e a
+            manutenção do aquário.
+          </p>
+
+          <div class="highlight-box inner">
+            <p>
+              <strong>A Regra da Luz:</strong> A luz perde intensidade exponencialmente ao atravessar a
+              coluna d'água. Em aquários com mais de 60cm de altura, lâmpadas comuns não conseguem
+              atingir as plantas carpete no fundo, exigindo LEDs de alta performance (PAR elevado).
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Proporções e a Razão Áurea</h2>
+
+          <section>
+            <h3>Como Utilizar a Razão Áurea</h3>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium-and-golden-ratio.webp" alt="Aquário com a Proporção Áurea"
+                loading="lazy" />
+              <p class="image-caption">Exemplo de Aquário com a Proporção Áurea.</p>
+            </div>
+
+            <p>
+              No aquarismo, especialmente no <strong>Aquapaisagismo</strong>, utilizamos a
+              <strong>Proporção Áurea</strong> para criar aquários visualmente harmônicos. Um aquário
+              com proporções baseadas em 1 : 1.618 evita a sensação de "caixa quadrada" e cria aquários
+              que pareçam naturais e visualmente equilibrados. Essa configuração não só é esteticamente
+              agradável, mas também facilita a distribuição da luz e a circulação da água, promovendo um
+              ambiente saudável para os peixes e plantas.
+            </p>
+            <ul class="article-list bullets">
+              <li><strong>Equilíbrio da Fachada:</strong> Comprimento ÷ Altura ≈ $1,618$.</li>
+              <li>
+                <strong>Profundidade Real:</strong> No aquapaisagismo moderno, a largura (profundidade)
+                costuma ser igual ou muito próxima à altura para permitir a criação de camadas.
+              </li>
+            </ul>
+            <div>
+              <p>
+                <strong>Exemplo harmonizado:</strong> Para um aquário de <strong>60 cm</strong> de
+                comprimento, a altura ideal seguindo a razão áurea seria aproximadamente( 60 ÷ 1,618 ≈
+                <strong>37 cm</strong>), e a largura sugerida entre <strong>35 a 40 cm</strong> para
+                garantir espaço suficiente para pedras, plantas e peixes, evitando um layout apertado e
+                permitindo uma circulação de água eficiente.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Proporções Populares por Estilo</h3>
+            <ul class="article-list">
+              <li>
+                <strong>Iniciantes:</strong> Normalmente seguem o “padrão de loja” (ex: 60×30×40 cm),
+                mas é altamente recomendado começar com aquários em torno de <strong>100 litros</strong>
+                ou mais. Esse volume maior oferece maior estabilidade nos parâmetros da água, tornando o
+                sistema mais tolerante a erros comuns no início da jornada.
+              </li>
+              <li>
+                <strong>Aquapaisagismo (Nature Aquarium):</strong> Tendem a ser mais largos (profundos)
+                e relativamente baixos (ex: 60×45×45 cm ou 90×45×45 cm). Essas proporções favorecem a
+                criação de camadas, melhoram a perspectiva e permitem o desenvolvimento saudável das
+                plantas.
+              </li>
+              <li>
+                <strong>Aquários Jumbo:</strong> Projetados para peixes de grande porte, priorizam
+                comprimento e, principalmente, largura (ex: 200x60x60cm ou 200x80x70cm). Esse espaço
+                extra é essencial para que os peixes possam se movimentar livremente e realizar curvas
+                sem risco de deformações ou estresse físico.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Conclusão</h2>
+          <p>
+            Definir o tamanho do seu aquário é o alicerce do seu sucesso. Se você quer plantas
+            rasteiras, evite aquários muito altos. Se quer peixes grandes, invista na largura.
+            Lembre-se: é muito mais fácil cuidar de um aquário de 100 litros do que de um de 20 litros,
+            pois quanto maior for o volume, mais estáveis são os parâmetros da água.
+          </p>
+          <p>
+            Planeje a compra, respeite a natureza dos peixes e use a proporção a seu favor para
+            transformar seu aquário em uma verdadeira obra de arte viva.
+          </p>
+        </section>
+    }
   </article>
 </section>
 

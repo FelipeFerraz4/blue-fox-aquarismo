@@ -3,327 +3,644 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-    <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <section class="context">
-            <p>
-                Pequenos, coloridos e sempre em movimento, os tetras são o peixe que mais enche os olhos de quem entra
-                numa loja de aquarismo. Eles também estão entre os mais comprados por impulso, e é aí que começa o
-                problema: um cardume bonito na vitrine pode virar um grupo doente e apagado em casa se o aquário não
-                estiver preparado.
-            </p>
-            <p>
-                Neste guia, você vai entender como os tetras vivem, por que eles precisam de cardume, qual o tamanho de
-                aquário e quais os parâmetros de água que realmente importam, e o que conferir antes de comprar.
-            </p>
-        </section>
-
-        <section>
-            <h2>O que são os Tetras?</h2>
-
-            <p>
-                "Tetra" é um <strong>nome popular</strong>, e não um grupo científico único. Ele é usado para dezenas de
-                espécies de peixes pequenos, de cardume, que pertencem principalmente à ordem dos caraciformes, da
-                América do Sul e da África. Os mais conhecidos nos aquários brasileiros são o Neon, o Cardinal, o
-                Rodóstomo, o Tetra-limão, o Serpae e o Saia-negra.
-            </p>
-            <p>
-                Na natureza, a maioria vive em rios e igarapés de <strong>água macia, levemente ácida e
-                    sombreada</strong>, cheios de galhos, folhas e vegetação nas margens. Entender esse habitat é a chave
-                para montar um aquário em que eles se sintam seguros.
-            </p>
-
-            <div class="highlight-box inner">
+    <article class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <section class="context">
                 <p>
-                    <strong>Nem todo tetra é igual de resistente.</strong> Espécies que são reproduzidas há muitas
-                    gerações em cativeiro, como o Neon (de criação) e o Saia-negra, são mais tolerantes. Já o Cardinal e
-                    o Rodóstomo costumam ser capturados na natureza e são bem mais sensíveis a variações de água.
+                    Small, colourful and always on the move, tetras are the fish that catch the eye of anyone walking into an
+                    aquarium shop. They are also among the most impulse-bought fish, and that is where the problem begins: a
+                    beautiful shoal in the shop tank can become a sick, washed-out group at home if the aquarium is not ready.
                 </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Cardume não é opção, é necessidade</h2>
-
-            <p>
-                Os tetras são peixes de cardume (<em>shoaling</em>): o instinto deles diz que a segurança está no grupo.
-                Mantidos sozinhos ou em dupla, ficam tímidos, escondidos, com as cores apagadas e muito mais estressados,
-                o que os deixa vulneráveis a doenças.
-            </p>
-
-            <div class="image-block">
-                <a href="assets/images/fish/tetra-schooling-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/fish/tetra-schooling-diagram.webp"
-                    alt="Comparação entre um grupo pequeno de tetras, tímido e disperso, e um cardume numeroso, nadando junto"
-                    loading="lazy" /></a>
-                <p class="image-caption">Ilustração esquemática: o tamanho do grupo muda o comportamento dos tetras. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
-            </div>
-
-            <ul class="article-list bullets">
-                <li><strong>Mínimo de 6 peixes</strong> da mesma espécie; o ideal é <strong>10 ou mais</strong>.</li>
-                <li><strong>Mais peixes, mais naturalidade:</strong> em grupos maiores, eles nadam juntos, exploram o
-                    aquário e mostram o colorido de verdade.</li>
-                <li><strong>Espécies beliscadoras:</strong> o Serpae e o Saia-negra, em grupos pequenos, tendem a
-                    beliscar as nadadeiras de outros peixes. Um cardume numeroso reduz muito esse comportamento.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Qual o tamanho ideal do aquário?</h2>
-            <p>
-                Como os tetras vivem em grupo, o que importa é o espaço para o <strong>cardume inteiro</strong>. Como
-                referência, considere:
-            </p>
-            <ul class="article-list bullets">
-                <li><strong>Espécies pequenas</strong> (Neon, Cardinal, Rodóstomo, Tetra-limão): aquário de pelo menos
-                    <strong>60 a 80 litros</strong> para um cardume de 6 a 10 peixes. Quanto maior, melhor.</li>
-                <li><strong>Espécies maiores e mais ativas</strong> (Saia-negra, Serpae): a partir de
-                    <strong>80 a 100 litros</strong>.</li>
-                <li><strong>Prefira aquários compridos:</strong> os tetras nadam na horizontal, por isso o
-                    comprimento (a partir de 60 cm) vale mais do que a altura.</li>
-            </ul>
-            <p>
-                Para entender melhor como as dimensões influenciam a vida dos peixes e a manutenção, vale ler o
-                <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank" rel="noopener noreferrer">
-                    guia de dimensões e proporções</a>.
-            </p>
-        </section>
-
-        <section>
-            <h2>Conheça as espécies mais comuns</h2>
-            <div class="table-container">
-                <table class="comparison-table aligned">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome popular</th>
-                            <th scope="col">Nome científico</th>
-                            <th scope="col">Tamanho adulto*</th>
-                            <th scope="col">Temperatura*</th>
-                            <th scope="col">Comportamento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Neon</strong></td>
-                            <td><em>Paracheirodon innesi</em></td>
-                            <td>3 a 4 cm</td>
-                            <td>20 a 26 °C</td>
-                            <td>Pacífico</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cardinal</strong></td>
-                            <td><em>Paracheirodon axelrodi</em></td>
-                            <td>4 a 5 cm</td>
-                            <td>24 a 28 °C</td>
-                            <td>Pacífico, mais sensível</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Rodóstomo</strong></td>
-                            <td><em>Hemigrammus rhodostomus</em> e espécies próximas</td>
-                            <td>4 a 5 cm</td>
-                            <td>24 a 28 °C</td>
-                            <td>Pacífico, cardume muito coeso</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tetra-limão</strong></td>
-                            <td><em>Hyphessobrycon pulchripinnis</em></td>
-                            <td>4 a 5 cm</td>
-                            <td>23 a 28 °C</td>
-                            <td>Pacífico</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Serpae</strong></td>
-                            <td><em>Hyphessobrycon eques</em></td>
-                            <td>3,5 a 4 cm</td>
-                            <td>22 a 28 °C</td>
-                            <td>Pode beliscar nadadeiras</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Saia-negra</strong></td>
-                            <td><em>Gymnocorymbus ternetzi</em></td>
-                            <td>até 6 cm</td>
-                            <td>20 a 26 °C</td>
-                            <td>Ativo, pode beliscar nadadeiras</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="table-note">*Valores aproximados, apenas como referência. Confirme a espécie exata e a procedência
-                com o fornecedor antes de comprar.</p>
-        </section>
-
-        <section>
-            <h2>Parâmetros da água</h2>
-
-            <p>
-                Aqui está o ponto mais importante para a saúde dos tetras: <strong>a estabilidade importa mais do que o
-                    valor exato</strong>. Mudanças bruscas de temperatura, pH ou dureza causam muito mais estrago do que
-                um pH levemente fora da faixa ideal.
-            </p>
-
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Parâmetro</th>
-                            <th scope="col">Referência para tetras comuns</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Temperatura</strong></td>
-                            <td>24 a 26 °C atende à maioria das espécies, com aquecedor e termostato</td>
-                        </tr>
-                        <tr>
-                            <td><strong>pH</strong></td>
-                            <td>Ideal de 5,5 a 7,0 (levemente ácido a neutro). Os de criação em cativeiro se adaptam melhor a valores mais altos, mas evite variações bruscas.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Dureza</strong></td>
-                            <td>Baixa a média; as espécies capturadas na natureza preferem água mais macia</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Amônia e nitrito</strong></td>
-                            <td>Sempre zero</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Nitrato</strong></td>
-                            <td>De preferência abaixo de 20 mg/L (mantido com <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPAs</a> semanais)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="highlight-box inner">
                 <p>
-                    <strong>Nunca coloque tetras em aquário recém-montado.</strong> O aquário precisa ter completado a
-                    ciclagem (sem produtos, de 1 a 2 meses) e estar com amônia e nitrito em zero. Peixes pequenos e
-                    delicados sofrem muito com qualquer oscilação nesses valores.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Montando o ambiente ideal</h2>
-            <ul class="article-list bullets">
-                <li><strong>Plantas e esconderijos:</strong> aquários plantados, com troncos e raízes, deixam os tetras
-                    mais seguros e coloridos. Veja o <a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia de plantas aquáticas</a>.</li>
-                <li><strong>Iluminação suave:</strong> luz moderada e plantas flutuantes que sombreiam parte da
-                    superfície imitam os rios onde eles vivem.</li>
-                <li><strong>Folhas secas de amendoeira (catappa):</strong> liberam taninos, que deixam a água levemente
-                    âmbar e ácida, como a dos rios de origem, e ainda têm ação protetora.</li>
-                <li><strong>Substrato escuro:</strong> realça as cores, em especial as do Neon e do Cardinal.</li>
-                <li><strong>Fluxo moderado:</strong> eles gostam de nadar, mas não de correntezas fortes. Veja o
-                    <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de escolha do filtro</a> para dimensionar a vazão.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Alimentação</h2>
-            <p>
-                Os tetras são <strong>onívoros</strong> e têm a boca bem pequena. Ofereça flocos ou microgrânulos de
-                tamanho reduzido, complementando uma ou duas vezes por semana com alimento vivo ou congelado, como
-                artêmia e dáfnia. Dê porções pequenas, duas vezes ao dia, que sejam consumidas em cerca de 2 minutos,
-                assim como se recomenda para o Betta.
-            </p>
-        </section>
-
-        <section>
-            <h2>Com quem eles convivem bem?</h2>
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Bons companheiros</th>
-                            <th scope="col">Evite</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Corydoras, cascudos (<em>Ancistrus</em>) e otocinclus</td>
-                            <td>Acará-bandeira adulto e outros ciclídeos grandes, que comem tetras pequenos</td>
-                        </tr>
-                        <tr>
-                            <td>Rasboras e outros peixes pacíficos de cardume</td>
-                            <td>Kinguios, por causa da temperatura e do jeito de nadar diferentes</td>
-                        </tr>
-                        <tr>
-                            <td>Camarões adultos (os filhotes podem ser comidos)</td>
-                            <td>Peixes de nadadeiras longas junto de espécies beliscadoras (Serpae, Saia-negra)</td>
-                        </tr>
-                        <tr>
-                            <td>Peixes pacíficos de tamanho parecido com o dos tetras</td>
-                            <td>Espécies agressivas ou muito maiores que o cardume</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section>
-            <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
-
-            <section>
-                <h3>Escolha bem a loja e os peixes</h3>
-                <p>
-                    Observe o tanque antes de comprar: evite lojas com peixes mortos, isolados no fundo, magros ou com
-                    manchas esbranquiçadas. Os peixes devem nadar em grupo, com cores vivas e a barriga cheia.
+                    In this guide you will learn how tetras live, why they need a shoal, what tank size and which water
+                    parameters really matter, and what to check before buying.
                 </p>
             </section>
 
             <section>
-                <h3>Faça a aclimatação com calma</h3>
+                <h2>What Are Tetras?</h2>
+
                 <p>
-                    Deixe o saco flutuando no aquário por 15 a 20 minutos para igualar a temperatura. Em seguida, vá
-                    adicionando pequenas quantidades de água do aquário ao saco, a cada poucos minutos, por cerca de 30
-                    a 60 minutos. Solte os peixes com um copo ou rede, sem despejar a água da loja no aquário.
+                    "Tetra" is a <strong>common name</strong>, not a single scientific group. It is used for dozens of small
+                    shoaling fish species, mostly from the order Characiformes, from South America and Africa. The best known in
+                    home aquariums are the Neon, the Cardinal, the Rummy-nose, the Lemon tetra, the Serpae and the Black skirt.
+                </p>
+                <p>
+                    In the wild, most of them live in rivers and forest streams with <strong>soft, slightly acidic, shaded
+                        water</strong>, full of branches, leaves and vegetation along the banks. Understanding this habitat is
+                    the key to setting up an aquarium where they feel safe.
+                </p>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Not every tetra is equally hardy.</strong> Species that have been bred in captivity for many
+                        generations, such as farmed Neons and the Black skirt, are more tolerant. The Cardinal and the
+                        Rummy-nose, on the other hand, are often wild-caught and much more sensitive to changes in the water.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>A Shoal Is Not Optional, It Is a Need</h2>
+
+                <p>
+                    Tetras are shoaling fish: their instinct tells them that safety lies in the group. Kept alone or in pairs
+                    they become shy and hidden, with faded colours and much more stress, which leaves them vulnerable to
+                    disease.
+                </p>
+
+                <div class="image-block">
+                    <a href="assets/images/fish/tetra-schooling-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Open the image at full size"><img src="assets/images/fish/tetra-schooling-diagram.webp"
+                        alt="Comparison between a small, shy and scattered group of tetras and a large shoal swimming together"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Schematic illustration: group size changes how tetras behave. <span class="zoom-hint">Tap or click the image to enlarge it.</span></p>
+                </div>
+
+                <ul class="article-list bullets">
+                    <li><strong>At least 6 fish</strong> of the same species; ideally <strong>10 or more</strong>.</li>
+                    <li><strong>More fish, more natural behaviour:</strong> in larger groups they swim together, explore the
+                        aquarium and show their true colours.</li>
+                    <li><strong>Fin-nipping species:</strong> in small groups, the Serpae and the Black skirt tend to nip the
+                        fins of other fish. A large shoal greatly reduces this behaviour.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What Is the Ideal Tank Size?</h2>
+                <p>
+                    Because tetras live in groups, what matters is the space for the <strong>whole shoal</strong>. As a
+                    reference, consider:
+                </p>
+                <ul class="article-list bullets">
+                    <li><strong>Small species</strong> (Neon, Cardinal, Rummy-nose, Lemon tetra): a tank of at least
+                        <strong>60 to 80 litres</strong> for a shoal of 6 to 10 fish. The bigger, the better.</li>
+                    <li><strong>Larger, more active species</strong> (Black skirt, Serpae): from
+                        <strong>80 to 100 litres</strong>.</li>
+                    <li><strong>Prefer long tanks:</strong> tetras swim horizontally, so length (from 60 cm) matters more
+                        than height.</li>
+                </ul>
+                <p>
+                    To better understand how dimensions affect the fish and maintenance, read the
+                    <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank" rel="noopener noreferrer">
+                        guide to dimensions and proportions</a>.
                 </p>
             </section>
 
             <section>
-                <h3>Quarentena evita o pior</h3>
+                <h2>Meet the Most Common Species</h2>
+                <div class="table-container">
+                    <table class="comparison-table aligned">
+                        <thead>
+                            <tr>
+                                <th scope="col">Common name</th>
+                                <th scope="col">Scientific name</th>
+                                <th scope="col">Adult size*</th>
+                                <th scope="col">Temperature*</th>
+                                <th scope="col">Behaviour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Neon</strong></td>
+                                <td><em>Paracheirodon innesi</em></td>
+                                <td>3 to 4 cm</td>
+                                <td>20 to 26 °C</td>
+                                <td>Peaceful</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cardinal</strong></td>
+                                <td><em>Paracheirodon axelrodi</em></td>
+                                <td>4 to 5 cm</td>
+                                <td>24 to 28 °C</td>
+                                <td>Peaceful, more sensitive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rummy-nose</strong></td>
+                                <td><em>Hemigrammus rhodostomus</em> and close species</td>
+                                <td>4 to 5 cm</td>
+                                <td>24 to 28 °C</td>
+                                <td>Peaceful, very tight shoal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lemon tetra</strong></td>
+                                <td><em>Hyphessobrycon pulchripinnis</em></td>
+                                <td>4 to 5 cm</td>
+                                <td>23 to 28 °C</td>
+                                <td>Peaceful</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Serpae</strong></td>
+                                <td><em>Hyphessobrycon eques</em></td>
+                                <td>3.5 to 4 cm</td>
+                                <td>22 to 28 °C</td>
+                                <td>May nip fins</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Black skirt</strong></td>
+                                <td><em>Gymnocorymbus ternetzi</em></td>
+                                <td>up to 6 cm</td>
+                                <td>20 to 26 °C</td>
+                                <td>Active, may nip fins</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">*Approximate values, for reference only. Confirm the exact species and its origin with
+                    the seller before buying.</p>
+            </section>
+
+            <section>
+                <h2>Water Parameters</h2>
+
                 <p>
-                    A chamada <strong>doença do neon</strong> (causada por um parasita) é contagiosa e sem cura, e
-                    provoca perda de cor, manchas esbranquiçadas e nado errático. O ideal é manter os peixes novos por 2
-                    a 4 semanas em um aquário separado de quarentena, antes de colocá-los junto com os demais.
+                    This is the most important point for the health of tetras: <strong>stability matters more than the exact
+                        value</strong>. Sudden changes in temperature, pH or hardness do far more damage than a pH slightly
+                    outside the ideal range.
+                </p>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Reference for common tetras</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Temperature</strong></td>
+                                <td>24 to 26 °C suits most species, with a heater and thermostat</td>
+                            </tr>
+                            <tr>
+                                <td><strong>pH</strong></td>
+                                <td>Ideally 5.5 to 7.0 (slightly acidic to neutral). Captive-bred fish adapt better to higher values, but avoid sudden swings.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hardness</strong></td>
+                                <td>Low to medium; wild-caught species prefer softer water</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ammonia and nitrite</strong></td>
+                                <td>Always zero</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nitrate</strong></td>
+                                <td>Preferably below 20 mg/L (kept there with weekly <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">water changes</a>)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Never put tetras in a newly set-up aquarium.</strong> The tank must have finished cycling
+                        (without products, 1 to 2 months) and show zero ammonia and nitrite. Small, delicate fish suffer a lot
+                        from any fluctuation in these values.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Setting Up the Ideal Environment</h2>
+                <ul class="article-list bullets">
+                    <li><strong>Plants and hiding places:</strong> planted aquariums with driftwood and roots make tetras feel
+                        safer and look more colourful. See the <a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">aquatic plants guide</a>.</li>
+                    <li><strong>Soft lighting:</strong> moderate light and floating plants shading part of the surface mimic
+                        the rivers they come from.</li>
+                    <li><strong>Dried Indian almond leaves (catappa):</strong> they release tannins that make the water slightly
+                        amber and acidic, like that of their native rivers, and also have a protective effect.</li>
+                    <li><strong>Dark substrate:</strong> it enhances colours, especially those of the Neon and the Cardinal.</li>
+                    <li><strong>Moderate flow:</strong> they like to swim, but not in strong currents. See the
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guide to choosing a filter</a> to size the flow rate.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Feeding</h2>
+                <p>
+                    Tetras are <strong>omnivores</strong> with very small mouths. Offer small flakes or micro-pellets,
+                    supplemented once or twice a week with live or frozen food such as brine shrimp and daphnia. Give small
+                    portions twice a day that are eaten within about 2 minutes, just as is recommended for the Betta.
                 </p>
             </section>
 
             <section>
-                <h3>Não adicione todo o cardume de uma vez em um aquário recém-estabilizado</h3>
+                <h2>Who Do They Get Along With?</h2>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Good companions</th>
+                                <th scope="col">Avoid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Corydoras, bristlenose plecos (<em>Ancistrus</em>) and otocinclus</td>
+                                <td>Adult angelfish and other large cichlids, which eat small tetras</td>
+                            </tr>
+                            <tr>
+                                <td>Rasboras and other peaceful shoaling fish</td>
+                                <td>Goldfish, because of the different temperature and swimming style</td>
+                            </tr>
+                            <tr>
+                                <td>Adult shrimp (the young may be eaten)</td>
+                                <td>Long-finned fish together with fin-nipping species (Serpae, Black skirt)</td>
+                            </tr>
+                            <tr>
+                                <td>Peaceful fish of a similar size to the tetras</td>
+                                <td>Aggressive species or fish much larger than the shoal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Expert Tips: What Nobody Tells You at the Shop</h2>
+
+                <section>
+                    <h3>Choose the shop and the fish carefully</h3>
+                    <p>
+                        Look at the tank before buying: avoid shops with dead fish, fish isolated at the bottom, thin fish or
+                        fish with whitish patches. The fish should swim as a group, with bright colours and full bellies.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Acclimatise slowly</h3>
+                    <p>
+                        Float the bag in the aquarium for 15 to 20 minutes to match the temperature. Then add small amounts of
+                        aquarium water to the bag every few minutes for about 30 to 60 minutes. Release the fish with a cup or a
+                        net, without pouring the shop water into the aquarium.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Quarantine prevents the worst</h3>
+                    <p>
+                        So-called <strong>neon tetra disease</strong> (caused by a parasite) is contagious and incurable, and it
+                        causes loss of colour, whitish patches and erratic swimming. Ideally, keep new fish in a separate
+                        quarantine tank for 2 to 4 weeks before adding them to the others.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Do not add the whole shoal at once to a newly stabilised aquarium</h3>
+                    <p>
+                        Even after cycling is complete, the filter needs time to keep up with the extra waste load. If possible,
+                        split the purchase into two groups, one to two weeks apart.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Checklist Before Buying</h2>
+                <ul class="article-list bullets checklist">
+                    <li>Has the aquarium finished cycling, with zero ammonia and nitrite?</li>
+                    <li>Is there enough space and volume for a shoal of 6 to 10 fish?</li>
+                    <li>Do you have a heater with a thermostat and a thermometer?</li>
+                    <li>Does the aquarium have plants, driftwood or hiding places?</li>
+                    <li>Have you tested the pH and hardness of your water?</li>
+                    <li>Are the other fish in the aquarium compatible with tetras?</li>
+                    <li>Do you have a quarantine plan for the new fish?</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
                 <p>
-                    Mesmo com a ciclagem completa, o filtro precisa de tempo para acompanhar o aumento da carga de
-                    dejetos. Se possível, divida a compra em dois grupos, com um intervalo de uma a duas semanas.
+                    Tetras are great fish for beginners, as long as the aquarium is planned for them: a shoal of at least six,
+                    stable water in an already cycled tank, an environment with plants and hiding places, and a good source.
+                </p>
+                <p>
+                    Prepare the aquarium before buying, choose a species that suits your level of experience and give the shoal
+                    time to settle in. The reward is a lively, colourful aquarium full of movement.
                 </p>
             </section>
-        </section>
+        } @else {
+            <section class="context">
+                <p>
+                    Pequenos, coloridos e sempre em movimento, os tetras são o peixe que mais enche os olhos de quem entra
+                    numa loja de aquarismo. Eles também estão entre os mais comprados por impulso, e é aí que começa o
+                    problema: um cardume bonito na vitrine pode virar um grupo doente e apagado em casa se o aquário não
+                    estiver preparado.
+                </p>
+                <p>
+                    Neste guia, você vai entender como os tetras vivem, por que eles precisam de cardume, qual o tamanho de
+                    aquário e quais os parâmetros de água que realmente importam, e o que conferir antes de comprar.
+                </p>
+            </section>
 
-        <section>
-            <h2>Checklist antes de comprar</h2>
-            <ul class="article-list bullets checklist">
-                <li>O aquário completou a ciclagem e tem amônia e nitrito em zero?</li>
-                <li>Há espaço e volume suficientes para um cardume de 6 a 10 peixes?</li>
-                <li>Você tem aquecedor com termostato e termômetro?</li>
-                <li>O aquário tem plantas, troncos ou esconderijos?</li>
-                <li>Você testou o pH e a dureza da sua água?</li>
-                <li>Os outros peixes do aquário são compatíveis com tetras?</li>
-                <li>Você tem um plano de quarentena para os peixes novos?</li>
-            </ul>
-        </section>
+            <section>
+                <h2>O que são os Tetras?</h2>
 
-        <section>
-            <h2>Conclusão</h2>
-            <p>
-                Os tetras são ótimos peixes para quem está começando, desde que o aquário seja pensado para eles: um
-                cardume de pelo menos seis indivíduos, água estável em um aquário já ciclado, ambiente com plantas e
-                esconderijos e boa procedência.
-            </p>
-            <p>
-                Prepare o aquário antes de comprar, escolha uma espécie adequada ao seu nível de experiência e dê tempo
-                para que o cardume se adapte. A recompensa é um aquário vivo, colorido e cheio de movimento.
-            </p>
-        </section>
+                <p>
+                    "Tetra" é um <strong>nome popular</strong>, e não um grupo científico único. Ele é usado para dezenas de
+                    espécies de peixes pequenos, de cardume, que pertencem principalmente à ordem dos caraciformes, da
+                    América do Sul e da África. Os mais conhecidos nos aquários brasileiros são o Neon, o Cardinal, o
+                    Rodóstomo, o Tetra-limão, o Serpae e o Saia-negra.
+                </p>
+                <p>
+                    Na natureza, a maioria vive em rios e igarapés de <strong>água macia, levemente ácida e
+                        sombreada</strong>, cheios de galhos, folhas e vegetação nas margens. Entender esse habitat é a chave
+                    para montar um aquário em que eles se sintam seguros.
+                </p>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Nem todo tetra é igual de resistente.</strong> Espécies que são reproduzidas há muitas
+                        gerações em cativeiro, como o Neon (de criação) e o Saia-negra, são mais tolerantes. Já o Cardinal e
+                        o Rodóstomo costumam ser capturados na natureza e são bem mais sensíveis a variações de água.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cardume não é opção, é necessidade</h2>
+
+                <p>
+                    Os tetras são peixes de cardume (<em>shoaling</em>): o instinto deles diz que a segurança está no grupo.
+                    Mantidos sozinhos ou em dupla, ficam tímidos, escondidos, com as cores apagadas e muito mais estressados,
+                    o que os deixa vulneráveis a doenças.
+                </p>
+
+                <div class="image-block">
+                    <a href="assets/images/fish/tetra-schooling-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/fish/tetra-schooling-diagram.webp"
+                        alt="Comparação entre um grupo pequeno de tetras, tímido e disperso, e um cardume numeroso, nadando junto"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Ilustração esquemática: o tamanho do grupo muda o comportamento dos tetras. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
+                </div>
+
+                <ul class="article-list bullets">
+                    <li><strong>Mínimo de 6 peixes</strong> da mesma espécie; o ideal é <strong>10 ou mais</strong>.</li>
+                    <li><strong>Mais peixes, mais naturalidade:</strong> em grupos maiores, eles nadam juntos, exploram o
+                        aquário e mostram o colorido de verdade.</li>
+                    <li><strong>Espécies beliscadoras:</strong> o Serpae e o Saia-negra, em grupos pequenos, tendem a
+                        beliscar as nadadeiras de outros peixes. Um cardume numeroso reduz muito esse comportamento.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Qual o tamanho ideal do aquário?</h2>
+                <p>
+                    Como os tetras vivem em grupo, o que importa é o espaço para o <strong>cardume inteiro</strong>. Como
+                    referência, considere:
+                </p>
+                <ul class="article-list bullets">
+                    <li><strong>Espécies pequenas</strong> (Neon, Cardinal, Rodóstomo, Tetra-limão): aquário de pelo menos
+                        <strong>60 a 80 litros</strong> para um cardume de 6 a 10 peixes. Quanto maior, melhor.</li>
+                    <li><strong>Espécies maiores e mais ativas</strong> (Saia-negra, Serpae): a partir de
+                        <strong>80 a 100 litros</strong>.</li>
+                    <li><strong>Prefira aquários compridos:</strong> os tetras nadam na horizontal, por isso o
+                        comprimento (a partir de 60 cm) vale mais do que a altura.</li>
+                </ul>
+                <p>
+                    Para entender melhor como as dimensões influenciam a vida dos peixes e a manutenção, vale ler o
+                    <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank" rel="noopener noreferrer">
+                        guia de dimensões e proporções</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Conheça as espécies mais comuns</h2>
+                <div class="table-container">
+                    <table class="comparison-table aligned">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome popular</th>
+                                <th scope="col">Nome científico</th>
+                                <th scope="col">Tamanho adulto*</th>
+                                <th scope="col">Temperatura*</th>
+                                <th scope="col">Comportamento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Neon</strong></td>
+                                <td><em>Paracheirodon innesi</em></td>
+                                <td>3 a 4 cm</td>
+                                <td>20 a 26 °C</td>
+                                <td>Pacífico</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cardinal</strong></td>
+                                <td><em>Paracheirodon axelrodi</em></td>
+                                <td>4 a 5 cm</td>
+                                <td>24 a 28 °C</td>
+                                <td>Pacífico, mais sensível</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rodóstomo</strong></td>
+                                <td><em>Hemigrammus rhodostomus</em> e espécies próximas</td>
+                                <td>4 a 5 cm</td>
+                                <td>24 a 28 °C</td>
+                                <td>Pacífico, cardume muito coeso</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tetra-limão</strong></td>
+                                <td><em>Hyphessobrycon pulchripinnis</em></td>
+                                <td>4 a 5 cm</td>
+                                <td>23 a 28 °C</td>
+                                <td>Pacífico</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Serpae</strong></td>
+                                <td><em>Hyphessobrycon eques</em></td>
+                                <td>3,5 a 4 cm</td>
+                                <td>22 a 28 °C</td>
+                                <td>Pode beliscar nadadeiras</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saia-negra</strong></td>
+                                <td><em>Gymnocorymbus ternetzi</em></td>
+                                <td>até 6 cm</td>
+                                <td>20 a 26 °C</td>
+                                <td>Ativo, pode beliscar nadadeiras</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">*Valores aproximados, apenas como referência. Confirme a espécie exata e a procedência
+                    com o fornecedor antes de comprar.</p>
+            </section>
+
+            <section>
+                <h2>Parâmetros da água</h2>
+
+                <p>
+                    Aqui está o ponto mais importante para a saúde dos tetras: <strong>a estabilidade importa mais do que o
+                        valor exato</strong>. Mudanças bruscas de temperatura, pH ou dureza causam muito mais estrago do que
+                    um pH levemente fora da faixa ideal.
+                </p>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Parâmetro</th>
+                                <th scope="col">Referência para tetras comuns</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Temperatura</strong></td>
+                                <td>24 a 26 °C atende à maioria das espécies, com aquecedor e termostato</td>
+                            </tr>
+                            <tr>
+                                <td><strong>pH</strong></td>
+                                <td>Ideal de 5,5 a 7,0 (levemente ácido a neutro). Os de criação em cativeiro se adaptam melhor a valores mais altos, mas evite variações bruscas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dureza</strong></td>
+                                <td>Baixa a média; as espécies capturadas na natureza preferem água mais macia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Amônia e nitrito</strong></td>
+                                <td>Sempre zero</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nitrato</strong></td>
+                                <td>De preferência abaixo de 20 mg/L (mantido com <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPAs</a> semanais)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Nunca coloque tetras em aquário recém-montado.</strong> O aquário precisa ter completado a
+                        ciclagem (sem produtos, de 1 a 2 meses) e estar com amônia e nitrito em zero. Peixes pequenos e
+                        delicados sofrem muito com qualquer oscilação nesses valores.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Montando o ambiente ideal</h2>
+                <ul class="article-list bullets">
+                    <li><strong>Plantas e esconderijos:</strong> aquários plantados, com troncos e raízes, deixam os tetras
+                        mais seguros e coloridos. Veja o <a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia de plantas aquáticas</a>.</li>
+                    <li><strong>Iluminação suave:</strong> luz moderada e plantas flutuantes que sombreiam parte da
+                        superfície imitam os rios onde eles vivem.</li>
+                    <li><strong>Folhas secas de amendoeira (catappa):</strong> liberam taninos, que deixam a água levemente
+                        âmbar e ácida, como a dos rios de origem, e ainda têm ação protetora.</li>
+                    <li><strong>Substrato escuro:</strong> realça as cores, em especial as do Neon e do Cardinal.</li>
+                    <li><strong>Fluxo moderado:</strong> eles gostam de nadar, mas não de correntezas fortes. Veja o
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de escolha do filtro</a> para dimensionar a vazão.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Alimentação</h2>
+                <p>
+                    Os tetras são <strong>onívoros</strong> e têm a boca bem pequena. Ofereça flocos ou microgrânulos de
+                    tamanho reduzido, complementando uma ou duas vezes por semana com alimento vivo ou congelado, como
+                    artêmia e dáfnia. Dê porções pequenas, duas vezes ao dia, que sejam consumidas em cerca de 2 minutos,
+                    assim como se recomenda para o Betta.
+                </p>
+            </section>
+
+            <section>
+                <h2>Com quem eles convivem bem?</h2>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Bons companheiros</th>
+                                <th scope="col">Evite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Corydoras, cascudos (<em>Ancistrus</em>) e otocinclus</td>
+                                <td>Acará-bandeira adulto e outros ciclídeos grandes, que comem tetras pequenos</td>
+                            </tr>
+                            <tr>
+                                <td>Rasboras e outros peixes pacíficos de cardume</td>
+                                <td>Kinguios, por causa da temperatura e do jeito de nadar diferentes</td>
+                            </tr>
+                            <tr>
+                                <td>Camarões adultos (os filhotes podem ser comidos)</td>
+                                <td>Peixes de nadadeiras longas junto de espécies beliscadoras (Serpae, Saia-negra)</td>
+                            </tr>
+                            <tr>
+                                <td>Peixes pacíficos de tamanho parecido com o dos tetras</td>
+                                <td>Espécies agressivas ou muito maiores que o cardume</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
+
+                <section>
+                    <h3>Escolha bem a loja e os peixes</h3>
+                    <p>
+                        Observe o tanque antes de comprar: evite lojas com peixes mortos, isolados no fundo, magros ou com
+                        manchas esbranquiçadas. Os peixes devem nadar em grupo, com cores vivas e a barriga cheia.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Faça a aclimatação com calma</h3>
+                    <p>
+                        Deixe o saco flutuando no aquário por 15 a 20 minutos para igualar a temperatura. Em seguida, vá
+                        adicionando pequenas quantidades de água do aquário ao saco, a cada poucos minutos, por cerca de 30
+                        a 60 minutos. Solte os peixes com um copo ou rede, sem despejar a água da loja no aquário.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Quarentena evita o pior</h3>
+                    <p>
+                        A chamada <strong>doença do neon</strong> (causada por um parasita) é contagiosa e sem cura, e
+                        provoca perda de cor, manchas esbranquiçadas e nado errático. O ideal é manter os peixes novos por 2
+                        a 4 semanas em um aquário separado de quarentena, antes de colocá-los junto com os demais.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Não adicione todo o cardume de uma vez em um aquário recém-estabilizado</h3>
+                    <p>
+                        Mesmo com a ciclagem completa, o filtro precisa de tempo para acompanhar o aumento da carga de
+                        dejetos. Se possível, divida a compra em dois grupos, com um intervalo de uma a duas semanas.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Checklist antes de comprar</h2>
+                <ul class="article-list bullets checklist">
+                    <li>O aquário completou a ciclagem e tem amônia e nitrito em zero?</li>
+                    <li>Há espaço e volume suficientes para um cardume de 6 a 10 peixes?</li>
+                    <li>Você tem aquecedor com termostato e termômetro?</li>
+                    <li>O aquário tem plantas, troncos ou esconderijos?</li>
+                    <li>Você testou o pH e a dureza da sua água?</li>
+                    <li>Os outros peixes do aquário são compatíveis com tetras?</li>
+                    <li>Você tem um plano de quarentena para os peixes novos?</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Conclusão</h2>
+                <p>
+                    Os tetras são ótimos peixes para quem está começando, desde que o aquário seja pensado para eles: um
+                    cardume de pelo menos seis indivíduos, água estável em um aquário já ciclado, ambiente com plantas e
+                    esconderijos e boa procedência.
+                </p>
+                <p>
+                    Prepare o aquário antes de comprar, escolha uma espécie adequada ao seu nível de experiência e dê tempo
+                    para que o cardume se adapte. A recompensa é um aquário vivo, colorido e cheio de movimento.
+                </p>
+            </section>
+        }
     </article>
 </section>
 

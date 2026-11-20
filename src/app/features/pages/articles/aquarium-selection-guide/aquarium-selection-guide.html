@@ -3,382 +3,737 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-  <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-    <!-- INTRODUÇÃO -->
-    <div class="context">
-      <p>
-        Montar um aquário é um processo que vai muito além de simplesmente escolher um recipiente e
-        colocar água e peixes dentro. A escolha do aquário ideal envolve entender os materiais,
-        tamanhos, proporções e, acima de tudo, o bem-estar dos habitantes. Neste artigo, vamos
-        explorar os principais pontos para te ajudar a escolher o aquário perfeito para o seu
-        projeto, levando em conta que o aquário seja tanto uma peça de design quanto um ecossistema
-        perfeito.
-      </p>
-
-      <div class="image-block">
-        <img src="assets/images/aquariums/aquarium1.webp" alt="Aquário aquapaisagismo" loading="lazy" />
-        <p class="image-caption">Exemplo de aquário bem planejado e equilibrado.</p>
-      </div>
-    </div>
-
-    <div>
-      <h2>Materiais para Construção: Qual Escolher?</h2>
-
-      <p>
-        Os aquários podem ser feitos de diferentes materiais, cada um com suas vantagens e
-        desvantagens. A escolha do material influencia diretamente na durabilidade, peso e na
-        aparência final do seu aquário.
-      </p>
-
-      <!-- VIDRO -->
-      <section>
-        <h3>1. Vidro</h3>
-        <p>
-          O vidro é o material mais utilizado para aquários, sendo usado há décadas por aquaristas
-          de todos os níveis.
-        </p>
-
-        <div class="image-block">
-          <img src="assets/images/aquariums/aquariums3.webp" alt="Aquários de vidro" loading="lazy" />
-          <p class="image-caption">Exemplo de aquários de vidro.</p>
-        </div>
-
-        <div class="table-container">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Vantagens</th>
-                <th scope="col">Desvantagens</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Resistente a riscos (não risca facilmente)</td>
-                <td>Mais pesado em comparação com outros materiais</td>
-              </tr>
-              <tr>
-                <td>Não sofre deformação com o tempo</td>
-                <td>Mais frágil em caso de impactos</td>
-              </tr>
-              <tr>
-                <td>Aparência clara e brilhante</td>
-                <td>Bordas de silicone podem ficar visíveis</td>
-              </tr>
-              <tr>
-                <td>Fácil de limpar</td>
-                <td>-</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <section>
-          <h4>Tipos de Vidro</h4>
+  <article class="content" [attr.lang]="language.current()">
+    @if (language.current() === 'en') {
+        <div class="context">
           <p>
-            Existem dois tipos principais de vidro utilizados na construção de aquários: o
-            <strong>vidro float</strong>, que é o mais comum no mercado, e o
-            <strong>vidro extra clear</strong> (também conhecido como low iron). A principal
-            diferença entre eles está na transparência e na fidelidade das cores, fatores que
-            impactam diretamente na estética do aquário.
+            Setting up an aquarium goes far beyond simply choosing a container and putting water and fish in it.
+            Choosing the ideal aquarium means understanding materials, sizes, proportions and, above all, the
+            well-being of its inhabitants. In this article we will look at the main points to help you choose the
+            perfect aquarium for your project, so that it is both a design piece and a balanced ecosystem.
           </p>
-          <ul class="legal-list">
-            <li>
-              <strong>Vidro Float (Comum):</strong>
-              É a opção mais utilizada por ser resistente e acessível. Possui uma leve tonalidade
-              esverdeada, especialmente perceptível nas bordas, o que pode influenciar sutilmente na
-              aparência das cores internas.
-            </li>
-            <li>
-              <strong>Vidro Extra Clear (Low Iron):</strong>
-              Contém baixo teor de ferro, resultando em uma transparência muito superior.
-              Proporciona cores mais fiéis e vibrantes, criando a sensação de que praticamente não
-              há vidro entre você e o aquário.
-            </li>
-          </ul>
-          <div class="highlight-box">
-            <p>
-              <strong>Dica:</strong> Se o seu objetivo é um aquário com foco em estética, como no
-              aquapaisagismo, o vidro extra clear faz uma diferença visual significativa.
-            </p>
+
+          <div class="image-block">
+            <img src="assets/images/aquariums/aquarium1.webp" alt="Aquascaped aquarium" loading="lazy" />
+            <p class="image-caption">Example of a well-planned, balanced aquarium.</p>
           </div>
-        </section>
-        <!-- ESPESSURA DO VIDRO -->
-        <section>
-          <div>
-            <h4>Espessura Recomendada do Vidro</h4>
+        </div>
+
+        <div>
+          <h2>Construction Materials: Which One to Choose?</h2>
+
+          <p>
+            Aquariums can be made from different materials, each with its own advantages and disadvantages. The
+            material directly affects the durability, weight and final look of your aquarium.
+          </p>
+
+          <section>
+            <h3>1. Glass</h3>
+            <p>
+              Glass is the most widely used material for aquariums and has been used for decades by fishkeepers of
+              every level.
+            </p>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquariums3.webp" alt="Glass aquariums" loading="lazy" />
+              <p class="image-caption">Examples of glass aquariums.</p>
+            </div>
+
             <div class="table-container">
               <table class="comparison-table">
                 <thead>
                   <tr>
-                    <th scope="col">Altura do Aquário</th>
-                    <th scope="col">Espessura Mínima</th>
+                    <th scope="col">Advantages</th>
+                    <th scope="col">Disadvantages</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Até 30 cm</td>
-                    <td>4 mm</td>
+                    <td>Scratch-resistant (does not scratch easily)</td>
+                    <td>Heavier than other materials</td>
                   </tr>
                   <tr>
-                    <td>Até 50 cm</td>
-                    <td>6 mm</td>
+                    <td>Does not deform over time</td>
+                    <td>More fragile on impact</td>
                   </tr>
                   <tr>
-                    <td>Até 70 cm</td>
-                    <td>10 mm</td>
+                    <td>Clear, bright appearance</td>
+                    <td>Silicone seams may be visible</td>
                   </tr>
                   <tr>
-                    <td>Até 100 cm</td>
-                    <td>12 mm ou mais</td>
+                    <td>Easy to clean</td>
+                    <td>-</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="table-note">
-              Esses valores são referências gerais. O comprimento do aquário e o volume total também
-              influenciam na espessura necessária.
-            </p>
-          </div>
-        </section>
-        <!-- TRAVAS FRANCESAS -->
-        <section>
-          <div>
-            <h4>Travas Francesas (Reforço Estrutural)</h4>
-            <div class="image-grid">
-              <div class="image-block2">
-                <img src="assets/images/aquariums/euro-brace3.webp" alt="Trava francesa superior em aquário"
-                  loading="lazy" />
-              </div>
-
-              <div class="image-block2">
-                <img src="assets/images/aquariums/euro-brace2.webp" alt="Trava francesa inferior em aquário"
-                  loading="lazy" />
-              </div>
-
-              <p class="image-caption2">Exemplo de trava francesa</p>
-            </div>
-
-            <p>
-              As travas francesas são tiras de vidro coladas na parte superior e inferior do
-              aquário, utilizadas para aumentar a resistência estrutural e reduzir a flexão causada
-              pela pressão da água.
-            </p>
-            <ul class="legal-list">
-              <li>Recomendadas para aquários com mais de 50 cm de altura</li>
-              <li>Essenciais em aquários com mais de 1 metro de comprimento</li>
-              <li>
-                Ajudam a evitar o chamado "efeito barriga" (deformação do vidro) e a explosão do
-                tanque.
-              </li>
-            </ul>
-            <div class="highlight-box inner">
+            <section>
+              <h4>Types of Glass</h4>
               <p>
-                <strong>Importante:</strong> O uso de travas pode ser determinante para a segurança
-                do aquário, reduzindo o risco de trincas ou falhas estruturais ao longo do tempo.
+                There are two main types of glass used to build aquariums: <strong>float glass</strong>, the most
+                common on the market, and <strong>extra-clear glass</strong> (also known as low-iron glass). The main
+                difference between them is transparency and colour fidelity, which directly affect the look of the
+                aquarium.
+              </p>
+              <ul class="legal-list">
+                <li>
+                  <strong>Float Glass (Standard):</strong>
+                  The most widely used option because it is strong and affordable. It has a slight greenish tint,
+                  especially noticeable at the edges, which can subtly affect how the colours inside look.
+                </li>
+                <li>
+                  <strong>Extra-Clear Glass (Low Iron):</strong>
+                  It has a low iron content, resulting in much greater transparency. It gives truer, more vibrant
+                  colours, creating the feeling that there is practically no glass between you and the aquarium.
+                </li>
+              </ul>
+              <div class="highlight-box">
+                <p>
+                  <strong>Tip:</strong> If your goal is an aquarium focused on looks, as in aquascaping, extra-clear
+                  glass makes a significant visual difference.
+                </p>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h4>Recommended Glass Thickness</h4>
+                <div class="table-container">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Aquarium height</th>
+                        <th scope="col">Minimum thickness</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Up to 30 cm</td>
+                        <td>4 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Up to 50 cm</td>
+                        <td>6 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Up to 70 cm</td>
+                        <td>10 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Up to 100 cm</td>
+                        <td>12 mm or more</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="table-note">
+                  These values are general references. The length and total volume of the aquarium also affect the
+                  thickness required.
+                </p>
+              </div>
+            </section>
+            <section>
+              <div>
+                <h4>Euro Bracing (Structural Reinforcement)</h4>
+                <div class="image-grid">
+                  <div class="image-block2">
+                    <img src="assets/images/aquariums/euro-brace3.webp" alt="Top euro brace on an aquarium"
+                      loading="lazy" />
+                  </div>
+
+                  <div class="image-block2">
+                    <img src="assets/images/aquariums/euro-brace2.webp" alt="Bottom euro brace on an aquarium"
+                      loading="lazy" />
+                  </div>
+
+                  <p class="image-caption2">Example of euro bracing</p>
+                </div>
+
+                <p>
+                  Euro braces are strips of glass bonded along the top and bottom of the aquarium, used to increase
+                  structural strength and reduce the bending caused by water pressure.
+                </p>
+                <ul class="legal-list">
+                  <li>Recommended for aquariums over 50 cm tall</li>
+                  <li>Essential for aquariums over 1 metre long</li>
+                  <li>
+                    They help prevent so-called "bowing" (deformation of the glass) and the tank bursting.
+                  </li>
+                </ul>
+                <div class="highlight-box inner">
+                  <p>
+                    <strong>Important:</strong> Bracing can be decisive for the safety of the aquarium, reducing the
+                    risk of cracks or structural failure over time.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section>
+            <h3>2. Acrylic: Lightness, Strength and Advanced Design</h3>
+            <p>
+              Acrylic is widely used in high-end aquariums, especially in large ("jumbo") projects and custom designs.
+              It stands out for its strength and lightness, making it a modern alternative to traditional glass.
+            </p>
+            <p>
+              Compared with glass, acrylic can be up to <strong>17 times more impact-resistant</strong>, as well as
+              significantly lighter. This makes it possible to build larger aquariums with curved shapes and no visible
+              seams, something hard to achieve with glass.
+            </p>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium2.webp" alt="Curved acrylic aquarium" loading="lazy" />
+              <p class="image-caption">
+                Example of an acrylic aquarium allowing curved, modern designs.
               </p>
             </div>
-          </div>
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Advantages</th>
+                    <th scope="col">Disadvantages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lighter than glass</td>
+                    <td>Scratches very easily</td>
+                  </tr>
+                  <tr>
+                    <td>High impact resistance (very hard to break)</td>
+                    <td>Requires extreme care when cleaning</td>
+                  </tr>
+                  <tr>
+                    <td>Allows curved and custom designs</td>
+                    <td>Can deform over time (pressure or heat)</td>
+                  </tr>
+                  <tr>
+                    <td>Better transparency than standard glass</td>
+                    <td>High cost (up to 3 times the price of glass)</td>
+                  </tr>
+                  <tr>
+                    <td>Light scratches can be polished out</td>
+                    <td>Lower abrasion resistance (sand can damage it)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="highlight-box">
+              <p>
+                <strong>Tip:</strong> Acrylic is ideal for large aquariums or design projects (such as curved and
+                panoramic tanks), but it needs careful maintenance. Unsuitable sponges or grains of sand can cause
+                permanent scratches.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h3>3. Concrete / Cement: Permanent, Large-Scale Structures</h3>
+            <div class="image-block">
+              <img src="assets/images/aquariums/ornamental_lake1.webp" alt="Concrete ornamental pond" loading="lazy" />
+              <p class="image-caption">Example of ornamental ponds.</p>
+            </div>
+            <p>
+              Concrete is quite common in large aquarium and pond projects, especially above 1,000 litres or for
+              ornamental ponds. It allows fully custom structures, even integrated into the architecture of the house,
+              with high durability and excellent thermal insulation.
+            </p>
+            <p>
+              However, concrete demands important technical care. While it cures, cement releases alkaline substances
+              that can drastically raise the pH of the water, making the environment unsuitable for fish. That is why a
+              complete cure is essential, along with specific waterproofing such as liquid membranes or non-toxic epoxy
+              resins.
+            </p>
+            <div class="highlight-box">
+              <p>
+                <strong>Tip:</strong> Always use proper waterproofing and test the pH of the water before adding any
+                organism to the system.
+              </p>
+            </div>
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Advantages</th>
+                    <th scope="col">Disadvantages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>High durability and long service life</td>
+                    <td>Can change the pH of the water (alkalinisation)</td>
+                  </tr>
+                  <tr>
+                    <td>Allows any shape and size</td>
+                    <td>Requires proper waterproofing</td>
+                  </tr>
+                  <tr>
+                    <td>Ideal for ponds and large volumes</td>
+                    <td>More complex, labour-intensive construction</td>
+                  </tr>
+                  <tr>
+                    <td>Good thermal insulation</td>
+                    <td>Needs curing time before use</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h3>4. Polyethylene: Practicality and Low Cost</h3>
+            <p>
+              Polyethylene, the material used to make water tanks, is a practical and economical solution for aquatic
+              systems and is widely used for fish breeding, quarantine and aquaponics projects. Its main advantages are
+              easy installation and low cost, making it accessible for beginners and functional projects.
+            </p>
+            <p>
+              Despite its practicality, polyethylene has aesthetic and technical limitations. Not all tanks are made
+              from materials that are completely safe for fish, so it is essential to check that the product is
+              non-toxic. In addition, adaptations may be needed to install filtration and circulation systems,
+              depending on the project.
+            </p>
+            <p>
+              Another important point is that, although it resists impacts, the material can deform over time when
+              exposed to excessive heat or large volumes of water without proper support.
+            </p>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/fish-farming1.webp" alt="Polyethylene tanks used for fish breeding" loading="lazy" />
+              <p class="image-caption">Example of polyethylene tanks for fish breeding</p>
+            </div>
+
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Advantages</th>
+                    <th scope="col">Disadvantages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Low cost and easy to find</td>
+                    <td>Limited aesthetics</td>
+                  </tr>
+                  <tr>
+                    <td>Light and easy to install</td>
+                    <td>May need adaptations for filtration</td>
+                  </tr>
+                  <tr>
+                    <td>Good impact resistance</td>
+                    <td>Not all models are non-toxic</td>
+                  </tr>
+                  <tr>
+                    <td>Ideal for functional systems</td>
+                    <td>Can deform with heat or pressure</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="highlight-box">
+              <p>
+                <strong>Best use:</strong> Fish breeding, quarantine, aquaponics and projects where function matters
+                more than looks.
+              </p>
+            </div>
+          </section>
+        </div>
+        <section>
+          <h2>Conclusion</h2>
+          <p>
+            Choosing the ideal aquarium is about more than looks: it is about creating a stable, safe environment that
+            suits the fish and plants that will live in it. Every choice, from the material to the dimensions and the
+            lighting, directly affects the balance of the system and how easy it is to maintain over time.
+          </p>
+          <p>
+            For beginners, simpler and well-established solutions such as glass aquariums offer more safety and
+            predictability. For more advanced projects, materials like acrylic, concrete or polyethylene open up
+            interesting possibilities, as long as they come with the necessary technical knowledge.
+          </p>
+          <p>
+            More important than looking for the "perfect aquarium" is matching your choices to your goal, the space
+            available and the type of project you want to build, whether a planted tank, a community aquarium or even
+            an ornamental pond.
+          </p>
         </section>
-      </section>
-
-      <section>
-        <h3>2. Acrílico: Leveza, Resistência e Design Avançado</h3>
-        <p>
-          O acrílico é um material amplamente utilizado em aquários de alto padrão, especialmente em
-          projetos grandes (jumbos) e com designs personalizados. Ele se destaca por sua resistência
-          e leveza, sendo uma alternativa moderna ao vidro tradicional.
-        </p>
-        <p>
-          Comparado ao vidro, o acrílico pode ser até
-          <strong>17 vezes mais resistente a impactos</strong>, além de ser significativamente mais
-          leve. Isso permite a construção de aquários maiores, com formatos curvos e sem emendas
-          visíveis, algo difícil de alcançar com vidro.
-        </p>
-
-        <div class="image-block">
-          <img src="assets/images/aquariums/aquarium2.webp" alt="Aquário acrílico curvo" loading="lazy" />
-          <p class="image-caption">
-            Exemplo de aquário em acrílico permitindo designs curvos e modernos.
-          </p>
-        </div>
-        <div class="table-container">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Vantagens</th>
-                <th scope="col">Desvantagens</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Mais leve que o vidro</td>
-                <td>Risca com muita facilidade</td>
-              </tr>
-              <tr>
-                <td>Alta resistência a impactos (muito difícil de quebrar)</td>
-                <td>Exige cuidado extremo na limpeza</td>
-              </tr>
-              <tr>
-                <td>Permite designs curvos e personalizados</td>
-                <td>Pode deformar com o tempo (pressão ou calor)</td>
-              </tr>
-              <tr>
-                <td>Transparência superior ao vidro comum</td>
-                <td>Custo elevado (pode chegar a até 3x o valor do vidro)</td>
-              </tr>
-              <tr>
-                <td>Pode ser polido em caso de riscos leves</td>
-                <td>Menor resistência a abrasão (areia pode danificar)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="highlight-box">
+    } @else {
+        <!-- INTRODUÇÃO -->
+        <div class="context">
           <p>
-            <strong>Dica:</strong> O acrílico é ideal para aquários grandes ou projetos de design
-            (como aquários curvos e panorâmicos), mas exige manutenção cuidadosa. O uso de esponjas
-            inadequadas ou partículas de areia pode causar riscos permanentes.
+            Montar um aquário é um processo que vai muito além de simplesmente escolher um recipiente e
+            colocar água e peixes dentro. A escolha do aquário ideal envolve entender os materiais,
+            tamanhos, proporções e, acima de tudo, o bem-estar dos habitantes. Neste artigo, vamos
+            explorar os principais pontos para te ajudar a escolher o aquário perfeito para o seu
+            projeto, levando em conta que o aquário seja tanto uma peça de design quanto um ecossistema
+            perfeito.
           </p>
-        </div>
-      </section>
 
-      <!-- CONCRETO -->
-      <section>
-        <h3>3. Concreto / Cimento: Estruturas Permanentes e de Grande Porte</h3>
-        <div class="image-block">
-          <img src="assets/images/aquariums/ornamental_lake1.webp" alt="Lago ornamental em concreto" loading="lazy" />
-          <p class="image-caption">Exemplo de lagos ornamentais.</p>
+          <div class="image-block">
+            <img src="assets/images/aquariums/aquarium1.webp" alt="Aquário aquapaisagismo" loading="lazy" />
+            <p class="image-caption">Exemplo de aquário bem planejado e equilibrado.</p>
+          </div>
         </div>
-        <p>
-          O uso de concreto na construção de aquários e lagos é bastante comum em projetos de grande
-          porte, especialmente acima de 1000 litros ou em lagos ornamentais. Esse material permite
-          criar estruturas totalmente personalizadas, inclusive integradas à arquitetura da casa,
-          oferecendo alta durabilidade e excelente isolamento térmico.
-        </p>
-        <p>
-          No entanto, o concreto exige cuidados técnicos importantes. Durante o processo de cura, o
-          cimento libera substâncias alcalinas que podem elevar drasticamente o pH da água, tornando
-          o ambiente inadequado para os peixes. Por isso, é essencial realizar uma cura completa e
-          aplicar impermeabilizantes específicos, como mantas líquidas ou resinas epóxi atóxicas.
-        </p>
-        <div class="highlight-box">
+
+        <div>
+          <h2>Materiais para Construção: Qual Escolher?</h2>
+
           <p>
-            <strong>Dica:</strong> Sempre utilize impermeabilização adequada e teste o pH da água
-            antes de introduzir qualquer organismo no sistema.
+            Os aquários podem ser feitos de diferentes materiais, cada um com suas vantagens e
+            desvantagens. A escolha do material influencia diretamente na durabilidade, peso e na
+            aparência final do seu aquário.
           </p>
-        </div>
-        <div class="table-container">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Vantagens</th>
-                <th scope="col">Desvantagens</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Alta durabilidade e longa vida útil</td>
-                <td>Pode alterar o pH da água (alcalinização)</td>
-              </tr>
-              <tr>
-                <td>Permite qualquer formato e tamanho</td>
-                <td>Exige impermeabilização adequada</td>
-              </tr>
-              <tr>
-                <td>Ideal para lagos e grandes volumes</td>
-                <td>Construção mais complexa e trabalhosa</td>
-              </tr>
-              <tr>
-                <td>Bom isolamento térmico</td>
-                <td>Necessita tempo de cura antes do uso</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
 
-      <!-- POLIETILENO -->
-      <section>
-        <h3>4. Polietileno: Praticidade e Baixo Custo</h3>
-        <p>
-          O polietileno, material utilizado na fabricação de caixas d’água, é uma solução prática e
-          econômica para sistemas aquáticos, sendo muito utilizado em criação de peixes, quarentena
-          e projetos de aquaponia. Sua principal vantagem está na facilidade de instalação e no
-          baixo custo, tornando-o acessível para iniciantes e projetos funcionais.
-        </p>
-        <p>
-          Apesar da praticidade, o polietileno apresenta limitações estéticas e técnicas. Nem todas
-          as caixas são fabricadas com materiais totalmente seguros para uso com peixes, sendo
-          fundamental verificar se o produto é atóxico. Além disso, adaptações podem ser necessárias
-          para instalação de sistemas de filtragem e circulação, dependendo do tipo de projeto.
-        </p>
-        <p>
-          Outro ponto importante é que, embora seja resistente a impactos, o material pode sofrer
-          deformações ao longo do tempo quando exposto a calor excessivo ou grandes volumes de água
-          sem suporte adequado.
-        </p>
+          <!-- VIDRO -->
+          <section>
+            <h3>1. Vidro</h3>
+            <p>
+              O vidro é o material mais utilizado para aquários, sendo usado há décadas por aquaristas
+              de todos os níveis.
+            </p>
 
-        <div class="image-block">
-          <img src="assets/images/aquariums/fish-farming1.webp" alt="Tanques de polietileno usados na criação de peixes" loading="lazy" />
-          <p class="image-caption">Exemplo de Tanques de polietileno para criação de peixes</p>
-        </div>
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquariums3.webp" alt="Aquários de vidro" loading="lazy" />
+              <p class="image-caption">Exemplo de aquários de vidro.</p>
+            </div>
 
-        <div class="table-container">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Vantagens</th>
-                <th scope="col">Desvantagens</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Baixo custo e fácil acesso</td>
-                <td>Estética limitada</td>
-              </tr>
-              <tr>
-                <td>Leve e fácil de instalar</td>
-                <td>Pode exigir adaptações para filtragem</td>
-              </tr>
-              <tr>
-                <td>Boa resistência a impactos</td>
-                <td>Nem todos os modelos são atóxicos</td>
-              </tr>
-              <tr>
-                <td>Ideal para sistemas funcionais</td>
-                <td>Pode deformar com calor ou pressão</td>
-              </tr>
-            </tbody>
-          </table>
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Vantagens</th>
+                    <th scope="col">Desvantagens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Resistente a riscos (não risca facilmente)</td>
+                    <td>Mais pesado em comparação com outros materiais</td>
+                  </tr>
+                  <tr>
+                    <td>Não sofre deformação com o tempo</td>
+                    <td>Mais frágil em caso de impactos</td>
+                  </tr>
+                  <tr>
+                    <td>Aparência clara e brilhante</td>
+                    <td>Bordas de silicone podem ficar visíveis</td>
+                  </tr>
+                  <tr>
+                    <td>Fácil de limpar</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <section>
+              <h4>Tipos de Vidro</h4>
+              <p>
+                Existem dois tipos principais de vidro utilizados na construção de aquários: o
+                <strong>vidro float</strong>, que é o mais comum no mercado, e o
+                <strong>vidro extra clear</strong> (também conhecido como low iron). A principal
+                diferença entre eles está na transparência e na fidelidade das cores, fatores que
+                impactam diretamente na estética do aquário.
+              </p>
+              <ul class="legal-list">
+                <li>
+                  <strong>Vidro Float (Comum):</strong>
+                  É a opção mais utilizada por ser resistente e acessível. Possui uma leve tonalidade
+                  esverdeada, especialmente perceptível nas bordas, o que pode influenciar sutilmente na
+                  aparência das cores internas.
+                </li>
+                <li>
+                  <strong>Vidro Extra Clear (Low Iron):</strong>
+                  Contém baixo teor de ferro, resultando em uma transparência muito superior.
+                  Proporciona cores mais fiéis e vibrantes, criando a sensação de que praticamente não
+                  há vidro entre você e o aquário.
+                </li>
+              </ul>
+              <div class="highlight-box">
+                <p>
+                  <strong>Dica:</strong> Se o seu objetivo é um aquário com foco em estética, como no
+                  aquapaisagismo, o vidro extra clear faz uma diferença visual significativa.
+                </p>
+              </div>
+            </section>
+            <!-- ESPESSURA DO VIDRO -->
+            <section>
+              <div>
+                <h4>Espessura Recomendada do Vidro</h4>
+                <div class="table-container">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Altura do Aquário</th>
+                        <th scope="col">Espessura Mínima</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Até 30 cm</td>
+                        <td>4 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Até 50 cm</td>
+                        <td>6 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Até 70 cm</td>
+                        <td>10 mm</td>
+                      </tr>
+                      <tr>
+                        <td>Até 100 cm</td>
+                        <td>12 mm ou mais</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="table-note">
+                  Esses valores são referências gerais. O comprimento do aquário e o volume total também
+                  influenciam na espessura necessária.
+                </p>
+              </div>
+            </section>
+            <!-- TRAVAS FRANCESAS -->
+            <section>
+              <div>
+                <h4>Travas Francesas (Reforço Estrutural)</h4>
+                <div class="image-grid">
+                  <div class="image-block2">
+                    <img src="assets/images/aquariums/euro-brace3.webp" alt="Trava francesa superior em aquário"
+                      loading="lazy" />
+                  </div>
+
+                  <div class="image-block2">
+                    <img src="assets/images/aquariums/euro-brace2.webp" alt="Trava francesa inferior em aquário"
+                      loading="lazy" />
+                  </div>
+
+                  <p class="image-caption2">Exemplo de trava francesa</p>
+                </div>
+
+                <p>
+                  As travas francesas são tiras de vidro coladas na parte superior e inferior do
+                  aquário, utilizadas para aumentar a resistência estrutural e reduzir a flexão causada
+                  pela pressão da água.
+                </p>
+                <ul class="legal-list">
+                  <li>Recomendadas para aquários com mais de 50 cm de altura</li>
+                  <li>Essenciais em aquários com mais de 1 metro de comprimento</li>
+                  <li>
+                    Ajudam a evitar o chamado "efeito barriga" (deformação do vidro) e a explosão do
+                    tanque.
+                  </li>
+                </ul>
+                <div class="highlight-box inner">
+                  <p>
+                    <strong>Importante:</strong> O uso de travas pode ser determinante para a segurança
+                    do aquário, reduzindo o risco de trincas ou falhas estruturais ao longo do tempo.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section>
+            <h3>2. Acrílico: Leveza, Resistência e Design Avançado</h3>
+            <p>
+              O acrílico é um material amplamente utilizado em aquários de alto padrão, especialmente em
+              projetos grandes (jumbos) e com designs personalizados. Ele se destaca por sua resistência
+              e leveza, sendo uma alternativa moderna ao vidro tradicional.
+            </p>
+            <p>
+              Comparado ao vidro, o acrílico pode ser até
+              <strong>17 vezes mais resistente a impactos</strong>, além de ser significativamente mais
+              leve. Isso permite a construção de aquários maiores, com formatos curvos e sem emendas
+              visíveis, algo difícil de alcançar com vidro.
+            </p>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/aquarium2.webp" alt="Aquário acrílico curvo" loading="lazy" />
+              <p class="image-caption">
+                Exemplo de aquário em acrílico permitindo designs curvos e modernos.
+              </p>
+            </div>
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Vantagens</th>
+                    <th scope="col">Desvantagens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mais leve que o vidro</td>
+                    <td>Risca com muita facilidade</td>
+                  </tr>
+                  <tr>
+                    <td>Alta resistência a impactos (muito difícil de quebrar)</td>
+                    <td>Exige cuidado extremo na limpeza</td>
+                  </tr>
+                  <tr>
+                    <td>Permite designs curvos e personalizados</td>
+                    <td>Pode deformar com o tempo (pressão ou calor)</td>
+                  </tr>
+                  <tr>
+                    <td>Transparência superior ao vidro comum</td>
+                    <td>Custo elevado (pode chegar a até 3x o valor do vidro)</td>
+                  </tr>
+                  <tr>
+                    <td>Pode ser polido em caso de riscos leves</td>
+                    <td>Menor resistência a abrasão (areia pode danificar)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="highlight-box">
+              <p>
+                <strong>Dica:</strong> O acrílico é ideal para aquários grandes ou projetos de design
+                (como aquários curvos e panorâmicos), mas exige manutenção cuidadosa. O uso de esponjas
+                inadequadas ou partículas de areia pode causar riscos permanentes.
+              </p>
+            </div>
+          </section>
+
+          <!-- CONCRETO -->
+          <section>
+            <h3>3. Concreto / Cimento: Estruturas Permanentes e de Grande Porte</h3>
+            <div class="image-block">
+              <img src="assets/images/aquariums/ornamental_lake1.webp" alt="Lago ornamental em concreto" loading="lazy" />
+              <p class="image-caption">Exemplo de lagos ornamentais.</p>
+            </div>
+            <p>
+              O uso de concreto na construção de aquários e lagos é bastante comum em projetos de grande
+              porte, especialmente acima de 1000 litros ou em lagos ornamentais. Esse material permite
+              criar estruturas totalmente personalizadas, inclusive integradas à arquitetura da casa,
+              oferecendo alta durabilidade e excelente isolamento térmico.
+            </p>
+            <p>
+              No entanto, o concreto exige cuidados técnicos importantes. Durante o processo de cura, o
+              cimento libera substâncias alcalinas que podem elevar drasticamente o pH da água, tornando
+              o ambiente inadequado para os peixes. Por isso, é essencial realizar uma cura completa e
+              aplicar impermeabilizantes específicos, como mantas líquidas ou resinas epóxi atóxicas.
+            </p>
+            <div class="highlight-box">
+              <p>
+                <strong>Dica:</strong> Sempre utilize impermeabilização adequada e teste o pH da água
+                antes de introduzir qualquer organismo no sistema.
+              </p>
+            </div>
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Vantagens</th>
+                    <th scope="col">Desvantagens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alta durabilidade e longa vida útil</td>
+                    <td>Pode alterar o pH da água (alcalinização)</td>
+                  </tr>
+                  <tr>
+                    <td>Permite qualquer formato e tamanho</td>
+                    <td>Exige impermeabilização adequada</td>
+                  </tr>
+                  <tr>
+                    <td>Ideal para lagos e grandes volumes</td>
+                    <td>Construção mais complexa e trabalhosa</td>
+                  </tr>
+                  <tr>
+                    <td>Bom isolamento térmico</td>
+                    <td>Necessita tempo de cura antes do uso</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- POLIETILENO -->
+          <section>
+            <h3>4. Polietileno: Praticidade e Baixo Custo</h3>
+            <p>
+              O polietileno, material utilizado na fabricação de caixas d’água, é uma solução prática e
+              econômica para sistemas aquáticos, sendo muito utilizado em criação de peixes, quarentena
+              e projetos de aquaponia. Sua principal vantagem está na facilidade de instalação e no
+              baixo custo, tornando-o acessível para iniciantes e projetos funcionais.
+            </p>
+            <p>
+              Apesar da praticidade, o polietileno apresenta limitações estéticas e técnicas. Nem todas
+              as caixas são fabricadas com materiais totalmente seguros para uso com peixes, sendo
+              fundamental verificar se o produto é atóxico. Além disso, adaptações podem ser necessárias
+              para instalação de sistemas de filtragem e circulação, dependendo do tipo de projeto.
+            </p>
+            <p>
+              Outro ponto importante é que, embora seja resistente a impactos, o material pode sofrer
+              deformações ao longo do tempo quando exposto a calor excessivo ou grandes volumes de água
+              sem suporte adequado.
+            </p>
+
+            <div class="image-block">
+              <img src="assets/images/aquariums/fish-farming1.webp" alt="Tanques de polietileno usados na criação de peixes" loading="lazy" />
+              <p class="image-caption">Exemplo de Tanques de polietileno para criação de peixes</p>
+            </div>
+
+            <div class="table-container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Vantagens</th>
+                    <th scope="col">Desvantagens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Baixo custo e fácil acesso</td>
+                    <td>Estética limitada</td>
+                  </tr>
+                  <tr>
+                    <td>Leve e fácil de instalar</td>
+                    <td>Pode exigir adaptações para filtragem</td>
+                  </tr>
+                  <tr>
+                    <td>Boa resistência a impactos</td>
+                    <td>Nem todos os modelos são atóxicos</td>
+                  </tr>
+                  <tr>
+                    <td>Ideal para sistemas funcionais</td>
+                    <td>Pode deformar com calor ou pressão</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="highlight-box">
+              <p>
+                <strong>Melhor uso:</strong> Criação de peixes, quarentena, aquaponia e projetos onde a
+                funcionalidade é mais importante que a estética.
+              </p>
+            </div>
+          </section>
         </div>
-        <div class="highlight-box">
+        <section>
+          <h2>Conclusão</h2>
           <p>
-            <strong>Melhor uso:</strong> Criação de peixes, quarentena, aquaponia e projetos onde a
-            funcionalidade é mais importante que a estética.
+            Escolher o aquário ideal é uma decisão que envolve mais do que estética, trata-se de criar
+            um ambiente estável, seguro e adequado para os peixes e plantas que irão habitá-lo. Cada
+            escolha, desde o material até as dimensões e a iluminação, impacta diretamente no equilíbrio
+            do sistema e na facilidade de manutenção ao longo do tempo.
           </p>
-        </div>
-      </section>
-    </div>
-    <section>
-      <h2>Conclusão</h2>
-      <p>
-        Escolher o aquário ideal é uma decisão que envolve mais do que estética, trata-se de criar
-        um ambiente estável, seguro e adequado para os peixes e plantas que irão habitá-lo. Cada
-        escolha, desde o material até as dimensões e a iluminação, impacta diretamente no equilíbrio
-        do sistema e na facilidade de manutenção ao longo do tempo.
-      </p>
-      <p>
-        Para iniciantes, optar por soluções mais simples e consolidadas, como aquários de vidro,
-        pode trazer maior segurança e previsibilidade. Já para projetos mais avançados, materiais
-        como acrílico, concreto ou polietileno abrem possibilidades interessantes, desde que
-        acompanhados do conhecimento técnico necessário.
-      </p>
-      <p>
-        Mais importante do que buscar o "aquário perfeito" é alinhar suas escolhas ao seu objetivo,
-        ao espaço disponível e ao tipo de projeto que você deseja construir, seja um aquário
-        plantado, um comunitário ou até um lago ornamental.
-      </p>
-    </section>
+          <p>
+            Para iniciantes, optar por soluções mais simples e consolidadas, como aquários de vidro,
+            pode trazer maior segurança e previsibilidade. Já para projetos mais avançados, materiais
+            como acrílico, concreto ou polietileno abrem possibilidades interessantes, desde que
+            acompanhados do conhecimento técnico necessário.
+          </p>
+          <p>
+            Mais importante do que buscar o "aquário perfeito" é alinhar suas escolhas ao seu objetivo,
+            ao espaço disponível e ao tipo de projeto que você deseja construir, seja um aquário
+            plantado, um comunitário ou até um lago ornamental.
+          </p>
+        </section>
+    }
   </article>
 </section>
 

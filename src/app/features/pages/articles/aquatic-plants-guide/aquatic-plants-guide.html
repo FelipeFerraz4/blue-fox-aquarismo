@@ -3,442 +3,876 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-    <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <section class="context">
-            <p>
-                Um aquário plantado é muito mais do que um aquário bonito. As plantas absorvem os resíduos dos peixes,
-                oferecem abrigo, competem com as algas por nutrientes e transformam o tanque em um ecossistema de verdade.
-                Mas quem começa costuma enfrentar o mesmo cenário: plantas que murcham, folhas que derretem e algas que
-                tomam conta do vidro.
-            </p>
-            <p>
-                Neste guia, você vai entender os três pilares do aquário plantado (luz, CO₂ e nutrientes), conhecer as
-                plantas mais fáceis para começar, aprender onde e como plantá-las e descobrir como evitar as algas.
-            </p>
-        </section>
-
-        <section>
-            <h2>Por que ter plantas no aquário?</h2>
-            <ul class="article-list bullets">
-                <li><strong>Absorvem amônia e nitrato:</strong> ajudam o filtro e deixam a água mais estável, embora não
-                    o substituam.</li>
-                <li><strong>Competem com as algas:</strong> usam os mesmos nutrientes e a mesma luz, e quanto mais
-                    saudáveis estiverem, menos espaço sobra para elas.</li>
-                <li><strong>Oxigenam a água:</strong> liberam oxigênio durante o dia pela fotossíntese. À noite, elas
-                    consomem um pouco, o que é normal.</li>
-                <li><strong>Dão abrigo e conforto:</strong> peixes com onde se esconder sofrem menos estresse e mostram
-                    cores mais vivas. O
-                    <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de cuidados do Betta</a> mostra como isso é importante para essa
-                    espécie.
-                </li>
-                <li><strong>Embelezam o aquário:</strong> e permitem criar composições, o chamado aquapaisagismo.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Os 3 pilares: luz, CO₂ e nutrientes</h2>
-
-            <p>
-                As plantas crescem bem quando luz, CO₂ e nutrientes estão em equilíbrio, porque cada um depende dos
-                outros para ser aproveitado. Quando um deles falta, ele limita o crescimento e as plantas deixam de
-                aproveitar os outros dois. O que fica sobrando, como o excesso de luz ou de nutrientes, passa a
-                alimentar as algas.
-            </p>
-
-            <div class="image-block">
-                <a href="assets/images/aquariums/plants-balance-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/aquariums/plants-balance-diagram.webp"
-                    alt="Triângulo do equilíbrio do aquário plantado com luz, CO₂ e nutrientes nos vértices"
-                    loading="lazy" /></a>
-                <p class="image-caption">Luz, CO₂ e nutrientes precisam andar juntos. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
-            </div>
-
-            <section>
-                <h3>Luz</h3>
+    <article class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <section class="context">
                 <p>
-                    Use uma luminária de <strong>LED de espectro completo</strong> (em torno de 6.000 a 7.000 K) com
-                    timer, ligada de <strong>6 a 8 horas por dia</strong>. Em aquários iniciantes, o excesso de luz é uma
-                    das maiores causas de algas. Se tiver dúvida, comece com menos horas e vá aumentando aos poucos.
+                    A planted aquarium is much more than a pretty aquarium. Plants absorb fish waste, provide shelter, compete
+                    with algae for nutrients and turn the tank into a real ecosystem. But beginners usually face the same
+                    scene: plants that wilt, leaves that melt and algae taking over the glass.
                 </p>
                 <p>
-                    Lembre-se também de que, quanto mais fundo o aquário, menos luz chega ao substrato, como explicamos
-                    no <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de dimensões e proporções</a>.
+                    In this guide you will understand the three pillars of a planted aquarium (light, CO₂ and nutrients), meet
+                    the easiest plants to start with, learn where and how to plant them and find out how to avoid algae.
                 </p>
             </section>
 
             <section>
-                <h3>CO₂</h3>
-                <p>
-                    O carbono é a base da fotossíntese, e o CO₂ é a fonte dele para as plantas. Sem injeção, elas usam
-                    apenas o CO₂ que já existe na água (vindo da respiração dos peixes e da decomposição) e crescem
-                    mais devagar. Com injeção, o CO₂ é adicionado de forma controlada, o que acelera muito o
-                    crescimento, mas exige equipamento e acompanhamento diário.
-                </p>
-            </section>
-
-            <section>
-                <h3>Nutrientes</h3>
-                <p>
-                    As plantas precisam de macronutrientes (nitrogênio, fósforo e potássio) e de micronutrientes (como o
-                    ferro). Parte vem dos próprios peixes, parte do substrato e parte da fertilização:
-                </p>
+                <h2>Why Have Plants in the Aquarium?</h2>
                 <ul class="article-list bullets">
-                    <li><strong>Fertilizante líquido:</strong> abastece as plantas que absorvem pela folha e pela
-                        coluna d'água. Siga a dose do rótulo e comece com menos.</li>
-                    <li><strong>Pastilhas de raiz:</strong> enterradas perto das plantas que se alimentam pelas raízes,
-                        como as espadas e as Cryptocoryne.</li>
-                    <li><strong>Substrato nutritivo:</strong> solos próprios para aquários fornecem nutrientes por meses,
-                        mas costumam liberar amônia nas primeiras semanas.</li>
-                </ul>
-            </section>
-        </section>
-
-        <section>
-            <h2>Low-tech ou high-tech: qual escolher?</h2>
-            <p>
-                Existem dois grandes caminhos para montar um aquário plantado, e a diferença está na quantidade de
-                "tecnologia" aplicada. Para quem está começando, a recomendação é clara: comece pelo
-                <strong>low-tech</strong>.
-            </p>
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Característica</th>
-                            <th scope="col">Low-tech</th>
-                            <th scope="col">High-tech</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Iluminação</strong></td>
-                            <td>Baixa a moderada</td>
-                            <td>Forte</td>
-                        </tr>
-                        <tr>
-                            <td><strong>CO₂</strong></td>
-                            <td>Natural da água, sem injeção</td>
-                            <td>Injetado, com cilindro e regulador</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fertilização</strong></td>
-                            <td>Leve</td>
-                            <td>Regular e mais precisa</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Crescimento</strong></td>
-                            <td>Lento e tranquilo</td>
-                            <td>Rápido</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Manutenção</strong></td>
-                            <td>Mais simples</td>
-                            <td>Exige rotina e podas frequentes</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Indicado para</strong></td>
-                            <td>Iniciantes</td>
-                            <td>Quem já domina o básico</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section>
-            <h2>Plantas fáceis para começar</h2>
-
-            <p>
-                Escolher plantas resistentes é a melhor forma de ganhar confiança. As espécies abaixo toleram erros,
-                crescem sem CO₂ injetado e se adaptam bem a luz baixa ou moderada:
-            </p>
-
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Planta</th>
-                            <th scope="col">Dificuldade</th>
-                            <th scope="col">Luz</th>
-                            <th scope="col">Onde plantar</th>
-                            <th scope="col">Observação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Anubias</strong><br><em>Anubias barteri</em></td>
-                            <td>Fácil</td>
-                            <td>Baixa</td>
-                            <td>Tronco ou pedra</td>
-                            <td>Não enterre o rizoma; crescimento lento</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Samambaia-java</strong><br><em>Microsorum pteropus</em></td>
-                            <td>Fácil</td>
-                            <td>Baixa</td>
-                            <td>Tronco ou pedra</td>
-                            <td>Mesmos cuidados do rizoma da Anubias</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Musgo-java</strong><br><em>Taxiphyllum barbieri</em></td>
-                            <td>Fácil</td>
-                            <td>Baixa a média</td>
-                            <td>Tronco ou pedra</td>
-                            <td>Excelente abrigo para filhotes e camarões</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cryptocoryne</strong><br><em>C. wendtii</em></td>
-                            <td>Fácil a média</td>
-                            <td>Baixa a média</td>
-                            <td>Plano médio</td>
-                            <td>Pode "derreter" ao mudar de ambiente, e se recupera</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Espada-amazônica</strong><br><em>Echinodorus</em></td>
-                            <td>Fácil a média</td>
-                            <td>Média</td>
-                            <td>Fundo ou meio</td>
-                            <td>Grande; precisa de nutrientes na raiz</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Vallisneria</strong></td>
-                            <td>Fácil</td>
-                            <td>Baixa a média</td>
-                            <td>Fundo e laterais</td>
-                            <td>Cresce rápido e forma uma "cortina"</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hygrophila</strong></td>
-                            <td>Fácil</td>
-                            <td>Média</td>
-                            <td>Fundo</td>
-                            <td>Crescimento rápido, ótima contra algas</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ludwigia</strong><br><em>L. repens</em></td>
-                            <td>Fácil a média</td>
-                            <td>Média a alta</td>
-                            <td>Fundo ou meio</td>
-                            <td>Fica avermelhada com mais luz</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Alface-d'água e Salvinia</strong></td>
-                            <td>Fácil</td>
-                            <td>Média</td>
-                            <td>Superfície</td>
-                            <td>Flutuantes: sombreiam e absorvem nutrientes</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="table-note">Valores de referência. As necessidades variam conforme a espécie, a variedade e
-                as condições do seu aquário.</p>
-
-            <div class="highlight-box inner">
-                <p>
-                    <strong>Cuidado com o descarte.</strong> Nunca jogue plantas aquáticas, nem mesmo as aparas da poda,
-                    em rios, lagos ou no esgoto. Algumas espécies se proliferam com facilidade e podem se tornar
-                    invasoras. Descarte no lixo comum, bem secas.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Onde plantar cada tipo de planta</h2>
-
-            <div class="image-block">
-                <a href="assets/images/aquariums/plants-planting-zones-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/aquariums/plants-planting-zones-diagram.webp"
-                    alt="Corte lateral de um aquário plantado mostrando o plano de fundo, o plano médio, o primeiro plano, a decoração com epífitas e as plantas flutuantes"
-                    loading="lazy" /></a>
-                <p class="image-caption">Como organizar as plantas em camadas, do fundo à superfície. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
-            </div>
-
-            <ul class="article-list bullets">
-                <li><strong>Plano de fundo:</strong> plantas altas, como a Vallisneria e as hastes (Ludwigia e
-                    Hygrophila), que escondem equipamentos e criam profundidade.</li>
-                <li><strong>Plano médio:</strong> rosetas, como as Cryptocoryne e as espadas, que preenchem o centro do
-                    aquário.</li>
-                <li><strong>Primeiro plano:</strong> plantas baixas. Tapetes densos são bonitos, mas exigem mais luz e
-                    CO₂, e não são indicados para quem está começando.</li>
-                <li><strong>Troncos e pedras:</strong> as epífitas (Anubias, samambaia-java e musgo-java) dispensam
-                    substrato e podem ser presas na decoração.</li>
-                <li><strong>Superfície:</strong> as flutuantes sombreiam o aquário e absorvem nutrientes diretamente da
-                    água.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Como plantar: passo a passo</h2>
-
-            <section>
-                <h3>1. Prepare o substrato</h3>
-                <p>
-                    Para plantas de raiz, use uma camada de <strong>5 a 7 cm</strong>, mais alta no fundo e mais baixa
-                    na frente, o que cria sensação de profundidade. Se usar solo nutritivo, cubra com uma camada de areia
-                    ou cascalho fino para segurar os nutrientes.
-                </p>
-            </section>
-
-            <section>
-                <h3>2. Planeje o layout</h3>
-                <p>
-                    Desenhe antes onde vai cada planta. Evite colocar as mais altas na frente e deixe um espaço livre
-                    para os peixes nadarem. Compor com a proporção áurea ajuda a criar um visual harmônico, como mostra o
-                    <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de dimensões e proporções</a>.
-                </p>
-            </section>
-
-            <section>
-                <h3>3. Limpe as plantas novas</h3>
-                <p>
-                    Retire o vasinho e a lã de rocha, lave bem as raízes e remova folhas danificadas. Plantas de loja
-                    podem trazer caramujos, ovos e algas: se possível, deixe-as de quarentena em um balde por alguns dias
-                    antes de colocá-las no aquário.
-                </p>
-            </section>
-
-            <section>
-                <h3>4. Plante cada tipo do jeito certo</h3>
-                <ul class="article-list bullets">
-                    <li><strong>Hastes:</strong> retire as folhas de baixo e enterre apenas o talo, com cuidado para não
-                        amassá-lo.</li>
-                    <li><strong>Rosetas (Cryptocoryne, espadas):</strong> enterre as raízes, mas deixe a coroa (o ponto
-                        de onde nascem as folhas) acima do substrato.</li>
-                    <li><strong>Epífitas (Anubias, samambaia-java):</strong> prenda com linha de nylon ou cola de
-                        cianoacrilato em gel. Nunca enterre o rizoma, pois ele apodrece.</li>
-                    <li><strong>Musgos:</strong> prenda com linha fina em troncos ou pedras.</li>
+                    <li><strong>They absorb ammonia and nitrate:</strong> they help the filter and make the water more stable,
+                        although they do not replace it.</li>
+                    <li><strong>They compete with algae:</strong> they use the same nutrients and the same light, and the
+                        healthier they are, the less room is left for algae.</li>
+                    <li><strong>They oxygenate the water:</strong> they release oxygen during the day through photosynthesis.
+                        At night they consume a little, which is normal.</li>
+                    <li><strong>They provide shelter and comfort:</strong> fish with places to hide suffer less stress and show
+                        brighter colours. The
+                        <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">Betta care guide</a> shows how important this is for that species.
+                    </li>
+                    <li><strong>They make the aquarium beautiful:</strong> and allow you to create compositions, known as
+                        aquascaping.</li>
                 </ul>
             </section>
 
             <section>
-                <h3>5. Plante em abundância desde o início</h3>
+                <h2>The 3 Pillars: Light, CO₂ and Nutrients</h2>
+
                 <p>
-                    Aquários densamente plantados desde o primeiro dia têm muito menos problemas com algas, porque as
-                    plantas consomem os nutrientes antes que as algas possam aproveitá-los. Use muitas plantas de
-                    crescimento rápido, como as hastes e as flutuantes, enquanto as outras se estabelecem.
+                    Plants grow well when light, CO₂ and nutrients are in balance, because each one depends on the others to be
+                    used. When one is lacking, it limits growth and the plants can no longer use the other two. Whatever is left
+                    over, such as excess light or nutrients, ends up feeding algae.
+                </p>
+
+                <div class="image-block">
+                    <a href="assets/images/aquariums/plants-balance-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Open the image at full size"><img src="assets/images/aquariums/plants-balance-diagram.webp"
+                        alt="Planted aquarium balance triangle with light, CO₂ and nutrients at the corners"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Light, CO₂ and nutrients have to go together. <span class="zoom-hint">Tap or click the image to enlarge it.</span></p>
+                </div>
+
+                <section>
+                    <h3>Light</h3>
+                    <p>
+                        Use a <strong>full-spectrum LED</strong> light (around 6,000 to 7,000 K) with a timer, switched on for
+                        <strong>6 to 8 hours a day</strong>. In beginner aquariums, too much light is one of the biggest causes
+                        of algae. If in doubt, start with fewer hours and increase them gradually.
+                    </p>
+                    <p>
+                        Also remember that the deeper the aquarium, the less light reaches the substrate, as we explain in the
+                        <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guide to dimensions and proportions</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>CO₂</h3>
+                    <p>
+                        Carbon is the basis of photosynthesis, and CO₂ is the plants' source of it. Without injection they only
+                        use the CO₂ already in the water (from fish respiration and decomposition) and grow more slowly. With
+                        injection, CO₂ is added in a controlled way, which greatly speeds up growth but requires equipment and
+                        daily monitoring.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Nutrients</h3>
+                    <p>
+                        Plants need macronutrients (nitrogen, phosphorus and potassium) and micronutrients (such as iron). Part
+                        comes from the fish themselves, part from the substrate and part from fertilisation:
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Liquid fertiliser:</strong> feeds plants that absorb through their leaves and the water
+                            column. Follow the dose on the label and start with less.</li>
+                        <li><strong>Root tabs:</strong> buried near plants that feed through their roots, such as Amazon swords
+                            and Cryptocoryne.</li>
+                        <li><strong>Nutrient substrate:</strong> aquarium soils supply nutrients for months, but they usually
+                            release ammonia in the first weeks.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h2>Low-Tech or High-Tech: Which to Choose?</h2>
+                <p>
+                    There are two main ways to set up a planted aquarium, and the difference lies in how much "technology" is
+                    applied. For beginners the recommendation is clear: start with <strong>low-tech</strong>.
+                </p>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Low-tech</th>
+                                <th scope="col">High-tech</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Lighting</strong></td>
+                                <td>Low to moderate</td>
+                                <td>Strong</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CO₂</strong></td>
+                                <td>Naturally present in the water, no injection</td>
+                                <td>Injected, with a cylinder and regulator</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fertilisation</strong></td>
+                                <td>Light</td>
+                                <td>Regular and more precise</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Growth</strong></td>
+                                <td>Slow and steady</td>
+                                <td>Fast</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Maintenance</strong></td>
+                                <td>Simpler</td>
+                                <td>Requires a routine and frequent trimming</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suitable for</strong></td>
+                                <td>Beginners</td>
+                                <td>Those who have mastered the basics</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Easy Plants to Start With</h2>
+
+                <p>
+                    Choosing hardy plants is the best way to build confidence. The species below tolerate mistakes, grow
+                    without injected CO₂ and adapt well to low or moderate light:
+                </p>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Plant</th>
+                                <th scope="col">Difficulty</th>
+                                <th scope="col">Light</th>
+                                <th scope="col">Where to plant</th>
+                                <th scope="col">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Anubias</strong><br><em>Anubias barteri</em></td>
+                                <td>Easy</td>
+                                <td>Low</td>
+                                <td>Driftwood or rock</td>
+                                <td>Do not bury the rhizome; slow growth</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Java fern</strong><br><em>Microsorum pteropus</em></td>
+                                <td>Easy</td>
+                                <td>Low</td>
+                                <td>Driftwood or rock</td>
+                                <td>Same rhizome care as Anubias</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Java moss</strong><br><em>Taxiphyllum barbieri</em></td>
+                                <td>Easy</td>
+                                <td>Low to medium</td>
+                                <td>Driftwood or rock</td>
+                                <td>Excellent shelter for fry and shrimp</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cryptocoryne</strong><br><em>C. wendtii</em></td>
+                                <td>Easy to medium</td>
+                                <td>Low to medium</td>
+                                <td>Midground</td>
+                                <td>May "melt" after a change of environment, then recovers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Amazon sword</strong><br><em>Echinodorus</em></td>
+                                <td>Easy to medium</td>
+                                <td>Medium</td>
+                                <td>Background or midground</td>
+                                <td>Large; needs nutrients at the roots</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vallisneria</strong></td>
+                                <td>Easy</td>
+                                <td>Low to medium</td>
+                                <td>Background and sides</td>
+                                <td>Grows fast and forms a "curtain"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hygrophila</strong></td>
+                                <td>Easy</td>
+                                <td>Medium</td>
+                                <td>Background</td>
+                                <td>Fast growth, great against algae</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ludwigia</strong><br><em>L. repens</em></td>
+                                <td>Easy to medium</td>
+                                <td>Medium to high</td>
+                                <td>Background or midground</td>
+                                <td>Turns reddish with more light</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Water lettuce and Salvinia</strong></td>
+                                <td>Easy</td>
+                                <td>Medium</td>
+                                <td>Surface</td>
+                                <td>Floating plants: they shade the tank and absorb nutrients</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Reference values. Needs vary with the species, the variety and the conditions in your
+                    aquarium.</p>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Be careful how you dispose of plants.</strong> Never throw aquatic plants, not even trimmings,
+                        into rivers, lakes or the drain. Some species spread easily and can become invasive. Throw them in the
+                        household rubbish, well dried.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Where to Plant Each Type of Plant</h2>
+
+                <div class="image-block">
+                    <a href="assets/images/aquariums/plants-planting-zones-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Open the image at full size"><img src="assets/images/aquariums/plants-planting-zones-diagram.webp"
+                        alt="Side view of a planted aquarium showing the background, midground, foreground, decoration with epiphytes and floating plants"
+                        loading="lazy" /></a>
+                    <p class="image-caption">How to arrange plants in layers, from the back to the surface. <span class="zoom-hint">Tap or click the image to enlarge it.</span></p>
+                </div>
+
+                <ul class="article-list bullets">
+                    <li><strong>Background:</strong> tall plants such as Vallisneria and stem plants (Ludwigia and Hygrophila),
+                        which hide equipment and create depth.</li>
+                    <li><strong>Midground:</strong> rosette plants such as Cryptocoryne and Amazon swords, which fill the centre
+                        of the aquarium.</li>
+                    <li><strong>Foreground:</strong> low plants. Dense carpets are beautiful but need more light and CO₂, and are
+                        not recommended for beginners.</li>
+                    <li><strong>Driftwood and rocks:</strong> epiphytes (Anubias, Java fern and Java moss) do not need substrate
+                        and can be attached to the decoration.</li>
+                    <li><strong>Surface:</strong> floating plants shade the aquarium and absorb nutrients directly from the
+                        water.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How to Plant: Step by Step</h2>
+
+                <section>
+                    <h3>1. Prepare the substrate</h3>
+                    <p>
+                        For rooted plants, use a layer of <strong>5 to 7 cm</strong>, deeper at the back and shallower at the
+                        front, which creates a sense of depth. If you use nutrient soil, cap it with a layer of sand or fine
+                        gravel to hold the nutrients in.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>2. Plan the layout</h3>
+                    <p>
+                        Sketch where each plant will go beforehand. Avoid putting the tallest ones at the front and leave open
+                        space for the fish to swim. Composing with the golden ratio helps create a harmonious look, as shown in
+                        the
+                        <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guide to dimensions and proportions</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>3. Clean new plants</h3>
+                    <p>
+                        Remove the pot and the rock wool, rinse the roots well and remove damaged leaves. Shop plants may bring
+                        snails, eggs and algae: if possible, quarantine them in a bucket for a few days before putting them in
+                        the aquarium.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>4. Plant each type the right way</h3>
+                    <ul class="article-list bullets">
+                        <li><strong>Stem plants:</strong> remove the lower leaves and bury only the stem, taking care not to
+                            crush it.</li>
+                        <li><strong>Rosettes (Cryptocoryne, Amazon swords):</strong> bury the roots but leave the crown (the
+                            point where the leaves grow from) above the substrate.</li>
+                        <li><strong>Epiphytes (Anubias, Java fern):</strong> attach them with nylon thread or cyanoacrylate gel
+                            glue. Never bury the rhizome, as it will rot.</li>
+                        <li><strong>Mosses:</strong> tie them with fine thread to driftwood or rocks.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>5. Plant heavily from the start</h3>
+                    <p>
+                        Aquariums that are densely planted from day one have far fewer algae problems, because the plants use up
+                        the nutrients before algae can take advantage of them. Use plenty of fast-growing plants, such as stem
+                        plants and floaters, while the others establish themselves.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>6. Be patient in the first weeks</h3>
+                    <p>
+                        Start with a reduced photoperiod of 6 hours and increase it gradually. Do frequent water changes in the
+                        first two weeks, especially if you use nutrient soil. And do not be alarmed if some plants lose leaves:
+                        many are grown out of water and need to adapt to life underwater.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Planted Aquarium Maintenance</h2>
+                <ul class="article-list bullets">
+                    <li><strong>Weekly <a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">water change</a> of 20% to 30%:</strong> it keeps the water clean and
+                        replenishes minerals. With plants, it is best not to stir the substrate.</li>
+                    <li><strong>Regular trimming:</strong> cut the tops of stem plants and replant the tips, which creates new
+                        plants and keeps the aquarium tidy.</li>
+                    <li><strong>Remove dead leaves:</strong> they rot and feed algae.</li>
+                    <li><strong>Fertilise in moderation:</strong> always little by little, watching how the plants respond.</li>
+                    <li><strong>Choose a good filter:</strong> for planted aquariums a canister is usually an excellent option, as
+                        we explain in the
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guide to choosing a filter</a>.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Algae: How to Avoid the Headache</h2>
+                <p>
+                    Algae almost always indicate an <strong>imbalance</strong> between light, CO₂ and nutrients. The most common
+                    causes, and their solutions, are:
+                </p>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Cause</th>
+                                <th scope="col">What to do</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Too much light</strong></td>
+                                <td>Shorten the photoperiod and use a timer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Too many nutrients</strong></td>
+                                <td>Do water changes, feed less and reduce fertilisation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Too few or weak plants</strong></td>
+                                <td>Plant more and include fast-growing species</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accumulated organic matter</strong></td>
+                                <td>Vacuum the bottom, clean the filter and remove dead leaves</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Change one factor at a time.</strong> If you change light, fertilisation and water changes all at
+                        once, you will not know which one solved it. Make one change and watch for one or two weeks.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Expert Tips: What Nobody Tells You at the Shop</h2>
+
+                <section>
+                    <h3>Choose fish that respect plants</h3>
+                    <p>
+                        <a [routerLink]="'/articles/tetra-fish-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Tetras</a>, rasboras, corydoras and shrimp get along very well with plants (see the <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">community aquarium guide</a>). Avoid fish that eat or
+                        uproot vegetation, such as goldfish, pacus and digging cichlids, which destroy your work.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Start with few species</h3>
+                    <p>
+                        Instead of one plant of each kind, use a few species in larger numbers. The visual result is more
+                        beautiful and maintenance is simpler.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Floating plants save new aquariums</h3>
+                    <p>
+                        They absorb nutrients straight from the water and shade the tank, reducing algae while the other plants
+                        establish themselves. Once the aquarium matures, just remove the excess.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Give it time</h3>
+                    <p>
+                        In the first weeks a plant invests in roots, not leaves. The aquarium only really looks its best after
+                        two or three months, and it is worth the wait.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>
+                    A successful planted aquarium comes from the balance between light, CO₂ and nutrients, hardy plants chosen
+                    for your level of experience and a simple maintenance routine. Start low-tech, plant heavily and correct one
+                    factor at a time.
+                </p>
+                <p>
+                    With patience you will have a stable ecosystem, with healthier fish, cleaner water and a look that makes any
+                    aquarium feel much more alive.
+                </p>
+            </section>
+        } @else {
+            <section class="context">
+                <p>
+                    Um aquário plantado é muito mais do que um aquário bonito. As plantas absorvem os resíduos dos peixes,
+                    oferecem abrigo, competem com as algas por nutrientes e transformam o tanque em um ecossistema de verdade.
+                    Mas quem começa costuma enfrentar o mesmo cenário: plantas que murcham, folhas que derretem e algas que
+                    tomam conta do vidro.
+                </p>
+                <p>
+                    Neste guia, você vai entender os três pilares do aquário plantado (luz, CO₂ e nutrientes), conhecer as
+                    plantas mais fáceis para começar, aprender onde e como plantá-las e descobrir como evitar as algas.
                 </p>
             </section>
 
             <section>
-                <h3>6. Seja paciente nas primeiras semanas</h3>
-                <p>
-                    Comece com o fotoperíodo reduzido, de 6 horas, e aumente aos poucos. Faça TPAs frequentes nas duas
-                    primeiras semanas, principalmente se usar solo nutritivo. E não se assuste se algumas plantas
-                    perderem folhas: muitas são cultivadas fora da água e precisam se adaptar à vida submersa.
-                </p>
-            </section>
-        </section>
-
-        <section>
-            <h2>Manutenção do aquário plantado</h2>
-            <ul class="article-list bullets">
-                <li><strong><a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPA</a> semanal de 20% a 30%:</strong> mantém a água limpa e repõe minerais. Com plantas, o
-                    ideal é não revolver o substrato.</li>
-                <li><strong>Poda regular:</strong> corte o topo das hastes e replante as pontas, o que gera plantas novas
-                    e mantém o aquário organizado.</li>
-                <li><strong>Remova folhas mortas:</strong> elas apodrecem e alimentam as algas.</li>
-                <li><strong>Fertilize com moderação:</strong> sempre aos poucos e observando a resposta das plantas.</li>
-                <li><strong>Escolha um bom filtro:</strong> para aquários plantados, o canister costuma ser uma excelente
-                    opção, como detalhamos no
-                    <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de escolha do filtro</a>.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Algas: como evitar a dor de cabeça</h2>
-            <p>
-                As algas quase sempre indicam um <strong>desequilíbrio</strong> entre luz, CO₂ e nutrientes. As causas
-                mais comuns, e as soluções, são:
-            </p>
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Causa</th>
-                            <th scope="col">O que fazer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Excesso de luz</strong></td>
-                            <td>Reduzir o fotoperíodo e usar timer</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Excesso de nutrientes</strong></td>
-                            <td>Fazer as TPAs, alimentar menos e reduzir a fertilização</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Poucas plantas ou plantas fracas</strong></td>
-                            <td>Plantar mais e incluir espécies de crescimento rápido</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Matéria orgânica acumulada</strong></td>
-                            <td>Sifonar o fundo, limpar o filtro e remover folhas mortas</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="highlight-box inner">
-                <p>
-                    <strong>Mude um fator por vez.</strong> Se você alterar luz, fertilização e TPA ao mesmo tempo, não
-                    vai descobrir qual deles resolveu. Faça uma mudança e observe por uma ou duas semanas.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
-
-            <section>
-                <h3>Escolha peixes que respeitam as plantas</h3>
-                <p>
-                    <a [routerLink]="'/articles/tetra-fish-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Tetras</a>, rasboras, corydoras e camarões convivem muito bem com plantas (veja o <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia do aquário comunitário</a>). Evite peixes que comem ou
-                    arrancam vegetação, como kinguios, pacus e ciclídeos escavadores, que destroem o seu trabalho.
-                </p>
+                <h2>Por que ter plantas no aquário?</h2>
+                <ul class="article-list bullets">
+                    <li><strong>Absorvem amônia e nitrato:</strong> ajudam o filtro e deixam a água mais estável, embora não
+                        o substituam.</li>
+                    <li><strong>Competem com as algas:</strong> usam os mesmos nutrientes e a mesma luz, e quanto mais
+                        saudáveis estiverem, menos espaço sobra para elas.</li>
+                    <li><strong>Oxigenam a água:</strong> liberam oxigênio durante o dia pela fotossíntese. À noite, elas
+                        consomem um pouco, o que é normal.</li>
+                    <li><strong>Dão abrigo e conforto:</strong> peixes com onde se esconder sofrem menos estresse e mostram
+                        cores mais vivas. O
+                        <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de cuidados do Betta</a> mostra como isso é importante para essa
+                        espécie.
+                    </li>
+                    <li><strong>Embelezam o aquário:</strong> e permitem criar composições, o chamado aquapaisagismo.</li>
+                </ul>
             </section>
 
             <section>
-                <h3>Comece com poucas espécies</h3>
+                <h2>Os 3 pilares: luz, CO₂ e nutrientes</h2>
+
                 <p>
-                    Em vez de uma planta de cada tipo, use poucas espécies em maior quantidade. O resultado visual é mais
-                    bonito e a manutenção, mais simples.
+                    As plantas crescem bem quando luz, CO₂ e nutrientes estão em equilíbrio, porque cada um depende dos
+                    outros para ser aproveitado. Quando um deles falta, ele limita o crescimento e as plantas deixam de
+                    aproveitar os outros dois. O que fica sobrando, como o excesso de luz ou de nutrientes, passa a
+                    alimentar as algas.
                 </p>
+
+                <div class="image-block">
+                    <a href="assets/images/aquariums/plants-balance-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/aquariums/plants-balance-diagram.webp"
+                        alt="Triângulo do equilíbrio do aquário plantado com luz, CO₂ e nutrientes nos vértices"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Luz, CO₂ e nutrientes precisam andar juntos. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
+                </div>
+
+                <section>
+                    <h3>Luz</h3>
+                    <p>
+                        Use uma luminária de <strong>LED de espectro completo</strong> (em torno de 6.000 a 7.000 K) com
+                        timer, ligada de <strong>6 a 8 horas por dia</strong>. Em aquários iniciantes, o excesso de luz é uma
+                        das maiores causas de algas. Se tiver dúvida, comece com menos horas e vá aumentando aos poucos.
+                    </p>
+                    <p>
+                        Lembre-se também de que, quanto mais fundo o aquário, menos luz chega ao substrato, como explicamos
+                        no <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de dimensões e proporções</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>CO₂</h3>
+                    <p>
+                        O carbono é a base da fotossíntese, e o CO₂ é a fonte dele para as plantas. Sem injeção, elas usam
+                        apenas o CO₂ que já existe na água (vindo da respiração dos peixes e da decomposição) e crescem
+                        mais devagar. Com injeção, o CO₂ é adicionado de forma controlada, o que acelera muito o
+                        crescimento, mas exige equipamento e acompanhamento diário.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Nutrientes</h3>
+                    <p>
+                        As plantas precisam de macronutrientes (nitrogênio, fósforo e potássio) e de micronutrientes (como o
+                        ferro). Parte vem dos próprios peixes, parte do substrato e parte da fertilização:
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Fertilizante líquido:</strong> abastece as plantas que absorvem pela folha e pela
+                            coluna d'água. Siga a dose do rótulo e comece com menos.</li>
+                        <li><strong>Pastilhas de raiz:</strong> enterradas perto das plantas que se alimentam pelas raízes,
+                            como as espadas e as Cryptocoryne.</li>
+                        <li><strong>Substrato nutritivo:</strong> solos próprios para aquários fornecem nutrientes por meses,
+                            mas costumam liberar amônia nas primeiras semanas.</li>
+                    </ul>
+                </section>
             </section>
 
             <section>
-                <h3>Plantas flutuantes salvam aquários novos</h3>
+                <h2>Low-tech ou high-tech: qual escolher?</h2>
                 <p>
-                    Elas absorvem nutrientes direto da água e sombreiam o tanque, reduzindo as algas enquanto as demais
-                    plantas se estabelecem. Quando o aquário amadurecer, basta retirar o excesso.
+                    Existem dois grandes caminhos para montar um aquário plantado, e a diferença está na quantidade de
+                    "tecnologia" aplicada. Para quem está começando, a recomendação é clara: comece pelo
+                    <strong>low-tech</strong>.
                 </p>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Característica</th>
+                                <th scope="col">Low-tech</th>
+                                <th scope="col">High-tech</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Iluminação</strong></td>
+                                <td>Baixa a moderada</td>
+                                <td>Forte</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CO₂</strong></td>
+                                <td>Natural da água, sem injeção</td>
+                                <td>Injetado, com cilindro e regulador</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fertilização</strong></td>
+                                <td>Leve</td>
+                                <td>Regular e mais precisa</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Crescimento</strong></td>
+                                <td>Lento e tranquilo</td>
+                                <td>Rápido</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Manutenção</strong></td>
+                                <td>Mais simples</td>
+                                <td>Exige rotina e podas frequentes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Indicado para</strong></td>
+                                <td>Iniciantes</td>
+                                <td>Quem já domina o básico</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <section>
-                <h3>Dê tempo ao tempo</h3>
+                <h2>Plantas fáceis para começar</h2>
+
                 <p>
-                    Nas primeiras semanas, a planta investe em raízes, e não em folhas. O visual só fica realmente bonito
-                    depois de dois ou três meses, e vale a espera.
+                    Escolher plantas resistentes é a melhor forma de ganhar confiança. As espécies abaixo toleram erros,
+                    crescem sem CO₂ injetado e se adaptam bem a luz baixa ou moderada:
+                </p>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Planta</th>
+                                <th scope="col">Dificuldade</th>
+                                <th scope="col">Luz</th>
+                                <th scope="col">Onde plantar</th>
+                                <th scope="col">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Anubias</strong><br><em>Anubias barteri</em></td>
+                                <td>Fácil</td>
+                                <td>Baixa</td>
+                                <td>Tronco ou pedra</td>
+                                <td>Não enterre o rizoma; crescimento lento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Samambaia-java</strong><br><em>Microsorum pteropus</em></td>
+                                <td>Fácil</td>
+                                <td>Baixa</td>
+                                <td>Tronco ou pedra</td>
+                                <td>Mesmos cuidados do rizoma da Anubias</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Musgo-java</strong><br><em>Taxiphyllum barbieri</em></td>
+                                <td>Fácil</td>
+                                <td>Baixa a média</td>
+                                <td>Tronco ou pedra</td>
+                                <td>Excelente abrigo para filhotes e camarões</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cryptocoryne</strong><br><em>C. wendtii</em></td>
+                                <td>Fácil a média</td>
+                                <td>Baixa a média</td>
+                                <td>Plano médio</td>
+                                <td>Pode "derreter" ao mudar de ambiente, e se recupera</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Espada-amazônica</strong><br><em>Echinodorus</em></td>
+                                <td>Fácil a média</td>
+                                <td>Média</td>
+                                <td>Fundo ou meio</td>
+                                <td>Grande; precisa de nutrientes na raiz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vallisneria</strong></td>
+                                <td>Fácil</td>
+                                <td>Baixa a média</td>
+                                <td>Fundo e laterais</td>
+                                <td>Cresce rápido e forma uma "cortina"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hygrophila</strong></td>
+                                <td>Fácil</td>
+                                <td>Média</td>
+                                <td>Fundo</td>
+                                <td>Crescimento rápido, ótima contra algas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ludwigia</strong><br><em>L. repens</em></td>
+                                <td>Fácil a média</td>
+                                <td>Média a alta</td>
+                                <td>Fundo ou meio</td>
+                                <td>Fica avermelhada com mais luz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alface-d'água e Salvinia</strong></td>
+                                <td>Fácil</td>
+                                <td>Média</td>
+                                <td>Superfície</td>
+                                <td>Flutuantes: sombreiam e absorvem nutrientes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Valores de referência. As necessidades variam conforme a espécie, a variedade e
+                    as condições do seu aquário.</p>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Cuidado com o descarte.</strong> Nunca jogue plantas aquáticas, nem mesmo as aparas da poda,
+                        em rios, lagos ou no esgoto. Algumas espécies se proliferam com facilidade e podem se tornar
+                        invasoras. Descarte no lixo comum, bem secas.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Onde plantar cada tipo de planta</h2>
+
+                <div class="image-block">
+                    <a href="assets/images/aquariums/plants-planting-zones-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/aquariums/plants-planting-zones-diagram.webp"
+                        alt="Corte lateral de um aquário plantado mostrando o plano de fundo, o plano médio, o primeiro plano, a decoração com epífitas e as plantas flutuantes"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Como organizar as plantas em camadas, do fundo à superfície. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
+                </div>
+
+                <ul class="article-list bullets">
+                    <li><strong>Plano de fundo:</strong> plantas altas, como a Vallisneria e as hastes (Ludwigia e
+                        Hygrophila), que escondem equipamentos e criam profundidade.</li>
+                    <li><strong>Plano médio:</strong> rosetas, como as Cryptocoryne e as espadas, que preenchem o centro do
+                        aquário.</li>
+                    <li><strong>Primeiro plano:</strong> plantas baixas. Tapetes densos são bonitos, mas exigem mais luz e
+                        CO₂, e não são indicados para quem está começando.</li>
+                    <li><strong>Troncos e pedras:</strong> as epífitas (Anubias, samambaia-java e musgo-java) dispensam
+                        substrato e podem ser presas na decoração.</li>
+                    <li><strong>Superfície:</strong> as flutuantes sombreiam o aquário e absorvem nutrientes diretamente da
+                        água.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Como plantar: passo a passo</h2>
+
+                <section>
+                    <h3>1. Prepare o substrato</h3>
+                    <p>
+                        Para plantas de raiz, use uma camada de <strong>5 a 7 cm</strong>, mais alta no fundo e mais baixa
+                        na frente, o que cria sensação de profundidade. Se usar solo nutritivo, cubra com uma camada de areia
+                        ou cascalho fino para segurar os nutrientes.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>2. Planeje o layout</h3>
+                    <p>
+                        Desenhe antes onde vai cada planta. Evite colocar as mais altas na frente e deixe um espaço livre
+                        para os peixes nadarem. Compor com a proporção áurea ajuda a criar um visual harmônico, como mostra o
+                        <a [routerLink]="'/articles/aquarium-size' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de dimensões e proporções</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>3. Limpe as plantas novas</h3>
+                    <p>
+                        Retire o vasinho e a lã de rocha, lave bem as raízes e remova folhas danificadas. Plantas de loja
+                        podem trazer caramujos, ovos e algas: se possível, deixe-as de quarentena em um balde por alguns dias
+                        antes de colocá-las no aquário.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>4. Plante cada tipo do jeito certo</h3>
+                    <ul class="article-list bullets">
+                        <li><strong>Hastes:</strong> retire as folhas de baixo e enterre apenas o talo, com cuidado para não
+                            amassá-lo.</li>
+                        <li><strong>Rosetas (Cryptocoryne, espadas):</strong> enterre as raízes, mas deixe a coroa (o ponto
+                            de onde nascem as folhas) acima do substrato.</li>
+                        <li><strong>Epífitas (Anubias, samambaia-java):</strong> prenda com linha de nylon ou cola de
+                            cianoacrilato em gel. Nunca enterre o rizoma, pois ele apodrece.</li>
+                        <li><strong>Musgos:</strong> prenda com linha fina em troncos ou pedras.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>5. Plante em abundância desde o início</h3>
+                    <p>
+                        Aquários densamente plantados desde o primeiro dia têm muito menos problemas com algas, porque as
+                        plantas consomem os nutrientes antes que as algas possam aproveitá-los. Use muitas plantas de
+                        crescimento rápido, como as hastes e as flutuantes, enquanto as outras se estabelecem.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>6. Seja paciente nas primeiras semanas</h3>
+                    <p>
+                        Comece com o fotoperíodo reduzido, de 6 horas, e aumente aos poucos. Faça TPAs frequentes nas duas
+                        primeiras semanas, principalmente se usar solo nutritivo. E não se assuste se algumas plantas
+                        perderem folhas: muitas são cultivadas fora da água e precisam se adaptar à vida submersa.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Manutenção do aquário plantado</h2>
+                <ul class="article-list bullets">
+                    <li><strong><a [routerLink]="'/articles/aquarium-tpa-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">TPA</a> semanal de 20% a 30%:</strong> mantém a água limpa e repõe minerais. Com plantas, o
+                        ideal é não revolver o substrato.</li>
+                    <li><strong>Poda regular:</strong> corte o topo das hastes e replante as pontas, o que gera plantas novas
+                        e mantém o aquário organizado.</li>
+                    <li><strong>Remova folhas mortas:</strong> elas apodrecem e alimentam as algas.</li>
+                    <li><strong>Fertilize com moderação:</strong> sempre aos poucos e observando a resposta das plantas.</li>
+                    <li><strong>Escolha um bom filtro:</strong> para aquários plantados, o canister costuma ser uma excelente
+                        opção, como detalhamos no
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de escolha do filtro</a>.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Algas: como evitar a dor de cabeça</h2>
+                <p>
+                    As algas quase sempre indicam um <strong>desequilíbrio</strong> entre luz, CO₂ e nutrientes. As causas
+                    mais comuns, e as soluções, são:
+                </p>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Causa</th>
+                                <th scope="col">O que fazer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Excesso de luz</strong></td>
+                                <td>Reduzir o fotoperíodo e usar timer</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Excesso de nutrientes</strong></td>
+                                <td>Fazer as TPAs, alimentar menos e reduzir a fertilização</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Poucas plantas ou plantas fracas</strong></td>
+                                <td>Plantar mais e incluir espécies de crescimento rápido</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Matéria orgânica acumulada</strong></td>
+                                <td>Sifonar o fundo, limpar o filtro e remover folhas mortas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Mude um fator por vez.</strong> Se você alterar luz, fertilização e TPA ao mesmo tempo, não
+                        vai descobrir qual deles resolveu. Faça uma mudança e observe por uma ou duas semanas.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
+
+                <section>
+                    <h3>Escolha peixes que respeitam as plantas</h3>
+                    <p>
+                        <a [routerLink]="'/articles/tetra-fish-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Tetras</a>, rasboras, corydoras e camarões convivem muito bem com plantas (veja o <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">guia do aquário comunitário</a>). Evite peixes que comem ou
+                        arrancam vegetação, como kinguios, pacus e ciclídeos escavadores, que destroem o seu trabalho.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Comece com poucas espécies</h3>
+                    <p>
+                        Em vez de uma planta de cada tipo, use poucas espécies em maior quantidade. O resultado visual é mais
+                        bonito e a manutenção, mais simples.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Plantas flutuantes salvam aquários novos</h3>
+                    <p>
+                        Elas absorvem nutrientes direto da água e sombreiam o tanque, reduzindo as algas enquanto as demais
+                        plantas se estabelecem. Quando o aquário amadurecer, basta retirar o excesso.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Dê tempo ao tempo</h3>
+                    <p>
+                        Nas primeiras semanas, a planta investe em raízes, e não em folhas. O visual só fica realmente bonito
+                        depois de dois ou três meses, e vale a espera.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Conclusão</h2>
+                <p>
+                    Um aquário plantado de sucesso nasce do equilíbrio entre luz, CO₂ e nutrientes, de plantas resistentes
+                    escolhidas para o seu nível de experiência e de uma rotina simples de manutenção. Comece pelo low-tech,
+                    plante em abundância e corrija um fator de cada vez.
+                </p>
+                <p>
+                    Com paciência, você terá um ecossistema estável, com peixes mais saudáveis, água mais limpa e um visual
+                    que deixa qualquer aquário muito mais vivo.
                 </p>
             </section>
-        </section>
-
-        <section>
-            <h2>Conclusão</h2>
-            <p>
-                Um aquário plantado de sucesso nasce do equilíbrio entre luz, CO₂ e nutrientes, de plantas resistentes
-                escolhidas para o seu nível de experiência e de uma rotina simples de manutenção. Comece pelo low-tech,
-                plante em abundância e corrija um fator de cada vez.
-            </p>
-            <p>
-                Com paciência, você terá um ecossistema estável, com peixes mais saudáveis, água mais limpa e um visual
-                que deixa qualquer aquário muito mais vivo.
-            </p>
-        </section>
+        }
     </article>
 </section>
 

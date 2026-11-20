@@ -1,7 +1,7 @@
+import { LanguageService } from '../../../../core/i18n/language-service';
 import { LocalizePipe } from '../../../../core/i18n/localize.pipe';
-import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
 import { ReportError } from '../../../../shared/components/general/report-error/report-error';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
@@ -12,11 +12,12 @@ import { PostService } from '../../../../core/services/post/post';
 @Component({
   selector: 'app-betta-fish-7-care-tips',
   standalone: true,
-  imports: [LocalizePipe, ContentLanguageNotice, ReportError, PostHeaderType1, RelatedPosts, RouterLink],
+  imports: [LocalizePipe, ReportError, PostHeaderType1, RelatedPosts, RouterLink],
   templateUrl: './betta-fish-7-care-tips.html',
   styleUrl: './betta-fish-7-care-tips.scss',
 })
 export class BettaFish7CareTips implements OnInit {
+  protected readonly language = inject(LanguageService);
   currentPost = signal<Post | undefined>(undefined);
   recommended = signal<Post[]>([]);
   latest = signal<Post[]>([]);

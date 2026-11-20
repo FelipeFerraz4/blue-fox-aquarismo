@@ -3,334 +3,658 @@
     [readingTime]="currentPost()?.readingTime ?? ''" [category]="currentPost()?.categoryName ?? ''" />
 
 <section class="article-section bf-article">
-    <article class="content" lang="pt-BR">
-        <app-content-language-notice />
-        <section class="context">
-            <p>
-                A água está transparente, os peixes nadam tranquilos e o filtro funciona sem barulho. Então por que
-                trocar a água? Essa é a dúvida de quase todo iniciante, e é também a origem de um dos maiores
-                equívocos do aquarismo: acreditar que <strong>água clara é água limpa</strong>.
-            </p>
-            <p>
-                A <strong>TPA (Troca Parcial de Água)</strong> é a rotina mais simples e mais importante de um aquário
-                saudável. Neste guia, você vai entender por que ela é indispensável, quanto e com que frequência trocar,
-                e como fazer cada passo sem estressar os peixes.
-            </p>
-        </section>
-
-        <section>
-            <h2>O que é a TPA e por que ela é indispensável?</h2>
-
-            <p>
-                A TPA consiste em retirar uma parte da água do aquário e repô-la por água nova e tratada. O <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">filtro</a> cuida
-                da amônia e do nitrito, mas o produto final desse processo, o <strong>nitrato</strong>, não vai
-                embora sozinho: ele só sai do sistema por meio da troca de água (ou sendo consumido pelas plantas).
-            </p>
-
-            <div class="image-block">
-                <a href="assets/images/equipment/nitrate-accumulation-chart.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/equipment/nitrate-accumulation-chart.webp"
-                    alt="Gráfico ilustrativo mostrando o nitrato subindo sem TPA e se estabilizando com trocas semanais"
-                    loading="lazy" /></a>
-                <p class="image-caption">Gráfico ilustrativo: sem TPA o nitrato só aumenta; com trocas semanais ele
-                    se estabiliza em um nível seguro. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
-            </div>
-
-            <p>
-                Além de manter o nitrato sob controle, a TPA cumpre outras funções importantes:
-            </p>
-            <ul class="article-list bullets">
-                <li><strong>Repõe minerais e oligoelementos:</strong> que os peixes e as plantas consomem e que o filtro
-                    não devolve para a água.</li>
-                <li><strong>Dilui compostos dissolvidos:</strong> como taninos, hormônios e matéria orgânica, que não
-                    aparecem a olho nu, mas se acumulam com o tempo.</li>
-                <li><strong>Previne algas:</strong> o excesso de nutrientes na água é combustível para elas.</li>
-                <li><strong>Mantém a estabilidade:</strong> trocas pequenas e regulares são muito mais seguras do que
-                    trocas grandes e raras.</li>
-            </ul>
-
-            <div class="highlight-box inner">
+    <article class="content" [attr.lang]="language.current()">
+        @if (language.current() === 'en') {
+            <section class="context">
                 <p>
-                    O nitrato em níveis altos por muito tempo raramente mata de imediato, mas estressa os peixes,
-                    enfraquece o sistema imunológico e favorece as doenças. É um problema silencioso, por isso a TPA
-                    deve ser uma <strong>rotina</strong>, e não uma reação a um problema.
+                    The water is clear, the fish swim calmly and the filter runs quietly. So why change the water? Almost every
+                    beginner asks this, and it is also the source of one of the biggest misconceptions in fishkeeping:
+                    believing that <strong>clear water is clean water</strong>.
                 </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Quanto e com que frequência trocar?</h2>
-
-            <p>
-                O padrão que funciona para a grande maioria dos aquários é trocar entre
-                <strong>20% e 30% do volume total, uma vez por semana</strong>. É a mesma recomendação do nosso
-                <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
-                    rel="noopener noreferrer">guia de cuidados do Betta</a>, e vale para quase todos os peixes
-                comunitários.
-            </p>
-
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Situação</th>
-                            <th scope="col">Volume por troca</th>
-                            <th scope="col">Frequência</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Aquário estabilizado, população moderada</strong></td>
-                            <td>20% a 30%</td>
-                            <td>Semanal</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Muitos peixes ou espécies grandes e "sujas" (ciclídeos, kinguios)</strong></td>
-                            <td>30% a 50%</td>
-                            <td>Semanal, ou até duas vezes por semana</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pico de amônia ou nitrito com peixes no aquário</strong></td>
-                            <td>30% a 50%</td>
-                            <td>Repetir conforme os testes, até amônia e nitrito chegarem a zero</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Aquário novo em ciclagem, sem peixes</strong></td>
-                            <td>Em geral, nenhuma</td>
-                            <td>Somente se os testes mostrarem valores muito altos</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="table-note">Valores de referência. O ideal é ajustar de acordo com o teste de nitrato do seu
-                aquário.</p>
-
-            <section>
-                <h3>Guie-se pelo nitrato</h3>
                 <p>
-                    O teste de nitrato é a melhor bússola da sua rotina. Em um <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">aquário comunitário</a>, o ideal é manter o
-                    nitrato abaixo de <strong>20 mg/L</strong> (também chamado de 20 ppm). Se os valores estiverem
-                    chegando perto de <strong>40 mg/L</strong>, é sinal de que você precisa trocar mais água, com mais
-                    frequência, ou reduzir a alimentação e a população.
+                    The <strong>partial water change</strong> is the simplest and most important routine of a healthy aquarium.
+                    In this guide you will understand why it is indispensable, how much and how often to change, and how to do
+                    each step without stressing the fish.
                 </p>
             </section>
 
             <section>
-                <h3>Como calcular o volume a trocar</h3>
+                <h2>What Is a Partial Water Change and Why Is It Indispensable?</h2>
+
                 <p>
-                    Calcule o <strong>volume real de água</strong>, e não o da etiqueta. Um aquário de 60 × 30 × 40 cm tem
-                    72 litros de capacidade bruta, mas o substrato e a decoração ocupam espaço: na prática, ele contém
-                    cerca de 60 litros de água. Como regra, desconte de 10% a 20% do volume bruto.
+                    A partial water change means removing part of the aquarium water and replacing it with fresh, treated water.
+                    The <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">filter</a> takes care
+                    of ammonia and nitrite, but the end product of that process, <strong>nitrate</strong>, does not go away on its
+                    own: it only leaves the system through water changes (or by being consumed by plants).
                 </p>
+
+                <div class="image-block">
+                    <a href="assets/images/equipment/nitrate-accumulation-chart.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Open the image at full size"><img src="assets/images/equipment/nitrate-accumulation-chart.webp"
+                        alt="Illustrative chart showing nitrate rising without water changes and levelling off with weekly changes"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Illustrative chart: without water changes nitrate only rises; with weekly changes it
+                        levels off at a safe value. <span class="zoom-hint">Tap or click the image to enlarge it.</span></p>
+                </div>
+
+                <p>
+                    Besides keeping nitrate under control, water changes do other important jobs:
+                </p>
+                <ul class="article-list bullets">
+                    <li><strong>They replenish minerals and trace elements:</strong> which fish and plants consume and the filter
+                        does not put back into the water.</li>
+                    <li><strong>They dilute dissolved compounds:</strong> such as tannins, hormones and organic matter, which are
+                        invisible to the naked eye but build up over time.</li>
+                    <li><strong>They prevent algae:</strong> excess nutrients in the water are fuel for algae.</li>
+                    <li><strong>They keep things stable:</strong> small, regular changes are much safer than large, infrequent
+                        ones.</li>
+                </ul>
+
+                <div class="highlight-box inner">
+                    <p>
+                        High nitrate over a long period rarely kills straight away, but it stresses the fish, weakens the immune
+                        system and encourages disease. It is a silent problem, which is why water changes should be a
+                        <strong>routine</strong>, not a reaction to a problem.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>How Much and How Often Should You Change?</h2>
+
+                <p>
+                    The standard that works for the vast majority of aquariums is to change
+                    <strong>20% to 30% of the total volume once a week</strong>. It is the same recommendation as in our
+                    <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
+                        rel="noopener noreferrer">Betta care guide</a>, and it applies to almost all community fish.
+                </p>
+
                 <div class="table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th scope="col">Volume real de água</th>
-                                <th scope="col">TPA de 20%</th>
-                                <th scope="col">TPA de 30%</th>
+                                <th scope="col">Situation</th>
+                                <th scope="col">Volume per change</th>
+                                <th scope="col">Frequency</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>50 L</td>
-                                <td>10 L</td>
-                                <td>15 L</td>
+                                <td><strong>Established aquarium, moderate stocking</strong></td>
+                                <td>20% to 30%</td>
+                                <td>Weekly</td>
                             </tr>
                             <tr>
-                                <td>80 L</td>
-                                <td>16 L</td>
-                                <td>24 L</td>
+                                <td><strong>Many fish or large, "messy" species (cichlids, goldfish)</strong></td>
+                                <td>30% to 50%</td>
+                                <td>Weekly, or even twice a week</td>
                             </tr>
                             <tr>
-                                <td>100 L</td>
-                                <td>20 L</td>
-                                <td>30 L</td>
+                                <td><strong>Ammonia or nitrite spike with fish in the tank</strong></td>
+                                <td>30% to 50%</td>
+                                <td>Repeat according to the tests until ammonia and nitrite reach zero</td>
                             </tr>
                             <tr>
-                                <td>200 L</td>
-                                <td>40 L</td>
-                                <td>60 L</td>
+                                <td><strong>New aquarium cycling, without fish</strong></td>
+                                <td>Usually none</td>
+                                <td>Only if the tests show very high values</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p class="table-note">Reference values. Ideally, adjust them according to your aquarium's nitrate test.</p>
+
+                <section>
+                    <h3>Let nitrate guide you</h3>
+                    <p>
+                        The nitrate test is the best compass for your routine. In a <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">community aquarium</a>, ideally keep
+                        nitrate below <strong>20 mg/L</strong> (also written as 20 ppm). If values are getting close to
+                        <strong>40 mg/L</strong>, it is a sign that you need to change more water, more often, or reduce feeding
+                        and stocking.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>How to calculate the volume to change</h3>
+                    <p>
+                        Calculate the <strong>actual water volume</strong>, not the one on the label. A 60 × 30 × 40 cm aquarium
+                        has a gross capacity of 72 litres, but the substrate and decoration take up space: in practice it holds
+                        about 60 litres of water. As a rule, subtract 10% to 20% from the gross volume.
+                    </p>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actual water volume</th>
+                                    <th scope="col">20% change</th>
+                                    <th scope="col">30% change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>50 L</td>
+                                    <td>10 L</td>
+                                    <td>15 L</td>
+                                </tr>
+                                <tr>
+                                    <td>80 L</td>
+                                    <td>16 L</td>
+                                    <td>24 L</td>
+                                </tr>
+                                <tr>
+                                    <td>100 L</td>
+                                    <td>20 L</td>
+                                    <td>30 L</td>
+                                </tr>
+                                <tr>
+                                    <td>200 L</td>
+                                    <td>40 L</td>
+                                    <td>60 L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
-        </section>
-
-        <section>
-            <h2>O que você vai precisar</h2>
-            <ul class="article-list bullets">
-                <li><strong>Sifão (limpa-fundo) com mangueira:</strong> serve para retirar a água e aspirar a sujeira do
-                    substrato ao mesmo tempo.</li>
-                <li><strong>Baldes de uso exclusivo do aquário:</strong> nunca utilize um balde que já tenha tido
-                    sabão, detergente ou produtos de limpeza, pois os resíduos são tóxicos para os peixes.</li>
-                <li><strong>Condicionador de água (anticloro):</strong> neutraliza o cloro e as cloraminas da água de
-                    abastecimento.</li>
-                <li><strong>Termômetro:</strong> para igualar a temperatura da água nova à do aquário.</li>
-                <li><strong>Kit de testes:</strong> pelo menos de <strong>nitrato</strong> e de <strong>pH</strong>. O nitrato
-                    mostra se as trocas estão dando conta do acúmulo; o pH ajuda a perceber se a água nova é muito
-                    diferente da água do aquário e evita mudanças bruscas que estressam os peixes.</li>
-            </ul>
-
-            <div class="highlight-box inner">
-                <p>
-                    <strong>Deixar a água "descansar" não resolve tudo.</strong> O cloro livre realmente evapora com o
-                    tempo, mas as <strong>cloraminas</strong>, usadas por muitas companhias de abastecimento, não. O
-                    condicionador de água continua sendo indispensável.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Passo a passo: como fazer a TPA corretamente</h2>
-
-            <div class="image-block">
-                <a href="assets/images/equipment/water-change-steps-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/equipment/water-change-steps-diagram.webp"
-                    alt="Resumo ilustrado em seis etapas de como fazer a troca parcial de água"
-                    loading="lazy" /></a>
-                <p class="image-caption">O roteiro completo de uma TPA, em seis passos. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
-            </div>
-
-            <p>
-                <strong>Antes de começar:</strong> meça o nitrato e a temperatura. Com esse registro, você descobre com
-                o tempo se o seu volume e a sua frequência de troca estão adequados.
-            </p>
 
             <section>
-                <h3>1. Desligue o aquecedor e o filtro</h3>
-                <p>
-                    Desligue os dois antes de baixar o nível da água. O aquecedor fora da água pode trincar ou
-                    superaquecer, e o filtro funcionando a seco pode queimar o motor. Se possível, deixe o aquecedor
-                    esfriar por alguns minutos antes de tocá-lo.
-                </p>
-            </section>
-
-            <section>
-                <h3>2. Sifone o fundo e retire a água</h3>
-                <p>
-                    Passe o sifão sobre o substrato, aspirando a sujeira acumulada, até retirar o volume planejado.
-                    Observe os cuidados conforme o tipo de fundo:
-                </p>
+                <h2>What You Will Need</h2>
                 <ul class="article-list bullets">
-                    <li><strong>Cascalho:</strong> pode afundar o sifão no substrato, o que libera a sujeira presa
-                        entre os grãos.</li>
-                    <li><strong>Areia:</strong> paire logo acima da superfície, para aspirar a sujeira sem levar a
-                        areia.</li>
-                    <li><strong><a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Aquário plantado</a> com solo nutritivo:</strong> não revolva o substrato. Aspire apenas a
-                        sujeira da superfície.</li>
-                    <li><strong>Filhotes e camarões (se você tiver):</strong> prenda uma meia fina ou uma tela na ponta
-                        do sifão para que eles não sejam sugados.</li>
+                    <li><strong>Gravel vacuum (siphon) with a hose:</strong> it removes water and vacuums dirt from the substrate
+                        at the same time.</li>
+                    <li><strong>Buckets used only for the aquarium:</strong> never use a bucket that has had soap, detergent or
+                        cleaning products in it, as the residues are toxic to fish.</li>
+                    <li><strong>Water conditioner (dechlorinator):</strong> it neutralises chlorine and chloramines in tap water.
+                    </li>
+                    <li><strong>Thermometer:</strong> to match the temperature of the new water to the aquarium.</li>
+                    <li><strong>Test kit:</strong> at least for <strong>nitrate</strong> and <strong>pH</strong>. Nitrate shows
+                        whether the changes are keeping up with the build-up; pH helps you notice if the new water is very
+                        different from the aquarium water and avoid sudden changes that stress the fish.</li>
+                </ul>
+
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Letting the water "rest" does not solve everything.</strong> Free chlorine does evaporate over
+                        time, but the <strong>chloramines</strong> used by many water utilities do not. A water conditioner is
+                        still indispensable.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Step by Step: How to Do a Water Change Properly</h2>
+
+                <div class="image-block">
+                    <a href="assets/images/equipment/water-change-steps-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Open the image at full size"><img src="assets/images/equipment/water-change-steps-diagram.webp"
+                        alt="Illustrated six-step summary of how to do a partial water change"
+                        loading="lazy" /></a>
+                    <p class="image-caption">The complete water change routine in six steps. <span class="zoom-hint">Tap or click the image to enlarge it.</span></p>
+                </div>
+
+                <p>
+                    <strong>Before you start:</strong> measure nitrate and temperature. With this record you will find out over
+                    time whether your change volume and frequency are right.
+                </p>
+
+                <section>
+                    <h3>1. Switch off the heater and the filter</h3>
+                    <p>
+                        Switch both off before lowering the water level. A heater out of the water can crack or overheat, and a
+                        filter running dry can burn out its motor. If possible, let the heater cool for a few minutes before
+                        touching it.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>2. Vacuum the bottom and remove the water</h3>
+                    <p>
+                        Run the siphon over the substrate, vacuuming the accumulated dirt, until you have removed the planned
+                        volume. Take care according to the type of substrate:
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Gravel:</strong> you can push the siphon into the substrate, which releases dirt trapped
+                            between the grains.</li>
+                        <li><strong>Sand:</strong> hover just above the surface to vacuum the dirt without sucking up the sand.
+                        </li>
+                        <li><strong><a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Planted aquarium</a> with nutrient soil:</strong> do not stir the substrate. Vacuum
+                            only the dirt on the surface.</li>
+                        <li><strong>Fry and shrimp (if you have them):</strong> fit a fine stocking or mesh over the end of the
+                            siphon so they are not sucked up.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Prepare the new water</h3>
+                    <p>
+                        Fill the bucket and bring the water to the <strong>same temperature as the aquarium</strong>, within 1 to
+                        2 °C at most. Add the water conditioner at the dose on the label, according to the volume being replaced
+                        (or the whole aquarium volume, depending on the product). Mix well.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>4. Refill slowly</h3>
+                    <p>
+                        Pour the water onto a plate, a bag or the palm of your hand, so the stream does not stir up the
+                        substrate, uproot plants or frighten the fish. Never pour water directly onto them.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>5. Switch the equipment back on and check</h3>
+                    <p>
+                        Once the level is restored, switch the filter back on (check that no air is trapped) and then the heater.
+                        Half an hour later, check that the temperature is back to normal and that the fish are behaving calmly.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>6. Take notes and finish the maintenance</h3>
+                    <p>
+                        Record the date, the volume changed and the nitrate. Take the chance to clean the glass, trim the plants
+                        and remove dead leaves. If it is the week to clean the filter, do it at another time and with aquarium
+                        water, never tap water.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Common Mistakes That Harm Fish</h2>
+                <ul class="article-list">
+                    <li><strong>Changing 100% of the water:</strong> it causes a sudden swing in temperature and parameters,
+                        stresses the fish and can cause shock. Prefer regular partial changes.</li>
+                    <li><strong>Using tap water without conditioner:</strong> chlorine and chloramines irritate the gills and
+                        kill the filter bacteria.</li>
+                    <li><strong>Water much colder or warmer than the aquarium:</strong> the temperature change stresses the fish
+                        and encourages disease.</li>
+                    <li><strong>Waiting for the water to turn cloudy:</strong> by the time the problem is visible, it has been
+                        building up for weeks.</li>
+                    <li><strong>Relying on the filter alone:</strong> as we explain in the
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guide to choosing a filter</a>, no filter replaces water changes.
+                    </li>
+                    <li><strong>Using a bucket that has had soap in it:</strong> detergent residues are toxic even in tiny
+                        amounts.</li>
+                    <li><strong>Stirring the substrate of planted aquariums:</strong> it releases nutrients into the water all at
+                        once and can cause algae outbreaks.</li>
                 </ul>
             </section>
 
             <section>
-                <h3>3. Prepare a água nova</h3>
+                <h2>Expert Tips: What Nobody Tells You at the Shop</h2>
+
+                <section>
+                    <h3>Create a fixed routine</h3>
+                    <p>
+                        Pick a day of the week and make the water change a habit, with a reminder on your phone. Consistency
+                        matters more than quantity: small, regular changes keep the parameters stable.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Know your tap water</h3>
+                    <p>
+                        Test the pH, GH and KH of your tap water at least once. If it is very different from the aquarium water
+                        (especially for sensitive species), make smaller, more frequent changes so the change is gradual.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Reverse osmosis water needs remineralising</h3>
+                    <p>
+                        If you use reverse osmosis, rain or distilled water, you cannot add it pure: it lacks the minerals that
+                        fish and plants need. It has to be remineralised with specific products before use.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Sensitive species need a slow refill</h3>
+                    <p>
+                        Shrimp, discus and many soft-water fish suffer from rapid changes in parameters. In these cases, it is
+                        worth drip-feeding the new water through thin airline tubing over 30 to 60 minutes.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
                 <p>
-                    Encha o balde e deixe-a com a <strong>mesma temperatura do aquário</strong>, com diferença de no
-                    máximo 1 a 2 °C. Adicione o condicionador de água na dose do rótulo, conforme o volume que será
-                    reposto (ou o do aquário inteiro, dependendo do produto). Misture bem.
+                    The partial water change is the cheapest, simplest and most effective habit for keeping a healthy
+                    aquarium. It removes what the filter cannot, replaces what the water loses and keeps the environment stable
+                    for your fish and plants.
+                </p>
+                <p>
+                    Set a volume, pick a fixed day, always use water conditioner and keep an eye on nitrate. Within a few weeks
+                    the routine becomes automatic, and your aquarium will thank you.
+                </p>
+            </section>
+        } @else {
+            <section class="context">
+                <p>
+                    A água está transparente, os peixes nadam tranquilos e o filtro funciona sem barulho. Então por que
+                    trocar a água? Essa é a dúvida de quase todo iniciante, e é também a origem de um dos maiores
+                    equívocos do aquarismo: acreditar que <strong>água clara é água limpa</strong>.
+                </p>
+                <p>
+                    A <strong>TPA (Troca Parcial de Água)</strong> é a rotina mais simples e mais importante de um aquário
+                    saudável. Neste guia, você vai entender por que ela é indispensável, quanto e com que frequência trocar,
+                    e como fazer cada passo sem estressar os peixes.
                 </p>
             </section>
 
             <section>
-                <h3>4. Reponha devagar</h3>
+                <h2>O que é a TPA e por que ela é indispensável?</h2>
+
                 <p>
-                    Despeje a água sobre um prato, uma sacola ou a palma da mão, para evitar que o jato revolva o
-                    substrato, desenterre plantas e assuste os peixes. Nunca despeje a água diretamente sobre eles.
+                    A TPA consiste em retirar uma parte da água do aquário e repô-la por água nova e tratada. O <a [routerLink]="'/articles/aquarium-filtration-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">filtro</a> cuida
+                    da amônia e do nitrito, mas o produto final desse processo, o <strong>nitrato</strong>, não vai
+                    embora sozinho: ele só sai do sistema por meio da troca de água (ou sendo consumido pelas plantas).
                 </p>
+
+                <div class="image-block">
+                    <a href="assets/images/equipment/nitrate-accumulation-chart.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/equipment/nitrate-accumulation-chart.webp"
+                        alt="Gráfico ilustrativo mostrando o nitrato subindo sem TPA e se estabilizando com trocas semanais"
+                        loading="lazy" /></a>
+                    <p class="image-caption">Gráfico ilustrativo: sem TPA o nitrato só aumenta; com trocas semanais ele
+                        se estabiliza em um nível seguro. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
+                </div>
+
+                <p>
+                    Além de manter o nitrato sob controle, a TPA cumpre outras funções importantes:
+                </p>
+                <ul class="article-list bullets">
+                    <li><strong>Repõe minerais e oligoelementos:</strong> que os peixes e as plantas consomem e que o filtro
+                        não devolve para a água.</li>
+                    <li><strong>Dilui compostos dissolvidos:</strong> como taninos, hormônios e matéria orgânica, que não
+                        aparecem a olho nu, mas se acumulam com o tempo.</li>
+                    <li><strong>Previne algas:</strong> o excesso de nutrientes na água é combustível para elas.</li>
+                    <li><strong>Mantém a estabilidade:</strong> trocas pequenas e regulares são muito mais seguras do que
+                        trocas grandes e raras.</li>
+                </ul>
+
+                <div class="highlight-box inner">
+                    <p>
+                        O nitrato em níveis altos por muito tempo raramente mata de imediato, mas estressa os peixes,
+                        enfraquece o sistema imunológico e favorece as doenças. É um problema silencioso, por isso a TPA
+                        deve ser uma <strong>rotina</strong>, e não uma reação a um problema.
+                    </p>
+                </div>
             </section>
 
             <section>
-                <h3>5. Religue os equipamentos e confira</h3>
+                <h2>Quanto e com que frequência trocar?</h2>
+
                 <p>
-                    Com o nível restabelecido, religue o filtro (verifique se não ficou ar preso) e depois o aquecedor.
-                    Meia hora depois, confira se a temperatura voltou ao normal e se os peixes estão se comportando de
-                    forma tranquila.
+                    O padrão que funciona para a grande maioria dos aquários é trocar entre
+                    <strong>20% e 30% do volume total, uma vez por semana</strong>. É a mesma recomendação do nosso
+                    <a [routerLink]="'/articles/betta-fish-7-care-tips' | localize" class="link" target="_blank"
+                        rel="noopener noreferrer">guia de cuidados do Betta</a>, e vale para quase todos os peixes
+                    comunitários.
                 </p>
+
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Situação</th>
+                                <th scope="col">Volume por troca</th>
+                                <th scope="col">Frequência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aquário estabilizado, população moderada</strong></td>
+                                <td>20% a 30%</td>
+                                <td>Semanal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muitos peixes ou espécies grandes e "sujas" (ciclídeos, kinguios)</strong></td>
+                                <td>30% a 50%</td>
+                                <td>Semanal, ou até duas vezes por semana</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pico de amônia ou nitrito com peixes no aquário</strong></td>
+                                <td>30% a 50%</td>
+                                <td>Repetir conforme os testes, até amônia e nitrito chegarem a zero</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aquário novo em ciclagem, sem peixes</strong></td>
+                                <td>Em geral, nenhuma</td>
+                                <td>Somente se os testes mostrarem valores muito altos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Valores de referência. O ideal é ajustar de acordo com o teste de nitrato do seu
+                    aquário.</p>
+
+                <section>
+                    <h3>Guie-se pelo nitrato</h3>
+                    <p>
+                        O teste de nitrato é a melhor bússola da sua rotina. Em um <a [routerLink]="'/articles/community-aquarium-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">aquário comunitário</a>, o ideal é manter o
+                        nitrato abaixo de <strong>20 mg/L</strong> (também chamado de 20 ppm). Se os valores estiverem
+                        chegando perto de <strong>40 mg/L</strong>, é sinal de que você precisa trocar mais água, com mais
+                        frequência, ou reduzir a alimentação e a população.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Como calcular o volume a trocar</h3>
+                    <p>
+                        Calcule o <strong>volume real de água</strong>, e não o da etiqueta. Um aquário de 60 × 30 × 40 cm tem
+                        72 litros de capacidade bruta, mas o substrato e a decoração ocupam espaço: na prática, ele contém
+                        cerca de 60 litros de água. Como regra, desconte de 10% a 20% do volume bruto.
+                    </p>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Volume real de água</th>
+                                    <th scope="col">TPA de 20%</th>
+                                    <th scope="col">TPA de 30%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>50 L</td>
+                                    <td>10 L</td>
+                                    <td>15 L</td>
+                                </tr>
+                                <tr>
+                                    <td>80 L</td>
+                                    <td>16 L</td>
+                                    <td>24 L</td>
+                                </tr>
+                                <tr>
+                                    <td>100 L</td>
+                                    <td>20 L</td>
+                                    <td>30 L</td>
+                                </tr>
+                                <tr>
+                                    <td>200 L</td>
+                                    <td>40 L</td>
+                                    <td>60 L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
 
             <section>
-                <h3>6. Anote e complete a manutenção</h3>
-                <p>
-                    Registre a data, o volume trocado e o nitrato. Aproveite para limpar o vidro, podar as plantas e
-                    retirar folhas mortas. Se for a semana de limpar o filtro, faça-o em outro momento e com água do
-                    aquário, nunca da torneira.
-                </p>
-            </section>
-        </section>
+                <h2>O que você vai precisar</h2>
+                <ul class="article-list bullets">
+                    <li><strong>Sifão (limpa-fundo) com mangueira:</strong> serve para retirar a água e aspirar a sujeira do
+                        substrato ao mesmo tempo.</li>
+                    <li><strong>Baldes de uso exclusivo do aquário:</strong> nunca utilize um balde que já tenha tido
+                        sabão, detergente ou produtos de limpeza, pois os resíduos são tóxicos para os peixes.</li>
+                    <li><strong>Condicionador de água (anticloro):</strong> neutraliza o cloro e as cloraminas da água de
+                        abastecimento.</li>
+                    <li><strong>Termômetro:</strong> para igualar a temperatura da água nova à do aquário.</li>
+                    <li><strong>Kit de testes:</strong> pelo menos de <strong>nitrato</strong> e de <strong>pH</strong>. O nitrato
+                        mostra se as trocas estão dando conta do acúmulo; o pH ajuda a perceber se a água nova é muito
+                        diferente da água do aquário e evita mudanças bruscas que estressam os peixes.</li>
+                </ul>
 
-        <section>
-            <h2>Erros comuns que prejudicam os peixes</h2>
-            <ul class="article-list">
-                <li><strong>Trocar 100% da água:</strong> causa uma variação brusca de temperatura e parâmetros,
-                    estressa os peixes e pode causar choque. Prefira trocas parciais e regulares.</li>
-                <li><strong>Usar água da torneira sem condicionador:</strong> o cloro e as cloraminas irritam as
-                    brânquias e matam as bactérias do filtro.</li>
-                <li><strong>Água muito mais fria ou mais quente que a do aquário:</strong> a mudança de temperatura
-                    estressa os peixes e favorece doenças.</li>
-                <li><strong>Esperar a água ficar turva:</strong> quando o problema fica visível, ele já vem se
-                    acumulando há semanas.</li>
-                <li><strong>Confiar apenas no filtro:</strong> como explicamos no
-                    <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
-                        rel="noopener noreferrer">guia de escolha do filtro</a>, nenhum filtro substitui a TPA.
-                </li>
-                <li><strong>Usar um balde que já teve sabão:</strong> os resíduos de detergente são tóxicos mesmo em
-                    quantidades mínimas.</li>
-                <li><strong>Revolver o substrato de aquários plantados:</strong> libera nutrientes de uma vez na água e
-                    pode causar surtos de algas.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
-
-            <section>
-                <h3>Crie uma rotina fixa</h3>
-                <p>
-                    Escolha um dia da semana e transforme a TPA em hábito, com lembrete no celular. A consistência vale
-                    mais do que a quantidade: pequenas trocas regulares mantêm os parâmetros estáveis.
-                </p>
+                <div class="highlight-box inner">
+                    <p>
+                        <strong>Deixar a água "descansar" não resolve tudo.</strong> O cloro livre realmente evapora com o
+                        tempo, mas as <strong>cloraminas</strong>, usadas por muitas companhias de abastecimento, não. O
+                        condicionador de água continua sendo indispensável.
+                    </p>
+                </div>
             </section>
 
             <section>
-                <h3>Conheça a sua água de abastecimento</h3>
+                <h2>Passo a passo: como fazer a TPA corretamente</h2>
+
+                <div class="image-block">
+                    <a href="assets/images/equipment/water-change-steps-diagram.webp" target="_blank" rel="noopener noreferrer" class="zoom-link" title="Abrir a imagem em tamanho original"><img src="assets/images/equipment/water-change-steps-diagram.webp"
+                        alt="Resumo ilustrado em seis etapas de como fazer a troca parcial de água"
+                        loading="lazy" /></a>
+                    <p class="image-caption">O roteiro completo de uma TPA, em seis passos. <span class="zoom-hint">Toque ou clique na imagem para ampliar.</span></p>
+                </div>
+
                 <p>
-                    Teste o pH, o GH e o KH da água da torneira ao menos uma vez. Se ela for muito diferente da água do
-                    aquário (principalmente para espécies sensíveis), faça trocas menores e mais frequentes, para que a
-                    mudança seja gradual.
+                    <strong>Antes de começar:</strong> meça o nitrato e a temperatura. Com esse registro, você descobre com
+                    o tempo se o seu volume e a sua frequência de troca estão adequados.
                 </p>
+
+                <section>
+                    <h3>1. Desligue o aquecedor e o filtro</h3>
+                    <p>
+                        Desligue os dois antes de baixar o nível da água. O aquecedor fora da água pode trincar ou
+                        superaquecer, e o filtro funcionando a seco pode queimar o motor. Se possível, deixe o aquecedor
+                        esfriar por alguns minutos antes de tocá-lo.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>2. Sifone o fundo e retire a água</h3>
+                    <p>
+                        Passe o sifão sobre o substrato, aspirando a sujeira acumulada, até retirar o volume planejado.
+                        Observe os cuidados conforme o tipo de fundo:
+                    </p>
+                    <ul class="article-list bullets">
+                        <li><strong>Cascalho:</strong> pode afundar o sifão no substrato, o que libera a sujeira presa
+                            entre os grãos.</li>
+                        <li><strong>Areia:</strong> paire logo acima da superfície, para aspirar a sujeira sem levar a
+                            areia.</li>
+                        <li><strong><a [routerLink]="'/articles/aquatic-plants-guide' | localize" class="link" target="_blank" rel="noopener noreferrer">Aquário plantado</a> com solo nutritivo:</strong> não revolva o substrato. Aspire apenas a
+                            sujeira da superfície.</li>
+                        <li><strong>Filhotes e camarões (se você tiver):</strong> prenda uma meia fina ou uma tela na ponta
+                            do sifão para que eles não sejam sugados.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Prepare a água nova</h3>
+                    <p>
+                        Encha o balde e deixe-a com a <strong>mesma temperatura do aquário</strong>, com diferença de no
+                        máximo 1 a 2 °C. Adicione o condicionador de água na dose do rótulo, conforme o volume que será
+                        reposto (ou o do aquário inteiro, dependendo do produto). Misture bem.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>4. Reponha devagar</h3>
+                    <p>
+                        Despeje a água sobre um prato, uma sacola ou a palma da mão, para evitar que o jato revolva o
+                        substrato, desenterre plantas e assuste os peixes. Nunca despeje a água diretamente sobre eles.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>5. Religue os equipamentos e confira</h3>
+                    <p>
+                        Com o nível restabelecido, religue o filtro (verifique se não ficou ar preso) e depois o aquecedor.
+                        Meia hora depois, confira se a temperatura voltou ao normal e se os peixes estão se comportando de
+                        forma tranquila.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>6. Anote e complete a manutenção</h3>
+                    <p>
+                        Registre a data, o volume trocado e o nitrato. Aproveite para limpar o vidro, podar as plantas e
+                        retirar folhas mortas. Se for a semana de limpar o filtro, faça-o em outro momento e com água do
+                        aquário, nunca da torneira.
+                    </p>
+                </section>
             </section>
 
             <section>
-                <h3>Água de osmose reversa precisa de remineralização</h3>
-                <p>
-                    Quem usa água de osmose reversa, de chuva ou destilada não pode repô-la pura: ela não tem os
-                    minerais de que os peixes e as plantas precisam. É necessário remineralizá-la com produtos
-                    específicos antes de usar.
-                </p>
+                <h2>Erros comuns que prejudicam os peixes</h2>
+                <ul class="article-list">
+                    <li><strong>Trocar 100% da água:</strong> causa uma variação brusca de temperatura e parâmetros,
+                        estressa os peixes e pode causar choque. Prefira trocas parciais e regulares.</li>
+                    <li><strong>Usar água da torneira sem condicionador:</strong> o cloro e as cloraminas irritam as
+                        brânquias e matam as bactérias do filtro.</li>
+                    <li><strong>Água muito mais fria ou mais quente que a do aquário:</strong> a mudança de temperatura
+                        estressa os peixes e favorece doenças.</li>
+                    <li><strong>Esperar a água ficar turva:</strong> quando o problema fica visível, ele já vem se
+                        acumulando há semanas.</li>
+                    <li><strong>Confiar apenas no filtro:</strong> como explicamos no
+                        <a [routerLink]="'/articles/how-to-choose-aquarium-filter' | localize" class="link" target="_blank"
+                            rel="noopener noreferrer">guia de escolha do filtro</a>, nenhum filtro substitui a TPA.
+                    </li>
+                    <li><strong>Usar um balde que já teve sabão:</strong> os resíduos de detergente são tóxicos mesmo em
+                        quantidades mínimas.</li>
+                    <li><strong>Revolver o substrato de aquários plantados:</strong> libera nutrientes de uma vez na água e
+                        pode causar surtos de algas.</li>
+                </ul>
             </section>
 
             <section>
-                <h3>Espécies sensíveis pedem reposição lenta</h3>
+                <h2>Dicas de Mestre: o que ninguém te conta na loja</h2>
+
+                <section>
+                    <h3>Crie uma rotina fixa</h3>
+                    <p>
+                        Escolha um dia da semana e transforme a TPA em hábito, com lembrete no celular. A consistência vale
+                        mais do que a quantidade: pequenas trocas regulares mantêm os parâmetros estáveis.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Conheça a sua água de abastecimento</h3>
+                    <p>
+                        Teste o pH, o GH e o KH da água da torneira ao menos uma vez. Se ela for muito diferente da água do
+                        aquário (principalmente para espécies sensíveis), faça trocas menores e mais frequentes, para que a
+                        mudança seja gradual.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Água de osmose reversa precisa de remineralização</h3>
+                    <p>
+                        Quem usa água de osmose reversa, de chuva ou destilada não pode repô-la pura: ela não tem os
+                        minerais de que os peixes e as plantas precisam. É necessário remineralizá-la com produtos
+                        específicos antes de usar.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Espécies sensíveis pedem reposição lenta</h3>
+                    <p>
+                        Camarões, discos e muitos peixes de água macia sofrem com mudanças rápidas de parâmetros. Nesses
+                        casos, vale repor a água por gotejamento, com uma mangueira fina de ar, ao longo de 30 a 60 minutos.
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Conclusão</h2>
                 <p>
-                    Camarões, discos e muitos peixes de água macia sofrem com mudanças rápidas de parâmetros. Nesses
-                    casos, vale repor a água por gotejamento, com uma mangueira fina de ar, ao longo de 30 a 60 minutos.
+                    A TPA é o hábito mais barato, simples e eficiente para manter um aquário saudável. Ela remove o que o
+                    filtro não consegue remover, repõe o que a água perde e mantém o ambiente estável para os seus peixes e
+                    plantas.
+                </p>
+                <p>
+                    Defina um volume, escolha um dia fixo, use sempre condicionador de água e acompanhe o nitrato. Em poucas
+                    semanas, a rotina vira automática, e o aquário agradece.
                 </p>
             </section>
-        </section>
-
-        <section>
-            <h2>Conclusão</h2>
-            <p>
-                A TPA é o hábito mais barato, simples e eficiente para manter um aquário saudável. Ela remove o que o
-                filtro não consegue remover, repõe o que a água perde e mantém o ambiente estável para os seus peixes e
-                plantas.
-            </p>
-            <p>
-                Defina um volume, escolha um dia fixo, use sempre condicionador de água e acompanhe o nitrato. Em poucas
-                semanas, a rotina vira automática, e o aquário agradece.
-            </p>
-        </section>
+        }
     </article>
 </section>
 

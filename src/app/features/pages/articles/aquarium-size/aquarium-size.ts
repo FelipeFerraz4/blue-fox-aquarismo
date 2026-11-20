@@ -1,6 +1,6 @@
-import { ContentLanguageNotice } from '../../../../shared/components/general/content-language-notice/content-language-notice';
+import { LanguageService } from '../../../../core/i18n/language-service';
 import { ReportError } from '../../../../shared/components/general/report-error/report-error';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { PostHeaderType1 } from '../../../../shared/components/post/post-header-type1/post-header-type1';
 import { RelatedPosts } from '../../../../shared/components/post/related-posts/related-posts';
 import { Post } from '../../../../shared/model/types/post';
@@ -9,11 +9,12 @@ import { PostService } from '../../../../core/services/post/post';
 
 @Component({
   selector: 'app-aquarium-size',
-  imports: [ContentLanguageNotice, ReportError, PostHeaderType1, RelatedPosts],
+  imports: [ReportError, PostHeaderType1, RelatedPosts],
   templateUrl: './aquarium-size.html',
   styleUrl: './aquarium-size.scss',
 })
 export class AquariumSize implements OnInit {
+  protected readonly language = inject(LanguageService);
   currentPost = signal<Post | undefined>(undefined);
   recommended = signal<Post[]>([]);
   latest = signal<Post[]>([]);
