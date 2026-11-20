@@ -33,10 +33,11 @@ describe('CatalogService', () => {
     req.flush([]);
   });
 
-  it('omits lang when not given', () => {
+  it('uses the interface language when lang is not given', () => {
     spectator.service.getSpecies('betta-splendens').subscribe();
-    const req = http.expectOne(`${base}/species/slug/betta-splendens`);
-    expect(req.request.params.keys()).toEqual([]);
+    const req = http.expectOne((r) => r.url === `${base}/species/slug/betta-splendens`);
+    expect(req.request.params.keys()).toEqual(['lang']);
+    expect(req.request.params.get('lang')).toBe('pt-BR');
     req.flush({});
   });
 
@@ -58,7 +59,7 @@ describe('CatalogService', () => {
   it('reads families and biomes', () => {
     spectator.service.listFamilies().subscribe();
     spectator.service.getBiome('amazonia', 'en').subscribe();
-    http.expectOne(`${base}/families`).flush([]);
+    http.expectOne((r) => r.url === `${base}/families`).flush([]);
     const biome = http.expectOne((r) => r.url === `${base}/biomes/slug/amazonia`);
     expect(biome.request.params.get('lang')).toBe('en');
     biome.flush({});

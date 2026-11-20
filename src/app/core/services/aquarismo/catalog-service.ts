@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
+import { LanguageService } from '../../i18n/language-service';
 import {
   Biome,
   CompatibilityReport,
@@ -15,12 +16,13 @@ import {
 
 /**
  * Cliente do catálogo do Aquarismo (espécies, famílias, biomas, equipamentos e compatibilidade).
- * O `X-Blog-ID` vem do tenantInterceptor. `lang` é opcional: sem ele a API responde em pt-BR
- * (ou pelo Accept-Language do navegador). A regra de compatibilidade fica só no backend.
+ * O `X-Blog-ID` vem do tenantInterceptor. `lang` é opcional: sem ele vale o idioma atual da interface
+ * (LanguageService); a API cai no pt-BR quando falta tradução. A regra de compatibilidade fica só no backend.
  */
 @Injectable({ providedIn: 'root' })
 export class CatalogService {
   private http = inject(HttpClient);
+  private language = inject(LanguageService);
   private baseUrl = `${environment.blogApi.urlBase}${environment.blogApi.request.aquarismo}`;
 
   listSpecies(filters: SpeciesFilters = {}, lang?: string): Observable<Species[]> {
@@ -59,9 +61,10 @@ export class CatalogService {
     });
   }
 
-  /** Monta a query ignorando valores vazios (undefined, null, ''). */
+  /** Monta a query ignorando valores vazios (undefined, null, ''); sem `lang`, usa o idioma da interface. */
   private params(values: Record<string, string | number | boolean | undefined | null>): HttpParams {
-    let params = new HttpParams();
+    let params = new HttpParams().set('lang', String(values['lang'] ?? this.language.current()));
+    delete values['lang'];
     for (const [key, value] of Object.entries(values)) {
       if (value !== undefined && value !== null && value !== '') params = params.set(key, String(value));
     }

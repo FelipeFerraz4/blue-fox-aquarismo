@@ -20,7 +20,7 @@ module.exports = {
     coverageDirectory: 'coverage/aquarismo-app',
 
     transformIgnorePatterns: [
-        'node_modules/(?!@angular|@ngneat/spectator|rxjs|swiper|ssr-window|dom7)',
+        'node_modules/(?!@angular|@ngneat/spectator|@ngx-translate|rxjs|swiper|ssr-window|dom7)',
     ],
     moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
 };

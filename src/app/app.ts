@@ -8,10 +8,12 @@ import { filter } from 'rxjs/operators';
 import { ThemeService } from './core/services/theme/theme-service';
 import { AccessibilityService } from './core/services/accessibility/accessibility-service';
 import { A11yToolbar } from './shared/components/general/a11y-toolbar/a11y-toolbar';
+import { LanguageService } from './core/i18n/language-service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Navbar, CookieBanner, A11yToolbar],
+  imports: [RouterOutlet, Footer, Navbar, CookieBanner, A11yToolbar, TranslatePipe],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -20,6 +22,7 @@ export class App {
   // Injetados aqui para valer desde o início (data-theme, data-contrast e escala da fonte).
   protected readonly theme = inject(ThemeService);
   protected readonly a11y = inject(AccessibilityService);
+  protected readonly language = inject(LanguageService);
   private readonly document = inject(DOCUMENT);
 
   /** "Pular para o conteúdo": foca o <main> sem navegar. */

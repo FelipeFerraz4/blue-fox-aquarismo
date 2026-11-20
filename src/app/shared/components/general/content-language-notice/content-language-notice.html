@@ -1,0 +1,5 @@
+@if (!language.isDefault()) {
+  <p class="content-lang-notice" role="note" data-speech-skip [attr.lang]="language.current()">
+    {{ 'LANGUAGE.CONTENT_PT_NOTICE' | translate }}
+  </p>
+}

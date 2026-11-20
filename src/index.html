@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <!-- Tema e acessibilidade antes do Angular, para não piscar (ver ThemeService/AccessibilityService).
-       localStorage: bf-theme (ausente = seguir o sistema), bf-contrast, bf-font-scale. -->
+       localStorage: bf-theme (ausente = seguir o sistema), bf-contrast, bf-font-scale, bf-lang (ver core/i18n/locales.ts). -->
   <script>
     (function () {
       try {
@@ -19,6 +19,8 @@
         if (localStorage.getItem('bf-contrast') === 'high') d.setAttribute('data-contrast', 'high');
         var f = parseFloat(localStorage.getItem('bf-font-scale'));
         if (f >= 0.875 && f <= 1.5) d.style.setProperty('--a11y-font-scale', String(f));
+        var l = localStorage.getItem('bf-lang');
+        if (['en'].indexOf(l) !== -1) d.setAttribute('lang', l); // idiomas além do padrão (core/i18n/locales.ts)
       } catch (e) {}
     })();
   </script>

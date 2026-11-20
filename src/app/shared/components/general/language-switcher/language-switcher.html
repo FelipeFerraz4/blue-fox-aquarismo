@@ -1,0 +1,14 @@
+<div class="lang-switch" role="group" [attr.aria-label]="'LANGUAGE.LABEL' | translate">
+  @for (l of locales; track l.code) {
+    <button
+      type="button"
+      [attr.aria-pressed]="language.current() === l.code"
+      [attr.lang]="l.code"
+      [attr.title]="l.label"
+      (click)="select(l.code)"
+    >
+      <!-- Nome acessível "PT, Português": contém o texto visível (WCAG 2.5.3) -->
+      {{ l.short }}<span class="sr-only">, {{ l.label }}</span>
+    </button>
+  }
+</div>

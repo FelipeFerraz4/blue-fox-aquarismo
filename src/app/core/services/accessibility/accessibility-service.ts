@@ -69,14 +69,16 @@ export class AccessibilityService {
       this.stopSpeaking();
       return;
     }
-    const text = this.textToRead();
+    const { text, lang } = this.textToRead();
     if (!text) return;
 
     const synth = window.speechSynthesis;
     synth.cancel();
     const utterance = new SpeechSynthesisUtterance(text.slice(0, 8000));
-    utterance.lang = 'pt-BR';
-    const voice = synth.getVoices().find((v) => v.lang?.toLowerCase().startsWith('pt'));
+    // Voz no idioma do trecho lido: o corpo dos artigos é pt-BR mesmo com a interface em inglês.
+    utterance.lang = lang;
+    const base = lang.toLowerCase().split('-')[0];
+    const voice = synth.getVoices().find((v) => v.lang?.toLowerCase().startsWith(base));
     if (voice) utterance.voice = voice;
     const done = () => this.zone.run(() => this.speaking.set(false));
     utterance.onend = done;
@@ -90,13 +92,28 @@ export class AccessibilityService {
     this.speaking.set(false);
   }
 
-  private textToRead(): string {
-    const selected = window.getSelection()?.toString().trim();
-    if (selected) return selected.replace(/\s+/g, ' ');
+  /** Texto a ler e o idioma dele (o `lang` mais próximo do trecho; padrão: o do documento). */
+  private textToRead(): { text: string; lang: string } {
+    const selection = window.getSelection();
+    const selected = selection?.toString().trim();
+    if (selected) {
+      const node = selection?.anchorNode;
+      const el = node instanceof HTMLElement ? node : node?.parentElement;
+      return { text: selected.replace(/\s+/g, ' '), lang: this.langOf(el) };
+    }
     const target =
       READ_TARGETS.map((s) => this.document.querySelector<HTMLElement>(s)).find(Boolean) ??
       this.document.body;
-    return (target.innerText || target.textContent || '').replace(/\s+/g, ' ').trim();
+    // Trechos marcados com data-speech-skip (ex.: aviso "só em português") ficam de fora da leitura.
+    let text = target.innerText || target.textContent || '';
+    target.querySelectorAll<HTMLElement>('[data-speech-skip]').forEach((el) => {
+      text = text.replace(el.innerText || el.textContent || '', '');
+    });
+    return { text: text.replace(/\s+/g, ' ').trim(), lang: this.langOf(target) };
+  }
+
+  private langOf(el: Element | null | undefined): string {
+    return el?.closest('[lang]')?.getAttribute('lang') || this.document.documentElement.lang || 'pt-BR';
   }
 
   private setScale(value: number): void {
