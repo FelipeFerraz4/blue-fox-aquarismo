@@ -22,7 +22,7 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 ### Tech Stack & Padrões
 - **Angular 22:** Priorizar o uso de **Signals** para reatividade e **Standalone Components**.
 - **SSR (Server-Side Rendering):** Essencial para indexação de artigos técnicos. Evitar acesso direto ao `window` ou `document` sem checar o `isPlatformBrowser`.
-- **I18n:** Uso de `@ngx-translate`. Todas as strings de UI devem estar em `assets/i18n/*.json`.
+- **I18n:** `@ngx-translate` com pt-BR (padrão) e en; ver regra 15 e a skill `bluefox-add-language`.
 - **Estilização:** SCSS modular. Seguir o design system baseado no Angular Material.
 - **Testes:** Priorizar Jest com Spectator.
 
@@ -30,7 +30,7 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 
 1.  **SEO & Metadados:** Todo componente em `features/pages` deve injetar o `SeoService` e definir `title` e `meta tags` no `ngOnInit`.
 2.  **Performance de Imagem:** Utilizar prioritariamente o formato `.webp` disponível em `assets/images`.
-3.  **Traduções:** Nunca "hardcodar" texto no HTML. Usar o pipe `| translate`.
+3.  **Traduções:** Nunca "hardcodar" texto de interface no HTML: use `{{ 'SECAO.CHAVE' | translate }}` (atributos: `[attr.aria-label]="'X' | translate"`; texto com `<strong>`: `[innerHTML]`; nunca ponha entrada do usuário em `innerHTML`). Chave nova vai em **todos** os `src/assets/i18n/*.json` (o `i18n-keys.spec.ts` falha se faltar).
 4.  **Tipagem:** Proibido o uso de `any`. Definir interfaces em `shared/model/types/`.
 5.  **Domínio:** o site é `https://bluefoxaquarismo.space`. Use sempre esse domínio nas URLs de SEO (canonical, `og:url`, sitemap).
 6.  **Publicar um artigo:** só artigos publicados têm rota em produção (cada rota é pré-renderizada no build e, sem texto, viraria uma página vazia com status 200 indexável). Hoje os 10 artigos do blog estão publicados em `publishedRoutes`. Para um **novo rascunho**: (1) crie o componente e escreva o texto no `<article class="content">`; (2) registre a rota em `draftRoutes` de `features/pages/articles/articles.routing.ts`, que só existe em `ng serve` (no build de produção responde 404 e não é pré-renderizada); (3) para publicar, mova a rota para `publishedRoutes`, adicione a URL em `public/sitemap.xml` e publique o post no backend (`PUT /api/v1/posts/:id` com `{"published": true}`, ou crie o post se ele ainda não existir). O build precisa de acesso à API de produção para pré-renderizar o cabeçalho do artigo; e na prévia local o cabeçalho só aparece se o seu backend local tiver o post publicado.
@@ -49,6 +49,8 @@ O projeto segue o padrão modular para escalabilidade e SSR:
 13. **Painel `/admin` e autenticação:** papéis só pelas constantes de `core/auth/roles.constants.ts` (`KeycloakRole`, `CONTENT_MANAGER_ROLES`) e `roleGuard` com `data.roles`. O token do Keycloak **só** vai nas requisições marcadas com `withAuth()` (`core/interceptors/auth.interceptor.ts`); páginas públicas continuam anônimas mesmo com editor logado (sem rascunhos no site nem divergência com o HTML pré-renderizado). Rotas que exigem login são `RenderMode.Client` em `app.routes.server.ts`, ficam fora do sitemap, levam `noindex` e estão no `Disallow` do `robots.txt`. As chamadas do painel ficam em `core/services/admin/admin-api-service.ts`.
 
 14. **Relatos de erro:** `<app-report-error>` (`shared/components/general/report-error/`) no fim de cada artigo e na página `/contact` (`mode="inline"`). Envia para `POST /api/v1/reports` (privado; só editores leem no painel). Sem `targetSlug`, usa o último trecho da URL. O e-mail de contato fica só em `environment.contactEmail`. Páginas novas com conteúdo factual (ficha de espécie, bioma, equipamento) devem incluir o componente com o `targetType` certo.
+
+15. **Idiomas (i18n):** idiomas ativos só em `core/i18n/locales.ts` (`SUPPORTED_LOCALES`); o padrão (pt-BR) vai no bundle e os outros são carregados sob demanda (`core/i18n/translate-loader.ts`). `LanguageService` guarda a escolha em `bf-lang` e acompanha o `<html lang>`; o SSR/pré-render é sempre pt-BR (SEO em português). Datas com o pipe `localDate`, nunca `date` com locale fixo. Conteúdo editorial (artigos, textos legais) fica em pt-BR com `lang="pt-BR"` e `<app-content-language-notice>`. Exceção: o painel `/admin` é só pt-BR. Para adicionar idioma, skill `bluefox-add-language`. Em testes com `TestBed` puro, use `provideTestTranslations()` (o Spectator já recebe pelo `setup-jest.ts`).
 
 ## 🧠 Lógica de Negócio Técnica (Contexto para Sugestões)
 Ao sugerir cálculos ou simuladores, considere:
