@@ -1,5 +1,5 @@
-<h1>Catálogo</h1>
-<p class="muted">O site só mostra o que está <strong>Publicado</strong>. Rascunhos e revisados aparecem só aqui.</p>
+<h1>{{ 'ADMIN.CATALOG.TITLE' | translate }}</h1>
+<p class="muted" [innerHTML]="'ADMIN.CATALOG.LEAD' | translate"></p>
 
 <p class="status-line" role="status" aria-live="polite">
   @if (status(); as s) {
@@ -8,19 +8,19 @@
 </p>
 
 <section aria-labelledby="h-species">
-  <h2 id="h-species">Espécies</h2>
+  <h2 id="h-species">{{ 'ADMIN.CATALOG.SPECIES' | translate }}</h2>
   @if (!species()) {
-    <p class="muted">Carregando…</p>
+    <p class="muted">{{ 'ADMIN.LOADING' | translate }}</p>
   } @else {
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Nome científico</th>
-            <th scope="col">Situação</th>
-            <th scope="col">Última revisão</th>
-            <th scope="col"><span class="sr-only">Ações</span></th>
+            <th scope="col">{{ 'ADMIN.CATALOG.NAME' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.SCIENTIFIC' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.STATUS' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.LAST_REVIEW' | translate }}</th>
+            <th scope="col"><span class="sr-only">{{ 'ADMIN.ACTIONS' | translate }}</span></th>
           </tr>
         </thead>
         <tbody>
@@ -28,14 +28,15 @@
             <tr>
               <td>{{ s.commonName }}</td>
               <td><em>{{ s.scientificName }}</em></td>
-              <td><span [class]="'badge ' + badgeClass(s.publication)">{{ publicationLabel[s.publication] }}</span></td>
-              <td>{{ s.lastReviewedAt ? (s.lastReviewedAt | date: 'dd/MM/yyyy') : '—' }}</td>
+              <td><span [class]="'badge ' + badgeClass(s.publication)">{{ 'ADMIN.PUBLICATION.' + s.publication | translate }}</span></td>
+              <td>{{ s.lastReviewedAt ? (s.lastReviewedAt | localDate: 'mediumDate') : '—' }}</td>
               <td>
-                <a class="btn" [routerLink]="['/admin/catalog/species', s.slug]" [attr.aria-label]="'Editar ' + s.commonName">Editar</a>
+                <a class="btn" [routerLink]="('/admin/catalog/species/' + s.slug) | localize"
+                  [attr.aria-label]="'ADMIN.CATALOG.EDIT_ITEM' | translate: { name: s.commonName }">{{ 'ADMIN.EDIT' | translate }}</a>
               </td>
             </tr>
           } @empty {
-            <tr><td colspan="5" class="muted">Nenhuma espécie cadastrada.</td></tr>
+            <tr><td colspan="5" class="muted">{{ 'ADMIN.CATALOG.NO_SPECIES' | translate }}</td></tr>
           }
         </tbody>
       </table>
@@ -44,17 +45,17 @@
 </section>
 
 <section aria-labelledby="h-biomes">
-  <h2 id="h-biomes">Biomas</h2>
+  <h2 id="h-biomes">{{ 'ADMIN.CATALOG.BIOMES' | translate }}</h2>
   @if (!biomes()) {
-    <p class="muted">Carregando…</p>
+    <p class="muted">{{ 'ADMIN.LOADING' | translate }}</p>
   } @else {
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th scope="col">Bioma</th>
-            <th scope="col">Espécies</th>
-            <th scope="col">Situação</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.BIOME' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.SPECIES_COUNT' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.STATUS' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -63,10 +64,10 @@
               <td>{{ b.name }}</td>
               <td>{{ b.species.length }}</td>
               <td>
-                <label class="sr-only" [for]="'bio-' + b.id">Situação de {{ b.name }}</label>
+                <label class="sr-only" [for]="'bio-' + b.id">{{ 'ADMIN.CATALOG.STATUS_OF' | translate: { name: b.name } }}</label>
                 <select [id]="'bio-' + b.id" [value]="b.publication" (change)="setBiome(b, $event)">
                   @for (p of publications; track p) {
-                    <option [value]="p" [selected]="p === b.publication">{{ publicationLabel[p] }}</option>
+                    <option [value]="p" [selected]="p === b.publication">{{ 'ADMIN.PUBLICATION.' + p | translate }}</option>
                   }
                 </select>
               </td>
@@ -79,17 +80,17 @@
 </section>
 
 <section aria-labelledby="h-equipment">
-  <h2 id="h-equipment">Equipamentos</h2>
+  <h2 id="h-equipment">{{ 'ADMIN.CATALOG.EQUIPMENT' | translate }}</h2>
   @if (!equipment()) {
-    <p class="muted">Carregando…</p>
+    <p class="muted">{{ 'ADMIN.LOADING' | translate }}</p>
   } @else {
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th scope="col">Equipamento</th>
-            <th scope="col">Regra de dimensionamento</th>
-            <th scope="col">Situação</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.EQUIPMENT_ITEM' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.SIZING' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.CATALOG.STATUS' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -98,10 +99,10 @@
               <td>{{ e.name }}</td>
               <td>{{ e.sizingNote || '—' }}</td>
               <td>
-                <label class="sr-only" [for]="'eq-' + e.id">Situação de {{ e.name }}</label>
+                <label class="sr-only" [for]="'eq-' + e.id">{{ 'ADMIN.CATALOG.STATUS_OF' | translate: { name: e.name } }}</label>
                 <select [id]="'eq-' + e.id" [value]="e.publication" (change)="setEquipment(e, $event)">
                   @for (p of publications; track p) {
-                    <option [value]="p" [selected]="p === e.publication">{{ publicationLabel[p] }}</option>
+                    <option [value]="p" [selected]="p === e.publication">{{ 'ADMIN.PUBLICATION.' + p | translate }}</option>
                   }
                 </select>
               </td>

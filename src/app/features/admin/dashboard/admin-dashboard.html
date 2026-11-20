@@ -1,47 +1,47 @@
-<h1>Painel</h1>
+<h1>{{ 'ADMIN.DASHBOARD.TITLE' | translate }}</h1>
 
 @if (error()) {
-  <p class="error-text" role="alert">Não foi possível carregar os números. Confira a conexão com a API.</p>
+  <p class="error-text" role="alert">{{ 'ADMIN.DASHBOARD.LOAD_ERROR' | translate }}</p>
 } @else if (!stats()) {
-  <p class="muted" role="status">Carregando…</p>
+  <p class="muted" role="status">{{ 'ADMIN.LOADING' | translate }}</p>
 } @else {
   @let s = stats()!;
-  <p class="muted">Atualizado em {{ s.generatedAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+  <p class="muted">{{ 'ADMIN.DASHBOARD.UPDATED_AT' | translate: { date: (s.generatedAt | localDate: 'medium') } }}</p>
 
   <ul class="kpis">
     <li class="card">
       <span class="kpi-value">{{ s.posts.published }}</span>
-      <span class="kpi-label">artigos publicados</span>
-      <span class="muted">{{ s.posts.drafts }} rascunho(s)</span>
+      <span class="kpi-label">{{ 'ADMIN.DASHBOARD.KPI_POSTS' | translate }}</span>
+      <span class="muted">{{ 'ADMIN.DASHBOARD.KPI_DRAFTS' | translate: { count: s.posts.drafts } }}</span>
     </li>
     <li class="card">
       <span class="kpi-value">{{ s.species.byPublication.PUBLISHED }}</span>
-      <span class="kpi-label">espécies publicadas</span>
-      <span class="muted">{{ s.species.byPublication.REVIEWED }} revisada(s), {{ s.species.byPublication.DRAFT }} rascunho(s)</span>
+      <span class="kpi-label">{{ 'ADMIN.DASHBOARD.KPI_SPECIES' | translate }}</span>
+      <span class="muted">{{ 'ADMIN.DASHBOARD.KPI_SPECIES_SUB' | translate: { reviewed: s.species.byPublication.REVIEWED, drafts: s.species.byPublication.DRAFT } }}</span>
     </li>
     <li class="card" [class.attention]="s.reports.pending > 0">
       <span class="kpi-value">{{ s.reports.pending }}</span>
-      <span class="kpi-label">relatos pendentes</span>
-      <a routerLink="/admin/reports">Ver relatos</a>
+      <span class="kpi-label">{{ 'ADMIN.DASHBOARD.KPI_REPORTS' | translate }}</span>
+      <a [routerLink]="'/admin/reports' | localize">{{ 'ADMIN.DASHBOARD.SEE_REPORTS' | translate }}</a>
     </li>
     <li class="card">
       <span class="kpi-value">{{ s.species.needsReview.length }}</span>
-      <span class="kpi-label">fichas sem revisão</span>
-      <span class="muted">há mais de {{ s.species.staleReviewMonths }} meses</span>
+      <span class="kpi-label">{{ 'ADMIN.DASHBOARD.KPI_STALE' | translate }}</span>
+      <span class="muted">{{ 'ADMIN.DASHBOARD.KPI_STALE_SUB' | translate: { months: s.species.staleReviewMonths } }}</span>
     </li>
   </ul>
 
   <div class="grid">
     <section aria-labelledby="h-cat">
-      <h2 id="h-cat">Artigos por categoria</h2>
+      <h2 id="h-cat">{{ 'ADMIN.DASHBOARD.BY_CATEGORY' | translate }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Categoria</th>
-              <th scope="col">Publicados</th>
-              <th scope="col">Rascunhos</th>
-              <th scope="col"><span class="sr-only">Proporção</span></th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.CATEGORY' | translate }}</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.PUBLISHED' | translate }}</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.DRAFTS' | translate }}</th>
+              <th scope="col"><span class="sr-only">{{ 'ADMIN.PROPORTION' | translate }}</span></th>
             </tr>
           </thead>
           <tbody>
@@ -61,23 +61,23 @@
     </section>
 
     <section aria-labelledby="h-read">
-      <h2 id="h-read">Mais lidos</h2>
+      <h2 id="h-read">{{ 'ADMIN.DASHBOARD.MOST_READ' | translate }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Artigo</th>
-              <th scope="col">Visualizações</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.ARTICLE' | translate }}</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.VIEWS' | translate }}</th>
             </tr>
           </thead>
           <tbody>
             @for (p of s.posts.mostRead; track p.id) {
               <tr>
-                <td><a [routerLink]="['/articles', p.slug]">{{ p.title }}</a></td>
+                <td><a [routerLink]="('/articles/' + p.slug) | localize">{{ p.title }}</a></td>
                 <td>{{ p.views }}</td>
               </tr>
             } @empty {
-              <tr><td colspan="2" class="muted">Sem dados.</td></tr>
+              <tr><td colspan="2" class="muted">{{ 'ADMIN.NO_DATA' | translate }}</td></tr>
             }
           </tbody>
         </table>
@@ -85,14 +85,14 @@
     </section>
 
     <section aria-labelledby="h-family">
-      <h2 id="h-family">Espécies por família</h2>
+      <h2 id="h-family">{{ 'ADMIN.DASHBOARD.BY_FAMILY' | translate }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Família</th>
-              <th scope="col">Espécies</th>
-              <th scope="col"><span class="sr-only">Proporção</span></th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.FAMILY' | translate }}</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.SPECIES' | translate }}</th>
+              <th scope="col"><span class="sr-only">{{ 'ADMIN.PROPORTION' | translate }}</span></th>
             </tr>
           </thead>
           <tbody>
@@ -111,14 +111,14 @@
     </section>
 
     <section aria-labelledby="h-biome">
-      <h2 id="h-biome">Espécies por bioma</h2>
+      <h2 id="h-biome">{{ 'ADMIN.DASHBOARD.BY_BIOME' | translate }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Bioma</th>
-              <th scope="col">Espécies</th>
-              <th scope="col"><span class="sr-only">Proporção</span></th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.BIOME' | translate }}</th>
+              <th scope="col">{{ 'ADMIN.DASHBOARD.SPECIES' | translate }}</th>
+              <th scope="col"><span class="sr-only">{{ 'ADMIN.PROPORTION' | translate }}</span></th>
             </tr>
           </thead>
           <tbody>
@@ -138,27 +138,27 @@
   </div>
 
   <section aria-labelledby="h-reports">
-    <h2 id="h-reports">Últimos relatos</h2>
+    <h2 id="h-reports">{{ 'ADMIN.DASHBOARD.LATEST_REPORTS' | translate }}</h2>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th scope="col">Data</th>
-            <th scope="col">Sobre</th>
-            <th scope="col">Mensagem</th>
-            <th scope="col">Situação</th>
+            <th scope="col">{{ 'ADMIN.DASHBOARD.DATE' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.DASHBOARD.ABOUT' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.DASHBOARD.MESSAGE' | translate }}</th>
+            <th scope="col">{{ 'ADMIN.DASHBOARD.STATUS' | translate }}</th>
           </tr>
         </thead>
         <tbody>
           @for (r of s.reports.latest; track r.id) {
             <tr>
-              <td>{{ r.createdAt | date: 'dd/MM/yyyy' }}</td>
-              <td>{{ targetLabel[r.targetType] }}: {{ r.targetTitle || r.targetSlug }}</td>
+              <td>{{ r.createdAt | localDate: 'mediumDate' }}</td>
+              <td>{{ 'ADMIN.REPORT_TARGET.' + r.targetType | translate }}: {{ r.targetTitle || r.targetSlug }}</td>
               <td class="msg">{{ r.message }}</td>
-              <td><span class="badge">{{ statusLabel[r.status] }}</span></td>
+              <td><span class="badge">{{ 'ADMIN.REPORT_STATUS.' + r.status | translate }}</span></td>
             </tr>
           } @empty {
-            <tr><td colspan="4" class="muted">Nenhum relato ainda.</td></tr>
+            <tr><td colspan="4" class="muted">{{ 'ADMIN.DASHBOARD.NO_REPORTS' | translate }}</td></tr>
           }
         </tbody>
       </table>
@@ -167,13 +167,18 @@
 
   @if (s.species.needsReview.length) {
     <section aria-labelledby="h-stale">
-      <h2 id="h-stale">Fichas para revisar</h2>
+      <h2 id="h-stale">{{ 'ADMIN.DASHBOARD.TO_REVIEW' | translate }}</h2>
       <ul class="stale">
         @for (sp of s.species.needsReview; track sp.id) {
           <li>
-            <a [routerLink]="['/admin/catalog/species', sp.slug]">{{ sp.name }}</a>
+            <a [routerLink]="('/admin/catalog/species/' + sp.slug) | localize">{{ sp.name }}</a>
             <span class="muted">
-              — {{ sp.lastReviewedAt ? 'revisada em ' + (sp.lastReviewedAt | date: 'dd/MM/yyyy') : 'nunca revisada' }}
+              —
+              @if (sp.lastReviewedAt) {
+                {{ 'ADMIN.DASHBOARD.REVIEWED_ON' | translate: { date: (sp.lastReviewedAt | localDate: 'mediumDate') } }}
+              } @else {
+                {{ 'ADMIN.DASHBOARD.NEVER_REVIEWED' | translate }}
+              }
             </span>
           </li>
         }

@@ -1,10 +1,11 @@
-import { DatePipe } from '@angular/common';
+import { LocalDatePipe } from '../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../core/i18n/localize.pipe';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { AdminApiService } from '../../../core/services/admin/admin-api-service';
 import { DashboardStats } from '../../../shared/model/types/dashboard';
-import { REPORT_STATUS_LABEL, REPORT_TARGET_LABEL } from '../../../shared/model/types/report';
 
 /**
  * Visão geral: artigos por categoria, mais lidos, espécies por situação/família/bioma, fichas sem
@@ -12,7 +13,7 @@ import { REPORT_STATUS_LABEL, REPORT_TARGET_LABEL } from '../../../shared/model/
  */
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [RouterLink, DatePipe],
+  imports: [LocalDatePipe, TranslatePipe, LocalizePipe, RouterLink],
   templateUrl: './admin-dashboard.html',
   styleUrls: ['./admin-dashboard.scss', '../admin-shared.scss'],
 })
@@ -21,9 +22,6 @@ export class AdminDashboard implements OnInit {
 
   readonly stats = signal<DashboardStats | null>(null);
   readonly error = signal(false);
-  readonly statusLabel = REPORT_STATUS_LABEL;
-  readonly targetLabel = REPORT_TARGET_LABEL;
-  readonly publicationLabel: Record<string, string> = { DRAFT: 'Rascunho', REVIEWED: 'Revisado', PUBLISHED: 'Publicado' };
 
   ngOnInit(): void {
     this.api.stats().subscribe({

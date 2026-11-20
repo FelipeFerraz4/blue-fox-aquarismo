@@ -1,72 +1,72 @@
-<h1>Relatos</h1>
-<p class="muted">Avisos de erro enviados pelos leitores. São privados: só editores e admins veem.</p>
+<h1>{{ 'ADMIN.REPORTS.TITLE' | translate }}</h1>
+<p class="muted">{{ 'ADMIN.REPORTS.LEAD' | translate }}</p>
 
 <div class="toolbar">
-  <label for="report-filter">Situação</label>
+  <label for="report-filter">{{ 'ADMIN.REPORTS.STATUS' | translate }}</label>
   <select id="report-filter" [ngModel]="filter()" (ngModelChange)="setFilter($event)">
-    <option value="">Todas</option>
+    <option value="">{{ 'ADMIN.REPORTS.ALL' | translate }}</option>
     @for (s of statuses; track s) {
-      <option [value]="s">{{ statusLabel[s] }}</option>
+      <option [value]="s">{{ 'ADMIN.REPORT_STATUS.' + s | translate }}</option>
     }
   </select>
-  <button type="button" class="btn" (click)="load()">Atualizar</button>
+  <button type="button" class="btn" (click)="load()">{{ 'ADMIN.REFRESH' | translate }}</button>
 </div>
 
 @if (loadError()) {
-  <p class="error-text" role="alert">Não foi possível carregar os relatos.</p>
+  <p class="error-text" role="alert">{{ 'ADMIN.REPORTS.LOAD_ERROR' | translate }}</p>
 } @else if (!reports()) {
-  <p class="muted" role="status">Carregando…</p>
+  <p class="muted" role="status">{{ 'ADMIN.LOADING' | translate }}</p>
 } @else {
-  <p class="muted" role="status">{{ reports()!.length }} relato(s).</p>
+  <p class="muted" role="status">{{ 'ADMIN.REPORTS.COUNT' | translate: { count: reports()!.length } }}</p>
   <ul class="reports">
     @for (r of reports(); track r.id) {
       <li class="card">
         <div class="report-head">
-          <span class="badge">{{ statusLabel[r.status] }}</span>
-          <span class="muted">{{ r.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+          <span class="badge">{{ 'ADMIN.REPORT_STATUS.' + r.status | translate }}</span>
+          <span class="muted">{{ r.createdAt | localDate: 'medium' }}</span>
         </div>
 
         <h2 class="report-title">
-          {{ targetLabel[r.targetType] }}:
+          {{ 'ADMIN.REPORT_TARGET.' + r.targetType | translate }}:
           @if (targetLink(r); as link) {
-            <a [routerLink]="link">{{ r.targetTitle || r.targetSlug }}</a>
+            <a [routerLink]="link | localize">{{ r.targetTitle || r.targetSlug }}</a>
           } @else {
             {{ r.targetTitle || r.targetSlug }}
           }
         </h2>
 
         <dl>
-          <dt>O que está errado</dt>
+          <dt>{{ 'ADMIN.REPORTS.WRONG' | translate }}</dt>
           <dd>{{ r.message }}</dd>
           @if (r.suggestion) {
-            <dt>Correção sugerida</dt>
+            <dt>{{ 'ADMIN.REPORTS.SUGGESTION' | translate }}</dt>
             <dd>{{ r.suggestion }}</dd>
           }
           @if (r.source) {
-            <dt>Fonte</dt>
+            <dt>{{ 'ADMIN.REPORTS.SOURCE' | translate }}</dt>
             <dd class="break">{{ r.source }}</dd>
           }
           @if (r.email) {
-            <dt>E-mail do leitor</dt>
+            <dt>{{ 'ADMIN.REPORTS.EMAIL' | translate }}</dt>
             <dd><a [href]="'mailto:' + r.email">{{ r.email }}</a></dd>
           }
           @if (r.pageUrl) {
-            <dt>Página</dt>
+            <dt>{{ 'ADMIN.REPORTS.PAGE' | translate }}</dt>
             <dd class="break"><a [href]="r.pageUrl" target="_blank" rel="noopener noreferrer">{{ r.pageUrl }}</a></dd>
           }
         </dl>
 
         <div class="edit">
           <div class="field">
-            <label [for]="'st-' + r.id">Situação</label>
+            <label [for]="'st-' + r.id">{{ 'ADMIN.REPORTS.STATUS' | translate }}</label>
             <select [id]="'st-' + r.id" [ngModel]="draft(r.id).status" (ngModelChange)="updateDraft(r.id, { status: $event })">
               @for (s of statuses; track s) {
-                <option [value]="s">{{ statusLabel[s] }}</option>
+                <option [value]="s">{{ 'ADMIN.REPORT_STATUS.' + s | translate }}</option>
               }
             </select>
           </div>
           <div class="field grow">
-            <label [for]="'note-' + r.id">Nota interna</label>
+            <label [for]="'note-' + r.id">{{ 'ADMIN.REPORTS.NOTE' | translate }}</label>
             <textarea
               [id]="'note-' + r.id"
               rows="2"
@@ -77,9 +77,9 @@
         </div>
 
         <div class="actions">
-          <button type="button" class="btn btn-primary" (click)="save(r)">Salvar</button>
+          <button type="button" class="btn btn-primary" (click)="save(r)">{{ 'ADMIN.SAVE' | translate }}</button>
           @if (canDelete) {
-            <button type="button" class="btn danger" (click)="remove(r)">Excluir de vez</button>
+            <button type="button" class="btn danger" (click)="remove(r)">{{ 'ADMIN.REPORTS.DELETE' | translate }}</button>
           }
         </div>
         <p class="status-line" role="status" aria-live="polite">
@@ -89,7 +89,7 @@
         </p>
       </li>
     } @empty {
-      <li class="muted">Nenhum relato nesta situação.</li>
+      <li class="muted">{{ 'ADMIN.REPORTS.EMPTY' | translate }}</li>
     }
   </ul>
 }

@@ -1,8 +1,5 @@
-<h1>Posts</h1>
-<p class="muted">
-  Publicar aqui libera o post na API. Para um artigo novo aparecer no site, a rota dele também precisa estar em
-  <code>publishedRoutes</code> (exige deploy).
-</p>
+<h1>{{ 'ADMIN.POSTS.TITLE' | translate }}</h1>
+<p class="muted" [innerHTML]="'ADMIN.POSTS.LEAD' | translate"></p>
 
 <p class="status-line" role="status" aria-live="polite">
   @if (status(); as s) {
@@ -11,42 +8,42 @@
 </p>
 
 @if (loadError()) {
-  <p class="error-text" role="alert">Não foi possível carregar os posts.</p>
+  <p class="error-text" role="alert">{{ 'ADMIN.POSTS.LOAD_ERROR' | translate }}</p>
 } @else if (!posts()) {
-  <p class="muted" role="status">Carregando…</p>
+  <p class="muted" role="status">{{ 'ADMIN.LOADING' | translate }}</p>
 } @else {
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th scope="col">Título</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Situação</th>
-          <th scope="col">Visualizações</th>
-          <th scope="col"><span class="sr-only">Ações</span></th>
+          <th scope="col">{{ 'ADMIN.POSTS.TITLE_COL' | translate }}</th>
+          <th scope="col">{{ 'ADMIN.POSTS.CATEGORY' | translate }}</th>
+          <th scope="col">{{ 'ADMIN.POSTS.STATUS' | translate }}</th>
+          <th scope="col">{{ 'ADMIN.POSTS.VIEWS' | translate }}</th>
+          <th scope="col"><span class="sr-only">{{ 'ADMIN.ACTIONS' | translate }}</span></th>
         </tr>
       </thead>
       <tbody>
         @for (p of posts(); track p.id) {
           <tr>
-            <td><a [routerLink]="['/articles', p.slug]">{{ p.title }}</a></td>
+            <td><a [routerLink]="('/articles/' + p.slug) | localize">{{ p.title }}</a></td>
             <td>{{ p.categoryName }}</td>
             <td>
-              <span class="badge" [class.badge-ok]="p.published">{{ p.published ? 'Publicado' : 'Rascunho' }}</span>
+              <span class="badge" [class.badge-ok]="p.published">{{ (p.published ? 'ADMIN.POSTS.PUBLISHED' : 'ADMIN.POSTS.DRAFT') | translate }}</span>
               @if (p.publishedAt) {
-                <span class="muted small">{{ p.publishedAt | date: 'dd/MM/yyyy' }}</span>
+                <span class="muted small">{{ p.publishedAt | localDate: 'shortDate' }}</span>
               }
             </td>
             <td>{{ p.views }}</td>
             <td>
               <button type="button" class="btn" [disabled]="busy() === p.id" (click)="toggle(p)"
-                [attr.aria-label]="(p.published ? 'Despublicar ' : 'Publicar ') + p.title">
-                {{ p.published ? 'Despublicar' : 'Publicar' }}
+                [attr.aria-label]="(p.published ? 'ADMIN.POSTS.UNPUBLISH_ITEM' : 'ADMIN.POSTS.PUBLISH_ITEM') | translate: { title: p.title }">
+                {{ (p.published ? 'ADMIN.POSTS.UNPUBLISH' : 'ADMIN.POSTS.PUBLISH') | translate }}
               </button>
             </td>
           </tr>
         } @empty {
-          <tr><td colspan="5" class="muted">Nenhum post.</td></tr>
+          <tr><td colspan="5" class="muted">{{ 'ADMIN.POSTS.EMPTY' | translate }}</td></tr>
         }
       </tbody>
     </table>

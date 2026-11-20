@@ -1,3 +1,5 @@
+import { TranslatePipe } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../core/i18n/localize.pipe';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -5,7 +7,8 @@ import { forkJoin } from 'rxjs';
 
 import { AdminApiService, SpeciesTranslationInput } from '../../../core/services/admin/admin-api-service';
 import { Difficulty, Diet, Publication, Species, SwimLayer, Temperament } from '../../../shared/model/types/aquarismo';
-import { PUBLICATION_LABEL } from '../catalog/admin-catalog';
+import { PUBLICATIONS } from '../catalog/admin-catalog';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Edição da ficha de uma espécie (dados estruturados + textos em pt-BR e en). Salvar grava direto na
@@ -14,13 +17,14 @@ import { PUBLICATION_LABEL } from '../catalog/admin-catalog';
  */
 @Component({
   selector: 'app-admin-species-edit',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [TranslatePipe, LocalizePipe, ReactiveFormsModule, RouterLink],
   templateUrl: './admin-species-edit.html',
   styleUrls: ['./admin-species-edit.scss', '../admin-shared.scss'],
 })
 export class AdminSpeciesEdit implements OnInit {
   private readonly api = inject(AdminApiService);
   private readonly route = inject(ActivatedRoute);
+  private readonly translate = inject(TranslateService);
   private readonly fb = inject(FormBuilder).nonNullable;
 
   readonly species = signal<Species | null>(null);
@@ -28,37 +32,21 @@ export class AdminSpeciesEdit implements OnInit {
   readonly saving = signal(false);
   readonly status = signal<{ text: string; ok: boolean } | null>(null);
 
-  readonly publicationLabel = PUBLICATION_LABEL;
-  readonly publications = Object.keys(PUBLICATION_LABEL) as Publication[];
-  readonly temperaments: { value: Temperament; label: string }[] = [
-    { value: 'PEACEFUL', label: 'Pacífico' },
-    { value: 'SEMI_AGGRESSIVE', label: 'Semiagressivo' },
-    { value: 'AGGRESSIVE', label: 'Agressivo' },
-  ];
-  readonly difficulties: { value: Difficulty; label: string }[] = [
-    { value: 'BEGINNER', label: 'Iniciante' },
-    { value: 'INTERMEDIATE', label: 'Intermediário' },
-    { value: 'ADVANCED', label: 'Avançado' },
-  ];
-  readonly diets: { value: Diet; label: string }[] = [
-    { value: 'HERBIVORE', label: 'Herbívoro' },
-    { value: 'OMNIVORE', label: 'Onívoro' },
-    { value: 'CARNIVORE', label: 'Carnívoro' },
-  ];
-  readonly layers: { value: SwimLayer; label: string }[] = [
-    { value: 'SURFACE', label: 'Superfície' },
-    { value: 'MIDDLE', label: 'Meio' },
-    { value: 'BOTTOM', label: 'Fundo' },
-  ];
+  readonly publications = PUBLICATIONS;
+  readonly temperaments: Temperament[] = ['PEACEFUL', 'SEMI_AGGRESSIVE', 'AGGRESSIVE'];
+  readonly difficulties: Difficulty[] = ['BEGINNER', 'INTERMEDIATE', 'ADVANCED'];
+  readonly diets: Diet[] = ['HERBIVORE', 'OMNIVORE', 'CARNIVORE'];
+  readonly layers: SwimLayer[] = ['SURFACE', 'MIDDLE', 'BOTTOM'];
+  /** Características booleanas (rótulos em ADMIN.SPECIES.FLAGS.*). */
   readonly flags = [
-    { key: 'finNipper', label: 'Belisca nadadeiras' },
-    { key: 'longFinned', label: 'Nadadeiras longas' },
-    { key: 'territorial', label: 'Territorial' },
-    { key: 'conspecificAggression', label: 'Machos brigam entre si' },
-    { key: 'needsPlants', label: 'Precisa de plantas' },
-    { key: 'needsHiding', label: 'Precisa de esconderijos' },
-    { key: 'eatsPlants', label: 'Come plantas' },
-    { key: 'jumps', label: 'Salta (aquário com tampa)' },
+    'finNipper',
+    'longFinned',
+    'territorial',
+    'conspecificAggression',
+    'needsPlants',
+    'needsHiding',
+    'eatsPlants',
+    'jumps',
   ] as const;
 
   readonly form = this.fb.group({
@@ -138,11 +126,11 @@ export class AdminSpeciesEdit implements OnInit {
     const v = this.form.getRawValue();
     if (this.form.invalid || !v.layers.length) {
       this.form.markAllAsTouched();
-      this.status.set({ text: 'Confira os campos obrigatórios (nome, descrição, camadas e números).', ok: false });
+      this.status.set({ text: this.translate.instant('ADMIN.SPECIES.REQUIRED_ERROR'), ok: false });
       return;
     }
     if (v.tempMinC > v.tempMaxC || v.phMin > v.phMax || (v.ghMin != null && v.ghMax != null && v.ghMin > v.ghMax)) {
-      this.status.set({ text: 'O mínimo não pode ser maior que o máximo (temperatura, pH ou GH).', ok: false });
+      this.status.set({ text: this.translate.instant('ADMIN.SPECIES.RANGE_ERROR'), ok: false });
       return;
     }
 
@@ -165,11 +153,14 @@ export class AdminSpeciesEdit implements OnInit {
           this.saving.set(false);
           this.species.set(updated);
           this.form.controls.markReviewed.setValue(false);
-          this.status.set({ text: `Ficha salva (${this.publicationLabel[updated.publication]}).`, ok: true });
+          this.status.set({
+            text: this.translate.instant('ADMIN.SPECIES.SAVED', { status: this.translate.instant('ADMIN.PUBLICATION.' + updated.publication) }),
+            ok: true,
+          });
         },
         error: () => {
           this.saving.set(false);
-          this.status.set({ text: 'Não foi possível salvar. Confira os dados e tente de novo.', ok: false });
+          this.status.set({ text: this.translate.instant('ADMIN.SPECIES.SAVE_ERROR'), ok: false });
         },
       });
   }

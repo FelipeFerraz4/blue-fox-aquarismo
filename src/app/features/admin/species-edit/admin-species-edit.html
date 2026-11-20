@@ -1,111 +1,111 @@
-<p><a routerLink="/admin/catalog" class="back">← Voltar ao catálogo</a></p>
+<p><a [routerLink]="'/admin/catalog' | localize" class="back">{{ 'ADMIN.SPECIES.BACK' | translate }}</a></p>
 
 @if (loadError()) {
-  <p class="error-text" role="alert">Espécie não encontrada ou sem acesso.</p>
+  <p class="error-text" role="alert">{{ 'ADMIN.SPECIES.NOT_FOUND' | translate }}</p>
 } @else if (!species()) {
-  <p class="muted" role="status">Carregando…</p>
+  <p class="muted" role="status">{{ 'ADMIN.LOADING' | translate }}</p>
 } @else {
   <h1>{{ species()!.commonName }}</h1>
-  <p class="muted"><em>{{ species()!.scientificName }}</em> · {{ species()!.family?.name || 'Sem família' }}</p>
+  <p class="muted"><em>{{ species()!.scientificName }}</em> · {{ species()!.family?.name || ('ADMIN.SPECIES.NO_FAMILY' | translate) }}</p>
 
   <form [formGroup]="form" (ngSubmit)="save()" novalidate>
     <fieldset class="card">
-      <legend>Publicação</legend>
+      <legend>{{ 'ADMIN.SPECIES.PUBLICATION' | translate }}</legend>
       <div class="row">
         <div class="field">
-          <label for="sp-publication">Situação</label>
+          <label for="sp-publication">{{ 'ADMIN.SPECIES.STATUS' | translate }}</label>
           <select id="sp-publication" formControlName="publication">
             @for (p of publications; track p) {
-              <option [value]="p">{{ publicationLabel[p] }}</option>
+              <option [value]="p">{{ 'ADMIN.PUBLICATION.' + p | translate }}</option>
             }
           </select>
         </div>
         <label class="check">
           <input type="checkbox" formControlName="markReviewed" />
-          Marcar como revisada hoje
+          {{ 'ADMIN.SPECIES.MARK_REVIEWED' | translate }}
         </label>
       </div>
-      <p class="muted small">Só fichas <strong>Publicadas</strong> aparecem no site.</p>
+      <p class="muted small" [innerHTML]="'ADMIN.SPECIES.ONLY_PUBLISHED' | translate"></p>
     </fieldset>
 
     <fieldset class="card">
-      <legend>Tamanho e espaço</legend>
+      <legend>{{ 'ADMIN.SPECIES.SIZE' | translate }}</legend>
       <div class="grid">
-        <div class="field"><label for="sp-size">Tamanho adulto (cm)</label><input id="sp-size" type="number" step="0.5" formControlName="adultSizeCm" /></div>
-        <div class="field"><label for="sp-vol">Volume mínimo (L)</label><input id="sp-vol" type="number" formControlName="minVolumeL" /></div>
-        <div class="field"><label for="sp-len">Comprimento mínimo (cm)</label><input id="sp-len" type="number" formControlName="minTankLengthCm" /></div>
-        <div class="field"><label for="sp-group">Grupo mínimo</label><input id="sp-group" type="number" formControlName="minGroupSize" /></div>
+        <div class="field"><label for="sp-size">{{ 'ADMIN.SPECIES.ADULT_SIZE' | translate }}</label><input id="sp-size" type="number" step="0.5" formControlName="adultSizeCm" /></div>
+        <div class="field"><label for="sp-vol">{{ 'ADMIN.SPECIES.MIN_VOLUME' | translate }}</label><input id="sp-vol" type="number" formControlName="minVolumeL" /></div>
+        <div class="field"><label for="sp-len">{{ 'ADMIN.SPECIES.MIN_LENGTH' | translate }}</label><input id="sp-len" type="number" formControlName="minTankLengthCm" /></div>
+        <div class="field"><label for="sp-group">{{ 'ADMIN.SPECIES.MIN_GROUP' | translate }}</label><input id="sp-group" type="number" formControlName="minGroupSize" /></div>
       </div>
     </fieldset>
 
     <fieldset class="card">
-      <legend>Água</legend>
+      <legend>{{ 'ADMIN.SPECIES.WATER' | translate }}</legend>
       <div class="grid">
-        <div class="field"><label for="sp-tmin">Temperatura mín. (°C)</label><input id="sp-tmin" type="number" step="0.5" formControlName="tempMinC" /></div>
-        <div class="field"><label for="sp-tmax">Temperatura máx. (°C)</label><input id="sp-tmax" type="number" step="0.5" formControlName="tempMaxC" /></div>
-        <div class="field"><label for="sp-phmin">pH mín.</label><input id="sp-phmin" type="number" step="0.1" formControlName="phMin" /></div>
-        <div class="field"><label for="sp-phmax">pH máx.</label><input id="sp-phmax" type="number" step="0.1" formControlName="phMax" /></div>
-        <div class="field"><label for="sp-ghmin">GH mín. (°dGH)</label><input id="sp-ghmin" type="number" formControlName="ghMin" /></div>
-        <div class="field"><label for="sp-ghmax">GH máx. (°dGH)</label><input id="sp-ghmax" type="number" formControlName="ghMax" /></div>
+        <div class="field"><label for="sp-tmin">{{ 'ADMIN.SPECIES.TEMP_MIN' | translate }}</label><input id="sp-tmin" type="number" step="0.5" formControlName="tempMinC" /></div>
+        <div class="field"><label for="sp-tmax">{{ 'ADMIN.SPECIES.TEMP_MAX' | translate }}</label><input id="sp-tmax" type="number" step="0.5" formControlName="tempMaxC" /></div>
+        <div class="field"><label for="sp-phmin">{{ 'ADMIN.SPECIES.PH_MIN' | translate }}</label><input id="sp-phmin" type="number" step="0.1" formControlName="phMin" /></div>
+        <div class="field"><label for="sp-phmax">{{ 'ADMIN.SPECIES.PH_MAX' | translate }}</label><input id="sp-phmax" type="number" step="0.1" formControlName="phMax" /></div>
+        <div class="field"><label for="sp-ghmin">{{ 'ADMIN.SPECIES.GH_MIN' | translate }}</label><input id="sp-ghmin" type="number" formControlName="ghMin" /></div>
+        <div class="field"><label for="sp-ghmax">{{ 'ADMIN.SPECIES.GH_MAX' | translate }}</label><input id="sp-ghmax" type="number" formControlName="ghMax" /></div>
       </div>
     </fieldset>
 
     <fieldset class="card">
-      <legend>Comportamento e cuidados</legend>
+      <legend>{{ 'ADMIN.SPECIES.BEHAVIOUR' | translate }}</legend>
       <div class="grid">
         <div class="field">
-          <label for="sp-temp">Temperamento (fêmea, quando difere)</label>
+          <label for="sp-temp">{{ 'ADMIN.SPECIES.TEMPERAMENT' | translate }}</label>
           <select id="sp-temp" formControlName="temperament">
-            @for (t of temperaments; track t.value) {
-              <option [value]="t.value">{{ t.label }}</option>
+            @for (t of temperaments; track t) {
+              <option [value]="t">{{ 'ADMIN.SPECIES.TEMPERAMENTS.' + t | translate }}</option>
             }
           </select>
         </div>
         <div class="field">
-          <label for="sp-male">Temperamento do macho</label>
+          <label for="sp-male">{{ 'ADMIN.SPECIES.MALE_TEMPERAMENT' | translate }}</label>
           <select id="sp-male" formControlName="maleTemperament" aria-describedby="sp-male-hint">
-            <option value="">Igual ao da fêmea</option>
-            @for (t of temperaments; track t.value) {
-              <option [value]="t.value">{{ t.label }}</option>
+            <option value="">{{ 'ADMIN.SPECIES.SAME_AS_FEMALE' | translate }}</option>
+            @for (t of temperaments; track t) {
+              <option [value]="t">{{ 'ADMIN.SPECIES.TEMPERAMENTS.' + t | translate }}</option>
             }
           </select>
-          <p class="muted small" id="sp-male-hint">Use quando o macho é mais agressivo (ex.: Betta).</p>
+          <p class="muted small" id="sp-male-hint">{{ 'ADMIN.SPECIES.MALE_HINT' | translate }}</p>
         </div>
         <div class="field">
-          <label for="sp-diff">Dificuldade</label>
+          <label for="sp-diff">{{ 'ADMIN.SPECIES.DIFFICULTY' | translate }}</label>
           <select id="sp-diff" formControlName="difficulty">
-            @for (d of difficulties; track d.value) {
-              <option [value]="d.value">{{ d.label }}</option>
+            @for (d of difficulties; track d) {
+              <option [value]="d">{{ 'ADMIN.SPECIES.DIFFICULTIES.' + d | translate }}</option>
             }
           </select>
         </div>
         <div class="field">
-          <label for="sp-diet">Dieta</label>
+          <label for="sp-diet">{{ 'ADMIN.SPECIES.DIET' | translate }}</label>
           <select id="sp-diet" formControlName="diet">
-            @for (d of diets; track d.value) {
-              <option [value]="d.value">{{ d.label }}</option>
+            @for (d of diets; track d) {
+              <option [value]="d">{{ 'ADMIN.SPECIES.DIETS.' + d | translate }}</option>
             }
           </select>
         </div>
       </div>
 
       <fieldset class="inner">
-        <legend>Camadas do aquário</legend>
+        <legend>{{ 'ADMIN.SPECIES.LAYERS' | translate }}</legend>
         <div class="checks">
-          @for (l of layers; track l.value) {
+          @for (l of layers; track l) {
             <label class="check">
-              <input type="checkbox" [checked]="hasLayer(l.value)" (change)="toggleLayer(l.value, $event)" />
-              {{ l.label }}
+              <input type="checkbox" [checked]="hasLayer(l)" (change)="toggleLayer(l, $event)" />
+              {{ 'ADMIN.SPECIES.LAYER.' + l | translate }}
             </label>
           }
         </div>
       </fieldset>
 
       <fieldset class="inner">
-        <legend>Características</legend>
+        <legend>{{ 'ADMIN.SPECIES.TRAITS' | translate }}</legend>
         <div class="checks">
-          @for (f of flags; track f.key) {
-            <label class="check"><input type="checkbox" [formControlName]="f.key" /> {{ f.label }}</label>
+          @for (f of flags; track f) {
+            <label class="check"><input type="checkbox" [formControlName]="f" /> {{ 'ADMIN.SPECIES.FLAGS.' + f | translate }}</label>
           }
         </div>
       </fieldset>
@@ -113,25 +113,25 @@
 
     <div class="langs">
       <fieldset class="card" formGroupName="pt">
-        <legend>Textos em português (obrigatório)</legend>
-        <div class="field"><label for="pt-name">Nome popular</label><input id="pt-name" formControlName="commonName" required /></div>
-        <div class="field"><label for="pt-region">Região de origem</label><input id="pt-region" formControlName="region" /></div>
-        <div class="field"><label for="pt-desc">Descrição</label><textarea id="pt-desc" rows="6" formControlName="description" required></textarea></div>
-        <div class="field"><label for="pt-care">Cuidados</label><textarea id="pt-care" rows="3" formControlName="careNotes"></textarea></div>
+        <legend>{{ 'ADMIN.SPECIES.TEXTS_PT' | translate }}</legend>
+        <div class="field"><label for="pt-name">{{ 'ADMIN.SPECIES.COMMON_NAME' | translate }}</label><input id="pt-name" formControlName="commonName" required /></div>
+        <div class="field"><label for="pt-region">{{ 'ADMIN.SPECIES.REGION' | translate }}</label><input id="pt-region" formControlName="region" /></div>
+        <div class="field"><label for="pt-desc">{{ 'ADMIN.SPECIES.DESCRIPTION' | translate }}</label><textarea id="pt-desc" rows="6" formControlName="description" required></textarea></div>
+        <div class="field"><label for="pt-care">{{ 'ADMIN.SPECIES.CARE' | translate }}</label><textarea id="pt-care" rows="3" formControlName="careNotes"></textarea></div>
       </fieldset>
 
       <fieldset class="card" formGroupName="en">
-        <legend>Textos em inglês (opcional)</legend>
-        <div class="field"><label for="en-name">Common name</label><input id="en-name" formControlName="commonName" lang="en" /></div>
-        <div class="field"><label for="en-region">Region</label><input id="en-region" formControlName="region" lang="en" /></div>
-        <div class="field"><label for="en-desc">Description</label><textarea id="en-desc" rows="6" formControlName="description" lang="en"></textarea></div>
-        <div class="field"><label for="en-care">Care notes</label><textarea id="en-care" rows="3" formControlName="careNotes" lang="en"></textarea></div>
-        <p class="muted small">Sem nome e descrição em inglês, o site mostra o texto em português.</p>
+        <legend>{{ 'ADMIN.SPECIES.TEXTS_EN' | translate }}</legend>
+        <div class="field"><label for="en-name">{{ 'ADMIN.SPECIES.COMMON_NAME' | translate }}</label><input id="en-name" formControlName="commonName" lang="en" /></div>
+        <div class="field"><label for="en-region">{{ 'ADMIN.SPECIES.REGION' | translate }}</label><input id="en-region" formControlName="region" lang="en" /></div>
+        <div class="field"><label for="en-desc">{{ 'ADMIN.SPECIES.DESCRIPTION' | translate }}</label><textarea id="en-desc" rows="6" formControlName="description" lang="en"></textarea></div>
+        <div class="field"><label for="en-care">{{ 'ADMIN.SPECIES.CARE' | translate }}</label><textarea id="en-care" rows="3" formControlName="careNotes" lang="en"></textarea></div>
+        <p class="muted small">{{ 'ADMIN.SPECIES.EN_HINT' | translate }}</p>
       </fieldset>
     </div>
 
     <div class="save-bar">
-      <button type="submit" class="btn btn-primary" [disabled]="saving()">{{ saving() ? 'Salvando…' : 'Salvar ficha' }}</button>
+      <button type="submit" class="btn btn-primary" [disabled]="saving()">{{ (saving() ? 'ADMIN.SPECIES.SAVING' : 'ADMIN.SPECIES.SAVE') | translate }}</button>
       <p class="status-line" role="status" aria-live="polite">
         @if (status(); as s) {
           <span [class.ok-text]="s.ok" [class.error-text]="!s.ok">{{ s.text }}</span>

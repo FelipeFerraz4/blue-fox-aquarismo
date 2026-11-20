@@ -1,4 +1,6 @@
-import { DatePipe } from '@angular/common';
+import { LocalDatePipe } from '../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../core/i18n/localize.pipe';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -6,7 +8,8 @@ import { RouterLink } from '@angular/router';
 import { CONTENT_ADMIN_ROLES } from '../../../core/auth/roles.constants';
 import { AdminApiService } from '../../../core/services/admin/admin-api-service';
 import { AuthService } from '../../../core/services/auth/auth-service';
-import { REPORT_STATUS_LABEL, REPORT_TARGET_LABEL, Report, ReportStatus } from '../../../shared/model/types/report';
+import { REPORT_STATUS_LABEL, Report, ReportStatus } from '../../../shared/model/types/report';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Draft {
   status: ReportStatus;
@@ -19,17 +22,16 @@ interface Draft {
  */
 @Component({
   selector: 'app-admin-reports',
-  imports: [FormsModule, RouterLink, DatePipe],
+  imports: [LocalDatePipe, TranslatePipe, LocalizePipe, FormsModule, RouterLink],
   templateUrl: './admin-reports.html',
   styleUrls: ['./admin-reports.scss', '../admin-shared.scss'],
 })
 export class AdminReports implements OnInit {
   private readonly api = inject(AdminApiService);
   private readonly auth = inject(AuthService);
+  private readonly translate = inject(TranslateService);
 
-  readonly statuses = Object.keys(REPORT_STATUS_LABEL) as ReportStatus[];
-  readonly statusLabel = REPORT_STATUS_LABEL;
-  readonly targetLabel = REPORT_TARGET_LABEL;
+  readonly statuses: ReportStatus[] = Object.keys(REPORT_STATUS_LABEL) as ReportStatus[];
   readonly canDelete = this.auth.hasAnyRole(CONTENT_ADMIN_ROLES);
 
   readonly filter = signal<ReportStatus | ''>('NEW');
@@ -73,24 +75,28 @@ export class AdminReports implements OnInit {
     this.api.updateReport(report.id, { status: d.status, internalNote: d.internalNote }).subscribe({
       next: (updated) => {
         this.reports.update((list) => list?.map((r) => (r.id === updated.id ? updated : r)) ?? null);
-        this.message.set({ id: report.id, text: `Salvo: ${this.statusLabel[updated.status]}.`, ok: true });
+        this.message.set({
+          id: report.id,
+          text: this.translate.instant('ADMIN.REPORTS.SAVED', { status: this.translate.instant('ADMIN.REPORT_STATUS.' + updated.status) }),
+          ok: true,
+        });
       },
-      error: () => this.message.set({ id: report.id, text: 'Não foi possível salvar.', ok: false }),
+      error: () => this.message.set({ id: report.id, text: this.translate.instant('ADMIN.REPORTS.SAVE_ERROR'), ok: false }),
     });
   }
 
   remove(report: Report): void {
-    if (!confirm('Excluir este relato de vez? Isso também apaga o e-mail do leitor.')) return;
+    if (!confirm(this.translate.instant('ADMIN.REPORTS.CONFIRM_DELETE'))) return;
     this.api.deleteReport(report.id).subscribe({
       next: () => this.reports.update((list) => list?.filter((r) => r.id !== report.id) ?? null),
-      error: () => this.message.set({ id: report.id, text: 'Não foi possível excluir.', ok: false }),
+      error: () => this.message.set({ id: report.id, text: this.translate.instant('ADMIN.REPORTS.DELETE_ERROR'), ok: false }),
     });
   }
 
   /** Onde corrigir: ficha no painel (espécie) ou a página pública (artigo e demais). */
-  targetLink(r: Report): string[] | null {
-    if (r.targetType === 'SPECIES') return ['/admin/catalog/species', r.targetSlug];
-    if (r.targetType === 'POST') return ['/articles', r.targetSlug];
+  targetLink(r: Report): string | null {
+    if (r.targetType === 'SPECIES') return `/admin/catalog/species/${r.targetSlug}`;
+    if (r.targetType === 'POST') return `/articles/${r.targetSlug}`;
     return null;
   }
 }

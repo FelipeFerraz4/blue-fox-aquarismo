@@ -1,16 +1,16 @@
-import { DatePipe } from '@angular/common';
+import { LocalDatePipe } from '../../../core/i18n/local-date.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LocalizePipe } from '../../../core/i18n/localize.pipe';
 import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { AdminApiService } from '../../../core/services/admin/admin-api-service';
+import { TranslateService } from '@ngx-translate/core';
 import { Biome, Equipment, Publication, Species } from '../../../shared/model/types/aquarismo';
 
-export const PUBLICATION_LABEL: Record<Publication, string> = {
-  DRAFT: 'Rascunho',
-  REVIEWED: 'Revisado',
-  PUBLISHED: 'Publicado',
-};
+/** Situações editoriais, na ordem do fluxo (rótulos em ADMIN.PUBLICATION.*). */
+export const PUBLICATIONS: Publication[] = ['DRAFT', 'REVIEWED', 'PUBLISHED'];
 
 /**
  * Catálogo no painel: espécies (abre a ficha para editar), biomas e equipamentos (troca a publicação
@@ -18,24 +18,24 @@ export const PUBLICATION_LABEL: Record<Publication, string> = {
  */
 @Component({
   selector: 'app-admin-catalog',
-  imports: [RouterLink, DatePipe],
+  imports: [LocalDatePipe, TranslatePipe, LocalizePipe, RouterLink],
   templateUrl: './admin-catalog.html',
   styleUrls: ['./admin-catalog.scss', '../admin-shared.scss'],
 })
 export class AdminCatalog implements OnInit {
   private readonly api = inject(AdminApiService);
 
-  readonly publications = Object.keys(PUBLICATION_LABEL) as Publication[];
-  readonly publicationLabel = PUBLICATION_LABEL;
+  private readonly translate = inject(TranslateService);
+  readonly publications = PUBLICATIONS;
   readonly species = signal<Species[] | null>(null);
   readonly biomes = signal<Biome[] | null>(null);
   readonly equipment = signal<Equipment[] | null>(null);
   readonly status = signal<{ text: string; ok: boolean } | null>(null);
 
   ngOnInit(): void {
-    this.api.listSpecies().subscribe({ next: (l) => this.species.set(l), error: () => this.fail('espécies') });
-    this.api.listBiomes().subscribe({ next: (l) => this.biomes.set(l), error: () => this.fail('biomas') });
-    this.api.listEquipment().subscribe({ next: (l) => this.equipment.set(l), error: () => this.fail('equipamentos') });
+    this.api.listSpecies().subscribe({ next: (l) => this.species.set(l), error: () => this.fail('ADMIN.CATALOG.SPECIES') });
+    this.api.listBiomes().subscribe({ next: (l) => this.biomes.set(l), error: () => this.fail('ADMIN.CATALOG.BIOMES') });
+    this.api.listEquipment().subscribe({ next: (l) => this.equipment.set(l), error: () => this.fail('ADMIN.CATALOG.EQUIPMENT') });
   }
 
   badgeClass(p: Publication): string {
@@ -62,13 +62,17 @@ export class AdminCatalog implements OnInit {
     request.subscribe({
       next: (updated) => {
         list.update((items) => items?.map((i) => (i.id === updated.id ? updated : i)) ?? null);
-        this.status.set({ text: `${name}: ${this.publicationLabel[updated.publication]}.`, ok: true });
+        this.status.set({
+          text: this.translate.instant('ADMIN.CATALOG.UPDATED', { name, status: this.translate.instant('ADMIN.PUBLICATION.' + updated.publication) }),
+          ok: true,
+        });
       },
-      error: () => this.status.set({ text: `Não foi possível atualizar ${name}.`, ok: false }),
+      error: () => this.status.set({ text: this.translate.instant('ADMIN.CATALOG.UPDATE_ERROR', { name }), ok: false }),
     });
   }
 
-  private fail(what: string): void {
-    this.status.set({ text: `Não foi possível carregar ${what}.`, ok: false });
+  private fail(whatKey: string): void {
+    const what = this.translate.instant(whatKey).toLowerCase();
+    this.status.set({ text: this.translate.instant('ADMIN.CATALOG.LOAD_ERROR', { what }), ok: false });
   }
 }
