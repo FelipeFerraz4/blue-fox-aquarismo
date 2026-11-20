@@ -1,105 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://bluefoxaquarismo.space/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/terms-of-use" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/terms-of-use" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/privacy-policy" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/privacy-policy" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/app/daily-habits/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/app/daily-habits/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/app/daily-habits/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/app/daily-habits/privacy-policy" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/app/daily-habits/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/app/daily-habits/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/app/daily-habits/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/app/daily-habits/privacy-policy" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/app/daily-habits/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/app/daily-habits/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/app/daily-habits/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/app/daily-habits/terms-of-use" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/app/daily-habits/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/app/daily-habits/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/app/daily-habits/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/app/daily-habits/terms-of-use" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/about</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/about" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/about" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://bluefoxaquarismo.space/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/contact" />
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquarium-selection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-selection-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-selection-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-selection-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquarium-selection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-selection-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-selection-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-selection-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquarium-size</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-size" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-size" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-size" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquarium-size</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-size" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-size" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-size" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquarium-glass-bowing-danger</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-glass-bowing-danger" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-glass-bowing-danger" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-glass-bowing-danger" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquarium-glass-bowing-danger</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-glass-bowing-danger" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-glass-bowing-danger" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-glass-bowing-danger" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/betta-fish-7-care-tips</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/betta-fish-7-care-tips" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/betta-fish-7-care-tips" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/betta-fish-7-care-tips" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/betta-fish-7-care-tips</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/betta-fish-7-care-tips" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/betta-fish-7-care-tips" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/betta-fish-7-care-tips" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/how-to-choose-aquarium-filter</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/how-to-choose-aquarium-filter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/how-to-choose-aquarium-filter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/how-to-choose-aquarium-filter" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/how-to-choose-aquarium-filter</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/how-to-choose-aquarium-filter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/how-to-choose-aquarium-filter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/how-to-choose-aquarium-filter" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquarium-filtration-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-filtration-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-filtration-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-filtration-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquarium-filtration-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-filtration-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-filtration-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-filtration-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquarium-tpa-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-tpa-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-tpa-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-tpa-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquarium-tpa-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquarium-tpa-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquarium-tpa-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquarium-tpa-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/tetra-fish-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/tetra-fish-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/tetra-fish-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/tetra-fish-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/tetra-fish-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/tetra-fish-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/tetra-fish-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/tetra-fish-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/community-aquarium-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/community-aquarium-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/community-aquarium-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/community-aquarium-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/community-aquarium-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/community-aquarium-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/community-aquarium-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/community-aquarium-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://bluefoxaquarismo.space/articles/aquatic-plants-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquatic-plants-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquatic-plants-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquatic-plants-guide" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://bluefoxaquarismo.space/en/articles/aquatic-plants-guide</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bluefoxaquarismo.space/articles/aquatic-plants-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bluefoxaquarismo.space/en/articles/aquatic-plants-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bluefoxaquarismo.space/articles/aquatic-plants-guide" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

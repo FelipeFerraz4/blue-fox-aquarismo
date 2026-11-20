@@ -14,6 +14,7 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --runInBand --coverage",
     "lint": "ng lint",
+    "sitemap": "node scripts/sitemap.mjs",
     "serve:ssr": "node dist/aquarismo-app/server/server.mjs",
     "serve:ssr:aquarismo-app": "node dist/aquarismo-app/server/server.mjs"
   },
