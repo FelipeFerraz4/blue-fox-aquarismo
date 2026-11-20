@@ -77,6 +77,29 @@ export class AuthService {
     return !!this.kc?.authenticated;
   }
 
+  /** Token válido sem forçar login (para chamadas que podem seguir sem ele). */
+  async getFreshToken(): Promise<string | undefined> {
+    if (!this.kc?.authenticated) return undefined;
+    try {
+      await this.kc.updateToken(30);
+      return this.kc.token;
+    } catch {
+      return undefined;
+    }
+  }
+
+  /** Roles do realm no token (ex.: ROLE_AQUARIUM_EDITOR). */
+  getRoles(): string[] {
+    const access = this.kc?.tokenParsed?.['realm_access'] as { roles?: string[] } | undefined;
+    return access?.roles ?? [];
+  }
+
+  /** Aceita a forma com e sem o prefixo ROLE_ (o backend também aceita as duas). */
+  hasAnyRole(roles: readonly string[]): boolean {
+    const mine = this.getRoles().map((r) => r.replace(/^ROLE_/, ''));
+    return roles.some((r) => mine.includes(r.replace(/^ROLE_/, '')));
+  }
+
   getUsername(): string | undefined {
     const claims = this.kc?.tokenParsed;
     return claims?.['preferred_username'] as string;
